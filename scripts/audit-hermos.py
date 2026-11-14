@@ -49,7 +49,7 @@ def main() -> int:
     xmls = sorted(root.rglob("*.xml"))
     xml_by_stem = {}
     for p in xmls:
-        xml_by_stem.setdefault((p.parent, p.stem), []).append(p)
+        xml_by_stem.setdefault(p.stem, []).append(p)
 
     class_counts: Counter[str] = Counter()
     hashes: dict[str, list[str]] = {}
@@ -63,7 +63,7 @@ def main() -> int:
         rel = image_path.relative_to(root).as_posix()
         digest = sha256(image_path)
         hashes.setdefault(digest, []).append(rel)
-        candidates = xml_by_stem.get((image_path.parent, image_path.stem), [])
+        candidates = xml_by_stem.get(image_path.stem, [])
         xml_path = candidates[0] if len(candidates) == 1 else None
         labels = []
         width = height = ""
