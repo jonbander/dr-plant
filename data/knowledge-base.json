@@ -11,60 +11,50 @@
     {
       "id": "grape-downy-mildew",
       "crop": "grape",
-      "commonNames": [
-        "البياض الزغبي",
-        "Downy mildew"
-      ],
+      "commonNames": ["البياض الزغبي", "Downy mildew"],
       "scientificName": "Plasmopara viticola",
       "evidenceStatus": "reference_only",
       "notes": "Reference for symptom research; local field confirmation is still required.",
       "sources": [
-        {
-          "title": "UC IPM – Grape downy mildew",
-          "url": "https://ipm.ucanr.edu/agriculture/grape/downy-mildew/"
-        },
-        {
-          "title": "Cornell grape disease resources",
-          "url": "https://grapesandwine.cals.cornell.edu/"
-        }
+        {"title": "UC IPM – Grape downy mildew", "url": "https://ipm.ucanr.edu/agriculture/grape/downy-mildew/"},
+        {"title": "Cornell grape disease resources", "url": "https://grapesandwine.cals.cornell.edu/"}
       ]
     },
     {
       "id": "grape-powdery-mildew",
       "crop": "grape",
-      "commonNames": [
-        "البياض الدقيقي",
-        "Powdery mildew"
-      ],
+      "commonNames": ["البياض الدقيقي", "Powdery mildew"],
       "scientificName": "Erysiphe necator",
       "evidenceStatus": "reference_only",
       "notes": "Reference for symptom research; do not infer diagnosis from a single nonspecific leaf spot.",
       "sources": [
-        {
-          "title": "UC IPM – Grape powdery mildew",
-          "url": "https://ipm.ucanr.edu/agriculture/grape/powdery-mildew/"
-        },
-        {
-          "title": "Cornell grape disease resources",
-          "url": "https://grapesandwine.cals.cornell.edu/"
-        }
+        {"title": "UC IPM – Grape powdery mildew", "url": "https://ipm.ucanr.edu/agriculture/grape/powdery-mildew/"},
+        {"title": "Cornell grape disease resources", "url": "https://grapesandwine.cals.cornell.edu/"},
+        {"title": "Texas A&M AgriLife – Powdery Mildew (Erysiphe necator) in Grapes (July 2026)", "url": "https://mytexas.ag.tamu.edu/publications/powdery-mildew-erysiphe-nectator-in-grapes/"}
       ]
     },
     {
       "id": "grape-phomopsis-leaf-spot",
       "crop": "grape",
-      "commonNames": [
-        "تبقع أوراق العنب الفوموبسيسي",
-        "Phomopsis cane and leaf spot"
-      ],
+      "commonNames": ["تبقع أوراق العنب الفوموبسيسي", "Phomopsis cane and leaf spot", "Dead-arm"],
       "scientificName": "Diaporthe ampelina",
       "evidenceStatus": "reference_only",
-      "notes": "Differential-diagnosis reference; requires expert-confirmed local examples.",
+      "notes": "Differential-diagnosis reference. A 2025 study from Sweida in southern Syria reported isolation of Phomopsis viticola from symptomatic grapevine samples collected during 2020–2022; confirm current accepted taxonomy and local coastal occurrence separately. This is Syrian evidence, but not evidence from Latakia or Tartous.",
       "sources": [
-        {
-          "title": "University of Minnesota Extension – Grape leaf spots",
-          "url": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html"
-        }
+        {"title": "University of Minnesota Extension – Grape leaf spots", "url": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html"},
+        {"title": "El-Halabi et al. (2025) – Spread of Dead-Arm Disease on Grapevine Caused by Phomopsis viticola in Southern Syria", "url": "https://www.arabjournalpp.org/article/2025/02/4675/"}
+      ]
+    },
+    {
+      "id": "citrus-tristeza-virus-syria",
+      "crop": "citrus",
+      "commonNames": ["فيروس تريستيزا الحمضيات", "Citrus tristeza"],
+      "scientificName": "Citrus tristeza virus",
+      "evidenceStatus": "reference_only",
+      "notes": "A peer-reviewed first report documented a 2006 survey and serological testing in Syrian citrus-growing areas including Jableh and other locations in Latakia, and sites in Tartous. Treat this as a historical published regional record, not a statement about present-day prevalence or any particular tree. Symptoms alone are insufficient; laboratory testing is required.",
+      "sources": [
+        {"title": "Abou Kubaa et al. (2008) – First Report from Syria of Citrus tristeza virus in Citrus spp.", "url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-92-10-1468C"},
+        {"title": "PubMed record – First Report from Syria of Citrus tristeza virus in Citrus spp.", "url": "https://pubmed.ncbi.nlm.nih.gov/30769557/"}
       ]
     }
   ],
@@ -74,18 +64,14 @@
       "name": "GVLiD",
       "crop": "grape",
       "imageCount": 3477,
-      "classes": [
-        "healthy",
-        "black rot",
-        "Esca",
-        "leaf blight"
-      ],
+      "classes": ["healthy", "black rot", "Esca", "leaf blight"],
       "license": "CC BY 4.0",
       "status": "candidate_dataset_not_integrated",
       "source": "https://data.mendeley.com/datasets/wkymf8bhcg/5",
       "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split.",
       "doi": "10.17632/wkymf8bhcg.5",
-      "notes": "Field-acquired images; metadata and expert-verified annotations are described in the 2026 data descriptor. Origin is Maharashtra, India, so regional transfer to Syrian coastal vineyards must be tested."
+      "notes": "Field-acquired images from Maharashtra, India. The 2026 Scientific Data descriptor reports metadata and expert-verified annotations; audit package metadata and label consistency before use. Regional transfer to Syrian coastal vineyards must be tested.",
+      "licenseEvidence": "Mendeley Data record lists CC BY 4.0."
     },
     {
       "id": "hermos-grape",
@@ -93,12 +79,7 @@
       "crop": "grape",
       "imageCount": 914,
       "annotationCount": 13904,
-      "classes": [
-        "dead arm",
-        "powdery mildew",
-        "downy mildew",
-        "healthy"
-      ],
+      "classes": ["dead arm", "powdery mildew", "downy mildew", "healthy"],
       "license": "CC BY 4.0",
       "status": "candidate_dataset_not_integrated",
       "source": "https://data.mendeley.com/datasets/j4xs3kh3fd/2",
@@ -110,18 +91,26 @@
       "id": "fieldvitis",
       "name": "FieldVitis",
       "crop": "grape",
-      "classes": [
-        "black rot",
-        "Esca",
-        "leaf blight",
-        "healthy"
-      ],
+      "classes": ["black rot", "Esca", "leaf blight", "healthy"],
       "license": "CC BY 4.0 for the cited upstream sources; verify attribution and terms for each included image/source before redistribution.",
       "status": "candidate_dataset_not_integrated",
       "source": "https://zenodo.org/records/17307846",
       "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use.",
       "doi": "10.5281/zenodo.17307846",
-      "notes": "Field images with class counts; dataset is imbalanced and combines upstream datasets, so deduplication against source datasets is required."
+      "notes": "Field images with class counts; dataset combines upstream datasets, so deduplication against source datasets is required."
+    },
+    {
+      "id": "grape-bunch-powdery-mildew-morocco-2026",
+      "name": "Grapevine Bunch Images with Powdery Mildew Severity Labels Collected under Field Conditions",
+      "crop": "grape",
+      "imageCount": 2068,
+      "classes": ["healthy", "mild powdery mildew", "moderate powdery mildew", "severe powdery mildew"],
+      "license": "CC BY 4.0",
+      "status": "candidate_dataset_not_integrated",
+      "source": "https://data.mendeley.com/datasets/z2f3vdc6nh/1",
+      "intendedUse": "Candidate for separate bunch-level symptom/severity research; do not mix bunch images with leaf-image classes without explicit task labels and separate evaluation.",
+      "doi": "10.17632/z2f3vdc6nh.1",
+      "notes": "Published 13 October 2026. Images were captured in situ during the 2023 fruiting season in one commercial vineyard in Bouarg, Nador Province, northeastern Morocco. Labels describe visible bunch symptoms and are image-level ordinal grades, not laboratory-confirmed infection measurements. One vineyard and one season limit generalization. Mendeley record lists CC BY 4.0; preserve creator attribution and dataset citation."
     }
   ],
   "contributions": [],
@@ -135,6 +124,11 @@
       "date": "2026-11-15",
       "change": "Replaced generic dataset landing-page links with exact dataset records and disease reference pages after source verification.",
       "limitation": "Datasets remain candidates; no images have been downloaded or audited."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Added a candidate 2,068-image grape-bunch powdery-mildew severity dataset (Morocco, 2026), a historical peer-reviewed Syrian citrus tristeza record including Latakia and Tartous, and a southern-Syria dead-arm research source.",
+      "limitation": "No images were copied, no dataset was downloaded or independently audited, and no model was trained. The Syrian citrus record is historical (surveyed 2006); it does not establish current prevalence."
     }
   ]
 }
