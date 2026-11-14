@@ -24,6 +24,8 @@ jobs:
         uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install --frozen-lockfile
+      - name: Validate evidence registry
+        run: bun run validate:knowledge
       - name: Type check
         run: bun run lint
       - name: Unit tests
