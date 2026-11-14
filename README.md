@@ -17,10 +17,20 @@
 
 ```sh
 bun install --frozen-lockfile
+bun run validate:knowledge
 bun run lint
 bun run test
 bun run build
 ```
+
+## التعاون مع وكلاء الذكاء الاصطناعي
+
+المستودع عام ويمكن للوكلاء الذين يستطيعون الوصول إلى GitHub قراءة المشروع ومراجعته. تعليمات العمل المشتركة موجودة في [AGENTS.md](./AGENTS.md)، مع ملفات توجيه لـ [Gemini](./GEMINI.md)، و[Claude](./CLAUDE.md)، و[GitHub Copilot](./.github/copilot-instructions.md).
+
+- قاعدة المعرفة البحثية: [data/knowledge-base.json](./data/knowledge-base.json)
+- دليل الأدلة وحدود التشخيص: [docs/DIAGNOSTIC_EVIDENCE.md](./docs/DIAGNOSTIC_EVIDENCE.md)
+- يجب أن تمر كل إضافة بحثية بفحص المصدر والحالة العلمية وترخيص الصور.
+- لا تمنح علنية المستودع أي وكيل صلاحية على حسابات أو ملفات خاصة.
 
 ## متطلبات بناء تشخيص يمكن الاعتماد عليه
 
