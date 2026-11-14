@@ -127,3 +127,24 @@ References:
 - RHS – https://www.rhs.org.uk/disease/olive-scab
 
 This is a reference entry only. It is not a locally confirmed Syrian diagnosis, not a training label, and it does not provide pesticide or treatment recommendations.
+
+
+## User-reported marginal leaf scorch field lead — 15 November 2026
+
+The user described dry, brittle leaf edges and tips (choice 2: marginal/tip drying) and identified walnut and loquat as possible affected crops. This is recorded as a **reported symptom lead**, not as one named disease or a confirmed causal diagnosis.
+
+- **Symptom name:** marginal leaf necrosis / leaf scorch. Leaf margins and tips become yellow-brown, dry and brittle; necrosis may extend inward.
+- **Possible causes:** drought or restricted water uptake, hot/drying wind and heat, salinity or fertilizer-salt injury, nutrient imbalance, waterlogging/root damage/root rot, and some vascular pathogens. These causes can look alike.
+- **Crop scope:** walnut (*Juglans* spp.) and loquat (*Eriobotrya japonica*) are the user-reported host leads. The available references support the general symptom differential and list environmental disorders for loquat, but do not establish that one specific cause is responsible in either crop.
+- **Important distinction:** walnut blight typically begins as small dark-brown leaf specks with a yellowish-green halo and may affect flowers, shoots and developing nuts; do not merge this pattern with uniform marginal scorch.
+- **Diagnostic caution:** do not infer *Xylella fastidiosa* or another pathogen from brown leaf margins alone. Consider whether symptoms affect one branch or the whole canopy, whether multiple species in the same area are affected, and recent irrigation, heat, salinity, fertilizer and spray history. Laboratory testing is needed for pathogen confirmation where indicated.
+
+References:
+- Washington State University Extension – https://hortsense.cahnrs.wsu.edu/fact-sheet/common-cultural-marginal-leaf-necrosis/
+- UC IPM – https://ipm.ucanr.edu/home-and-landscape/leaf-scorch/
+- Penn State Extension – https://extension.psu.edu/bacterial-leaf-scorch
+- UC IPM – Loquat – https://ipm.ucanr.edu/home-and-landscape/loquat/
+- Ask Extension – Loquat Leaf Browning (expert response, 21 February 2026) – https://ask.extension.org/kb/faq.php?id=924776
+- UC IPM – Walnut Blight – https://ipm.ucanr.edu/home-and-landscape/walnut-blight/
+
+This symptom entry is not a training label, locally confirmed diagnosis, or treatment recommendation.
