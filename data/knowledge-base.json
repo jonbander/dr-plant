@@ -221,6 +221,39 @@
           "url": "https://ipm.ucanr.edu/PMG/C107/m107bpleaftwigdis.html"
         }
       ]
+    },
+    {
+      "id": "olive-peacock-spot",
+      "crop": "olive",
+      "commonNames": [
+        "عين الطاووس",
+        "تبقع أوراق الزيتون",
+        "جرب الزيتون",
+        "Peacock spot",
+        "Olive leaf spot",
+        "Olive peacock's eye"
+      ],
+      "scientificName": "Venturia oleaginea (syn. Spilocaea oleagina; anamorph name)",
+      "evidenceStatus": "reported",
+      "notes": "User-contributed field lead; location, cultivar, season, specimen and expert confirmation were not specified. Typical symptoms are circular brown/olive-green to gray or dark spots, often with concentric rings and a yellow halo, mainly on the upper leaf surface. Severe/recurrent infection can cause chlorosis and premature leaf fall, especially in humid lower canopy. Infection is favored by prolonged leaf wetness, rain/high humidity and mild temperatures. Some infections may remain latent for months; absence of visible spots does not exclude infection. Do not diagnose from yellowing alone; microscopy or suitable laboratory testing can confirm.",
+      "sources": [
+        {
+          "title": "UC IPM – Peacock Spot / Olive",
+          "url": "https://ipm.ucanr.edu/agriculture/olive/peacock-spot/"
+        },
+        {
+          "title": "Pacific Northwest Plant Disease Management Handbook – Olive Leaf Spot (revision March 2026)",
+          "url": "https://pnwhandbooks.org/plantdisease/host-disease/olive-olea-europaea-olive-leaf-spot-peacock-spot-peacocks-eye"
+        },
+        {
+          "title": "Olive leaf spot caused by Venturia oleaginea: An updated review (2022)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9868462/"
+        },
+        {
+          "title": "Royal Horticultural Society – Olive scab",
+          "url": "https://www.rhs.org.uk/disease/olive-scab"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -425,6 +458,11 @@
       "date": "2026-11-15",
       "change": "Added five user-contributed field leads for grape and lemon: spider mites, thrips, grape nutrient-deficiency chlorosis, citrus leafminer, and citrus leaf yellowing; attached extension references and diagnostic cautions.",
       "limitation": "These are user-reported leads with no specified location, season, specimen, or expert confirmation. Yellowing remains a nonspecific symptom; no treatment recommendation or training label was created."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Added user-contributed olive peacock spot (olive leaf spot) field lead with Mediterranean-relevant fungal disease references and symptom/latency cautions.",
+      "limitation": "The user did not specify location, cultivar, season, specimen, or expert confirmation. Record remains reported, not expert-confirmed; no image label, local prevalence claim, treatment recommendation, or training label was created."
     }
   ]
 }
