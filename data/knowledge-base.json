@@ -267,6 +267,47 @@
           "url": "https://www.rhs.org.uk/disease/olive-scab"
         }
       ]
+    },
+    {
+      "id": "tree-marginal-leaf-necrosis-scorch",
+      "crop": "multiple_tree_crops",
+      "commonNames": [
+        "احتراق حواف الأوراق",
+        "تيبّس وجفاف أطراف وحواف الأوراق",
+        "نخر حواف الأوراق",
+        "Marginal leaf necrosis",
+        "Leaf scorch"
+      ],
+      "scientificName": "Non-specific symptom / abiotic or biotic disorder; causal agent undetermined",
+      "evidenceStatus": "reported",
+      "applicability": "User reports this symptom on walnut (Juglans spp.) and loquat (Eriobotrya japonica). Treat these host associations as field leads, not independently confirmed host-specific diagnoses. Interpret separately for each crop.",
+      "notes": "User-described symptom: leaf margins and tips dry, turn brown and become brittle, sometimes progressing inward. This is marginal leaf necrosis/leaf scorch, a symptom pattern rather than one disease. Differential causes include drought or inadequate water uptake, hot/drying wind and heat, salinity or fertilizer-salt injury, unsuitable nutrient status, waterlogging/root injury or root rot, and some vascular pathogens. Loquat references list water deficit/excess, salinity and nutrient/mineral disorders among environmental problems; this does not establish a single cause. Walnut blight more typically causes small dark-brown spots with yellowish-green halos on leaves and can affect other green tissues; do not equate it with uniform marginal scorch. Compare distribution across canopy and trees, recent weather/irrigation/fertilizer/spray history, root-zone drainage, and presence of spots/lesions or branch dieback. Do not diagnose Xylella or any pathogen from marginal browning alone; pathogen confirmation requires appropriate laboratory testing. No treatment or fertilizer recommendation from a photograph alone.",
+      "sources": [
+        {
+          "title": "Washington State University Extension – Common Cultural: Marginal Leaf Necrosis",
+          "url": "https://hortsense.cahnrs.wsu.edu/fact-sheet/common-cultural-marginal-leaf-necrosis/"
+        },
+        {
+          "title": "UC IPM – Leaf Scorch",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/leaf-scorch/"
+        },
+        {
+          "title": "Penn State Extension – Bacterial Leaf Scorch (symptom and differential cautions)",
+          "url": "https://extension.psu.edu/bacterial-leaf-scorch"
+        },
+        {
+          "title": "UC IPM – Loquat (environmental disorders and pests)",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/loquat/"
+        },
+        {
+          "title": "Ask Extension – Loquat Leaf Browning (expert response, 21 February 2026)",
+          "url": "https://ask.extension.org/kb/faq.php?id=924776"
+        },
+        {
+          "title": "UC IPM – Walnut Blight (distinctive leaf symptom comparison)",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/walnut-blight/"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -481,6 +522,11 @@
       "date": "2026-11-15",
       "change": "Expanded the nutrient-deficiency/chlorosis record from grapevine-only to a cross-tree-crop reference, with general woody-plant, fruit-tree, citrus, and tree-fruit extension sources.",
       "limitation": "Nutrient symptoms and diagnostic thresholds remain crop-specific. Yellowing alone does not identify a deficient element; confirm with crop context and soil/leaf-tissue analysis. This broad reference is not a universal diagnosis or fertilizer prescription."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Added a cross-tree marginal leaf necrosis/leaf scorch symptom reference following a user report for walnut and loquat; documented differential abiotic/root causes and distinguished the symptom from walnut blight.",
+      "limitation": "Walnut and loquat host associations remain user-reported leads, not independently confirmed diagnoses. Marginal scorch is nonspecific; no pathogen attribution, local prevalence claim, treatment recommendation, or training label was created."
     }
   ]
 }
