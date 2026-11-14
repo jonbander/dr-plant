@@ -146,31 +146,44 @@
       ]
     },
     {
-      "id": "grape-nutrient-deficiency-chlorosis",
-      "crop": "grape",
+      "id": "tree-nutrient-deficiency-chlorosis",
+      "crop": "multiple_tree_crops",
       "commonNames": [
-        "اصفرار أوراق العنب بسبب نقص العناصر",
-        "نقص العناصر الغذائية في العنب",
-        "Grapevine nutrient deficiency",
+        "نقص العناصر الغذائية في الأشجار",
+        "اصفرار أوراق الأشجار بسبب نقص العناصر",
+        "Tree nutrient deficiency",
         "Nutrient-related chlorosis"
       ],
-      "scientificName": "Nutritional disorder (specific nutrient undetermined)",
+      "scientificName": "Plant nutritional disorder (specific nutrient and causal factor undetermined)",
       "evidenceStatus": "reported",
-      "notes": "User-contributed field lead; location and season were not specified. Yellowing is a symptom, not a nutrient diagnosis. Nitrogen deficiency may cause general paling/yellowing; magnesium commonly causes interveinal chlorosis on older/basal leaves; potassium can cause interveinal or marginal chlorosis and later scorching. Patterns overlap with water stress, root problems, disease and other disorders. Do not recommend a specific nutrient from a photograph alone; use soil/petiole or tissue analysis and field context.",
+      "notes": "User-contributed field lead expanded from grapevine to trees generally. Nutrient deficiency can affect many tree crops, including fruit trees, but visible patterns and susceptibility vary by species and cultivar. Yellowing is a symptom, not a nutrient diagnosis. Nitrogen deficiency often causes more uniform paling of older leaves; iron or manganese deficiency may cause interveinal chlorosis on young leaves; magnesium and potassium patterns often begin on older foliage, but patterns vary by crop. Similar symptoms can result from unsuitable soil pH, salinity, waterlogging/drought, root injury or disease, and nutrient excess or imbalance. Do not diagnose a specific element or recommend fertilizer from a photograph alone. Use crop-specific interpretation with soil and/or leaf-tissue analysis and field context.",
       "sources": [
         {
-          "title": "NC State Extension – Vine Nutrition",
-          "url": "https://content.ces.ncsu.edu/north-carolina-winegrape-growers-guide/chapter-9-vine-nutrition"
+          "title": "UC IPM – Nutrient Deficiencies (woody plants and fruit/nut trees)",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/nutrient-deficiencies/"
         },
         {
-          "title": "CDFA – Grapevine Fertilization Guidelines",
-          "url": "https://www.cdfa.ca.gov/is/ffldrs/frep/FertilizationGuidelines/Grapevines.html"
+          "title": "University of Maryland Extension – Nutrient Deficiency of Trees and Shrubs (updated 2026)",
+          "url": "https://www.extension.umd.edu/resource/nutrient-deficiency-trees-and-shrubs"
         },
         {
-          "title": "Michigan State University – A Pocket Guide for Grape IPM Scouting",
-          "url": "https://www.canr.msu.edu/grapes/uploads/files/GrapeGuide-PDF-final2020.pdf"
+          "title": "UC IPM – Common Nutrient Deficiency Symptoms",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/common-nutrient-deficiency-symptoms/"
+        },
+        {
+          "title": "UF/IFAS – Nutrition of Florida Citrus Trees, Chapter 3",
+          "url": "https://ask.ifas.ufl.edu/publication/SS670"
+        },
+        {
+          "title": "BC Tree Fruit Production Guide – Leaf Tissue Analysis and Interpretation",
+          "url": "https://www.bctfpg.ca/horticulture/fruit-tree-nutrition/assessing-nutrient-requirements-in-fruit-trees-sampling-testing-and-interpretation/"
+        },
+        {
+          "title": "University of Delaware Extension – Identifying Nutrient Deficiencies in Ornamental Plants",
+          "url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/identifying-nutrient-deficiencies-in-ornamental-plants/"
         }
-      ]
+      ],
+      "applicability": "Cross-crop reference for tree species; symptom patterns and diagnostic thresholds must be interpreted for the specific crop, cultivar, leaf age, season and local conditions."
     },
     {
       "id": "citrus-leafminer",
@@ -463,6 +476,11 @@
       "date": "2026-11-15",
       "change": "Added user-contributed olive peacock spot (olive leaf spot) field lead with Mediterranean-relevant fungal disease references and symptom/latency cautions.",
       "limitation": "The user did not specify location, cultivar, season, specimen, or expert confirmation. Record remains reported, not expert-confirmed; no image label, local prevalence claim, treatment recommendation, or training label was created."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Expanded the nutrient-deficiency/chlorosis record from grapevine-only to a cross-tree-crop reference, with general woody-plant, fruit-tree, citrus, and tree-fruit extension sources.",
+      "limitation": "Nutrient symptoms and diagnostic thresholds remain crop-specific. Yellowing alone does not identify a deficient element; confirm with crop context and soil/leaf-tissue analysis. This broad reference is not a universal diagnosis or fertilizer prescription."
     }
   ]
 }
