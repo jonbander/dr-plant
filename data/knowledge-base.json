@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Curated plant-health evidence registry for dr-plant. Records are references and research leads, not diagnostic training labels unless explicitly validated.",
+  "rules": {
+    "promotion": "A finding may be used as diagnostic evidence only after expert review, symptom verification, image provenance and license checks.",
+    "socialMedia": "Social-media posts are leads only. Never treat captions or comments as confirmed diagnoses.",
+    "images": "Do not copy or redistribute images until their license or explicit permission is verified.",
+    "uncertainty": "Keep suspected, reported, and confirmed findings separate."
+  },
+  "diseases": [
+    {
+      "id": "grape-downy-mildew",
+      "crop": "grape",
+      "commonNames": [
+        "البياض الزغبي",
+        "Downy mildew"
+      ],
+      "scientificName": "Plasmopara viticola",
+      "evidenceStatus": "reference_only",
+      "notes": "Reference for symptom research; local field confirmation is still required.",
+      "sources": [
+        {
+          "title": "Cornell grape disease resources – Downy mildew",
+          "url": "https://grapesandwine.cals.cornell.edu/"
+        },
+        {
+          "title": "UC IPM grape pest management",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/"
+        }
+      ]
+    },
+    {
+      "id": "grape-powdery-mildew",
+      "crop": "grape",
+      "commonNames": [
+        "البياض الدقيقي",
+        "Powdery mildew"
+      ],
+      "scientificName": "Erysiphe necator",
+      "evidenceStatus": "reference_only",
+      "notes": "Reference for symptom research; do not infer diagnosis from a single nonspecific leaf spot.",
+      "sources": [
+        {
+          "title": "Cornell grape disease resources",
+          "url": "https://grapesandwine.cals.cornell.edu/"
+        },
+        {
+          "title": "UC IPM grape pest management",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/"
+        }
+      ]
+    },
+    {
+      "id": "grape-phomopsis-leaf-spot",
+      "crop": "grape",
+      "commonNames": [
+        "تبقع أوراق العنب الفوموبسيسي",
+        "Phomopsis cane and leaf spot"
+      ],
+      "scientificName": "Diaporthe ampelina",
+      "evidenceStatus": "reference_only",
+      "notes": "Differential-diagnosis reference; requires expert-confirmed local examples.",
+      "sources": [
+        {
+          "title": "Cornell grape disease resources",
+          "url": "https://grapesandwine.cals.cornell.edu/"
+        }
+      ]
+    }
+  ],
+  "datasets": [
+    {
+      "id": "gvlid-2026",
+      "name": "GVLiD",
+      "crop": "grape",
+      "imageCount": 3477,
+      "classes": [
+        "healthy",
+        "black rot",
+        "Esca",
+        "leaf blight"
+      ],
+      "license": "CC BY 4.0 (verify against the dataset's current distribution page before reuse)",
+      "status": "candidate_dataset_not_integrated",
+      "source": "https://data.mendeley.com/",
+      "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split."
+    },
+    {
+      "id": "hermos-grape",
+      "name": "HERMOS grape disease dataset",
+      "crop": "grape",
+      "imageCount": 914,
+      "annotationCount": 13904,
+      "classes": [
+        "dead arm",
+        "powdery mildew",
+        "downy mildew",
+        "healthy"
+      ],
+      "license": "CC BY 4.0 (verify current source record)",
+      "status": "candidate_dataset_not_integrated",
+      "source": "https://zenodo.org/",
+      "intendedUse": "Candidate for research; inspect annotation format, provenance and class balance before training."
+    },
+    {
+      "id": "fieldvitis",
+      "name": "FieldVitis",
+      "crop": "grape",
+      "classes": [
+        "black rot",
+        "Esca",
+        "leaf blight",
+        "healthy"
+      ],
+      "license": "CC BY 4.0 (verify each upstream dataset and redistribution terms)",
+      "status": "candidate_dataset_not_integrated",
+      "source": "https://zenodo.org/",
+      "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use."
+    }
+  ],
+  "contributions": [],
+  "changeLog": [
+    {
+      "date": "2026-11-15",
+      "change": "Initial evidence registry created from literature and dataset leads identified during research.",
+      "limitation": "No image files were copied and no dataset has been downloaded, independently audited, or used to train a model."
+    }
+  ]
+}
