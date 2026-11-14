@@ -148,3 +148,23 @@ References:
 - UC IPM – Walnut Blight – https://ipm.ucanr.edu/home-and-landscape/walnut-blight/
 
 This symptom entry is not a training label, locally confirmed diagnosis, or treatment recommendation.
+
+
+## HERMOS archive audit preparation — 15 November 2026
+
+The HERMOS Version 2 Mendeley landing page states CC BY 4.0 and currently displays 914 images and 13,904 annotations. The original dataset paper reports 492 source images and 13,913 annotations. A 2026 peer-reviewed follow-up reports 492 image/XML pairs, 13,904 parsed objects, 13,765 usable bounding-box objects, and 491 retained source images after its own filtering. These counts describe different reported scopes and must not be treated as interchangeable.
+
+Sources:
+- Mendeley Data V2: https://data.mendeley.com/datasets/j4xs3kh3fd/2
+- Original HERMOS paper: https://doi.org/10.1177/01655515221091892
+- 2026 HERMOS follow-up: https://pmc.ncbi.nlm.nih.gov/articles/PMC13667579/
+
+A standard-library audit utility has been added at `scripts/audit-hermos.py`. After downloading and extracting the exact V2 archive, run:
+
+```sh
+python scripts/audit-hermos.py /path/to/extracted-hermos --out /path/to/audit-output
+```
+
+It creates a SHA-256 manifest and JSON report covering image/XML pairing, Pascal VOC object counts, bounding-box validity, class-object counts, orphan annotations, and exact-byte duplicates. It does **not** verify biological label correctness, visual near-duplicates, image-level licensing/provenance, or site/session identity. The manifest deliberately leaves provenance, expert review, group ID, and split fields unfilled.
+
+**Current gate:** archive not yet downloaded or inspected in this repository workflow. Therefore no HERMOS images have been admitted to training, no split has been created, and no model has been trained. The CC BY 4.0 landing-page declaration is encouraging evidence, but archive-level attribution/provenance and exact-version checks remain pending. Do not use the landing-page's 914 figure as a verified source-image count.
