@@ -20,12 +20,12 @@
       "notes": "Reference for symptom research; local field confirmation is still required.",
       "sources": [
         {
-          "title": "Cornell grape disease resources – Downy mildew",
-          "url": "https://grapesandwine.cals.cornell.edu/"
+          "title": "UC IPM – Grape downy mildew",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/downy-mildew/"
         },
         {
-          "title": "UC IPM grape pest management",
-          "url": "https://ipm.ucanr.edu/agriculture/grape/"
+          "title": "Cornell grape disease resources",
+          "url": "https://grapesandwine.cals.cornell.edu/"
         }
       ]
     },
@@ -41,12 +41,12 @@
       "notes": "Reference for symptom research; do not infer diagnosis from a single nonspecific leaf spot.",
       "sources": [
         {
-          "title": "Cornell grape disease resources",
-          "url": "https://grapesandwine.cals.cornell.edu/"
+          "title": "UC IPM – Grape powdery mildew",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/powdery-mildew/"
         },
         {
-          "title": "UC IPM grape pest management",
-          "url": "https://ipm.ucanr.edu/agriculture/grape/"
+          "title": "Cornell grape disease resources",
+          "url": "https://grapesandwine.cals.cornell.edu/"
         }
       ]
     },
@@ -62,8 +62,8 @@
       "notes": "Differential-diagnosis reference; requires expert-confirmed local examples.",
       "sources": [
         {
-          "title": "Cornell grape disease resources",
-          "url": "https://grapesandwine.cals.cornell.edu/"
+          "title": "University of Minnesota Extension – Grape leaf spots",
+          "url": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html"
         }
       ]
     }
@@ -80,10 +80,12 @@
         "Esca",
         "leaf blight"
       ],
-      "license": "CC BY 4.0 (verify against the dataset's current distribution page before reuse)",
+      "license": "CC BY 4.0",
       "status": "candidate_dataset_not_integrated",
-      "source": "https://data.mendeley.com/",
-      "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split."
+      "source": "https://data.mendeley.com/datasets/wkymf8bhcg/5",
+      "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split.",
+      "doi": "10.17632/wkymf8bhcg.5",
+      "notes": "Field-acquired images; metadata and expert-verified annotations are described in the 2026 data descriptor. Origin is Maharashtra, India, so regional transfer to Syrian coastal vineyards must be tested."
     },
     {
       "id": "hermos-grape",
@@ -97,10 +99,12 @@
         "downy mildew",
         "healthy"
       ],
-      "license": "CC BY 4.0 (verify current source record)",
+      "license": "CC BY 4.0",
       "status": "candidate_dataset_not_integrated",
-      "source": "https://zenodo.org/",
-      "intendedUse": "Candidate for research; inspect annotation format, provenance and class balance before training."
+      "source": "https://data.mendeley.com/datasets/j4xs3kh3fd/2",
+      "intendedUse": "Candidate for research; inspect annotation format, provenance and class balance before training.",
+      "doi": "10.17632/j4xs3kh3fd.2",
+      "notes": "914 images and 13,904 Pascal VOC annotations; source region is western Turkey. Verify actual downloadable package and annotation integrity before training."
     },
     {
       "id": "fieldvitis",
@@ -112,10 +116,12 @@
         "leaf blight",
         "healthy"
       ],
-      "license": "CC BY 4.0 (verify each upstream dataset and redistribution terms)",
+      "license": "CC BY 4.0 for the cited upstream sources; verify attribution and terms for each included image/source before redistribution.",
       "status": "candidate_dataset_not_integrated",
-      "source": "https://zenodo.org/",
-      "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use."
+      "source": "https://zenodo.org/records/17307846",
+      "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use.",
+      "doi": "10.5281/zenodo.17307846",
+      "notes": "Field images with class counts; dataset is imbalanced and combines upstream datasets, so deduplication against source datasets is required."
     }
   ],
   "contributions": [],
@@ -124,6 +130,11 @@
       "date": "2026-11-15",
       "change": "Initial evidence registry created from literature and dataset leads identified during research.",
       "limitation": "No image files were copied and no dataset has been downloaded, independently audited, or used to train a model."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Replaced generic dataset landing-page links with exact dataset records and disease reference pages after source verification.",
+      "limitation": "Datasets remain candidates; no images have been downloaded or audited."
     }
   ]
 }
