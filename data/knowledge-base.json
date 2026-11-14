@@ -122,8 +122,8 @@
       "id": "hermos-grape",
       "name": "HERMOS grape disease dataset",
       "crop": "grape",
-      "imageCount": 914,
-      "annotationCount": 13904,
+      "imageCount": 492,
+      "annotationCount": 13913,
       "classes": [
         "dead arm",
         "powdery mildew",
@@ -135,7 +135,24 @@
       "source": "https://data.mendeley.com/datasets/j4xs3kh3fd/2",
       "intendedUse": "Candidate for research; inspect annotation format, provenance and class balance before training.",
       "doi": "10.17632/j4xs3kh3fd.2",
-      "notes": "914 images and 13,904 Pascal VOC annotations; source region is western Turkey. Verify actual downloadable package and annotation integrity before training."
+      "notes": "Original HERMOS publication reports 492 images and 13,913 Pascal VOC annotations from western Anatolia, Turkey. A 2026 CC BY 4.0 study reports retaining 491 source images and 13,765 regions after its own audit/filtering. Treat 491/13,765 as the independently reported filtered subset in that study, not necessarily a replacement official release count. Audit the downloaded version, labels, duplicates, and archive before training.",
+      "auditedImageCount": 491,
+      "auditedAnnotationCount": 13765,
+      "licenseEvidence": "A 2026 peer-reviewed open-access study explicitly identifies HERMOS Mendeley Version 2 as CC BY 4.0; still preserve attribution and verify the downloaded version and file provenance.",
+      "sources": [
+        {
+          "title": "Özacar et al. (2022) – HERMOS dataset paper",
+          "url": "https://doi.org/10.1177/01655515221091892"
+        },
+        {
+          "title": "2026 lesion-aware HERMOS audit (491 source images; 13,765 regions; CC BY 4.0)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13667579/"
+        },
+        {
+          "title": "HERMOS Mendeley Data Version 2",
+          "url": "https://data.mendeley.com/datasets/j4xs3kh3fd/2"
+        }
+      ]
     },
     {
       "id": "fieldvitis",
@@ -215,6 +232,11 @@
       "date": "2026-11-15",
       "change": "Added a high-priority northern Portugal field grape-leaf dataset candidate (5,267 images, five classes, four vineyard sites, 2024–2025) and expanded research scope to Mediterranean sources.",
       "limitation": "The article is CC BY 4.0, but the Zenodo dataset record's own license and downloadable archive have not yet been verified. No dataset was downloaded or used for training."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Corrected HERMOS metadata using the original 2022 dataset paper and a 2026 CC BY 4.0 audit that reports 491 retained source images and 13,765 regions after filtering.",
+      "limitation": "The filtered count belongs to the 2026 study's audit subset; the downloadable Mendeley archive still requires independent inspection before training."
     }
   ]
 }
