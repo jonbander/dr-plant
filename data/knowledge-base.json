@@ -100,6 +100,127 @@
           "url": "https://pubmed.ncbi.nlm.nih.gov/30769557/"
         }
       ]
+    },
+    {
+      "id": "grape-spider-mites",
+      "crop": "grape",
+      "commonNames": [
+        "أكاروس العنب",
+        "العناكب",
+        "Spider mites",
+        "Webspinning spider mites"
+      ],
+      "scientificName": "Tetranychidae spp. (species-level identification required)",
+      "evidenceStatus": "reported",
+      "notes": "User-contributed field lead; location and season were not specified. Extension references describe feeding damage as fine yellow/white stippling, progressing to bronzing or necrosis; webbing may be present with web-spinning species such as Tetranychus urticae but is not universal across mites. Confirm mites on the leaf underside with magnification; distinguish pest mites from predatory mites. Do not identify species from leaf color alone.",
+      "sources": [
+        {
+          "title": "UC IPM – Webspinning Spider Mites on Grape",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/"
+        },
+        {
+          "title": "UGA Viticulture – Mites May be a Problem",
+          "url": "https://viticulture.uga.edu/2019/07/mites-may-be-a-problem/"
+        },
+        {
+          "title": "Washington State University – Grape: Spider mites",
+          "url": "https://hortsense.cahnrs.wsu.edu/fact-sheet/grape-spider-mites/"
+        }
+      ]
+    },
+    {
+      "id": "grape-thrips",
+      "crop": "grape",
+      "commonNames": [
+        "التريبس على العنب",
+        "Thrips"
+      ],
+      "scientificName": "Thysanoptera (species not yet determined)",
+      "evidenceStatus": "reported",
+      "notes": "User-contributed field lead; location and season were not specified. Thrips can injure emerging shoots and young leaves; some species cause leaf cupping or distortion, while feeding on fruit may cause scarring. Symptoms vary by species, vine stage and cultivar. Treat as an insect-pest differential, not a fungal disease; verify the insect or characteristic feeding injury before assigning a diagnosis.",
+      "sources": [
+        {
+          "title": "UC IPM – Thrips on Grape",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/thrips/"
+        }
+      ]
+    },
+    {
+      "id": "grape-nutrient-deficiency-chlorosis",
+      "crop": "grape",
+      "commonNames": [
+        "اصفرار أوراق العنب بسبب نقص العناصر",
+        "نقص العناصر الغذائية في العنب",
+        "Grapevine nutrient deficiency",
+        "Nutrient-related chlorosis"
+      ],
+      "scientificName": "Nutritional disorder (specific nutrient undetermined)",
+      "evidenceStatus": "reported",
+      "notes": "User-contributed field lead; location and season were not specified. Yellowing is a symptom, not a nutrient diagnosis. Nitrogen deficiency may cause general paling/yellowing; magnesium commonly causes interveinal chlorosis on older/basal leaves; potassium can cause interveinal or marginal chlorosis and later scorching. Patterns overlap with water stress, root problems, disease and other disorders. Do not recommend a specific nutrient from a photograph alone; use soil/petiole or tissue analysis and field context.",
+      "sources": [
+        {
+          "title": "NC State Extension – Vine Nutrition",
+          "url": "https://content.ces.ncsu.edu/north-carolina-winegrape-growers-guide/chapter-9-vine-nutrition"
+        },
+        {
+          "title": "CDFA – Grapevine Fertilization Guidelines",
+          "url": "https://www.cdfa.ca.gov/is/ffldrs/frep/FertilizationGuidelines/Grapevines.html"
+        },
+        {
+          "title": "Michigan State University – A Pocket Guide for Grape IPM Scouting",
+          "url": "https://www.canr.msu.edu/grapes/uploads/files/GrapeGuide-PDF-final2020.pdf"
+        }
+      ]
+    },
+    {
+      "id": "citrus-leafminer",
+      "crop": "lemon",
+      "commonNames": [
+        "حافرة أنفاق أوراق الحمضيات",
+        "صانعة أنفاق أوراق الحمضيات",
+        "حافرة الأنفاق",
+        "Citrus leafminer"
+      ],
+      "scientificName": "Phyllocnistis citrella",
+      "evidenceStatus": "reported",
+      "notes": "User-contributed field lead; location and season were not specified. Larvae mine within young expanding leaves, creating narrow serpentine/silvery galleries, often with a visible frass line; leaves may curl or become distorted. Chlorosis can occur in damaged tissue. Diagnose from the characteristic winding mine rather than yellowing alone. The pest attacks citrus generally, including lemon.",
+      "sources": [
+        {
+          "title": "UF/IFAS – Citrus Leafminer Pest Quick Guide",
+          "url": "https://ask.ifas.ufl.edu/publication/in1254"
+        },
+        {
+          "title": "UC IPM – Citrus: Identifying Diseases and Disorders of Leaves and Twigs",
+          "url": "https://ipm.ucanr.edu/PMG/C107/m107bpleaftwigdis.html"
+        }
+      ]
+    },
+    {
+      "id": "citrus-leaf-yellowing-chlorosis",
+      "crop": "lemon",
+      "commonNames": [
+        "اصفرار أوراق الليمون",
+        "كلوروز الحمضيات",
+        "Citrus leaf yellowing",
+        "Citrus chlorosis"
+      ],
+      "scientificName": "Symptom/physiological disorder; cause undetermined",
+      "evidenceStatus": "reported",
+      "notes": "User-contributed field lead; location and season were not specified. Yellowing is a nonspecific symptom and must not be treated as one disease. Possible causes include nitrogen, iron, zinc or magnesium deficiency, waterlogging or drought, salinity, root dysfunction, mites and infectious disease. The pattern and age of affected leaves help narrow the differential, but laboratory/soil/tissue tests and field context may be needed. Do not label a nutrient deficiency from color alone.",
+      "sources": [
+        {
+          "title": "UC IPM – Yellow Citrus Leaves",
+          "url": "https://ucanr.edu/node/129788/printable/print"
+        },
+        {
+          "title": "UF/IFAS – A Guide to Citrus Nutritional Deficiency and Toxicity Identification",
+          "url": "https://ask.ifas.ufl.edu/publication/ch142"
+        },
+        {
+          "title": "UC IPM – Citrus: Identifying Diseases and Disorders of Leaves and Twigs",
+          "url": "https://ipm.ucanr.edu/PMG/C107/m107bpleaftwigdis.html"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -299,6 +420,11 @@
       "date": "2026-11-15",
       "change": "Flagged HERMOS source-count discrepancy between the Mendeley Version 2 landing page (914 images/13,904 labels), original 2022 paper (492/13,913), and 2026 package audit (492 image/XML pairs; 491 retained images; 13,765 usable regions).",
       "limitation": "Actual archive not downloaded or inspected; do not assume the landing-page image count is the number of unique original field photographs."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Added five user-contributed field leads for grape and lemon: spider mites, thrips, grape nutrient-deficiency chlorosis, citrus leafminer, and citrus leaf yellowing; attached extension references and diagnostic cautions.",
+      "limitation": "These are user-reported leads with no specified location, season, specimen, or expert confirmation. Yellowing remains a nonspecific symptom; no treatment recommendation or training label was created."
     }
   ]
 }
