@@ -87,6 +87,9 @@ def main() -> int:
     xml_by_stem: dict[str, list[Path]] = {}
     for path in xmls:
         xml_by_stem.setdefault(path.stem.casefold(), []).append(path)
+    image_by_stem: dict[str, list[Path]] = {}
+    for path in images:
+        image_by_stem.setdefault(path.stem.casefold(), []).append(path)
 
     class_object_counts: Counter[str] = Counter()
     class_image_counts: Counter[str] = Counter()
@@ -105,13 +108,15 @@ def main() -> int:
         digest = sha256(image_path)
         hashes.setdefault(digest, []).append(rel)
         candidates = xml_by_stem.get(image_path.stem.casefold(), [])
-        xml_path = candidates[0] if len(candidates) == 1 else None
+        same_stem_images = image_by_stem.get(image_path.stem.casefold(), [])
+        xml_path = candidates[0] if len(candidates) == 1 and len(same_stem_images) == 1 else None
         labels = []
         width_text = height_text = ""
         xml_parse_ok = False
         pairing_status = (
             "missing_xml" if not candidates else
             "ambiguous_xml_stem" if len(candidates) > 1 else
+            "ambiguous_image_stem" if len(same_stem_images) > 1 else
             "paired"
         )
 
@@ -199,7 +204,7 @@ def main() -> int:
         "limitations": [
             "This script checks structure and exact-byte duplicates, not visual near-duplicates.",
             "Object counts and image counts are reported separately; one image may contain multiple objects.",
-            "A unique filename stem is used for pairing; duplicate stems are marked ambiguous rather than guessed.",
+            "A unique image and XML filename stem is required for pairing; duplicate image or XML stems are marked ambiguous rather than guessed.",
             "It does not verify biological correctness of labels or source-image licensing.",
             "It cannot infer vineyard, plant, date, or acquisition-session groups; fill group_id_for_split from verified metadata before splitting.",
             "Image dimensions are read from XML only; the script does not inspect actual image dimensions.",
