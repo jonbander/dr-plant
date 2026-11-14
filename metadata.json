@@ -1,0 +1,6 @@
+{
+  "name": "حصاد | كاشف آفات ومحاصيل بدون نت - AgroScan AI Offline",
+  "description": "تطبيق زراعي ذكي فائق الدقة بدون نت لكشف آفات محاصيل الساحل السوري (ورق العنب الفرنسي، الحمضيات، الجوز، الحمبلاس، والزيتون) مع مبيدات السوق السورية المعتمدة.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
