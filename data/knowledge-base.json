@@ -17,7 +17,7 @@
       ],
       "scientificName": "Plasmopara viticola",
       "evidenceStatus": "reference_only",
-      "notes": "Reference for symptom research; local field confirmation is still required.",
+      "notes": "Reference for symptom research; local field confirmation is still required. A 2026 FRAC monitoring report summarizes 2025 CAA fungicide-resistance findings in Plasmopara viticola populations across France, Italy, Spain, and Portugal; this is regional resistance surveillance, not evidence of disease prevalence or resistance in Syria, and the report notes that data were supplied by industry monitoring programs.",
       "sources": [
         {
           "title": "UC IPM – Grape downy mildew",
@@ -26,6 +26,10 @@
         {
           "title": "Cornell grape disease resources",
           "url": "https://grapesandwine.cals.cornell.edu/"
+        },
+        {
+          "title": "FRAC 2026 CAA Working Group – 2025 grape downy mildew resistance monitoring",
+          "url": "https://www.frac.info/media/gplfgmfu/minutes-of-the-2026-caa-meeting-recommendations-for-2026.pdf"
         }
       ]
     },
@@ -208,7 +212,50 @@
       "collectionPeriod": "2024-06 to 2025-10",
       "intendedUse": "High-priority candidate for a separate field grape-leaf classification baseline after downloading the archive, verifying the Zenodo record's own license and file integrity, auditing labels and near-duplicates, and building location/date-aware train/validation/test splits.",
       "license": "The Data in Brief article is CC BY 4.0; the Zenodo dataset record's own license and file-level terms have not yet been independently verified.",
-      "notes": "The paper reports 1,122 healthy, 1,006 downy mildew, 1,126 powdery mildew, 1,000 Esca complex, and 1,013 erineum mite images. Images were collected in natural vineyard conditions across four sites and two growing seasons using a Redmi Note 12 Pro. A second reviewer performed final annotation quality control. Dataset is geographically Mediterranean but not Syrian; performance transfer to coastal Syria must be evaluated independently. Do not treat paper-reported accuracy as Dr Plant performance."
+      "notes": "The peer-reviewed Data in Brief article provides detailed provenance and collection dates. Data came from four northern-Portugal vineyard sites over 2024–2025. It is the highest-priority candidate for a field leaf-classification baseline, but only after direct Zenodo record Rights/file terms are confirmed, archive checksum and files are inspected, and duplicates are checked. Article CC BY 4.0 does not by itself establish the Zenodo dataset file license. Keep site/date groups together in the holdout split; the same-site/time random split used in the paper may overstate transfer to new vineyards. Not Syrian coastal evidence.",
+      "classCounts": {
+        "healthy": 1122,
+        "downy mildew": 1006,
+        "powdery mildew": 1126,
+        "Esca complex": 1000,
+        "erineum mite": 1013
+      },
+      "cultivars": [
+        "Loureiro",
+        "Viosinho",
+        "Malvasia Fina",
+        "Sauvignon blanc",
+        "other/white varieties (cultivar-level identity not reliable for all symptomatic leaves)"
+      ],
+      "collectionSites": [
+        "UTAD experimental vineyard, Folhadela, Vila Real (462 m)",
+        "Casa de Mateus Foundation vineyards, Mateus, Vila Real (475 m)",
+        "Polytechnic Institute of Viana do Castelo, Refóios do Lima, Ponte de Lima (50 m)",
+        "Abaças small-scale vineyard, Vila Real (566 m)"
+      ],
+      "captureDates": [
+        "2024-06-28",
+        "2024-07-12",
+        "2024-07-30",
+        "2024-08-12",
+        "2024-08-23",
+        "2025-06-03",
+        "2025-06-18",
+        "2025-06-27",
+        "2025-08-14",
+        "2025-08-27",
+        "2025-08-28",
+        "2025-09-12",
+        "2025-10-01",
+        "2025-10-02",
+        "2025-10-09",
+        "2025-10-14",
+        "2025-10-23"
+      ],
+      "imageCapture": "Redmi Note 12 Pro smartphone; natural vineyard light; JPEG originals 3000x3000 and reduced 1024x1024; EXIF timestamp/exposure and GPS when available.",
+      "annotationProcess": "Initial image collection and class assignment by one operator; independent second reviewer performed final quality-control/annotation verification. Labels are field visual symptom categories, not stated laboratory confirmation.",
+      "paperLicense": "CC BY 4.0 (article)",
+      "datasetRecordLicenseStatus": "Not independently verified from Zenodo Rights metadata; no archive downloaded and no images redistributed."
     }
   ],
   "contributions": [],
@@ -237,6 +284,11 @@
       "date": "2026-11-15",
       "change": "Corrected HERMOS metadata using the original 2022 dataset paper and a 2026 CC BY 4.0 audit that reports 491 retained source images and 13,765 regions after filtering.",
       "limitation": "The filtered count belongs to the 2026 study's audit subset; the downloadable Mendeley archive still requires independent inspection before training."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Deepened provenance audit for the northern Portugal grape-leaf dataset: exact per-class counts, four collection sites, cultivars, capture dates, smartphone method, and independent second-review QC; added 2026 FRAC 2025 downy-mildew resistance-monitoring reference.",
+      "limitation": "Zenodo record-level dataset license and file terms remain unverified; no archive downloaded, no images copied, and no model training run performed."
     }
   ]
 }
