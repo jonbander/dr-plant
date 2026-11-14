@@ -39,3 +39,24 @@ No expert-labelled Syrian coastal image dataset, independent test set, calibrati
 ## Model-training status and gate
 
 The Mediterranean scope now includes field datasets from northern Portugal and western Turkey, but no training run has been performed. Before training, download only datasets whose repository-level and file-level reuse terms are verified; audit archive integrity, labels, duplicates, class balance, and site/date metadata. Keep leaf, bunch, and fruit tasks separate. Prefer group-based splits by vineyard/site and season over random image splits to reduce leakage. The first baseline should be reproducible and report per-class precision/recall/F1, macro-F1, confusion matrix, and a fixed independent test result. Retrain only after newly audited data or corrected labels are added, and compare each run against the same held-out test set. No model should be promoted into the app until external coastal-Syria evaluation is available.
+
+
+## Mediterranean source audit update — 15 November 2026
+
+### North Portugal field grape-leaf dataset: provenance details
+
+The 2026 *Data in Brief* paper describes 5,267 in-situ RGB images collected during the 2024 and 2025 growing seasons from four vineyard sites in northern Portugal: UTAD (Folhadela, Vila Real; 462 m), Casa de Mateus Foundation (Mateus, Vila Real; 475 m), the Polytechnic Institute of Viana do Castelo (Refóios do Lima, Ponte de Lima; 50 m), and a small-scale vineyard in Abaças (Vila Real; 566 m). The five reported class counts are healthy 1,122; downy mildew 1,006; powdery mildew 1,126; Esca complex 1,000; and erineum mite 1,013. Healthy leaves include Loureiro, Viosinho, and Malvasia Fina; other varieties are also mentioned at some sites, but symptomatic-leaf cultivar identity was not always reliable. Images were taken with a Redmi Note 12 Pro under natural field lighting, with original 3000×3000 and reduced 1024×1024 JPEGs; EXIF timestamps/exposure and GPS may be available. The acquisition and initial class assignment were performed by one operator, followed by independent second-review quality control.
+
+Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC13098524/ ; https://doi.org/10.5281/zenodo.17343473
+
+**License gate:** the article itself is CC BY 4.0. The Zenodo record's own Rights metadata and archive/file terms could not be independently confirmed in this review. These are not interchangeable. Therefore the dataset remains a candidate only: do not download, mirror, redistribute, or train on its images until the Zenodo record-level license and any file-specific restrictions are verified. No images were copied and no archive was downloaded in this update.
+
+**Split warning:** keep vineyard site and acquisition-date groups together in validation/test partitions where possible. A random image split can put near-identical scenes or same-vineyard conditions across train and test and may exaggerate generalization to new vineyards. The Portuguese dataset is not evidence from the Syrian coast; a separate coastal-Syria external test is still required.
+
+### 2025 European grape downy-mildew resistance monitoring
+
+The FRAC 2026 CAA Working Group report summarizes 2025 monitoring data for *Plasmopara viticola*. It reports regional CAA-resistance frequencies in multiple French and Italian wine regions and moderate-to-high or heterogeneous findings in parts of Spain and Portugal. The report says the estimates are based on monitoring data supplied by industry participants and multiple laboratories using different sensitivity methods. This is a resistance-management reference, not a disease-incidence survey, not an image dataset, and not evidence of resistance in Syria. Source: https://www.frac.info/media/gplfgmfu/minutes-of-the-2026-caa-meeting-recommendations-for-2026.pdf
+
+### Training status
+
+No model training was performed in this update. The Portugal image archive remains behind a record-level licensing gate. Do not treat the paper's reported model scores as Dr Plant performance. The next valid training step is to confirm a reusable dataset license, obtain the permitted archive, inspect files/metadata and labels, detect exact and near-duplicates, and construct site/date-aware splits before training a reproducible baseline.
