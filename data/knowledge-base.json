@@ -343,14 +343,14 @@
         "healthy"
       ],
       "license": "CC BY 4.0",
-      "status": "candidate_dataset_not_integrated",
+      "status": "candidate_dataset_audit_pending",
       "source": "https://data.mendeley.com/datasets/j4xs3kh3fd/2",
       "intendedUse": "Candidate for research; inspect annotation format, provenance and class balance before training.",
       "doi": "10.17632/j4xs3kh3fd.2",
-      "notes": "Original HERMOS publication reports 492 images and 13,913 Pascal VOC annotations from western Anatolia, Turkey. A 2026 CC BY 4.0 study reports retaining 491 source images and 13,765 regions after its own audit/filtering. Treat 491/13,765 as the independently reported filtered subset in that study, not necessarily a replacement official release count. Audit the downloaded version, labels, duplicates, and archive before training. Important count discrepancy: the Mendeley V2 landing page currently displays 914 images/13,904 labels, whereas the original 2022 paper states 492 images/13,913 labels and the 2026 audit found 492 image/XML pairs, 13,904 parsed objects, 13,765 usable regions, and 491 retained source images. These figures are not interchangeable; inspect the actual downloaded archive before using any count or manifest.",
+      "notes": "Original HERMOS publication reports 492 images and 13,913 Pascal VOC annotations from western Anatolia, Turkey. A 2026 CC BY 4.0 study reports retaining 491 source images and 13,765 regions after its own audit/filtering. Treat 491/13,765 as the independently reported filtered subset in that study, not necessarily a replacement official release count. Audit the downloaded version, labels, duplicates, and archive before training. Important count discrepancy: the Mendeley V2 landing page currently displays 914 images/13,904 labels, whereas the original 2022 paper states 492 images/13,913 labels and the 2026 audit found 492 image/XML pairs, 13,904 parsed objects, 13,765 usable regions, and 491 retained source images. These figures are not interchangeable; inspect the actual downloaded archive before using any count or manifest. A standard-library audit utility is now available at scripts/audit-hermos.py to generate a SHA-256 image manifest and check Pascal VOC pairing, object counts, bounding boxes, orphan XML files, and exact duplicates after the exact archive is downloaded. It does not establish label correctness, near-duplicates, provenance, or leakage-safe grouping. Current archive has not yet been downloaded or inspected; no training has occurred.",
       "auditedImageCount": 491,
       "auditedAnnotationCount": 13765,
-      "licenseEvidence": "A 2026 peer-reviewed open-access study explicitly identifies HERMOS Mendeley Version 2 as CC BY 4.0; still preserve attribution and verify the downloaded version and file provenance.",
+      "licenseEvidence": "Mendeley Data V2 landing page explicitly displays CC BY 4.0; 2026 peer-reviewed HERMOS follow-up also identifies V2 as CC BY 4.0. Exact archive/version and image provenance checks remain pending.",
       "sources": [
         {
           "title": "Özacar et al. (2022) – HERMOS dataset paper",
@@ -369,7 +369,9 @@
           "url": "https://data.mendeley.com/datasets/j4xs3kh3fd/2"
         }
       ],
-      "recordMetadataDiscrepancy": "Mendeley Data Version 2 landing page currently reports 914 images and 13,904 labels, while the 2022 dataset paper reports 492 images and 13,913 labels, and the 2026 independent audit identifies 492 image/XML pairs, 13,904 parsed objects, 13,765 usable objects, and 491 retained images. Treat these as conflicting scopes/metadata until the downloaded archive is inspected; do not use 914 as the verified source-image count."
+      "recordMetadataDiscrepancy": "Mendeley Data Version 2 landing page currently reports 914 images and 13,904 labels, while the 2022 dataset paper reports 492 images and 13,913 labels, and the 2026 independent audit identifies 492 image/XML pairs, 13,904 parsed objects, 13,765 usable objects, and 491 retained images. Treat these as conflicting scopes/metadata until the downloaded archive is inspected; do not use 914 as the verified source-image count.",
+      "auditTool": "scripts/audit-hermos.py",
+      "auditState": "not_downloaded_not_inspected"
     },
     {
       "id": "fieldvitis",
@@ -527,6 +529,11 @@
       "date": "2026-11-15",
       "change": "Added a cross-tree marginal leaf necrosis/leaf scorch symptom reference following a user report for walnut and loquat; documented differential abiotic/root causes and distinguished the symptom from walnut blight.",
       "limitation": "Walnut and loquat host associations remain user-reported leads, not independently confirmed diagnoses. Marginal scorch is nonspecific; no pathogen attribution, local prevalence claim, treatment recommendation, or training label was created."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Prepared a reproducible HERMOS archive audit utility and documented conflicting published counts and remaining data gates.",
+      "limitation": "The dataset archive has not been downloaded or inspected; no images were added to training and no model was trained."
     }
   ]
 }
