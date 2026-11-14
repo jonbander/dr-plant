@@ -135,6 +135,12 @@ function loadImageElement(source: HTMLImageElement | HTMLCanvasElement | string)
     const image = new Image();
     image.onload = () => resolve(image);
     image.onerror = () => reject(new Error('تعذر قراءة الصورة.'));
-    image.src = source instanceof HTMLCanvasElement ? source.toDataURL('image/jpeg', 0.88) : source;
+    if (typeof source === 'string') {
+      image.src = source;
+    } else if (typeof HTMLCanvasElement !== 'undefined' && source instanceof HTMLCanvasElement) {
+      image.src = source.toDataURL('image/jpeg', 0.88);
+    } else {
+      reject(new Error('نوع الصورة غير مدعوم.'));
+    }
   });
 }

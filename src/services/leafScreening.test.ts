@@ -35,6 +35,11 @@ test('a non-green image fails the vegetation coverage gate', () => {
   assert.ok(quality.warnings.some(warning => warning.includes('الأنسجة الخضراء')));
 });
 
+test('brown pixels can be measured as color, without naming a disease', () => {
+  const metrics = analyzeLeafPixels(solidImage(20, 20, 120, 65, 35), 20, 20);
+  assert.ok(metrics.brownPercent > 90);
+});
+
 test('pixel buffer dimensions are validated', () => {
   assert.throws(() => analyzeLeafPixels(new Uint8ClampedArray(8), 2, 2));
 });
