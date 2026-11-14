@@ -60,3 +60,9 @@ The FRAC 2026 CAA Working Group report summarizes 2025 monitoring data for *Plas
 ### Training status
 
 No model training was performed in this update. The Portugal image archive remains behind a record-level licensing gate. Do not treat the paper's reported model scores as Dr Plant performance. The next valid training step is to confirm a reusable dataset license, obtain the permitted archive, inspect files/metadata and labels, detect exact and near-duplicates, and construct site/date-aware splits before training a reproducible baseline.
+
+
+### HERMOS metadata count discrepancy (Turkey)
+
+A new cross-check found inconsistent counts across sources: the Mendeley Data Version 2 landing page currently displays **914 images / 13,904 labels**; the original 2022 HERMOS paper reports **492 images / 13,913 labels**; and the 2026 independent audit reports **492 image/XML pairs, 13,904 parsed objects, 13,765 usable regions, and 491 retained source images** after excluding one image with no usable canonical object. These are different reported scopes and should not be collapsed into one count. The 2026 audit's retained subset is suitable as a reproducibility reference, but the actual downloadable archive still needs inspection to establish the exact files and source-image count for Dr Plant. Sources: https://data.mendeley.com/datasets/j4xs3kh3fd/2 ; https://doi.org/10.1177/01655515221091892 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC13667579/ .
+
