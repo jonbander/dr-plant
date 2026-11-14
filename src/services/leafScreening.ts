@@ -63,7 +63,7 @@ export function analyzeLeafPixels(data: ArrayLike<number>, width: number, height
     brightnessSquareSum += luma * luma;
 
     const [hue, saturation, value] = rgbToHsv(red, green, blue);
-    const likelyVegetationPixel = hue >= 32 && hue <= 170 && saturation >= 0.14 && value >= 0.12;
+    const likelyVegetationPixel = hue >= 8 && hue <= 170 && saturation >= 0.14 && value >= 0.12;
     if (!likelyVegetationPixel) continue;
 
     leafPixels++;
