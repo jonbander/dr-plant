@@ -80,6 +80,8 @@ export interface OfflineVisionAnalysis {
   boundingBoxes: BoundingBox[];
 }
 
+export type DiagnosticStatus = 'screening_only' | 'insufficient_image' | 'symptom_triage';
+
 export interface ScanResult {
   id: string;
   timestamp: number;
@@ -89,6 +91,8 @@ export interface ScanResult {
   confidence: number; // 0 - 100%
   severity: SeverityLevel;
   analysisData: OfflineVisionAnalysis;
+  diagnosticStatus?: DiagnosticStatus;
+  screeningNotesAr?: string[];
   userNotes?: string;
   resolved?: boolean;
 }
