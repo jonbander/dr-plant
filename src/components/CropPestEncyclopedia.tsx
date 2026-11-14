@@ -44,7 +44,7 @@ export const CropPestEncyclopedia: React.FC = () => {
               <span>موسوعة المحاصيل والآفات الزراعية (بدون نت)</span>
             </h2>
             <p className="text-xs text-stone-400 mt-0.5">
-              دليل حقلي شامل ومفهرس بالكامل للأمراض، الآفات الحشرية، والحلول المعتمدة
+              مرجع أولي للأعراض والمحاصيل؛ معلومات العلاج قيد التحقق
             </p>
           </div>
 
@@ -207,7 +207,7 @@ export const CropPestEncyclopedia: React.FC = () => {
                 </div>
 
                 <div className="pt-2 border-t border-stone-800/80 flex items-center justify-between text-xs text-emerald-400 font-medium">
-                  <span>عرض بروتوكول العلاج والمبيدات</span>
+                  <span>عرض معلومات الآفة والأعراض</span>
                   <ChevronLeft className="w-4 h-4" />
                 </div>
               </div>
@@ -248,41 +248,21 @@ export const CropPestEncyclopedia: React.FC = () => {
               </div>
             </div>
 
-            {/* Organic Treatment */}
-            <div className="space-y-1.5">
-              <h5 className="text-xs font-bold text-teal-400 flex items-center gap-1.5">
-                <Leaf className="w-3.5 h-3.5" />
-                <span>العلاج العضوي والحيوي:</span>
-              </h5>
-              <div className="space-y-1">
-                {selectedDisease.organicTreatmentAr.map((treat, i) => (
-                  <div key={i} className="text-xs text-stone-200 bg-emerald-950/20 border border-emerald-500/20 p-2.5 rounded-xl">
-                    {treat}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Chemical Treatment with PHI */}
-            <div className="space-y-2">
-              <h5 className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
-                <FlaskConical className="w-3.5 h-3.5" />
-                <span>المبيدات الكيميائية الموصى بها وفترة الأمان (PHI):</span>
-              </h5>
-              {selectedDisease.chemicalTreatments.map((chem, i) => (
-                <div key={i} className="bg-stone-950 p-3 rounded-xl border border-stone-800 space-y-1.5 text-xs">
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-white">{chem.pesticideName}</span>
-                    <span className="px-2 py-0.5 rounded bg-rose-500/10 text-rose-300 font-semibold text-[11px]">
-                      فترة الأمان: {chem.safetyIntervalDays} أيام
-                    </span>
-                  </div>
-                  <div className="text-stone-400 font-mono text-[11px]">المادة الفعالة: {chem.activeIngredient}</div>
-                  <div className="text-emerald-400 font-semibold">الجرعة: {chem.dosePer100L}</div>
-                  <div className="text-stone-300 text-[11px]">{chem.safetyNotesAr}</div>
-                </div>
-              ))}
-            </div>
+            <div className="bg-amber-950/30 border border-amber-500/30 rounded-xl p-3 space-y-2">
+            <h5 className="text-xs font-bold text-amber-200">تنبيه بشأن العلاج والمبيدات</h5>
+            <p className="text-xs leading-6 text-stone-200">
+              بيانات العلاجات والجرعات وفترات الأمان في قاعدة المعلومات لم تُراجع بعد مقابل سجل المبيدات والملصقات الرسمية المحلية. لذلك لا نعرضها كتوصيات للاستخدام. لا تستخدم أي جرعة أو اسم تجاري من مصادر غير موثقة.
+            </p>
+            <p className="text-xs leading-6 text-stone-300">
+              يمكن استخدام وصف الأعراض للمقارنة الأولية فقط. يجب تأكيد السبب مع مهندس زراعي، ثم اختيار منتج مسجل للمحصول والآفة واتباع ملصقه بالكامل.
+            </p>
+          </div>
+          <div className="space-y-1.5">
+            <h5 className="text-xs font-bold text-teal-300">إجراءات وقائية عامة — ليست علاجاً للمرض</h5>
+            {selectedDisease.preventiveMeasuresAr.map((measure, i) => (
+              <div key={i} className="text-xs text-stone-200 bg-stone-950 border border-stone-800 p-2.5 rounded-xl">{measure}</div>
+            ))}
+          </div>
 
             <button
               onClick={() => setSelectedDisease(null)}
