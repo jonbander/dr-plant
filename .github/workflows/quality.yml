@@ -30,5 +30,7 @@ jobs:
         run: bun run lint
       - name: Unit tests
         run: bun run test
+      - name: HERMOS audit regression tests
+        run: bun run test:audit-hermos
       - name: Production build
         run: bun run build
