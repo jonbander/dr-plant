@@ -28,6 +28,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
 
   const { crop, diseaseOrPest, confidence, severity, analysisData } = scan;
   const isHealthy = diseaseOrPest.id === 'healthy_leaf';
+  const isScreeningOnly = Boolean(scan.diagnosticStatus);
 
   useEffect(() => {
     // If healthy, throw celebratory green confetti
@@ -54,10 +55,10 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
       let speechText = '';
       if (isHealthy) {
         speechText = `تهانينا! محصول ${crop.nameAr} بحالة صحية ممتازة ونضرة. نسبة الاخضرار ${analysisData.greenHealthIndex} بالمئة ولا توجد أي إصابات فطرية أو حشرية ملحوظة.`;
+      } else if (isScreeningOnly) {
+        speechText = 'هذه نتيجة فرز أولي فقط وليست تشخيصاً مؤكداً. لا تستخدمها لاختيار علاج أو مبيد.';
       } else {
-        const topOrganic = diseaseOrPest.organicTreatmentAr[0] || '';
-        const topChem = diseaseOrPest.chemicalTreatments[0]?.pesticideName || '';
-        speechText = `تشخيص ذكاء اصطناعي محلي بدون إنترنت: تم رصد إصابة على محصول ${crop.nameAr} بمرض ${diseaseOrPest.nameAr}، بنسبة تأكيد ${confidence} بالمئة، ودرجة خطورة ${severity === 'critical' ? 'حرجة' : severity === 'high' ? 'عالية' : 'متوسطة'}. التوصية العاجلة: ${topOrganic}. وفي حال الرش الكيميائي يوصى باستخدام ${topChem}.`;
+        speechText = 'هذه نتيجة قديمة من إصدار سابق. نسبة التطابق غير معايرة ويجب التحقق منها ميدانياً.';
       }
 
       setIsReadingAudio(true);
@@ -94,7 +95,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
                 <span className="text-xs text-stone-400 font-mono">({crop.scientificName})</span>
               </div>
               <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="text-xs text-emerald-400 font-medium">تشخيص ذكاء اصطناعي محلي فوري</span>
+                <span className="text-xs text-amber-300 font-medium">{isScreeningOnly ? 'فرز أولي — ليس تشخيصاً مؤكداً' : 'نتيجة قديمة — دقتها غير متحققة'}</span>
                 {crop.syrianCoastRegionAr && (
                   <span className="text-[10px] text-teal-300 bg-teal-500/10 px-2 py-0.5 rounded-full border border-teal-500/20">
                     📍 {crop.syrianCoastRegionAr}
@@ -163,13 +164,8 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
 
             {/* Diagnosis Core Info */}
             <div className="sm:col-span-7 space-y-2.5">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className={`px-2.5 py-0.5 rounded-full border text-xs font-bold ${severityBadge.bg}`}>
-                  {severityBadge.label}
-                </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                  تطابق {confidence}%
-                </span>
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-bold">
+                {scan.diagnosticStatus === 'symptom_triage' ? 'احتمال أولي من إجاباتك' : scan.diagnosticStatus === 'insufficient_image' ? 'الصورة غير كافية' : isScreeningOnly ? 'فحص بصري أولي فقط' : 'نتيجة محفوظة من إصدار سابق'}
               </div>
 
               <h3 className="text-lg sm:text-xl font-extrabold text-white">
@@ -201,7 +197,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
           <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
             <h4 className="text-xs font-bold text-stone-300 flex items-center gap-1.5">
               <Activity className="w-4 h-4 text-emerald-400" />
-              <span>الأعراض المرصودة والمطابقة للآفة:</span>
+              <span>{scan.diagnosticStatus === 'symptom_triage' ? 'الأعراض التي اخترتها:' : 'المؤشرات المرصودة — لا تعني تشخيص مرض:'}</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
               {diseaseOrPest.visualSymptomsAr.map((symp, idx) => (
@@ -213,133 +209,35 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
             </div>
           </div>
 
-          {/* Action Tabs for Treatments */}
-          <div className="space-y-3">
-            <div className="flex border-b border-stone-800 gap-2 text-xs font-bold">
-              <button
-                onClick={() => setActiveTab('organic')}
-                className={`pb-2.5 px-3 flex items-center gap-1.5 transition border-b-2 ${
-                  activeTab === 'organic'
-                    ? 'border-emerald-400 text-emerald-400'
-                    : 'border-transparent text-stone-400 hover:text-stone-200'
-                }`}
-              >
-                <Leaf className="w-4 h-4" />
-                <span>العلاج العضوي والحيوي ({diseaseOrPest.organicTreatmentAr.length})</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('chemical')}
-                className={`pb-2.5 px-3 flex items-center gap-1.5 transition border-b-2 ${
-                  activeTab === 'chemical'
-                    ? 'border-emerald-400 text-emerald-400'
-                    : 'border-transparent text-stone-400 hover:text-stone-200'
-                }`}
-              >
-                <FlaskConical className="w-4 h-4" />
-                <span>المبيدات الكيميائية الموصى بها ({diseaseOrPest.chemicalTreatments.length})</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTab('prevention')}
-                className={`pb-2.5 px-3 flex items-center gap-1.5 transition border-b-2 ${
-                  activeTab === 'prevention'
-                    ? 'border-emerald-400 text-emerald-400'
-                    : 'border-transparent text-stone-400 hover:text-stone-200'
-                }`}
-              >
-                <Sprout className="w-4 h-4" />
-                <span>الممارسات الوقائية</span>
-              </button>
+          <div className="bg-amber-950/30 border border-amber-500/30 rounded-2xl p-4 space-y-3">
+            <h4 className="text-sm font-bold text-amber-200">حدود النتيجة وما يلزم التحقق منه</h4>
+            <p className="text-xs leading-6 text-stone-200">
+              {scan.diagnosticStatus === 'symptom_triage'
+                ? 'الاحتمال المعروض مبني على الأعراض التي اخترتها يدوياً، وقد تتشابه أعراض أمراض مختلفة أو نقص العناصر أو أضرار الطقس.'
+                : scan.diagnosticStatus === 'insufficient_image'
+                  ? 'الصورة لم تجتز شروط الجودة الأساسية. لا يمكن تفسيرها حتى تعاد بصورة أوضح.'
+                  : isScreeningOnly
+                    ? 'هذه الأداة تقيس مؤشرات لونية بسيطة ولا تستخدم نموذجاً مدرّباً على صور حقول الساحل السوري. لا تحدد المرض ولا تستبعد الإصابة.'
+                    : 'هذه نتيجة من إصدار سابق. لا توجد معايرة موثقة لنسبة التطابق أو شدة الإصابة، لذلك لا تعتمد عليها لاتخاذ قرار علاجي.'}
+            </p>
+            {(scan.screeningNotesAr || []).map((note, index) => <p key={index} className="text-xs text-stone-300 leading-5">• {note}</p>)}
+            <div className="rounded-xl bg-stone-900/80 p-3 text-xs text-stone-200 leading-6">
+              <strong className="text-amber-300">قبل أي علاج:</strong> افحص وجهي الورقة، وصوّر عدة أوراق، وسجّل المحصول والصنف وعمر النموات والطقس. لا تختَر مبيداً أو جرعة أو فترة أمان من هذه النتيجة؛ ارجع إلى ملصق منتج مسجّل محلياً ومهندس زراعي.
             </div>
-
-            {/* Tab 1: Organic & Biological */}
-            {activeTab === 'organic' && (
-              <div className="space-y-2.5">
-                <div className="p-3 bg-emerald-950/20 border border-emerald-500/20 rounded-xl text-xs text-emerald-300">
-                  🌱 <strong>حلول عضوية آمنة 100%:</strong> خالية من المتبقيات الكيميائية وتحافظ على الأعداء الحيوية ونظافة المحصول.
-                </div>
-                <div className="space-y-2">
-                  {diseaseOrPest.organicTreatmentAr.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-stone-800/60 border border-stone-700/60 text-xs text-stone-200">
-                      <div className="w-5 h-5 rounded-full bg-emerald-600/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-bold">
-                        {idx + 1}
-                      </div>
-                      <p className="leading-relaxed">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Tab 2: Chemical Pesticides with PHI */}
-            {activeTab === 'chemical' && (
-              <div className="space-y-3">
-                {diseaseOrPest.chemicalTreatments.length === 0 ? (
-                  <div className="p-4 text-center text-xs text-stone-400 bg-stone-800/40 rounded-xl">
-                    لا يتطلب هذا العارض تدخلاً كيميائياً (يمكن حله عضوياً وبتعديل برنامج التسميد والري).
-                  </div>
-                ) : (
-                  diseaseOrPest.chemicalTreatments.map((chem, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-stone-850 border border-stone-800 space-y-2.5">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <h5 className="text-sm font-bold text-white">{chem.pesticideName}</h5>
-                            <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold text-[10px]">
-                              🇸🇾 معتمد بالسوق السوري
-                            </span>
-                          </div>
-                          <span className="text-xs text-stone-400 font-mono">المادة الفعالة: {chem.activeIngredient}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="px-2.5 py-1 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-semibold flex items-center gap-1">
-                            <Clock className="w-3.5 h-3.5" />
-                            <span>فترة الأمان (PHI): {chem.safetyIntervalDays} أيام</span>
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
-                        <div className="p-2.5 rounded-lg bg-stone-900 border border-stone-800">
-                          <span className="text-stone-400 block text-[11px]">الجرعة الموصى بها:</span>
-                          <span className="font-bold text-emerald-400">{chem.dosePer100L}</span>
-                        </div>
-                        <div className="p-2.5 rounded-lg bg-stone-900 border border-stone-800">
-                          <span className="text-stone-400 block text-[11px]">ملاحظات الرش والسلامة:</span>
-                          <span className="text-stone-300">{chem.safetyNotesAr}</span>
-                        </div>
-                      </div>
-
-                      {/* Calculator button for this pesticide */}
-                      <button
-                        onClick={() => {
-                          onOpenCalculator(crop.nameAr, chem.pesticideName, chem.dosePer100L, chem.safetyIntervalDays);
-                        }}
-                        className="w-full mt-1 py-2 px-3 rounded-lg bg-stone-800 hover:bg-stone-750 border border-stone-700 text-emerald-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition"
-                      >
-                        <Calculator className="w-3.5 h-3.5" />
-                        <span>احسب كمية المبيد اللازمة لخزان الرش الخاص بك</span>
-                      </button>
-                    </div>
-                  ))
-                )}
-              </div>
-            )}
-
-            {/* Tab 3: Cultural & Preventive */}
-            {activeTab === 'prevention' && (
-              <div className="space-y-2">
-                {diseaseOrPest.preventiveMeasuresAr.map((measure, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-stone-800/60 border border-stone-700/60 text-xs text-stone-200">
-                    <CheckCircle className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                    <p className="leading-relaxed">{measure}</p>
-                  </div>
-                ))}
-              </div>
-            )}
+            <ul className="list-disc pr-5 text-xs text-stone-300 space-y-1">
+              {diseaseOrPest.identificationTipsAr.map((tip, index) => <li key={index}>{tip}</li>)}
+            </ul>
           </div>
-
+          <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
+            <h4 className="text-xs font-bold text-stone-300">قياسات لونية تقريبية</h4>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="bg-stone-950 rounded-lg p-2">أخضر مقدّر: {analysisData.greenHealthIndex}%</div>
+              <div className="bg-stone-950 rounded-lg p-2">أصفر مقدّر: {analysisData.chlorosisPercentage}%</div>
+              <div className="bg-stone-950 rounded-lg p-2">بني مقدّر: {analysisData.necrosisPercentage}%</div>
+              <div className="bg-stone-950 rounded-lg p-2">{analysisData.detectedHueSummary}</div>
+            </div>
+            <p className="text-[10px] text-stone-500">هذه نسب بكسلات تقريبية وليست نسبة إصابة نسيجية أو احتمال مرض.</p>
+          </div>
           {/* Farmer's Field Notes & Action Log */}
           <div className="bg-stone-900 rounded-2xl p-4 border border-stone-800 space-y-2.5">
             <h4 className="text-xs font-bold text-stone-300 flex items-center gap-1.5">

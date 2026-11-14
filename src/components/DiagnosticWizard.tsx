@@ -11,7 +11,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
   const [step, setStep] = useState<number>(1);
   const [selectedCropId, setSelectedCropId] = useState<string>('tomato');
   const [affectedPart, setAffectedPart] = useState<'leaves' | 'stem' | 'fruit'>('leaves');
-  const [primaryPattern, setPrimaryPattern] = useState<string>('spots');
+  const [primaryPattern, setPrimaryPattern] = useState<string>('');
 
   const selectedCrop = CROPS_DATABASE.find(c => c.id === selectedCropId) || CROPS_DATABASE[0];
 
@@ -67,20 +67,20 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
       imageThumbnail: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23065f46"/><circle cx="50" cy="50" r="30" fill="%2334d399"/></svg>',
       crop: selectedCrop,
       diseaseOrPest: matchedDisease,
-      confidence: 91,
-      severity: matchedDisease.severity,
+      confidence: 0,
+      severity: 'low',
+      diagnosticStatus: 'symptom_triage',
+      screeningNotesAr: ['هذا احتمال أولي وفق اختياراتك وليس تشخيصاً مؤكداً.', 'لم تُحلّل صورة ولم تُقَس شدة الإصابة أو نسبة انتشارها.', 'لا تعتمد على الجرعات وأسماء المبيدات القديمة قبل التحقق من تسجيل المنتج وملصقه المحلي.'],
       analysisData: {
-        greenHealthIndex: 55,
-        lesionSpotAreaPercentage: 35,
-        chlorosisPercentage: 20,
-        necrosisPercentage: 15,
-        powderyPercentage: primaryPattern === 'white_powder' ? 30 : 0,
-        rustPercentage: primaryPattern === 'rust_stripes' ? 30 : 0,
-        detectedHueSummary: 'تشخيص مبني على الأعراض الحقلية السريرية (Offline Clinical Match)',
-        leafContoursDetected: true,
-        boundingBoxes: [
-          { x: 25, y: 30, width: 35, height: 35, label: 'بؤرة الإصابة المؤكدة', confidence: 91, severity: matchedDisease.severity }
-        ]
+        greenHealthIndex: 0,
+        lesionSpotAreaPercentage: 0,
+        chlorosisPercentage: 0,
+        necrosisPercentage: 0,
+        powderyPercentage: 0,
+        rustPercentage: 0,
+        detectedHueSummary: 'لم يتم تحليل صورة؛ هذه إجابات المستخدم فقط.',
+        leafContoursDetected: false,
+        boundingBoxes: []
       },
       userNotes: 'تم التشخيص عبر المساعد الحقلي التفاعلي بدون كاميرا.'
     };
@@ -96,7 +96,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
           <HelpCircle className="w-5 h-5 text-emerald-400" />
           <div>
             <h2 className="text-base sm:text-lg font-bold text-white">المساعد التشخيصي الذكي (خطوة بخطوة)</h2>
-            <p className="text-xs text-stone-400">تشخيص استدلالي حقلي دقيق بدون الحاجة للكاميرا</p>
+            <p className="text-xs text-stone-400">فرز أولي للأعراض — لا يصدر تشخيصاً مؤكداً أو توصية مبيد</p>
           </div>
         </div>
         <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-500/30">
@@ -218,10 +218,11 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
             </button>
             <button
               onClick={handleFinish}
+              disabled={!primaryPattern}
               className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-950/50"
             >
               <Sparkles className="w-4 h-4" />
-              <span>استخراج التشخيص والعلاج الفوري</span>
+              <span>عرض احتمال أولي للمراجعة</span>
             </button>
           </div>
         </div>
