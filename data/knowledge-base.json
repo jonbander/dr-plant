@@ -139,7 +139,7 @@
       "source": "https://data.mendeley.com/datasets/j4xs3kh3fd/2",
       "intendedUse": "Candidate for research; inspect annotation format, provenance and class balance before training.",
       "doi": "10.17632/j4xs3kh3fd.2",
-      "notes": "Original HERMOS publication reports 492 images and 13,913 Pascal VOC annotations from western Anatolia, Turkey. A 2026 CC BY 4.0 study reports retaining 491 source images and 13,765 regions after its own audit/filtering. Treat 491/13,765 as the independently reported filtered subset in that study, not necessarily a replacement official release count. Audit the downloaded version, labels, duplicates, and archive before training.",
+      "notes": "Original HERMOS publication reports 492 images and 13,913 Pascal VOC annotations from western Anatolia, Turkey. A 2026 CC BY 4.0 study reports retaining 491 source images and 13,765 regions after its own audit/filtering. Treat 491/13,765 as the independently reported filtered subset in that study, not necessarily a replacement official release count. Audit the downloaded version, labels, duplicates, and archive before training. Important count discrepancy: the Mendeley V2 landing page currently displays 914 images/13,904 labels, whereas the original 2022 paper states 492 images/13,913 labels and the 2026 audit found 492 image/XML pairs, 13,904 parsed objects, 13,765 usable regions, and 491 retained source images. These figures are not interchangeable; inspect the actual downloaded archive before using any count or manifest.",
       "auditedImageCount": 491,
       "auditedAnnotationCount": 13765,
       "licenseEvidence": "A 2026 peer-reviewed open-access study explicitly identifies HERMOS Mendeley Version 2 as CC BY 4.0; still preserve attribution and verify the downloaded version and file provenance.",
@@ -155,8 +155,13 @@
         {
           "title": "HERMOS Mendeley Data Version 2",
           "url": "https://data.mendeley.com/datasets/j4xs3kh3fd/2"
+        },
+        {
+          "title": "Mendeley Data Version 2 landing page (currently displays 914 images / 13,904 labels)",
+          "url": "https://data.mendeley.com/datasets/j4xs3kh3fd/2"
         }
-      ]
+      ],
+      "recordMetadataDiscrepancy": "Mendeley Data Version 2 landing page currently reports 914 images and 13,904 labels, while the 2022 dataset paper reports 492 images and 13,913 labels, and the 2026 independent audit identifies 492 image/XML pairs, 13,904 parsed objects, 13,765 usable objects, and 491 retained images. Treat these as conflicting scopes/metadata until the downloaded archive is inspected; do not use 914 as the verified source-image count."
     },
     {
       "id": "fieldvitis",
@@ -289,6 +294,11 @@
       "date": "2026-11-15",
       "change": "Deepened provenance audit for the northern Portugal grape-leaf dataset: exact per-class counts, four collection sites, cultivars, capture dates, smartphone method, and independent second-review QC; added 2026 FRAC 2025 downy-mildew resistance-monitoring reference.",
       "limitation": "Zenodo record-level dataset license and file terms remain unverified; no archive downloaded, no images copied, and no model training run performed."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Flagged HERMOS source-count discrepancy between the Mendeley Version 2 landing page (914 images/13,904 labels), original 2022 paper (492/13,913), and 2026 package audit (492 image/XML pairs; 491 retained images; 13,765 usable regions).",
+      "limitation": "Actual archive not downloaded or inspected; do not assume the landing-page image count is the number of unique original field photographs."
     }
   ]
 }
