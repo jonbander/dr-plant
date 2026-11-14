@@ -88,3 +88,23 @@ The following five topics were supplied by a user familiar with local crop issue
 These records are kept separate from image-training manifests. Do not promote them to `expert_confirmed` without documented review by a qualified reviewer, date, and method. For computer vision, distinguish visible symptom recognition (for example, a citrus leafminer serpentine mine) from causal diagnosis (for example, a particular nutrient deficiency). A yellow leaf alone is not a reliable label for a specific deficiency. Do not infer local prevalence or recommend pesticide products/rates from these references; regional registration and field validation are separate requirements.
 
 References for grape pest symptoms: https://ipm.ucanr.edu/agriculture/grape/monitoring-insects-and-spider-mites/ ; https://ipm.ucanr.edu/agriculture/grape/thrips/ ; https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/
+
+
+## User-contributed olive field lead — 15 November 2026
+
+### Peacock spot / olive leaf spot (عين الطاووس)
+
+The user identified peacock spot as an olive disease of interest. The record is classified as **reported**, not expert-confirmed; no location, cultivar, season, specimen, or diagnostic result was supplied.
+
+- **Causal agent:** *Venturia oleaginea*; *Spilocaea oleagina* is a widely used synonym/anamorph name in extension literature.
+- **Typical visible symptoms:** circular brownish to olive-green, gray, or dark spots, often developing concentric rings and a yellow halo. Symptoms are most often visible on the upper leaf surface. Severe/recurrent disease can cause yellowing and premature leaf drop, commonly more evident in the lower, humid canopy.
+- **Favorable conditions:** rain, high relative humidity, prolonged leaf wetness, and mild temperatures. Infections may remain latent for an extended period, so visible symptoms can lag behind infection.
+- **Diagnostic caution:** yellowing alone is not sufficient. Similar leaf discoloration can have other causes. Microscopic observation of fungal structures or appropriate laboratory testing can support confirmation; asymptomatic latent infection is harder to detect.
+
+References:
+- UC IPM – https://ipm.ucanr.edu/agriculture/olive/peacock-spot/
+- Pacific Northwest Plant Disease Management Handbook (revision March 2026) – https://pnwhandbooks.org/plantdisease/host-disease/olive-olea-europaea-olive-leaf-spot-peacock-spot-peacocks-eye
+- Updated scientific review (2022) – https://pmc.ncbi.nlm.nih.gov/articles/PMC9868462/
+- RHS – https://www.rhs.org.uk/disease/olive-scab
+
+This is a reference entry only. It is not a locally confirmed Syrian diagnosis, not a training label, and it does not provide pesticide or treatment recommendations.
