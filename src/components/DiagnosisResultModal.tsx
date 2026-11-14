@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import { ScanResult } from '../types/crop';
 import { speakArabicDiagnosis, stopSpeech, isSpeaking } from '../services/speechService';
-import confetti from 'canvas-confetti';
 
 interface DiagnosisResultModalProps {
   scan: ScanResult;
@@ -31,20 +30,10 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
   const isScreeningOnly = Boolean(scan.diagnosticStatus);
 
   useEffect(() => {
-    // If healthy, throw celebratory green confetti
-    if (isHealthy) {
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.6 },
-        colors: ['#10b981', '#34d399', '#6ee7b7', '#facc15']
-      });
-    }
-
     return () => {
       stopSpeech();
     };
-  }, [isHealthy]);
+  }, []);
 
   // Handle voice readout
   const toggleVoice = () => {
@@ -54,7 +43,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
     } else {
       let speechText = '';
       if (isHealthy) {
-        speechText = `تهانينا! محصول ${crop.nameAr} بحالة صحية ممتازة ونضرة. نسبة الاخضرار ${analysisData.greenHealthIndex} بالمئة ولا توجد أي إصابات فطرية أو حشرية ملحوظة.`;
+        speechText = `قياسات اللون في صورة ${crop.nameAr} أظهرت نسبة اخضرار مقدرة ${analysisData.greenHealthIndex} بالمئة. هذا القياس لا يثبت سلامة النبات ولا يستبعد وجود مرض أو آفة؛ افحص النبات ميدانياً.`;
       } else if (isScreeningOnly) {
         speechText = 'هذه نتيجة فرز أولي فقط وليست تشخيصاً مؤكداً. لا تستخدمها لاختيار علاج أو مبيد.';
       } else {
