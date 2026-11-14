@@ -76,7 +76,7 @@ The following five topics were supplied by a user familiar with local crop issue
 
 - **Spider mites (Tetranychidae):** UC IPM describes species-specific feeding patterns including yellow stippling, later necrosis, bronzing, leaf burn, and (for high populations of webspinning species) webbing. Different mite species produce different patterns; inspect leaf undersides with magnification and distinguish pest mites from predatory mites. Reference: https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/
 - **Thrips (Thysanoptera):** UC IPM identifies grape thrips (*Drepanothrips reuteri*) and western flower thrips (*Frankliniella occidentalis*) as relevant grape pests. Feeding on emerging shoots can stunt shoots and cause leaf cupping or distortion in some conditions; fruit scarring is a separate symptom/task. Reference: https://ipm.ucanr.edu/agriculture/grape/thrips/
-- **Nutrient-related yellowing/chlorosis:** this is a symptom group, not one diagnosis. Potential nutrient patterns differ by element and leaf age, and can overlap with water stress, root dysfunction, salinity, pests, and disease. Do not infer a specific deficiency from leaf color alone or create a nutrient-treatment recommendation without field context and suitable soil/tissue analysis.
+
 
 ### Lemon / citrus leaves
 
@@ -89,6 +89,25 @@ These records are kept separate from image-training manifests. Do not promote th
 
 References for grape pest symptoms: https://ipm.ucanr.edu/agriculture/grape/monitoring-insects-and-spider-mites/ ; https://ipm.ucanr.edu/agriculture/grape/thrips/ ; https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/
 
+
+## Cross-tree nutrient deficiency and chlorosis reference
+
+Nutrient deficiency is not specific to grapevine: it can affect many tree crops, including citrus and other fruit trees, as well as ornamental and landscape trees. The knowledge-base record has therefore been generalized from grape-only to `multiple_tree_crops`.
+
+- **Important distinction:** yellowing is a symptom, not proof of nutrient deficiency. Nitrogen deficiency often causes more uniform paling of older leaves; iron or manganese problems may cause interveinal chlorosis on young leaves; magnesium and potassium patterns often begin on older foliage. These are broad clues, not universal rules.
+- **Crop specificity:** symptom appearance, affected leaf age, nutrient thresholds and interpretation vary with tree species, cultivar, rootstock, soil, pH, season and climate. A pattern seen in citrus must not automatically be applied to olive, grape, stone fruit or another tree.
+- **Differential causes:** unsuitable soil pH, salinity, waterlogging or drought, root injury/decay, pests, disease, nutrient imbalance and excess can resemble deficiency.
+- **Evidence needed:** interpret symptoms in the context of the crop and site; soil testing and appropriately sampled leaf-tissue analysis are often needed before naming a specific deficient element or recommending fertilizer.
+
+General and crop-specific references:
+- UC IPM – Nutrient Deficiencies (woody plants and fruit/nut trees): https://ipm.ucanr.edu/home-and-landscape/nutrient-deficiencies/
+- University of Maryland Extension – Nutrient Deficiency of Trees and Shrubs (updated 2026): https://www.extension.umd.edu/resource/nutrient-deficiency-trees-and-shrubs
+- UC IPM – Common Nutrient Deficiency Symptoms: https://ipm.ucanr.edu/home-and-landscape/common-nutrient-deficiency-symptoms/
+- UF/IFAS – Nutrition of Florida Citrus Trees: https://ask.ifas.ufl.edu/publication/SS670
+- BC Tree Fruit Production Guide – Leaf Tissue Analysis and Interpretation: https://www.bctfpg.ca/horticulture/fruit-tree-nutrition/assessing-nutrient-requirements-in-fruit-trees-sampling-testing-and-interpretation/
+- University of Delaware Extension – Identifying Nutrient Deficiencies: https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/identifying-nutrient-deficiencies-in-ornamental-plants/
+
+This cross-tree reference does not mean that every nutrient disorder occurs in every tree species or that the same visual key applies to all trees. It is not a fertilizer prescription or a model-training label.
 
 ## User-contributed olive field lead — 15 November 2026
 
