@@ -66,3 +66,25 @@ No model training was performed in this update. The Portugal image archive remai
 
 A new cross-check found inconsistent counts across sources: the Mendeley Data Version 2 landing page currently displays **914 images / 13,904 labels**; the original 2022 HERMOS paper reports **492 images / 13,913 labels**; and the 2026 independent audit reports **492 image/XML pairs, 13,904 parsed objects, 13,765 usable regions, and 491 retained source images** after excluding one image with no usable canonical object. These are different reported scopes and should not be collapsed into one count. The 2026 audit's retained subset is suitable as a reproducibility reference, but the actual downloadable archive still needs inspection to establish the exact files and source-image count for Dr Plant. Sources: https://data.mendeley.com/datasets/j4xs3kh3fd/2 ; https://doi.org/10.1177/01655515221091892 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC13667579/ .
 
+
+
+## User-contributed grape and lemon field leads — 15 November 2026
+
+The following five topics were supplied by a user familiar with local crop issues. They are recorded as **reported field leads**, not expert-confirmed diagnoses, prevalence claims, or training labels. No location, season, cultivar, specimen, or laboratory result accompanied the reports.
+
+### Grapevine leaves
+
+- **Spider mites (Tetranychidae):** UC IPM describes species-specific feeding patterns including yellow stippling, later necrosis, bronzing, leaf burn, and (for high populations of webspinning species) webbing. Different mite species produce different patterns; inspect leaf undersides with magnification and distinguish pest mites from predatory mites. Reference: https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/
+- **Thrips (Thysanoptera):** UC IPM identifies grape thrips (*Drepanothrips reuteri*) and western flower thrips (*Frankliniella occidentalis*) as relevant grape pests. Feeding on emerging shoots can stunt shoots and cause leaf cupping or distortion in some conditions; fruit scarring is a separate symptom/task. Reference: https://ipm.ucanr.edu/agriculture/grape/thrips/
+- **Nutrient-related yellowing/chlorosis:** this is a symptom group, not one diagnosis. Potential nutrient patterns differ by element and leaf age, and can overlap with water stress, root dysfunction, salinity, pests, and disease. Do not infer a specific deficiency from leaf color alone or create a nutrient-treatment recommendation without field context and suitable soil/tissue analysis.
+
+### Lemon / citrus leaves
+
+- **Citrus leafminer (*Phyllocnistis citrella*):** larvae make shallow serpentine mines in young leaves; affected leaves can curl and become distorted. This is a citrus pest affecting lemon as well as other citrus. Reference: https://ipm.ucanr.edu/agriculture/citrus/citrus-leafminer/
+- **Leaf yellowing/chlorosis:** nonspecific symptom with multiple possible nutritional, water, salinity, root, pest, and disease causes. It must remain a differential/symptom record rather than a single disease class until the cause is established.
+
+### Implementation limits
+
+These records are kept separate from image-training manifests. Do not promote them to `expert_confirmed` without documented review by a qualified reviewer, date, and method. For computer vision, distinguish visible symptom recognition (for example, a citrus leafminer serpentine mine) from causal diagnosis (for example, a particular nutrient deficiency). A yellow leaf alone is not a reliable label for a specific deficiency. Do not infer local prevalence or recommend pesticide products/rates from these references; regional registration and field validation are separate requirements.
+
+References for grape pest symptoms: https://ipm.ucanr.edu/agriculture/grape/monitoring-insects-and-spider-mites/ ; https://ipm.ucanr.edu/agriculture/grape/thrips/ ; https://ipm.ucanr.edu/agriculture/grape/webspinning-spider-mites/
