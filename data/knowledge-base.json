@@ -308,6 +308,33 @@
           "url": "https://ipm.ucanr.edu/home-and-landscape/walnut-blight/"
         }
       ]
+    },
+    {
+      "id": "citrus-scab-elsinoe-fawcettii",
+      "crop": "lemon",
+      "commonNames": [
+        "جرب الحمضيات",
+        "جرب الليمون",
+        "Citrus scab",
+        "Lemon scab"
+      ],
+      "scientificName": "Elsinoë fawcettii",
+      "evidenceStatus": "reference_only",
+      "notes": "A crop-specific reference for citrus scab, especially relevant to lemon. Typical symptoms include small elevated pale-orange to pink/gray lesions that become raised, corky, wart-like protuberances on leaves and fruit; young leaves may become distorted and severely affected young fruit may be misshapen. This record is not evidence of current occurrence in Syria or any particular orchard. Distinguish sour citrus scab caused by E. fawcettii from sweet orange scab caused by E. australis; laboratory or qualified plant-health assessment may be needed for uncertain cases. No image labels or local prevalence claims are inferred.",
+      "sources": [
+        {
+          "title": "UF/IFAS – A Guide to Citrus Disease Identification (CH159), Citrus Scab",
+          "url": "https://ask.ifas.ufl.edu/publication/CH159"
+        },
+        {
+          "title": "NSW DPIRD – Pests, beneficials, diseases and disorders in citrus, Lemon scab",
+          "url": "https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0008/1629467/Pests%2C-beneficials%2C-diseases-and-disorders-in-citrus.pdf"
+        },
+        {
+          "title": "UGA Cooperative Extension – Maintaining Commercial Citrus in Georgia",
+          "url": "https://extension.uga.edu/publications/detail.html?number=B1520"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -471,6 +498,78 @@
       "annotationProcess": "Initial image collection and class assignment by one operator; independent second reviewer performed final quality-control/annotation verification. Labels are field visual symptom categories, not stated laboratory confirmation.",
       "paperLicense": "CC BY 4.0 (article)",
       "datasetRecordLicenseStatus": "Not independently verified from Zenodo Rights metadata; no archive downloaded and no images redistributed."
+    },
+    {
+      "id": "lemonlens-bangladesh-2025",
+      "name": "LemonLENS: A Real-World Dataset for Multi-Class Lemon Leaf Disease Classification",
+      "crop": "lemon",
+      "imageCount": 4500,
+      "classes": [
+        "algal leaf spot",
+        "black spot",
+        "citrus canker",
+        "citrus pest",
+        "citrus scab",
+        "greening",
+        "healthy leaf",
+        "leaf curl",
+        "yellowspot"
+      ],
+      "classCounts": {
+        "algal leaf spot": 500,
+        "black spot": 500,
+        "citrus canker": 500,
+        "citrus pest": 500,
+        "citrus scab": 500,
+        "greening": 500,
+        "healthy leaf": 500,
+        "leaf curl": 500,
+        "yellowspot": 500
+      },
+      "license": "CC BY 4.0 (Mendeley Data record)",
+      "status": "candidate_dataset_not_integrated",
+      "source": "https://data.mendeley.com/datasets/ccwh64fr2r/2",
+      "doi": "10.17632/ccwh64fr2r.2",
+      "region": "Baburhat, Chandpur, Bangladesh",
+      "collectionPeriod": "Published 2025-06-05; exact per-image capture dates not stated in the landing-page description",
+      "intendedUse": "High-priority candidate for a lemon-leaf multi-class baseline, including citrus scab, after downloading the exact V2 archive, checking package and per-image terms, provenance, duplicate groups and label quality, and building a leakage-safe independent split.",
+      "notes": "The Mendeley V2 record describes 4,500 manually collected smartphone images in nine classes, 500 per class, and lists CC BY 4.0. The record is from Bangladesh, not the Syrian coast. The exact archive is 2.65 GB or 4.13 GB depending on the listed package; resolve which file is canonical before download. Verify whether images are original photographs versus derivatives, class folder integrity, duplicate/near-duplicate groups, and any image-level terms. Visual labels are not equivalent to laboratory confirmation. No images have been downloaded or trained on."
+    },
+    {
+      "id": "lld-lemon-bangladesh-2025",
+      "name": "LLD: Lemon Leaf Disease Image Dataset for AI-Based Plant Health Detection",
+      "crop": "lemon",
+      "imageCount": 4775,
+      "classes": [
+        "algal leaf spot",
+        "black spot",
+        "citrus canker",
+        "citrus scab",
+        "citrus pest",
+        "leaf curl",
+        "greening",
+        "healthy leaf",
+        "yellow spot"
+      ],
+      "classCounts": {
+        "algal leaf spot": 875,
+        "black spot": 613,
+        "citrus canker": 578,
+        "citrus scab": 333,
+        "citrus pest": 645,
+        "leaf curl": 339,
+        "greening": 528,
+        "healthy leaf": 496,
+        "yellow spot": 368
+      },
+      "license": "CC BY 4.0 (Mendeley Data record)",
+      "status": "candidate_dataset_not_integrated",
+      "source": "https://data.mendeley.com/datasets/9ywvpv3xtg/1",
+      "doi": "10.17632/9ywvpv3xtg.1",
+      "region": "Kushtia and Khulna, Bangladesh",
+      "collectionPeriod": "2023-08-20 to 2023-08-28",
+      "intendedUse": "Candidate for a lemon-leaf baseline; includes 333 images labelled citrus scab. Must be downloaded, package/license and image provenance checked, labels reviewed, and groups/deduplication assessed before any split or training.",
+      "notes": "The Mendeley V1 record describes 4,775 JPEG photographs captured with natural light using an iPhone XS Max and lists CC BY 4.0. All images are reported from two districts in Bangladesh over nine days. The record's description says images were categorized by visible symptoms; it does not establish laboratory confirmation. Site/capture-session grouping and near-duplicate review are required; a random image split could leak near-identical views. Not Syrian coastal evidence. No archive downloaded or images used."
     }
   ],
   "contributions": [],
@@ -534,6 +633,11 @@
       "date": "2026-11-15",
       "change": "Prepared a reproducible HERMOS archive audit utility and documented conflicting published counts and remaining data gates.",
       "limitation": "The dataset archive has not been downloaded or inspected; no images were added to training and no model was trained."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Added citrus scab (Elsinoë fawcettii) as a reference-only lemon disease and documented two CC BY 4.0 Bangladesh lemon-leaf dataset candidates containing scab labels.",
+      "limitation": "No dataset archive has been downloaded, image-level rights/provenance and labels have not been audited, and no training or evaluation has been run. These datasets are not Syrian coastal validation data."
     }
   ]
 }
