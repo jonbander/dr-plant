@@ -570,6 +570,51 @@
       "collectionPeriod": "2023-08-20 to 2023-08-28",
       "intendedUse": "Candidate for a lemon-leaf baseline; includes 333 images labelled citrus scab. Must be downloaded, package/license and image provenance checked, labels reviewed, and groups/deduplication assessed before any split or training.",
       "notes": "The Mendeley V1 record describes 4,775 JPEG photographs captured with natural light using an iPhone XS Max and lists CC BY 4.0. All images are reported from two districts in Bangladesh over nine days. The record's description says images were categorized by visible symptoms; it does not establish laboratory confirmation. Site/capture-session grouping and near-duplicate review are required; a random image split could leak near-identical views. Not Syrian coastal evidence. No archive downloaded or images used."
+    },
+    {
+      "id": "large-scale-lemon-leaf-bangladesh-v3-2026",
+      "name": "Large-Scale Lemon Leaf Disease and Pest Image Dataset from Bangladesh (V3)",
+      "crop": "lemon",
+      "imageCount": 17586,
+      "classes": [
+        "algal leaf spot",
+        "anthracnose",
+        "bacterial blight",
+        "black spot",
+        "citrus canker",
+        "citrus scab",
+        "curl leaf",
+        "dry leaf",
+        "greening",
+        "lemon sooty mold",
+        "melanose",
+        "yellow spot",
+        "citrus hindu mite",
+        "citrus leafminer",
+        "citrus pest",
+        "spider mites",
+        "swallowtail larval herbivory",
+        "healthy"
+      ],
+      "license": "CC BY 4.0 (Mendeley Data V3 record)",
+      "status": "candidate_dataset_audit_pending",
+      "source": "https://data.mendeley.com/datasets/8d9fv6kpt3/3",
+      "doi": "10.17632/8d9fv6kpt3.3",
+      "version": 3,
+      "region": "Four lemon-growing locations in Bangladesh: Jaintapur, Sylhet; Sreemangal, Moulvibazar; Jaldhaka, Nilphamari; Boalmari, Faridpur",
+      "collectionPeriod": "2025-03-02 to 2025-05-28",
+      "intendedUse": "High-priority lemon image-classification candidate including citrus scab, subject to archive download, exact file and license verification, class-folder inventory, duplicate review, label review, and recovery of independent site/plant/session groups.",
+      "notes": "Mendeley V3 published 4 November 2026 describes 17,586 original leaf photographs across 18 image-level categories: one healthy class, 12 disease-related classes, four pest classes, and one deficiency-related damage class. Citrus scab is explicitly included. Collection is reported from four named sites in Bangladesh between 2 March and 28 May 2025. Images were captured with Samsung Galaxy S25 FE, HONOR 90, and Redmi K20 and retain five reported resolution combinations. The depositor describes expert review and removal of duplicates/unclear images, but Mendeley states it does not curate dataset contents; these claims require archive-level and expert verification. The V3 landing-page description does not provide per-class counts or a per-image mapping to site, plant, or capture session. Do not carry the V1/V2 class counts forward. Mendeley record lists CC BY 4.0; preserve creator attribution and citation. No archive has been downloaded or independently audited. Bangladesh data are not Syrian coastal validation.",
+      "sources": [
+        {
+          "title": "Mendeley Data V3 dataset record",
+          "url": "https://data.mendeley.com/datasets/8d9fv6kpt3/3"
+        },
+        {
+          "title": "Mendeley version comparison history",
+          "url": "https://data.mendeley.com/datasets/compare/8d9fv6kpt3"
+        }
+      ]
     }
   ],
   "contributions": [],
@@ -643,6 +688,11 @@
       "date": "2026-11-15",
       "change": "Updated the large-scale Bangladesh lemon dataset candidate to latest Mendeley V3 (published 4 November 2026), reporting 17,586 images across 18 categories including citrus scab; removed reliance on V1's 17,609 count and class-count claims.",
       "limitation": "V3 archive, exact files, attribution details, image-level site/session grouping, duplicates, and labels remain unaudited. No images downloaded or training performed."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Registered the latest Large-Scale Lemon Leaf Disease and Pest dataset V3 (17,586 images, 18 classes including citrus scab) as a high-priority candidate.",
+      "limitation": "The archive, exact per-class counts, file-level provenance, duplicate groups, and per-image site/plant/session metadata remain unaudited; no images downloaded or trained."
     }
   ]
 }
