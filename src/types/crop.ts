@@ -4,7 +4,8 @@ export type DiseaseCategory =
   | 'viral' 
   | 'pest' 
   | 'nutrient_deficiency' 
-  | 'environmental';
+  | 'environmental'
+  | 'undetermined';
 
 export type SeverityLevel = 'low' | 'medium' | 'high' | 'critical';
 
