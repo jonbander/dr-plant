@@ -46,7 +46,6 @@ export function getSymptomCandidateId(
 
   if (cropId === 'walnut') {
     if (patternId === 'fruit_punctures' && affectedPart === 'fruit') return 'walnut_codling_moth_syria';
-    if (patternId === 'target_rings' && affectedPart === 'leaves') return 'walnut_anthracnose_syria';
   }
 
   if (cropId === 'myrtle_hamblas' && affectedPart === 'leaves' && patternId === 'white_powder') {
