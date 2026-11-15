@@ -162,7 +162,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
             {/* Diagnosis Core Info */}
             <div className="sm:col-span-7 space-y-2.5">
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-bold">
-                {scan.diagnosticStatus === 'symptom_triage' ? 'احتمال أولي من إجاباتك' : scan.diagnosticStatus === 'insufficient_image' ? 'الصورة غير كافية' : isScreeningOnly ? 'فحص بصري أولي فقط' : 'نتيجة محفوظة من إصدار سابق'}
+                {scan.diagnosticStatus === 'symptom_triage' ? (diseaseOrPest.id === 'unclassified_symptom' ? 'فرز أولي — السبب غير محدد' : 'مرشح للمقارنة من إجاباتك') : scan.diagnosticStatus === 'insufficient_image' ? 'الصورة غير كافية' : isScreeningOnly ? 'فحص بصري أولي فقط' : 'نتيجة محفوظة من إصدار سابق'}
               </div>
 
               <h3 className="text-lg sm:text-xl font-extrabold text-white">
@@ -212,7 +212,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
             <h4 className="text-sm font-bold text-amber-200">حدود النتيجة وما يلزم التحقق منه</h4>
             <p className="text-xs leading-6 text-stone-200">
               {scan.diagnosticStatus === 'symptom_triage'
-                ? 'الاحتمال المعروض مبني على الأعراض التي اخترتها يدوياً، وقد تتشابه أعراض أمراض مختلفة أو نقص العناصر أو أضرار الطقس.'
+                ? (diseaseOrPest.id === 'unclassified_symptom' ? 'لم يظهر تطابق محدد بين المحصول والجزء المتأثر والنمط المختار. السبب ما زال غير محدد، وقد يكون مرضياً أو حشرياً أو فسيولوجياً أو بيئياً.' : 'المرشح المعروض مبني على الأعراض التي اخترتها يدوياً للمقارنة فقط؛ وقد تتشابه أعراض أمراض مختلفة أو نقص العناصر أو أضرار الطقس.')
                 : scan.diagnosticStatus === 'insufficient_image'
                   ? 'الصورة لم تجتز شروط الجودة الأساسية. لا يمكن تفسيرها حتى تعاد بصورة أوضح.'
                   : isScreeningOnly
