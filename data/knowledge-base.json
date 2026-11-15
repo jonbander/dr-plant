@@ -638,6 +638,11 @@
       "date": "2026-11-15",
       "change": "Added citrus scab (Elsinoë fawcettii) as a reference-only lemon disease and documented two CC BY 4.0 Bangladesh lemon-leaf dataset candidates containing scab labels.",
       "limitation": "No dataset archive has been downloaded, image-level rights/provenance and labels have not been audited, and no training or evaluation has been run. These datasets are not Syrian coastal validation data."
+    },
+    {
+      "date": "2026-11-15",
+      "change": "Updated the large-scale Bangladesh lemon dataset candidate to latest Mendeley V3 (published 4 November 2026), reporting 17,586 images across 18 categories including citrus scab; removed reliance on V1's 17,609 count and class-count claims.",
+      "limitation": "V3 archive, exact files, attribution details, image-level site/session grouping, duplicates, and labels remain unaudited. No images downloaded or training performed."
     }
   ]
 }
