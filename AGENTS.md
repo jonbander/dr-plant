@@ -10,9 +10,10 @@ Never claim diagnostic accuracy, model training, image-based learning, or improv
 
 ## Safe collaboration rules
 
-1. Work on `feature/coastal-leaf-diagnosis-v2` unless the maintainer explicitly selects another branch.
-2. Do not merge into `main`, publish a release, change repository visibility, add collaborators, or expose secrets.
-3. Keep changes small, reviewable, and documented. Explain changed files, tests run, and remaining limitations in the pull request.
+1. Make development changes on a focused, short-lived branch based on the latest `main`.
+2. The maintainer has explicitly authorized automatic merging of completed development PRs into `main`: once all required GitHub Actions checks pass, the PR is mergeable, and the exact tested head SHA is unchanged, merge it immediately without asking for separate confirmation. Never merge while checks are pending/failed, when conflicts remain, or when a safety/evidence gate is unresolved.
+3. Do not publish a release, change repository visibility, add collaborators, or expose secrets unless separately authorized.
+4. Keep changes small, reviewable, and documented. Explain changed files, tests run, and remaining limitations in the pull request.
 4. Never add API keys, tokens, private user data, patient/farm identifying data, or credentials.
 5. Do not remove safety warnings or convert preliminary symptom triage into a confirmed diagnosis.
 6. Do not add pesticide recommendations, rates, pre-harvest intervals, or re-entry intervals unless each is verified against a current official local label for the crop and jurisdiction.
@@ -53,7 +54,7 @@ If a command cannot be run in the available environment, state that clearly; do 
 
 ## Pull request expectations
 
-Use a focused PR against `main` and keep it open for human review. Include:
+Use a focused PR against `main`. After all required checks pass and the tested head SHA is unchanged, merge it immediately under the maintainer's standing instruction. Include:
 - what changed and why;
 - sources and evidence status for new research records;
 - image licensing/provenance decisions;
