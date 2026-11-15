@@ -32,5 +32,7 @@ jobs:
         run: bun run test
       - name: HERMOS audit regression tests
         run: bun run test:audit-hermos
+      - name: Training split readiness regression tests
+        run: bun run test:training-splits
       - name: Production build
         run: bun run build
