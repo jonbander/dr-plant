@@ -98,6 +98,7 @@ def assignment_cost(
     group_labels: dict[str, set[str]],
     total_images: int,
     total_class_images: Counter[str],
+    group_label_counts: dict[str, Counter[str]],
 ) -> float:
     image_counts = Counter()
     class_counts = {split: Counter() for split in SPLITS}
@@ -162,7 +163,7 @@ def make_assignment(rows: list[dict[str, str]], group_classes: dict[str, set[str
             for split in choices:
                 trial = dict(assignment)
                 trial[group] = split
-                scored.append((assignment_cost(trial, group_sizes, group_classes, total_images, total_class_images), rng.random(), split))
+                scored.append((assignment_cost(trial, group_sizes, group_classes, total_images, total_class_images, group_label_counts), rng.random(), split))
             assignment[group] = min(scored)[2]
 
         coverage_ok = all(
@@ -171,7 +172,7 @@ def make_assignment(rows: list[dict[str, str]], group_classes: dict[str, set[str
             for split in SPLITS
         )
         if coverage_ok:
-            cost = assignment_cost(assignment, group_sizes, group_classes, total_images, total_class_images)
+            cost = assignment_cost(assignment, group_sizes, group_classes, total_images, total_class_images, group_label_counts)
             if cost < best_cost:
                 best_assignment, best_cost = assignment, cost
     if best_assignment is None:
