@@ -38,5 +38,9 @@ jobs:
         run: bun run test:image-dataset-audit
       - name: Classification split regression tests
         run: bun run test:classification-splits
+      - name: Exploratory split regression tests
+        run: bun run test:exploratory-splits
+      - name: Python training script syntax checks
+        run: python -m py_compile scripts/audit_image_classification_dataset.py scripts/prepare_classification_splits.py scripts/prepare_exploratory_splits.py scripts/train_image_classifier.py
       - name: Production build
         run: bun run build

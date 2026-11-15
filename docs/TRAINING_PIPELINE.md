@@ -100,3 +100,10 @@ Install optional dependencies with `pip install -r requirements-training.txt`. T
 ### Model scope
 
 MobileNetV3-Small is a baseline classifier, not an integrated production diagnosis system. It does not prove pathogen identity, local prevalence, or accuracy in Syrian coastal orchards. Do not merge model weights into the app or describe the app as trained until an actual archive audit, group-isolated training run, independent evaluation, and deployment integration are completed.
+
+
+## Android-friendly Colab runner
+
+Notebook: [DrPlant Lemon V3 exploratory training](../notebooks/DrPlant_Lemon_V3_Exploratory_Training.ipynb).
+
+Open it in Colab from the GitHub file page, choose a GPU runtime if available, and run the cells in order. It attempts the Mendeley public API download and falls back to a Google Drive ZIP path if API access requires OAuth. It records the archive hash, audits class counts and exact duplicates, creates an explicitly non-independent exploratory split, trains MobileNetV3-Small, and saves the checkpoint and metrics to Google Drive. Do not use the exploratory metrics as independent test performance.
