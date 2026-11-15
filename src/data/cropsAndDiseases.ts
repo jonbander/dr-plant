@@ -24,7 +24,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     chemicalTreatments: [],
     preventiveMeasuresAr: [
       'التوريق والتهوية الجيدة لعرائش وداليات العنب الفرنسي في جبال ووديان الساحل.',
-      'الرش الوقائي بالكبريت عند وصول الأفرخ الحديثة لطول 10-15 سم.',
       'تجنب زراعة الداليات في المنخفضات الرطبة المعزولة عن الرياح اللطيفة.'
     ],
     identificationTipsAr: [
@@ -55,7 +54,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     organicTreatmentAr: [],
     chemicalTreatments: [],
     preventiveMeasuresAr: [
-      'الرش الوقائي بالنحاسيات مباشرة بعد كل منخفض ماطر غزير في نيسان وأيار.',
       'رفع الأغصان والطرود عن ملامسة سطح التربة للحد من صعود الجراثيم بالرذاذ.',
       'قص الحشائش والأعشاب تحت العرائش لتخفيف الندى المتبخر.'
     ],
@@ -87,7 +85,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     organicTreatmentAr: [],
     chemicalTreatments: [],
     preventiveMeasuresAr: [
-      'معاملة الكروم بالزيت الشتوي مع كبريت كلسي أو نحاس أثناء فترة السكون وسقوط الأوراق.',
       'مراقبة الأوراق الأولى في نيسان والتدخل فور ملاحظة أول بثرة بارزة.'
     ],
     identificationTipsAr: [
@@ -156,7 +153,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     preventiveMeasuresAr: [
       'تطعيم الحمضيات على أصل مقاوم مثل النارنج (الخشخاش) أو الفولكاميريانا، وتجنب الليمون المخرفش في الترب الطينية.',
       'إنشاء مصارف مائية لمنع تجمّع مياه الشتاء حول قواعد الأشجار.',
-      'دهان سيقان أشجار الحمضيات سنوياً بعجينة بوردو في الخريف والربيع بارتفاع 60 سم.'
     ],
     identificationTipsAr: [
       'دموع صمغية عسلية أو بنية تخرج من تشققات قاعدة الجذع مع اصفرار قمة الشجرة.'
@@ -187,7 +183,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     chemicalTreatments: [],
     preventiveMeasuresAr: [
       'المكافحة الجماعية الموحدة لجميع بساتين القرية الساحلية لمنع انتقال الأسراب بين الحقول.',
-      'الرش عند بداية اصفرار وتلون أول ثمرة في البستان.',
       'التخلص من أشجار الصبار والتين المهملة القريبة التي تشكل عائلاً وسيطاً للذبابة في الصيف.'
     ],
     identificationTipsAr: [
@@ -219,7 +214,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     chemicalTreatments: [],
     preventiveMeasuresAr: [
       'إجراء تحليل تربة لتحديد نسبة الكلس النشط قبل تأسيس البستان واختيار الأصول الملائمة (مثل الخشخاش النارنج).',
-      'استخدام حمض النيتريك أو الفوسفوريك في شبكات الري بالتنقيط لتنظيف الشبكات وضبط pH ماء الري.',
       'التسميد المتوازن وتجنب الإفراط في الفوسفور الذي يزيد من تثبيت الحديد والزنك.'
     ],
     identificationTipsAr: [
@@ -254,7 +248,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     organicTreatmentAr: [],
     chemicalTreatments: [],
     preventiveMeasuresAr: [
-      'الرش الوقائي الدوري قبل المنخفضات الجوية والضباب في أيار وحزيران.',
       'اختيار مواقع ذات تهوية جيدة وتجنب الزراعة في بطون الأودية المغمورة بالضباب طوال النهار.'
     ],
     identificationTipsAr: [
@@ -286,7 +279,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     chemicalTreatments: [],
     preventiveMeasuresAr: [
       'جمع الثمار المتساقطة المصابة دورياً والتخلص منها لمنع اكتمال دورة حياة اليرقات.',
-      'تحديد موعد الرشة الأولى بعد 10-14 يوماً من ذروة صيد الفراشات بالمصائد الفرمونية.'
     ],
     identificationTipsAr: [
       'ثقب جانبي في قشرة الجوزة مع نشارة وبراز بني مسود يخرج من الفتحة.'
@@ -317,7 +309,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     chemicalTreatments: [],
     preventiveMeasuresAr: [
       'تجنب الري العلوي الرأسي الذي يبلل المجموع الخضري والزهري.',
-      'الرش الوقائي بالنحاسيات مباشرة قبل وبعد موجات الأمطار في فترة التزهير وعقد الثمار.'
     ],
     identificationTipsAr: [
       'بقع سوداء فحمية مائية على حواف الأوراق وقشرة ثمار الجوز الصغيرة.'
@@ -382,7 +373,6 @@ export const DISEASES_DATABASE: DiseasePest[] = [
     organicTreatmentAr: [],
     chemicalTreatments: [],
     preventiveMeasuresAr: [
-      'الرش الوقائي بالنحاس في أواخر الخريف بعد جني حبات الحمبلاس، ورشة أخرى في بداية الربيع.'
     ],
     identificationTipsAr: [
       'بقع دائرية ذات حافة حمراء أرجوانية مميزة على أوراق الآس الجلدية.'
