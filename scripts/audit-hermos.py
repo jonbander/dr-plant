@@ -168,6 +168,7 @@ def main() -> int:
             "object_count": len(labels),
             "provenance_verified": "no",
             "expert_label_review": "no",
+            "near_duplicate_review": "no",
             "group_id_for_split": "",
             "split": "",
         })
@@ -202,7 +203,7 @@ def main() -> int:
         "xml_parse_errors": parse_errors,
         "invalid_boxes": invalid_boxes,
         "limitations": [
-            "This script checks structure and exact-byte duplicates, not visual near-duplicates.",
+            "This script checks structure and exact-byte duplicates, not visual near-duplicates; every image starts with near_duplicate_review=no.",
             "Object counts and image counts are reported separately; one image may contain multiple objects.",
             "A unique image and XML filename stem is required for pairing; duplicate image or XML stems are marked ambiguous rather than guessed.",
             "It does not verify biological correctness of labels or source-image licensing.",
@@ -215,7 +216,7 @@ def main() -> int:
     fields = [
         "relative_path", "sha256", "xml_path", "xml_match_count", "xml_parse_ok",
         "pairing_status", "width_from_xml", "height_from_xml", "labels", "object_count",
-        "provenance_verified", "expert_label_review", "group_id_for_split", "split",
+        "provenance_verified", "expert_label_review", "near_duplicate_review", "group_id_for_split", "split",
     ]
     with (out / "hermos-manifest.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=fields)
