@@ -11,6 +11,7 @@ This protocol prepares a reproducible split manifest only after a dataset has pa
 5. Populate the audit manifest fields:
    - `provenance_verified=yes` only after image-level rights and provenance are documented.
    - `expert_label_review=yes` only after the label review is documented.
+   - `near_duplicate_review=yes` only after perceptual/manual near-duplicate review is complete for that image and any duplicate groups have been reconciled.
    - `group_id_for_split` with the strongest known dependency group, preferably vineyard/site and then plant/capture session. Do not invent group IDs where metadata is absent.
 
 ## Create a split manifest
@@ -24,6 +25,7 @@ python scripts/prepare_training_splits.py /path/to/audit/hermos-manifest.csv --o
 The script requires:
 - a uniquely paired, parseable image/XML record;
 - a valid SHA-256 and no byte-identical duplicate images;
+- explicit near-duplicate review for every image;
 - verified provenance/license and expert-reviewed labels;
 - a non-empty group ID for every image;
 - each class to occur in at least three independent groups;
