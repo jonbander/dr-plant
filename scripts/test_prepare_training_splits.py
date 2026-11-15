@@ -14,7 +14,7 @@ SPEC.loader.exec_module(MODULE)
 def row(name, group, label, digest):
     return {
         "relative_path": name,
-        "sha256": digest * 64,
+        "sha256": (digest + "0" * 64)[:64],
         "pairing_status": "paired",
         "xml_parse_ok": "yes",
         "labels": label,
@@ -30,7 +30,7 @@ class TrainingSplitTests(unittest.TestCase):
         rows = []
         for label, prefix in (("powdery", "p"), ("downy", "d"), ("healthy", "h")):
             for index in range(6):
-                rows.append(row(f"{prefix}{index}.jpg", f"{prefix}-site-{index}", label, f"{index + 1:02x}"))
+                rows.append(row(f"{prefix}{index}.jpg", f"{prefix}-site-{index}", label, f"{ord(prefix):02x}{index + 1:02x}"))
         return rows
 
     def test_split_is_group_isolated_and_class_complete(self):
