@@ -255,12 +255,14 @@ export const CropPestEncyclopedia: React.FC = () => {
               يمكن استخدام وصف الأعراض للمقارنة الأولية فقط. يجب تأكيد السبب مع مهندس زراعي، ثم اختيار منتج مسجل للمحصول والآفة واتباع ملصقه بالكامل.
             </p>
           </div>
-          <div className="space-y-1.5">
-            <h5 className="text-xs font-bold text-teal-300">إجراءات وقائية عامة — ليست علاجاً للمرض</h5>
-            {selectedDisease.preventiveMeasuresAr.map((measure, i) => (
-              <div key={i} className="text-xs text-stone-200 bg-stone-950 border border-stone-800 p-2.5 rounded-xl">{measure}</div>
-            ))}
-          </div>
+          {selectedDisease.preventiveMeasuresAr.length > 0 && (
+            <div className="space-y-1.5">
+              <h5 className="text-xs font-bold text-teal-300">إجراءات وقائية عامة — ليست علاجاً للمرض</h5>
+              {selectedDisease.preventiveMeasuresAr.map((measure, i) => (
+                <div key={i} className="text-xs text-stone-200 bg-stone-950 border border-stone-800 p-2.5 rounded-xl">{measure}</div>
+              ))}
+            </div>
+          )}
 
             <button
               onClick={() => setSelectedDisease(null)}
