@@ -101,6 +101,39 @@ export const DISEASES_DATABASE: DiseasePest[] = [
   // --- 2. الحِمْضِيَّات السُّورِيَّة (CITRUS - طرطوس، اللاذقية، جبلة، بانياس، سهل عكار) ---
   // =========================================================================
   {
+    id: 'citrus_scab_syria',
+    nameAr: 'جَرَب الحمضيات على الليمون',
+    nameEn: 'Citrus Scab (Elsinoë fawcettii)',
+    scientificName: 'Elsinoë fawcettii',
+    category: 'fungal',
+    severity: 'high',
+    targetCropIds: ['citrus_syrian', 'citrus'],
+    visualSymptomsAr: [
+      'نتوءات وبثور فلينية خشنة ومرتفعة، لونها رمادي أو وردي في البداية ثم تصبح بنية أو بلون الصدأ',
+      'ظهور آفات ثؤلولية غير منتظمة على وجهي الورقة، وقد يقابل النتوء انخفاض أو تقعر في الجهة الأخرى',
+      'تشوه وتجعد الأوراق الفتية وتوقف نموها عند الإصابة الشديدة',
+      'ظهور بقع فلينية خشنة بارزة على قشرة الليمون والثمار الصغيرة وقد تصبح الثمرة مشوهة'
+    ],
+    descriptionAr: 'مرض فطري يصيب النموات الغضة في الحمضيات، ويكون مهماً على الليمون. قد تظهر الأعراض على الأوراق والأفرع الغضة والثمار. هذا سجل مرجعي للأعراض ولا يثبت وجود المرض في بستان بعينه أو في الساحل السوري.',
+    favorableConditionsAr: 'الأمطار والندى والرطوبة وابتلال الأنسجة، مع قابلية الأوراق والثمار الحديثة للإصابة وانتشار الأبواغ برذاذ الماء.',
+    organicTreatmentAr: [],
+    chemicalTreatments: [],
+    preventiveMeasuresAr: [
+      'مراقبة النموات الحديثة والثمار الصغيرة بعد فترات المطر والابتلال.',
+      'تجنب نقل مواد نباتية مصابة بين البساتين، وتوثيق الأعراض على الأوراق والثمار كلٌّ على حدة.'
+    ],
+    identificationTipsAr: [
+      'ابحث عن نتوء فليني مرتفع وخشن وليس مجرد بقعة مسطحة؛ افحص وجهي الورقة والثمار الصغيرة.',
+      'لا تخلط النتوءات الفلينية مع أنفاق المينوز الفضية أو الاصفرار بين العروق أو التصمغ عند قاعدة الجذع.',
+      'التأكيد المخبري أو فحص اختصاصي نباتات مطلوب عند الحالات الملتبسة.'
+    ],
+    visionSignatures: {
+      dominantHues: ['brown', 'rust', 'yellow'],
+      spotTexture: 'corky_warts',
+      targetPart: 'leaf'
+    }
+  },
+  {
     id: 'citrus_leafminer_syria',
     nameAr: 'مينوز الحمضيات (صانعة أنفاق أوراق الموالح الساحلية)',
     nameEn: 'Citrus Leafminer (Phyllocnistis citrella)',
@@ -554,6 +587,7 @@ export const CROPS_DATABASE: Crop[] = [
     optimalTemperatureAr: '20 - 32 مئوية',
     wateringAdviceAr: 'ري منتظم بالتنقيط أو الأحواض الحلقية مع تجنب ملامسة الماء لجذع الشجرة منعاً لمرض التصمغ.',
     commonDiseaseIds: [
+      'citrus_scab_syria',
       'citrus_leafminer_syria',
       'citrus_gummosis_syria',
       'citrus_medfly_syria',
