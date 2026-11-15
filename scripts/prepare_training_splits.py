@@ -18,7 +18,7 @@ SPLITS = ("train", "validation", "test")
 RATIOS = {"train": 0.70, "validation": 0.15, "test": 0.15}
 REQUIRED = {
     "relative_path", "sha256", "pairing_status", "xml_parse_ok", "labels",
-    "provenance_verified", "expert_label_review", "group_id_for_split",
+    "provenance_verified", "expert_label_review", "near_duplicate_review", "group_id_for_split",
 }
 
 
@@ -55,6 +55,8 @@ def validate_rows(rows: list[dict[str, str]]) -> dict[str, set[str]]:
             reasons.append("image provenance/license is not verified")
         if row.get("expert_label_review", "").strip().lower() != "yes":
             reasons.append("label has not been expert-reviewed")
+        if row.get("near_duplicate_review", "").strip().lower() != "yes":
+            reasons.append("near-duplicate review is incomplete")
         group = row.get("group_id_for_split", "").strip()
         if not group:
             reasons.append("group_id_for_split is empty")
