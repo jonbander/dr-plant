@@ -26,9 +26,7 @@ export const CropPestEncyclopedia: React.FC = () => {
     const matchesQuery = 
       d.nameAr.toLowerCase().includes(searchQuery.toLowerCase()) ||
       d.descriptionAr.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      d.scientificName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      d.chemicalTreatments.some(c => c.pesticideName.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      d.visualSymptomsAr.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()));
+      d.scientificName.toLowerCase().includes(searchQuery.toLowerCase()) ||      d.visualSymptomsAr.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()));
 
     return matchesCategory && matchesQuery;
   });
