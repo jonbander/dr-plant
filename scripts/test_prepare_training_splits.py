@@ -20,6 +20,7 @@ def row(name, group, label, digest):
         "labels": label,
         "provenance_verified": "yes",
         "expert_label_review": "yes",
+        "near_duplicate_review": "yes",
         "group_id_for_split": group,
         "split": "",
     }
@@ -60,6 +61,12 @@ class TrainingSplitTests(unittest.TestCase):
     def test_rejects_unreviewed_labels(self):
         rows = self.fixture_rows()
         rows[0]["expert_label_review"] = "no"
+        with self.assertRaises(MODULE.ReadinessError):
+            MODULE.validate_rows(rows)
+
+    def test_rejects_incomplete_near_duplicate_review(self):
+        rows = self.fixture_rows()
+        rows[0]["near_duplicate_review"] = "no"
         with self.assertRaises(MODULE.ReadinessError):
             MODULE.validate_rows(rows)
 
