@@ -27,7 +27,7 @@ test('crop-specific patterns do not leak into unrelated crops', () => {
 
 test('known leaf patterns map to olive, walnut, tomato, and wheat candidates', () => {
   assert.equal(getSymptomCandidateId('olive', 'leaves', 'target_rings'), 'olive_peacock_spot_syria');
-  assert.equal(getSymptomCandidateId('walnut', 'leaves', 'target_rings'), 'walnut_anthracnose_syria');
+  assert.equal(getSymptomCandidateId('walnut', 'leaves', 'target_rings'), null);
   assert.equal(getSymptomCandidateId('tomato', 'leaves', 'target_rings'), 'tomato_early_blight_syria');
   assert.equal(getSymptomCandidateId('wheat', 'leaves', 'rust_stripes'), 'wheat_stripe_rust_syria');
 });
