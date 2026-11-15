@@ -58,3 +58,45 @@ Sources:
 Both are Bangladesh datasets, not Syrian coastal data. The landing pages list CC BY 4.0, but the exact downloaded packages, file-level provenance/terms, class-folder contents, label quality, exact/near duplicates, and real dependency groups have not yet been audited. LLD reports a short collection window (20–28 August 2023); LemonLENS reports a 2.65 GB and a 4.13 GB archive option, which must be reconciled before choosing the canonical file.
 
 **Training decision:** these records are registered as candidates only. Do not train from landing-page counts, do not mark the images as expert-confirmed, and do not split individual images randomly. No archive is present in the repository, no audited image manifest exists for either dataset, and no training run has been performed. The first eligible task is a source/archive audit and a group-aware split feasibility check. If trustworthy site/session groups cannot be recovered, these datasets cannot support a leakage-resistant independent test and should not be used to claim generalization.
+
+
+## Reproducible image-classification baseline (15 November 2026)
+
+The repository now contains an optional PyTorch MobileNetV3-Small baseline for lemon or grape **leaf-image classification**, separate from HERMOS Pascal-VOC lesion detection.
+
+### Dataset candidates and source review
+
+- **Large-Scale Lemon Leaf Disease and Pest Dataset, V3**: Mendeley record published 4 November 2026; 17,586 images, 18 categories including citrus scab, four named sites in Bangladesh, collection period 2 March–28 May 2025, CC BY 4.0. V3 does not expose per-class counts in its description. Earlier V1/V2 counts must not be carried forward. The dataset claims expert review, but the archive and image-level grouping remain unaudited. [V3 record](https://data.mendeley.com/datasets/8d9fv6kpt3/3).
+- **LemonLENS V2**: 4,500 images and 500 per class including citrus scab, from one named collection area in Bangladesh; CC BY 4.0. Archive size options differ (2.65 GB and 4.13 GB), so canonical package identity must be checked. [V2 record](https://data.mendeley.com/datasets/ccwh64fr2r/2).
+- **LLD V1**: 4,775 images including 333 citrus-scab images, collected in Kushtia and Khulna, Bangladesh over 20–28 August 2023; CC BY 4.0. Per-image site/session mapping is not stated. [V1 record](https://data.mendeley.com/datasets/9ywvpv3xtg/1).
+- **HERMOS V2**: grape leaf object-detection annotations in Pascal VOC XML; keep separate from image-level classification datasets. [V2 record](https://data.mendeley.com/datasets/j4xs3kh3fd/2).
+- **North Portugal grape leaves**: candidate only; the paper's CC BY 4.0 license does not substitute for checking the Zenodo dataset's own Rights metadata and file terms. [Zenodo record](https://zenodo.org/records/17343473).
+
+Mendeley states that public datasets can be downloaded through its public API, but the documented API uses OAuth2 for API requests. No archive download or checksum verification is claimed here. Mendeley also states that it does not currently validate or curate the contents of deposited datasets; a depositor's description is not independent verification.
+
+### Local audit commands
+
+```sh
+python scripts/audit_image_classification_dataset.py /path/to/extracted/class-folders \
+  --dataset-id 8d9fv6kpt3 --version 3 --license "CC BY 4.0" --out audit --verify-images
+python scripts/test_audit_image_classification_dataset.py
+```
+
+The audit writes `image-manifest.csv` and `archive-audit-report.json`, computes SHA-256, counts class folders, detects byte-identical duplicates, and optionally checks image decoding with Pillow. Provenance, expert-review, near-duplicate and group fields intentionally default to unverified/empty.
+
+### Review, split and train gates
+
+After source-level and expert review, populate the manifest flags and verified `group_id_for_split` values. Do not invent site/plant/session identifiers from filenames. Then run:
+
+```sh
+python scripts/prepare_classification_splits.py audit/image-manifest.csv --out splits
+python scripts/train_image_classifier.py /path/to/extracted/class-folders splits/training-splits.csv --out model-output --epochs 12 --batch-size 32 --pretrained
+```
+
+Install optional dependencies with `pip install -r requirements-training.txt`. The training script selects checkpoints using validation accuracy and evaluates the held-out test split once. It reports per-class metrics, macro-F1 and a confusion matrix.
+
+**Current blocker:** public landing pages name collection sites but do not establish that every image can be assigned to a specific independent site/plant/session group. LemonLENS names one collection area; LLD gives two districts and a nine-day window; HERMOS and Portugal grape archives still need their own package audit. If the archive cannot supply at least three genuine independent groups per class, the group-aware split script deliberately refuses training. A random image split would not be independent and must not be presented as held-out generalization.
+
+### Model scope
+
+MobileNetV3-Small is a baseline classifier, not an integrated production diagnosis system. It does not prove pathogen identity, local prevalence, or accuracy in Syrian coastal orchards. Do not merge model weights into the app or describe the app as trained until an actual archive audit, group-isolated training run, independent evaluation, and deployment integration are completed.
