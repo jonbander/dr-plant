@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HelpCircle, ChevronLeft, ChevronRight, Check, Sparkles, RotateCcw } from 'lucide-react';
 import { CROPS_DATABASE, DISEASES_DATABASE } from '../data/cropsAndDiseases';
 import { DiseasePest, ScanResult } from '../types/crop';
+import { SYMPTOM_PATTERN_OPTIONS, getSymptomCandidateId, getSymptomPatternLabel } from '../services/symptomTriage';
 
 interface DiagnosticWizardProps {
   onCompleteDiagnosis: (scan: ScanResult) => void;
@@ -16,61 +17,68 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
   const selectedCrop = CROPS_DATABASE.find(c => c.id === selectedCropId) || CROPS_DATABASE[0];
 
   const handleFinish = () => {
-    let matchedDisease: DiseasePest = DISEASES_DATABASE[0];
+    const candidateId = getSymptomCandidateId(selectedCropId, affectedPart, primaryPattern);
+    const matchedDisease = candidateId
+      ? DISEASES_DATABASE.find((disease) => disease.id === candidateId)
+      : undefined;
+    const partLabel = affectedPart === 'leaves'
+      ? 'الأوراق'
+      : affectedPart === 'stem'
+        ? 'الساق أو الجذع'
+        : 'الثمار';
+    const patternLabel = getSymptomPatternLabel(primaryPattern);
 
-    if (selectedCropId === 'french_grape_leaf') {
-      if (primaryPattern === 'downy_oil') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'grape_downy_mildew') || matchedDisease;
-      } else if (primaryPattern === 'blister_swell') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'grape_leaf_blister_mite') || matchedDisease;
-      } else {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'grape_powdery_mildew') || matchedDisease;
-      }
-    } else if (selectedCropId === 'citrus_syrian') {
-      if (affectedPart === 'stem' || primaryPattern === 'gummosis_sap') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'citrus_gummosis_syria') || matchedDisease;
-      } else if (affectedPart === 'fruit' || primaryPattern === 'fruit_punctures') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'citrus_medfly_syria') || matchedDisease;
-      } else if (primaryPattern === 'iron_yellowing') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'citrus_chlorosis_syria') || matchedDisease;
-      } else {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'citrus_leafminer_syria') || matchedDisease;
-      }
-    } else if (selectedCropId === 'walnut') {
-      if (affectedPart === 'fruit' || primaryPattern === 'fruit_punctures') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'walnut_codling_moth_syria') || matchedDisease;
-      } else if (primaryPattern === 'black_burn') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'walnut_bacterial_blight_syria') || matchedDisease;
-      } else {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'walnut_anthracnose_syria') || matchedDisease;
-      }
-    } else if (selectedCropId === 'myrtle_hamblas') {
-      if (primaryPattern === 'white_powder') {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'hamblas_powdery_mildew') || matchedDisease;
-      } else {
-        matchedDisease = DISEASES_DATABASE.find(d => d.id === 'hamblas_leaf_spot_syria') || matchedDisease;
-      }
-    } else if (selectedCropId === 'wheat' && primaryPattern === 'rust_stripes') {
-      matchedDisease = DISEASES_DATABASE.find(d => d.id === 'wheat_stripe_rust_syria') || matchedDisease;
-    } else if (selectedCropId === 'olive') {
-      matchedDisease = DISEASES_DATABASE.find(d => d.id === 'olive_peacock_spot_syria') || matchedDisease;
-    } else if (primaryPattern === 'silver_mines') {
-      matchedDisease = DISEASES_DATABASE.find(d => d.id === 'tuta_absoluta_syria') || matchedDisease;
-    } else {
-      matchedDisease = DISEASES_DATABASE.find(d => d.targetCropIds.includes(selectedCropId)) || DISEASES_DATABASE[0];
-    }
+    // Never force a disease name when the crop/organ/pattern combination is unsupported.
+    const triageRecord: DiseasePest = matchedDisease ?? {
+      id: 'unclassified_symptom',
+      nameAr: 'أعراض غير محددة — يلزم استكمال الفحص',
+      nameEn: 'Unclassified plant symptoms',
+      scientificName: 'لم يتم تحديد مسبب مرضي',
+      category: 'undetermined',
+      severity: 'low',
+      targetCropIds: [selectedCropId],
+      visualSymptomsAr: [
+        `الموضع الذي حددته: ${partLabel}`,
+        `النمط الذي وصفته: ${patternLabel}`,
+      ],
+      descriptionAr: 'لم يظهر تطابق محدد وموثوق بين المحصول والجزء المتأثر والنمط المختار. قد تكون الأسباب مرضية أو حشرية أو فسيولوجية أو مرتبطة بالطقس والري والتربة. لا تُنسب الحالة إلى مرض بعينه من هذه الإجابات وحدها.',
+      favorableConditionsAr: 'لم تُحدد ظروف الإصابة أو تاريخها؛ يلزم تسجيل الطقس والري والتسميد وتوزع الأعراض في الحقل.',
+      organicTreatmentAr: [],
+      chemicalTreatments: [],
+      preventiveMeasuresAr: [
+        'وثّق الأعراض وصوّر أكثر من ورقة أو جزء مصاب مع صورة كاملة للنبات.',
+        'قارن النباتات المصابة والسليمة وسجّل تاريخ ظهور الأعراض والري والتسميد والرش.',
+      ],
+      identificationTipsAr: [
+        'افحص وجهي الورقة والأفرع والثمار بحسب موضع العرض.',
+        'اطلب مراجعة مهندس زراعي أو مختبر عند استمرار الأعراض أو انتشارها.',
+      ],
+      visionSignatures: {
+        dominantHues: [],
+        spotTexture: 'scorch',
+        targetPart: affectedPart === 'leaves' ? 'leaf' : affectedPart === 'stem' ? 'stem' : 'fruit',
+      },
+    };
 
-    // Synthesize scan result
     const synthesizedScan: ScanResult = {
       id: 'wizard_' + Date.now(),
       timestamp: Date.now(),
-      imageThumbnail: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23065f46"/><circle cx="50" cy="50" r="30" fill="%2334d399"/></svg>',
+      imageThumbnail: '',
       crop: selectedCrop,
-      diseaseOrPest: matchedDisease,
+      diseaseOrPest: triageRecord,
       confidence: 0,
       severity: 'low',
       diagnosticStatus: 'symptom_triage',
-      screeningNotesAr: ['هذا احتمال أولي وفق اختياراتك وليس تشخيصاً مؤكداً.', 'لم تُحلّل صورة ولم تُقَس شدة الإصابة أو نسبة انتشارها.', 'لا تعتمد على الجرعات وأسماء المبيدات القديمة قبل التحقق من تسجيل المنتج وملصقه المحلي.'],
+      screeningNotesAr: [
+        'هذا فرز أولي مبني على إجاباتك فقط، وليس تشخيصاً مؤكداً.',
+        `الموضع الذي حددته: ${partLabel}.`,
+        `النمط الذي اخترته: ${patternLabel}.`,
+        candidateId && matchedDisease
+          ? 'اسم المرض المعروض سجل مرجعي محتمل للمقارنة، وليس تأكيداً لوجوده.'
+          : 'لم يُفرض اسم مرض؛ السبب ما زال غير محدد.',
+        'لم تُحلّل صورة ولم تُقَس شدة الإصابة أو نسبة انتشارها.',
+        'لا تعتمد على هذه النتيجة لاختيار علاج أو مبيد أو جرعة.',
+      ],
       analysisData: {
         greenHealthIndex: 0,
         lesionSpotAreaPercentage: 0,
@@ -80,9 +88,9 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
         rustPercentage: 0,
         detectedHueSummary: 'لم يتم تحليل صورة؛ هذه إجابات المستخدم فقط.',
         leafContoursDetected: false,
-        boundingBoxes: []
+        boundingBoxes: [],
       },
-      userNotes: 'تم التشخيص عبر المساعد الحقلي التفاعلي بدون كاميرا.'
+      userNotes: 'فرز أعراض يدوي — لا توجد صورة مرفوعة ولا تشخيص مؤكد.',
     };
 
     onCompleteDiagnosis(synthesizedScan);
@@ -184,16 +192,7 @@ export const DiagnosticWizard: React.FC<DiagnosticWizardProps> = ({ onCompleteDi
         <div className="space-y-4 animate-fadeIn">
           <h3 className="text-xs font-bold text-stone-300">3. ما هو الشكل الأكثر مطابقة لما تراه بالعين؟</h3>
           <div className="space-y-2">
-            {[
-              { id: 'white_powder', title: 'مسحوق أبيض كبودرة الطحين (رمد العنب أو بياض الحمبلاس)', desc: 'عرض كلاسيكي للرمد الدقيقي في كرمات الساحل' },
-              { id: 'downy_oil', title: 'بقع زيتية صفراء وزغب أبيض قطني بالأسفل (ميلديو العنب)', desc: 'البياض الزغبي الخطير في منخفضات الساحل الرطبة' },
-              { id: 'silver_mines', title: 'أنفاق فضية متعرجة لماعة والتواء النموات الغضة (مينوز)', desc: 'صانعة أنفاق أوراق الحمضيات والبندورة الساحلية' },
-              { id: 'gummosis_sap', title: 'سيلان صمغي بني عسلي من قلف الجذع (تصمغ الحمضيات)', desc: 'عفن الفيتوفثورا في الترب الطينية والرطبة' },
-              { id: 'fruit_punctures', title: 'ثقوب بالثمار وتساقطها مع ديدان داخلية (ذبابة الفاكهة/دودة الجوز)', desc: 'الميدفلاي في الحمضيات وحفار ثمار الجوز' },
-              { id: 'iron_yellowing', title: 'اصفرار ليموني ساطع بين العروق الخضراء (كلوروز الترب الكلسية)', desc: 'نقص امتصاص الحديد الشائع في جبال وتلال الساحل' },
-              { id: 'blister_swell', title: 'بثور وانتفاخات ثؤلولية على السطح وزغب صوفي بالأسفل', desc: 'حلم تبثر وتجعد ورق العنب الفرنسي' },
-              { id: 'target_rings', title: 'بقع بنية مسودة دائرية بحلقات متداخلة كهيكل الهدف', desc: 'أنثراكنوز الجوز وتبقعات اللفحة المبكرة' }
-            ].map((pattern) => (
+            {SYMPTOM_PATTERN_OPTIONS.map((pattern) => (
               <div
                 key={pattern.id}
                 onClick={() => setPrimaryPattern(pattern.id)}
