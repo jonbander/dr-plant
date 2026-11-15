@@ -9,14 +9,6 @@ export type DiseaseCategory =
 
 export type SeverityLevel = 'low' | 'medium' | 'high' | 'critical';
 
-export interface ChemicalTreatment {
-  pesticideName: string;
-  activeIngredient: string;
-  dosePer100L: string;
-  safetyIntervalDays: number; // فترة أمان ما قبل الحصاد PHI
-  safetyNotesAr: string;
-}
-
 export interface DiseasePest {
   id: string;
   nameAr: string;
@@ -29,7 +21,8 @@ export interface DiseasePest {
   descriptionAr: string;
   favorableConditionsAr: string; // الظروف الجوية المشجعة (رطوبة، حرارة)
   organicTreatmentAr: string[];
-  chemicalTreatments: ChemicalTreatment[];
+  // Only empty until each product and rate is verified against a current local label.
+  chemicalTreatments: never[];
   preventiveMeasuresAr: string[];
   identificationTipsAr: string[];
   // Spectral and visual characteristics for offline computer vision engine
