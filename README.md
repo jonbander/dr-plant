@@ -28,6 +28,7 @@ bun run build
 المستودع عام ويمكن للوكلاء الذين يستطيعون الوصول إلى GitHub قراءة المشروع ومراجعته. تعليمات العمل المشتركة موجودة في [AGENTS.md](./AGENTS.md)، مع ملفات توجيه لـ [Gemini](./GEMINI.md)، و[Claude](./CLAUDE.md)، و[GitHub Copilot](./.github/copilot-instructions.md).
 
 - قاعدة المعرفة البحثية: [data/knowledge-base.json](./data/knowledge-base.json)
+- أضيف جرب الحمضيات (*Elsinoë fawcettii*) كمرجع أولي للّيمون؛ لا يعني ذلك تأكيد وجوده محلياً أو أن النموذج تعلمه.
 - دليل الأدلة وحدود التشخيص: [docs/DIAGNOSTIC_EVIDENCE.md](./docs/DIAGNOSTIC_EVIDENCE.md)
 - يجب أن تمر كل إضافة بحثية بفحص المصدر والحالة العلمية وترخيص الصور.
 - لا تمنح علنية المستودع أي وكيل صلاحية على حسابات أو ملفات خاصة.
