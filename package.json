@@ -8,7 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "tsx --test src/services/leafScreening.test.ts src/services/symptomTriage.test.ts",
+    "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
+    "test:audit-hermos": "python scripts/test_audit_hermos.py"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -10,12 +10,12 @@ interface TreatmentDoseCalculatorProps {
 
 export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = ({
   initialCrop = 'ورق العنب الفرنسي',
-  initialPest = 'رَمَد العنب (روبيجان سوري 12 EC)',
-  initialDose = '30 مل لكل 100 لتر ماء',
-  initialSafetyDays = 14
+  initialPest = 'غير محدد',
+  initialDose = '',
+  initialSafetyDays = 0
 }) => {
   const [tankLiters, setTankLiters] = useState<number>(20); // Default 20L backpack sprayer (رشاشة ظهرية)
-  const [dosePer100L, setDosePer100L] = useState<number>(30); // e.g. 30 ml
+  const [dosePer100L, setDosePer100L] = useState<number>(0);
   const [unit, setUnit] = useState<'ml' | 'gm'>('ml');
   const [customTank, setCustomTank] = useState<string>('');
   const [sprayMethod, setSprayMethod] = useState<'backpack' | 'tank' | 'tractor'>('backpack');
@@ -23,7 +23,7 @@ export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = (
   // Parse initial dose if provided
   React.useEffect(() => {
     const num = parseFloat(initialDose);
-    if (!isNaN(num)) {
+    if (Number.isFinite(num) && num > 0) {
       setDosePer100L(num);
       if (initialDose.includes('جم') || initialDose.includes('g')) {
         setUnit('gm');
@@ -31,11 +31,13 @@ export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = (
         setUnit('ml');
       }
     }
+    else setDosePer100L(0);
   }, [initialDose]);
 
   // Total required dose: (tankLiters / 100) * dosePer100L
   const activeLiters = customTank ? parseFloat(customTank) || tankLiters : tankLiters;
-  const calculatedDose = ((activeLiters / 100) * dosePer100L).toFixed(1);
+  const validCalculation = Number.isFinite(activeLiters) && activeLiters > 0 && activeLiters <= 100000 && Number.isFinite(dosePer100L) && dosePer100L > 0;
+  const calculatedDose = validCalculation ? ((activeLiters / 100) * dosePer100L).toFixed(1) : '';
 
   return (
     <div className="w-full max-w-xl mx-auto bg-stone-900 border border-stone-800 rounded-3xl p-5 sm:p-6 shadow-2xl text-stone-100 space-y-6">
@@ -46,7 +48,7 @@ export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = (
         </div>
         <div>
           <h2 className="text-base sm:text-lg font-bold text-white">حاسبة جرعات الرش والمبيدات الحقلية</h2>
-          <p className="text-xs text-stone-400">حساب دقيق لكمية المبيد أو السماد الورقي حسب سعة خزان الرش لديك</p>
+          <p className="text-xs text-stone-400">حساب رياضي فقط لجرعة تدخلها من ملصق العبوة المسجّلة</p>
         </div>
       </div>
 
@@ -98,10 +100,12 @@ export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = (
         {/* Recommended Dose Per 100L */}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs font-bold text-stone-300 mb-1">الجرعة لكل 100 لتر ماء:</label>
+            <label className="block text-xs font-bold text-stone-300 mb-1">الجرعة المكتوبة على الملصق لكل 100 لتر:</label>
             <input
               type="number"
-              value={dosePer100L}
+              min="0"
+              step="any"
+              value={dosePer100L || ''}
               onChange={(e) => setDosePer100L(parseFloat(e.target.value) || 0)}
               className="w-full bg-stone-950 border border-stone-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 font-bold text-emerald-400"
             />
@@ -136,28 +140,23 @@ export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = (
         </div>
       </div>
 
-      {/* Result Hero Box */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-950/80 via-stone-900 to-stone-900 border border-emerald-500/40 space-y-3">
+      <div className="p-4 sm:p-5 rounded-2xl bg-stone-950 border border-stone-800 space-y-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span>الكمية المطلوبة بدقة للخزان:</span>
-          </span>
+          <span className="text-xs font-bold text-emerald-300">الكمية الحسابية للخزان</span>
           <span className="text-xs text-stone-400">سعة الخزان: {activeLiters} لتر</span>
         </div>
-
-        <div className="flex items-baseline gap-2">
-          <span className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">{calculatedDose}</span>
-          <span className="text-base sm:text-lg font-bold text-emerald-400">
-            {unit === 'ml' ? 'مليليتر (سم³)' : 'جرام (غ)'}
-          </span>
-        </div>
-
-        <p className="text-[11px] text-stone-300">
-          ضع ثلث كمية الماء في الخزان، أضف <strong>{calculatedDose} {unit === 'ml' ? 'مل' : 'جم'}</strong> مع التقليب الجيد، ثم أكمل باقي الماء إلى علامة <strong>{activeLiters} لتر</strong>.
-        </p>
+        {validCalculation ? (
+          <>
+            <div className="flex items-baseline gap-2">
+              <span className="text-3xl sm:text-4xl font-extrabold text-white">{calculatedDose}</span>
+              <span className="text-base sm:text-lg font-bold text-emerald-400">{unit === 'ml' ? 'ملليلتر' : 'غرام'}</span>
+            </div>
+            <p className="text-[11px] text-stone-300">هذه عملية حسابية للجرعة التي أدخلتها، وليست توصية بأن المنتج مناسب للمحصول أو المرض.</p>
+          </>
+        ) : (
+          <p className="text-sm text-amber-200">أدخل جرعة مؤكدة من ملصق العبوة وسعة خزان صحيحة أكبر من صفر ليظهر الحساب.</p>
+        )}
       </div>
-
       {/* Agricultural Safety Checklist */}
       <div className="bg-stone-950/70 rounded-2xl p-4 border border-stone-800 space-y-2 text-xs">
         <h4 className="font-bold text-amber-400 flex items-center gap-1.5">
@@ -171,7 +170,7 @@ export const TreatmentDoseCalculator: React.FC<TreatmentDoseCalculatorProps> = (
           </li>
           <li className="flex items-start gap-2">
             <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-            <span>الالتزام الصارم بفترة أمان ما قبل الحصاد (PHI) وعدم قطف الثمار قبل انقضائها.</span>
+            <span>فترة ما قبل الحصاد وفترة إعادة الدخول تختلفان حسب المنتج والمحصول والبلد؛ اتبع الملصق المحلي فقط.</span>
           </li>
           <li className="flex items-start gap-2">
             <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />

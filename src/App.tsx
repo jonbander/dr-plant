@@ -26,10 +26,10 @@ export default function App() {
 
   // Calculator prefill state
   const [calcParams, setCalcParams] = useState({
-    cropName: 'ورق العنب الفرنسي',
-    pestName: 'رَمَد العنب الفرنسي (روبيجان سوري 12 EC)',
-    dose: '30 مل لكل 100 لتر ماء',
-    safetyDays: 14
+    cropName: 'غير محدد',
+    pestName: 'غير محدد',
+    dose: '',
+    safetyDays: 0
   });
 
   // Load offline history on mount
@@ -46,9 +46,6 @@ export default function App() {
   const handleImageCaptured = async (imageSrc: string) => {
     setIsAnalyzing(true);
     try {
-      // Simulate rapid on-device neural processing (150-250ms for smooth UI feedback)
-      await new Promise(r => setTimeout(r, 200));
-
       const result = await analyzePlantOffline({
         imageSource: imageSrc,
         suggestedCropId: selectedCropId
@@ -59,7 +56,7 @@ export default function App() {
       refreshScans();
       setCurrentDiagnosis(result);
     } catch (err) {
-      console.error('Offline AI analysis failed:', err);
+      console.error('Offline visual screening failed:', err);
       alert('حدث خطأ أثناء معالجة الصورة محلياً، يرجى المحاولة مرة أخرى.');
     } finally {
       setIsAnalyzing(false);
@@ -117,7 +114,7 @@ export default function App() {
       {/* Quick Offline & Syrian Coastal Capability Ribbon */}
       <div className="bg-emerald-950/60 border-b border-emerald-800/30 px-4 py-1.5 text-center text-[11px] text-emerald-300 flex items-center justify-center gap-2 flex-wrap">
         <span className="px-1.5 py-0.5 bg-emerald-500/20 rounded font-bold text-white text-[10px]">🇸🇾 الساحل السوري</span>
-        <span>مخصص لبيئة ومناخ اللاذقية وطرطوس ومشتى الحلو وصلنفة وكسب وبانياس وجبلة • أسماء المبيدات مطابقة تماماً للمتوفر في السوق والصيدليات الزراعية السورية.</span>
+        <span>مخصص لبيئة ومناخ اللاذقية وطرطوس ومشتى الحلو وصلنفة وكسب وبانياس وجبلة • المحتوى المحلي والمبيدات قيد التدقيق ولا تُعرض جرعات علاجية غير موثقة.</span>
       </div>
 
       {/* Desktop Navigation Tabs */}
@@ -159,7 +156,7 @@ export default function App() {
                 وجّه الكاميرا نحو الورقة المصابة
               </h2>
               <p className="text-xs text-stone-400">
-                يقوم المحرك العصبي المحلي بفحص النسيج النباتي، استخلاص التبقعات، وتقديم بروتوكول العلاج فورياً بدون نت.
+                يفحص ألوان الصورة ومساحة اللون الأخضر محلياً. هذه أداة فرز بصري أولي وليست نموذجاً لتشخيص الأمراض أو وصف العلاج.
               </p>
             </div>
 
@@ -183,7 +180,7 @@ export default function App() {
               </div>
               <div className="p-2.5 rounded-2xl bg-stone-900 border border-stone-800">
                 <span className="text-emerald-400 block font-bold mb-0.5">⚡ سرعة فائقة</span>
-                <span>النتيجة تظهر خلال 0.2 ثانية فقط</span>
+                <span>النتيجة لا تثبت وجود المرض أو غيابه</span>
               </div>
             </div>
           </div>
