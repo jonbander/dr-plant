@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronLeft, ChevronRight, Check, Sparkles, RotateCcw } from 'lucide-react';
+import { HelpCircle, ChevronLeft, Sparkles } from 'lucide-react';
 import { CROPS_DATABASE, DISEASES_DATABASE } from '../data/cropsAndDiseases';
 import { DiseasePest, ScanResult } from '../types/crop';
 import { SYMPTOM_PATTERN_OPTIONS, getSymptomCandidateId, getSymptomPatternLabel } from '../services/symptomTriage';
