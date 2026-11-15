@@ -1,4 +1,5 @@
 """Regression tests for scripts/audit-hermos.py (standard-library only)."""
+import csv
 import json
 import subprocess
 import sys
@@ -47,6 +48,9 @@ class AuditHermosTests(unittest.TestCase):
             self.assertEqual(report["class_image_counts"], {"powdery_mildew": 1})
             self.assertEqual(report["images_with_valid_xml"], 1)
             self.assertEqual(report["valid_bbox_objects"], 2)
+            with (out / "hermos-manifest.csv").open(newline="", encoding="utf-8") as stream:
+                manifest_row = next(csv.DictReader(stream))
+            self.assertEqual(manifest_row["near_duplicate_review"], "no")
 
     def test_marks_malformed_xml_as_unparseable_not_successfully_paired(self):
         with tempfile.TemporaryDirectory() as temp:
