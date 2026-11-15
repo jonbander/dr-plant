@@ -11,7 +11,9 @@
     "lint": "tsc --noEmit",
     "test": "tsx --test src/services/leafScreening.test.ts src/services/symptomTriage.test.ts",
     "validate:knowledge": "node scripts/validate-knowledge-base.mjs",
-    "test:audit-hermos": "python scripts/test_audit_hermos.py"
+    "test:audit-hermos": "python scripts/test_audit_hermos.py",
+    "prepare:training-splits": "python scripts/prepare_training_splits.py",
+    "test:training-splits": "python scripts/test_prepare_training_splits.py"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
