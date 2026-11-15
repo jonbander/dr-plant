@@ -28,7 +28,7 @@ export interface DiseasePest {
   // Spectral and visual characteristics for offline computer vision engine
   visionSignatures: {
     dominantHues: ('yellow' | 'brown' | 'white' | 'black' | 'rust' | 'mosaic' | 'pale_green')[];
-    spotTexture: 'powdery' | 'concentric_rings' | 'scattered_dots' | 'leaf_curling' | 'chewed_holes' | 'water_soaked' | 'scorch';
+    spotTexture: 'powdery' | 'concentric_rings' | 'scattered_dots' | 'leaf_curling' | 'chewed_holes' | 'water_soaked' | 'scorch' | 'corky_warts';
     targetPart: 'leaf' | 'stem' | 'fruit' | 'whole_plant';
   };
 }

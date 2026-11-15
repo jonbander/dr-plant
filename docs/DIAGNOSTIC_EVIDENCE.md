@@ -168,3 +168,13 @@ python scripts/audit-hermos.py /path/to/extracted-hermos --out /path/to/audit-ou
 It creates a SHA-256 manifest and JSON report covering image/XML pairing, Pascal VOC object counts, bounding-box validity, class-object counts, orphan annotations, and exact-byte duplicates. It does **not** verify biological label correctness, visual near-duplicates, image-level licensing/provenance, or site/session identity. The manifest deliberately leaves provenance, expert review, group ID, and split fields unfilled.
 
 **Current gate:** archive not yet downloaded or inspected in this repository workflow. Therefore no HERMOS images have been admitted to training, no split has been created, and no model has been trained. The CC BY 4.0 landing-page declaration is encouraging evidence, but archive-level attribution/provenance and exact-version checks remain pending. Do not use the landing-page's 914 figure as a verified source-image count.
+
+
+## Lemon / citrus scab — reference-only record (15 November 2026)
+
+- Causal agent for sour citrus scab: *Elsinoë fawcettii*.
+- Typical signs: raised, rough, corky, wart-like lesions on young leaves and fruit; early lesions may be pale orange, pink or gray and darken; young leaves and fruit may become distorted.
+- Distinguish this from citrus canker, melanose, leafminer galleries, gummosis and nonspecific chlorosis. A photograph alone may not resolve difficult cases; seek qualified plant-health or laboratory confirmation where needed.
+- Do not confuse sour citrus scab (*E. fawcettii*) with sweet orange scab (*E. australis*).
+- References: [UF/IFAS CH159](https://ask.ifas.ufl.edu/publication/CH159), [NSW DPIRD citrus field guide](https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0008/1629467/Pests%2C-beneficials%2C-diseases-and-disorders-in-citrus.pdf), [UGA Extension B1520](https://extension.uga.edu/publications/detail.html?number=B1520).
+- Evidence status remains `reference_only`; no current Syrian coastal specimen or expert confirmation was supplied.

@@ -38,3 +38,12 @@ test('uncertain or unmatched patterns stay undetermined', () => {
   assert.equal(getSymptomPatternLabel('unknown'), 'شكل آخر / لست متأكداً');
   assert.equal(getSymptomPatternLabel('not-a-pattern'), 'نمط غير محدد');
 });
+
+
+test('citrus scab requires raised corky wart symptoms on leaves or fruit', () => {
+  assert.equal(getSymptomCandidateId('citrus_syrian', 'leaves', 'citrus_scab_warts'), 'citrus_scab_syria');
+  assert.equal(getSymptomCandidateId('citrus_syrian', 'fruit', 'citrus_scab_warts'), 'citrus_scab_syria');
+  assert.equal(getSymptomCandidateId('citrus_syrian', 'stem', 'citrus_scab_warts'), null);
+  assert.equal(getSymptomCandidateId('french_grape_leaf', 'leaves', 'citrus_scab_warts'), null);
+  assert.equal(getSymptomCandidateId('olive', 'leaves', 'citrus_scab_warts'), null);
+});

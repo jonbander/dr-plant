@@ -4,6 +4,7 @@ export const SYMPTOM_PATTERN_OPTIONS = [
   { id: 'white_powder', title: 'مسحوق أبيض كبودرة الطحين', desc: 'قد يظهر مع البياض الدقيقي، ويحتاج فحص وجهي الورقة' },
   { id: 'downy_oil', title: 'بقع زيتية صفراء وزغب أبيض بالأسفل', desc: 'نمط قد يتوافق مع البياض الزغبي في العنب' },
   { id: 'silver_mines', title: 'أنفاق فضية متعرجة داخل الورقة', desc: 'قد تتوافق مع صانعة أنفاق أوراق الحمضيات' },
+  { id: 'citrus_scab_warts', title: 'نتوءات فلينية خشنة ومرتفعة على الورقة أو الثمرة', desc: 'قد تتوافق مع جرب الحمضيات؛ يلزم التفريق عن أضرار أخرى' },
   { id: 'gummosis_sap', title: 'سيلان صمغي من قلف الجذع', desc: 'يحتاج فحص الجذع والجذور والصرف' },
   { id: 'fruit_punctures', title: 'ثقوب أو وخزات في الثمار', desc: 'أسبابها تختلف حسب المحصول ويجب فحص الثمرة' },
   { id: 'iron_yellowing', title: 'اصفرار بين العروق مع بقاء العروق خضراء', desc: 'عرض غير نوعي؛ لا يثبت نقص الحديد وحده' },
@@ -42,6 +43,7 @@ export function getSymptomCandidateId(
     if (patternId === 'fruit_punctures' && affectedPart === 'fruit') return 'citrus_medfly_syria';
     if (patternId === 'iron_yellowing' && affectedPart === 'leaves') return 'citrus_chlorosis_syria';
     if (patternId === 'silver_mines' && affectedPart === 'leaves') return 'citrus_leafminer_syria';
+    if (patternId === 'citrus_scab_warts' && (affectedPart === 'leaves' || affectedPart === 'fruit')) return 'citrus_scab_syria';
   }
 
   if (cropId === 'walnut') {

@@ -40,3 +40,21 @@ It creates `training-splits.csv` and `training-split-report.json`, using group-i
 - SHA-256 detects exact byte duplicates only. Near-duplicate photographs require perceptual/manual review before training.
 - A successful split is not evidence that classes are balanced, labels are biologically correct, or the test set represents coastal Syrian farms.
 - Do not train or promote a model until near-duplicate review, class balance review, independent test design, and dataset-specific licensing checks are complete.
+
+
+## Lemon image-classification candidates — citrus scab (15 November 2026)
+
+Two public candidate records list citrus-scab classes and CC BY 4.0 on their Mendeley Data landing pages:
+
+| Dataset | Images | Scab class | Collection region | Current decision |
+|---|---:|---:|---|---|
+| LemonLENS V2 | 4,500 | 500 | Baburhat, Chandpur, Bangladesh | Candidate; archive and package identity need inspection |
+| LLD V1 | 4,775 | 333 | Kushtia and Khulna, Bangladesh | Candidate; archive and group/duplicate metadata need inspection |
+
+Sources:
+- [LemonLENS V2](https://data.mendeley.com/datasets/ccwh64fr2r/2), DOI `10.17632/ccwh64fr2r.2`.
+- [LLD V1](https://data.mendeley.com/datasets/9ywvpv3xtg/1), DOI `10.17632/9ywvpv3xtg.1`.
+
+Both are Bangladesh datasets, not Syrian coastal data. The landing pages list CC BY 4.0, but the exact downloaded packages, file-level provenance/terms, class-folder contents, label quality, exact/near duplicates, and real dependency groups have not yet been audited. LLD reports a short collection window (20–28 August 2023); LemonLENS reports a 2.65 GB and a 4.13 GB archive option, which must be reconciled before choosing the canonical file.
+
+**Training decision:** these records are registered as candidates only. Do not train from landing-page counts, do not mark the images as expert-confirmed, and do not split individual images randomly. No archive is present in the repository, no audited image manifest exists for either dataset, and no training run has been performed. The first eligible task is a source/archive audit and a group-aware split feasibility check. If trustworthy site/session groups cannot be recovered, these datasets cannot support a leakage-resistant independent test and should not be used to claim generalization.
