@@ -125,11 +125,19 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 bg-stone-950/70 rounded-2xl p-4 border border-stone-800/80 items-center">
             {/* Image with bounding box overlays */}
             <div className="relative sm:col-span-5 aspect-square rounded-xl overflow-hidden border border-stone-800 bg-black flex items-center justify-center">
-              <img
-                src={scan.imageThumbnail}
-                alt="ورقة الفحص"
-                className="w-full h-full object-cover"
-              />
+              {scan.diagnosticStatus === 'symptom_triage' ? (
+                <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-stone-400 bg-stone-900 p-4 text-center">
+                  <Activity className="w-10 h-10 text-emerald-500" />
+                  <span className="text-xs font-semibold">لم تُرفع صورة في هذا المسار</span>
+                  <span className="text-[10px]">النتيجة مبنية على إجاباتك فقط</span>
+                </div>
+              ) : (
+                <img
+                  src={scan.imageThumbnail}
+                  alt="صورة الفحص"
+                  className="w-full h-full object-cover"
+                />
+              )}
 
               {/* Render detected lesion bounding boxes on top of image */}
               {analysisData.boundingBoxes.map((box, index) => (
@@ -168,17 +176,19 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
                 {diseaseOrPest.descriptionAr}
               </p>
 
-              {/* Mini Spectral Progress stats */}
-              <div className="pt-2 grid grid-cols-2 gap-2 text-[11px] text-stone-400">
-                <div className="bg-stone-900 p-2 rounded-lg border border-stone-800">
-                  <span className="block text-stone-500">مؤشر الاخضرار الصحي</span>
-                  <span className="text-sm font-bold text-emerald-400">{analysisData.greenHealthIndex}%</span>
+              {/* Pixel statistics are not applicable to the manual symptom wizard. */}
+              {scan.diagnosticStatus !== 'symptom_triage' && (
+                <div className="pt-2 grid grid-cols-2 gap-2 text-[11px] text-stone-400">
+                  <div className="bg-stone-900 p-2 rounded-lg border border-stone-800">
+                    <span className="block text-stone-500">نسبة البكسلات الخضراء المقدّرة</span>
+                    <span className="text-sm font-bold text-emerald-400">{analysisData.greenHealthIndex}%</span>
+                  </div>
+                  <div className="bg-stone-900 p-2 rounded-lg border border-stone-800">
+                    <span className="block text-stone-500">نسبة البكسلات المصنفة كبقع تقريباً</span>
+                    <span className="text-sm font-bold text-amber-400">{analysisData.lesionSpotAreaPercentage}%</span>
+                  </div>
                 </div>
-                <div className="bg-stone-900 p-2 rounded-lg border border-stone-800">
-                  <span className="block text-stone-500">نسبة التبقع والنخر</span>
-                  <span className="text-sm font-bold text-amber-400">{analysisData.lesionSpotAreaPercentage}%</span>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -186,7 +196,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
           <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
             <h4 className="text-xs font-bold text-stone-300 flex items-center gap-1.5">
               <Activity className="w-4 h-4 text-emerald-400" />
-              <span>{scan.diagnosticStatus === 'symptom_triage' ? 'الأعراض التي اخترتها:' : 'المؤشرات المرصودة — لا تعني تشخيص مرض:'}</span>
+              <span>{scan.diagnosticStatus === 'symptom_triage' ? 'أعراض مرجعية للمقارنة — ليست أعراضاً مؤكدة في نباتك:' : 'المؤشرات المرصودة — لا تعني تشخيص مرض:'}</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
               {diseaseOrPest.visualSymptomsAr.map((symp, idx) => (
@@ -217,16 +227,18 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
               {diseaseOrPest.identificationTipsAr.map((tip, index) => <li key={index}>{tip}</li>)}
             </ul>
           </div>
-          <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
-            <h4 className="text-xs font-bold text-stone-300">قياسات لونية تقريبية</h4>
+          {scan.diagnosticStatus !== 'symptom_triage' && (
+            <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
+              <h4 className="text-xs font-bold text-stone-300">قياسات لونية تقريبية</h4>
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="bg-stone-950 rounded-lg p-2">أخضر مقدّر: {analysisData.greenHealthIndex}%</div>
               <div className="bg-stone-950 rounded-lg p-2">أصفر مقدّر: {analysisData.chlorosisPercentage}%</div>
               <div className="bg-stone-950 rounded-lg p-2">بني مقدّر: {analysisData.necrosisPercentage}%</div>
               <div className="bg-stone-950 rounded-lg p-2">{analysisData.detectedHueSummary}</div>
             </div>
-            <p className="text-[10px] text-stone-500">هذه نسب بكسلات تقريبية وليست نسبة إصابة نسيجية أو احتمال مرض.</p>
-          </div>
+              <p className="text-[10px] text-stone-500">هذه نسب بكسلات تقريبية وليست نسبة إصابة نسيجية أو احتمال مرض.</p>
+            </div>
+          )}
           {/* Farmer's Field Notes & Action Log */}
           <div className="bg-stone-900 rounded-2xl p-4 border border-stone-800 space-y-2.5">
             <h4 className="text-xs font-bold text-stone-300 flex items-center gap-1.5">
