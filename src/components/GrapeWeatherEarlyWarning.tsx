@@ -124,7 +124,7 @@ export const GrapeWeatherEarlyWarning: React.FC = () => {
     ? 'border-rose-500/40 bg-rose-950/30 text-rose-100'
     : risk?.level === 'moderate'
       ? 'border-amber-500/40 bg-amber-950/25 text-amber-100'
-      : 'border-emerald-500/30 bg-emerald-950/20 text-emerald-100';
+      : risk?.level === 'unavailable'\n      ? 'border-stone-600 bg-stone-800 text-stone-100'\n      : 'border-emerald-500/30 bg-emerald-950/20 text-emerald-100';
 
   return (
     <section className="max-w-3xl mx-auto space-y-4 text-stone-100" dir="rtl">
@@ -187,7 +187,7 @@ export const GrapeWeatherEarlyWarning: React.FC = () => {
               : <ShieldCheck className="mt-1 h-6 w-6 shrink-0" />}
             <div>
               <div className="text-xs font-bold opacity-80">
-                {risk.level === 'high' ? 'مؤشر طقس قوي' : risk.level === 'moderate' ? 'مؤشر رطوبة' : 'لا توجد إشارة قوية'}
+                {risk.level === 'high' ? 'مؤشر طقس قوي' : risk.level === 'moderate' ? 'مؤشر رطوبة' : risk.level === 'unavailable' ? 'بيانات غير كافية' : 'لا توجد إشارة قوية'}
               </div>
               <h3 className="mt-1 text-base font-extrabold">{risk.headlineAr}</h3>
             </div>
