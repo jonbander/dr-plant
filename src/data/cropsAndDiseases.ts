@@ -678,7 +678,6 @@ export const CROPS_DATABASE: Crop[] = [
       'wheat_stripe_rust_syria'
     ]
   },
-[
   {
     "id": "potato",
     "nameAr": "البطاطا",
@@ -1337,7 +1336,6 @@ export const CROPS_DATABASE: Crop[] = [
     "wateringAdviceAr": "لا تتوفر في التطبيق حالياً توصية ري محلية موثقة لهذا المحصول.",
     "commonDiseaseIds": []
   }
-]
 ];
 
 // Curated sample test leaves for instant offline AI verification
