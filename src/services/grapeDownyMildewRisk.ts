@@ -29,7 +29,7 @@ function average(values: number[]): number | null {
 }
 
 function hourOf(value: string): number | null {
-  const match = value.match(/T(\\d{2}):/);
+  const match = value.match(/T(\d{2}):/);
   return match ? Number(match[1]) : null;
 }
 
