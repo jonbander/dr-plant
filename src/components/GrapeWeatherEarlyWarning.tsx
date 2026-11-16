@@ -124,7 +124,9 @@ export const GrapeWeatherEarlyWarning: React.FC = () => {
     ? 'border-rose-500/40 bg-rose-950/30 text-rose-100'
     : risk?.level === 'moderate'
       ? 'border-amber-500/40 bg-amber-950/25 text-amber-100'
-      : risk?.level === 'unavailable'\n      ? 'border-stone-600 bg-stone-800 text-stone-100'\n      : 'border-emerald-500/30 bg-emerald-950/20 text-emerald-100';
+      : risk?.level === 'unavailable'
+      ? 'border-stone-600 bg-stone-800 text-stone-100'
+      : 'border-emerald-500/30 bg-emerald-950/20 text-emerald-100';
 
   return (
     <section className="max-w-3xl mx-auto space-y-4 text-stone-100" dir="rtl">
