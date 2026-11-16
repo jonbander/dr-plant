@@ -107,3 +107,10 @@ MobileNetV3-Small is a baseline classifier, not an integrated production diagnos
 Notebook: [DrPlant Lemon V3 exploratory training](../notebooks/DrPlant_Lemon_V3_Exploratory_Training.ipynb).
 
 Open it in Colab from the GitHub file page, choose a GPU runtime if available, and run the cells in order. It attempts the Mendeley public API download and falls back to a Google Drive ZIP path if API access requires OAuth. It records the archive hash, audits class counts and exact duplicates, creates an explicitly non-independent exploratory split, trains MobileNetV3-Small, and saves the checkpoint and metrics to Google Drive. Do not use the exploratory metrics as independent test performance.
+
+
+### Conflicting exact-image labels in exploratory splits
+
+The exploratory splitter groups byte-identical images by SHA-256. If one hash appears under more than one class label, **all rows in that hash group are quarantined** in `quarantined-conflicting-label-duplicates.csv`; none is assigned to train, validation, or test. The report records the number of quarantined files and hash groups. This avoids arbitrarily trusting one of two contradictory labels. If quarantine leaves fewer than three unique unambiguous images in any class, the split is blocked and a report with status `blocked_insufficient_unique_images_after_quarantine` is written. Resolve the source data or obtain additional valid images; do not disable this check.
+
+The Colab notebook checks the split command's exit status before reading its report or starting training, so a failed split cannot be followed by a misleading `FileNotFoundError` or accidental training on stale outputs.
