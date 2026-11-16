@@ -22,7 +22,7 @@ The thresholds are informed by published grape downy mildew epidemiology and war
 
 ## API and cost
 
-The prototype uses the public Open-Meteo Forecast API without an API key. Its free endpoint is limited to non-commercial use and rate limits; the API data is CC BY 4.0 and requires attribution. Before deploying this feature in an app that displays advertising, charges users, or is otherwise commercial, obtain an appropriate Open-Meteo commercial licence or replace the provider. See https://open-meteo.com/en/terms and https://open-meteo.com/en/pricing.
+The prototype uses the public Open-Meteo Forecast API without an API key. Its free endpoint is limited to non-commercial use (up to 10,000 calls/day, with additional hourly/minute limits) and has no uptime guarantee; the API data is CC BY 4.0 and requires attribution. Do not use this free endpoint in an app that displays ads, charges subscriptions, or promotes commercial services. Before deploying this feature in an app that displays advertising, charges users, or is otherwise commercial, obtain an appropriate Open-Meteo commercial licence or replace the provider. See https://open-meteo.com/en/terms and https://open-meteo.com/en/pricing.
 
 ## References
 
