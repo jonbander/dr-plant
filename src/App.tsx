@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Camera, BookOpen, Calculator, HelpCircle, History, Sparkles, 
-  WifiOff, CheckCircle2, Leaf, Shield, Info, Sprout, Share2, Award
+  WifiOff, CheckCircle2, Leaf, Shield, Info, Sprout, Share2, Award, CloudRain
 } from 'lucide-react';
 import { CameraScanner } from './components/CameraScanner';
 import { DiagnosisResultModal } from './components/DiagnosisResultModal';
@@ -12,10 +12,11 @@ import { ScanHistoryView } from './components/ScanHistoryView';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { PWAInstallButton } from './components/PWAInstallButton';
 import { ScanResult } from './types/crop';
+import { GrapeWeatherEarlyWarning } from './components/GrapeWeatherEarlyWarning';
 import { analyzePlantOffline } from './services/offlineAiVisionEngine';
 import { getOfflineScans, saveOfflineScan, updateScanNotes } from './services/historyStorage';
 
-type TabType = 'scanner' | 'encyclopedia' | 'calculator' | 'wizard' | 'history';
+type TabType = 'scanner' | 'encyclopedia' | 'calculator' | 'wizard' | 'history' | 'weather';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('scanner');
@@ -94,7 +95,7 @@ export default function App() {
                   حَصَاد | كاشف آفات الساحل السوري
                 </h1>
                 <span className="hidden sm:inline text-[10px] bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold px-2 py-0.5 rounded-full">
-                  بدون إنترنت 100%
+                  الفحص المحلي دون إنترنت
                 </span>
               </div>
               <p className="text-[11px] text-stone-400 hidden sm:block">
@@ -114,7 +115,7 @@ export default function App() {
       {/* Quick Offline & Syrian Coastal Capability Ribbon */}
       <div className="bg-emerald-950/60 border-b border-emerald-800/30 px-4 py-1.5 text-center text-[11px] text-emerald-300 flex items-center justify-center gap-2 flex-wrap">
         <span className="px-1.5 py-0.5 bg-emerald-500/20 rounded font-bold text-white text-[10px]">🇸🇾 الساحل السوري</span>
-        <span>مخصص لبيئة ومناخ اللاذقية وطرطوس ومشتى الحلو وصلنفة وكسب وبانياس وجبلة • المحتوى المحلي والمبيدات قيد التدقيق ولا تُعرض جرعات علاجية غير موثقة.</span>
+        <span>مخصص لبيئة الساحل السوري • الفحص المحلي يعمل دون إنترنت، أما الإنذار الجوي فيحتاج اتصالاً وموقع المزرعة.</span>
       </div>
 
       {/* Desktop Navigation Tabs */}
@@ -126,6 +127,7 @@ export default function App() {
             { id: 'calculator', label: '🧮 حاسبة جرعات الرش', icon: Calculator },
             { id: 'wizard', label: '🧙 المساعد التشخيصي', icon: HelpCircle },
             { id: 'history', label: `📂 سجل الفحوصات (${scansHistory.length})`, icon: History },
+            { id: 'weather', label: '🌦️ الإنذار المبكر', icon: CloudRain },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -188,6 +190,8 @@ export default function App() {
 
         {activeTab === 'encyclopedia' && <CropPestEncyclopedia />}
 
+        {activeTab === 'weather' && <GrapeWeatherEarlyWarning />}
+
         {activeTab === 'calculator' && (
           <TreatmentDoseCalculator
             initialCrop={calcParams.cropName}
@@ -234,6 +238,7 @@ export default function App() {
           { id: 'calculator', label: 'الحاسبة', icon: Calculator },
           { id: 'wizard', label: 'المساعد', icon: HelpCircle },
           { id: 'history', label: 'السجل', icon: History, badge: scansHistory.length },
+          { id: 'weather', label: 'الطقس', icon: CloudRain },
         ].map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
