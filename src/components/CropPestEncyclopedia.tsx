@@ -139,6 +139,11 @@ export const CropPestEncyclopedia: React.FC = () => {
           )}
 
           <p className="text-xs text-stone-300 leading-relaxed">{selectedCrop.descriptionAr}</p>
+          {selectedCrop.commonDiseaseIds.length === 0 && (
+            <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-3 text-xs leading-6 text-amber-100">
+              لم تُراجع قائمة الأمراض والآفات لهذا المحصول في الموسوعة بعد. غيابها من القائمة لا يعني أن المحصول خالٍ من الأمراض، ولا تتوفر له حالياً قاعدة تشخيص مرضي أو إنذار جوي معتمدة داخل التطبيق.
+            </div>
+          )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div className="p-3 rounded-xl bg-stone-950/70 border border-stone-800 flex items-center gap-2">
