@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "enabled": false,
+  "modelPath": "/models/plant-disease/model.onnx",
+  "labelsPath": "/models/plant-disease/labels.json",
+  "inputSize": 224,
+  "inputLayout": "NCHW",
+  "channelOrder": "RGB",
+  "normalization": "image_net",
+  "resizeMode": "center_crop",
+  "outputKind": "logits",
+  "reviewStatus": "candidate",
+  "source": "",
+  "license": "",
+  "notes": "Disabled until the exact ONNX artifact, ordered labels, preprocessing, license and coastal field validation are verified."
+}
