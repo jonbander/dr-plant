@@ -17,8 +17,8 @@ const baseManifest: OnnxModelManifest = {
 };
 
 const classes: OnnxClassLabel[] = [
-  { id: 'tomato_early_blight', labelAr: 'اللفحة المبكرة في البندورة', cropId: 'tomato', diseaseId: 'tomato_early_blight' },
-  { id: 'grape_black_rot', labelAr: 'العفن الأسود في العنب', cropId: 'grape', diseaseId: 'grape_black_rot' }
+  { id: 'tomato_early_blight_syria', labelAr: 'اللفحة المبكرة في البندورة', cropId: 'tomato', diseaseId: 'tomato_early_blight_syria' },
+  { id: 'grape_downy_mildew', labelAr: 'العفن الأسود في العنب', cropId: 'french_grape_leaf', diseaseId: 'grape_downy_mildew' }
 ];
 
 test('softmax is numerically stable for large logits', () => {
