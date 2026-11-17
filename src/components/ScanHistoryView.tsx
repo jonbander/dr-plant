@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { History, Trash2, Calendar, FileDown, CheckCircle2, Clock, ChevronLeft, Search, Bookmark } from 'lucide-react';
+import { History, Trash2, Calendar, FileDown, CheckCircle2, Clock, ChevronLeft, Search, Bookmark, FileSpreadsheet, FileJson } from 'lucide-react';
 import { ScanResult } from '../types/crop';
 import { deleteOfflineScan, updateScanNotes, clearAllScans } from '../services/historyStorage';
+import { exportScansAsCSV, exportScansAsJSON } from '../services/exportService';
 
 interface ScanHistoryViewProps {
   scans: ScanResult[];
@@ -16,6 +17,7 @@ export const ScanHistoryView: React.FC<ScanHistoryViewProps> = ({
 }) => {
   const [search, setSearch] = useState('');
   const [filterCrop, setFilterCrop] = useState('all');
+  const [showExportMenu, setShowExportMenu] = useState(false);
 
   const handleDelete = (e: React.MouseEvent, id: string) => {
     e.stopPropagation();
@@ -25,14 +27,14 @@ export const ScanHistoryView: React.FC<ScanHistoryViewProps> = ({
     }
   };
 
-  const handleExportBackup = () => {
-    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(scans, null, 2));
-    const downloadAnchor = document.createElement('a');
-    downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute('download', `agrosan_farm_history_${new Date().toISOString().slice(0, 10)}.json`);
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
+  const exportDate = new Date().toISOString().slice(0, 10);
+  const handleExportJson = () => {
+    exportScansAsJSON(scans, undefined, `dr-plant-backup-${exportDate}.json`);
+    setShowExportMenu(false);
+  };
+  const handleExportCsv = () => {
+    exportScansAsCSV(scans, `dr-plant-scans-${exportDate}.csv`);
+    setShowExportMenu(false);
   };
 
   const filteredScans = scans.filter((s) => {
@@ -59,13 +61,37 @@ export const ScanHistoryView: React.FC<ScanHistoryViewProps> = ({
         </div>
 
         {scans.length > 0 && (
-          <button
-            onClick={handleExportBackup}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-800 hover:bg-stone-750 text-stone-300 text-xs font-semibold border border-stone-700 transition"
-          >
-            <FileDown className="w-4 h-4 text-emerald-400" />
-            <span>تصدير نسخة احتياطية</span>
-          </button>
+          <div className="relative">
+            <button
+              onClick={() => setShowExportMenu(value => !value)}
+              aria-expanded={showExportMenu}
+              aria-haspopup="menu"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-800 hover:bg-stone-750 text-stone-300 text-xs font-semibold border border-stone-700 transition"
+            >
+              <FileDown className="w-4 h-4 text-emerald-400" />
+              <span>تصدير السجل</span>
+            </button>
+            {showExportMenu && (
+              <div role="menu" className="absolute left-0 top-full mt-2 z-20 min-w-48 rounded-xl border border-stone-700 bg-stone-900 p-1.5 shadow-xl">
+                <button
+                  role="menuitem"
+                  onClick={handleExportCsv}
+                  className="w-full flex items-center gap-2 rounded-lg px-3 py-2 text-right text-xs text-stone-200 hover:bg-stone-800"
+                >
+                  <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
+                  تصدير CSV لبرنامج Excel
+                </button>
+                <button
+                  role="menuitem"
+                  onClick={handleExportJson}
+                  className="w-full flex items-center gap-2 rounded-lg px-3 py-2 text-right text-xs text-stone-200 hover:bg-stone-800"
+                >
+                  <FileJson className="w-4 h-4 text-sky-400" />
+                  نسخة احتياطية JSON كاملة
+                </button>
+              </div>
+            )}
+          </div>
         )}
       </div>
 
