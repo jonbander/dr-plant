@@ -261,9 +261,10 @@ export async function classifyPlantDiseaseWithOnnx(
     const width = image.naturalWidth || image.width;
     const height = image.naturalHeight || image.height;
     if (!width || !height) return { status: 'bad_image', message: 'الصورة فارغة أو غير صالحة.' };
+    const probeScale = Math.min(1, 320 / Math.max(width, height));
     const probe = document.createElement('canvas');
-    probe.width = Math.min(width, 320);
-    probe.height = Math.min(height, 320);
+    probe.width = Math.max(1, Math.round(width * probeScale));
+    probe.height = Math.max(1, Math.round(height * probeScale));
     const probeContext = probe.getContext('2d', { willReadFrequently: true });
     if (!probeContext) return { status: 'bad_image', message: 'تعذر فحص جودة الصورة.' };
     probeContext.drawImage(image, 0, 0, probe.width, probe.height);
@@ -272,7 +273,7 @@ export async function classifyPlantDiseaseWithOnnx(
     if (!quality.isUsable) return { status: 'bad_image', message: quality.warnings.join(' ') };
 
     const [ort, session] = await Promise.all([loadRuntime(), loadSession(manifest)]);
-    if (classes.length !== session.outputNames.length && classes.length === 0) {
+    if (classes.length === 0) {
       return { status: 'model_error', message: 'ملف تسميات النموذج فارغ.' };
     }
     const tensor = prepareInput(image, manifest, ort);
@@ -284,8 +285,9 @@ export async function classifyPlantDiseaseWithOnnx(
     const scores = manifest.outputKind === 'logits'
       ? stableSoftmax(outputTensor.data)
       : Array.from(outputTensor.data, value => Number(value));
-    if (scores.some(value => !Number.isFinite(value) || value < 0)) {
-      return { status: 'model_error', message: 'خرج النموذج يحتوي قيماً غير صالحة.' };
+    if (scores.some(value => !Number.isFinite(value) || value < 0) ||
+        (manifest.outputKind === 'probabilities' && Math.abs(scores.reduce((sum, value) => sum + value, 0) - 1) > 0.02)) {
+      return { status: 'model_error', message: 'خرج النموذج يحتوي قيماً غير صالحة أو احتمالات لا مجموع لها يساوي 1.' };
     }
     return chooseCropScopedClass(scores, classes, cropId, manifest);
   } catch (error) {
