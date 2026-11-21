@@ -6,8 +6,8 @@ This folder records a source audit based on the dataset shortlist supplied by th
 
 | Dataset | Latest verified record | Content | License / status | Dr Plant use |
 |---|---|---|---|---|
-| Large-Scale Lemon Leaf Disease and Pest Image Dataset from Bangladesh | Mendeley V3, 2026-11-04, DOI 10.17632/8d9fv6kpt3.3 | 17,586 original field-collected lemon images, 18 image-level categories, four collection locations, 2025 season | CC BY 4.0; metadata and class descriptions need review | Highest-priority citrus candidate; download and audit before training |
-| Field-Based Citrus Leaf Disease Image Dataset | Mendeley V1, 2026-10-15, DOI 10.17632/szsms728jf.1 | 611 expert-annotated field images: healthy, greasy spot, greening, California red scale; Fes-Meknes, Morocco | CC BY 4.0 | Strong small field-domain supplement; leaves and fruits must be separated by task |
+| Large-Scale Lemon Leaf Disease and Pest Image Dataset from Bangladesh | Mendeley V3, 2026-11-04, DOI 10.17632/8d9fv6kpt3.3 | 17,586 original field-collected lemon images, 18 image-level categories, four collection locations, 2025 season | CC BY 4.0; metadata and class descriptions need review | Downloaded and trained exploratory lemon benchmark; image-level split only |
+| Field-Based Citrus Leaf Disease Image Dataset | Mendeley V3, 2026-11-13, DOI 10.17632/szsms728jf.3 | 611 field images, 4 visually annotated classes, metadata.csv and recommended_partition.csv, 14 tree IDs | CC BY 4.0 | Downloaded and used for tree-held-out citrus benchmark; one metadata/path conflict quarantined |
 | Grapevine Bunch Images with Powdery Mildew Severity Labels | Mendeley V1, 2026-10-13, DOI 10.17632/z2f3vdc6nh.1 | 2,068 field bunch images, ordinal grades healthy/mild/moderate/severe; one Moroccan vineyard and one season | CC BY 4.0 | Separate fruit/bunch severity model, not a leaf classifier |
 | Multi-Fruit Leaf Image Dataset (includes olive) | Mendeley V1, 2026-01-14, DOI 10.17632/82vn9k44ky.1 | 2,308 original images across guava/jackfruit/mango/olive; 18,000 augmented versions also supplied | CC BY 4.0 | Olive exploratory pretraining only; use originals, not augmented copies, until split lineage is audited |
 | GVLiD grapevine leaves | Mendeley V5, DOI 10.17632/wkymf8bhcg.5 | 3,477 field-acquired 1080px images; black rot, Esca, leaf blight, healthy | CC BY 4.0 | High-priority grape benchmark; verify metadata and class folder agreement |
@@ -50,3 +50,13 @@ This folder records a source audit based on the dataset shortlist supplied by th
 - Citrus Leaf Disease Dataset: https://zenodo.org/records/11148332
 
 Audit date: 2026-11-21.
+
+
+## November 21 execution update
+
+- The current Field-Based Citrus dataset is **V3** (DOI 10.17632/szsms728jf.3), not V1. V3 includes `metadata.csv` and `recommended_partition.csv`; the recommended split is leaf-group-aware but still shares tree IDs across partitions. Dr Plant therefore created a stricter tree-disjoint split.
+- One citrus metadata row (IMG_0405) states Tree_ID T07 while its original image path points to T08. That row was quarantined rather than silently assigned.
+- Citrus V3 training used 610 images, with train/validation/test trees disjoint; test accuracy 86.57%, macro-F1 85.76%.
+- Lemon V3 training used all 17,586 images across 18 labels. Because the release lacks plant/tree identifiers, the image-level stratified holdout is explicitly non-independent; test accuracy 71.27%, macro-F1 66.34%.
+- Both ONNX exports passed ONNX Checker and ONNX Runtime parity checks (100% prediction agreement with PyTorch on their respective test sets).
+- Raw source archives are kept in Box project storage only and excluded from GitHub. Metrics, logs, notebooks, scripts and source audit are versioned in this branch.
