@@ -1,0 +1,2 @@
+path,label,split,group_id,source_id,original_image_id,crop,plant_part,site,season,cultivar,capture_date,device,license,expert_verified
+images/example.jpg,healthy,train,orchard01_tree03_2025,source-doi,original-0001,citrus,leaf,orchard01,2025,unknown,2025-04-01,phone-model,CC-BY-4.0,false
