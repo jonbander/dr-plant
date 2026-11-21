@@ -89,7 +89,7 @@
       ],
       "scientificName": "Citrus tristeza virus",
       "evidenceStatus": "reference_only",
-      "notes": "A peer-reviewed first report documented a 2006 survey and serological testing in Syrian citrus-growing areas including Jableh and other locations in Latakia, and sites in Tartous. Treat this as a historical published regional record, not a statement about present-day prevalence or any particular tree. Symptoms alone are insufficient; laboratory testing is required.",
+      "notes": "Historical, laboratory-supported regional evidence: the spring 2006 survey covered citrus-growing areas in Latakia (including Jableh) and Tartous; 2,653 samples were tested and 89 (about 3.35%) were positive according to the EPPO summary. This is not a current prevalence estimate. Do not confuse this survey with an unverified 288-sample / 61.23% figure mentioned in a secondary lead; that figure is not supported by the cited 2008 report. Symptoms alone are insufficient; laboratory testing is required.",
       "sources": [
         {
           "title": "Abou Kubaa et al. (2008) – First Report from Syria of Citrus tristeza virus in Citrus spp.",
@@ -98,6 +98,10 @@
         {
           "title": "PubMed record – First Report from Syria of Citrus tristeza virus in Citrus spp.",
           "url": "https://pubmed.ncbi.nlm.nih.gov/30769557/"
+        },
+        {
+          "title": "EPPO Global Database – First report of Citrus tristeza virus in Syria (survey counts and locations)",
+          "url": "https://gd.eppo.int/reporting/article-147"
         }
       ]
     },
@@ -333,6 +337,180 @@
         {
           "title": "UGA Cooperative Extension – Maintaining Commercial Citrus in Georgia",
           "url": "https://extension.uga.edu/publications/detail.html?number=B1520"
+        }
+      ]
+    },
+    {
+      "id": "grapevine-disease-classification-syria-alkan-2021",
+      "crop": "grape",
+      "commonNames": [
+        "أمراض أوراق العنب – دراسة تصنيف بصري سورية/إنترنت",
+        "Grapevine leaf disease image classification"
+      ],
+      "scientificName": "Multiple grapevine leaf disorders (paper-specific classes require full-text verification)",
+      "evidenceStatus": "reference_only",
+      "notes": "The 2021 paper abstract reports more than 1,000 vine-leaf images collected from Syrian vineyards and the internet, and reports up to 92.5% accuracy for one experimental configuration. It does not disclose in the abstract how many images are Syrian versus internet-sourced, nor does the linked journal record provide a public image archive. A later 2024 review appears to describe the experimental dataset location differently (Türkiye/PlantVillage), so provenance must be resolved from the full paper, image list and authors before reuse. This is a high-priority author-contact lead, not an available training dataset or validated Dr Plant performance.",
+      "sources": [
+        {
+          "title": "Alkan et al. (2021), Turkish Journal of Agriculture and Forestry – A smart agricultural application: automated detection of diseases in vine leaves using hybrid deep learning",
+          "url": "https://journals.tubitak.gov.tr/agriculture/vol45/iss6/3/"
+        },
+        {
+          "title": "2024 review – Artificial Intelligence Techniques in Grapevine Research (dataset provenance cross-check)",
+          "url": "https://doi.org/10.3390/s24196211"
+        }
+      ]
+    },
+    {
+      "id": "olive-knot-syria-coastal",
+      "crop": "olive",
+      "commonNames": [
+        "سل الزيتون",
+        "Olive knot"
+      ],
+      "scientificName": "Pseudomonas savastanoi pv. savastanoi",
+      "evidenceStatus": "reference_only",
+      "notes": "Syrian coastal field evidence. A 2007 survey reported the highest incidence (70%) in the coastal region including Latakia and Tartous; a separate CIHEAM thesis summary reports 68% in the coastal region. These are historical survey findings, not current orchard prevalence. Visible knots on twigs and branches are useful scouting targets, but expert/laboratory confirmation is needed for labels. The 68% and 70% values belong to different reported sources and must not be merged.",
+      "sources": [
+        {
+          "title": "Alabdalla et al. (2009) – First report of Pseudomonas savastanoi pv. savastanoi causing olive knot in Syria",
+          "url": "https://www.ndrs.org.uk/article.php?id=019020"
+        },
+        {
+          "title": "CIHEAM Bari – Incidence, distribution and characterization of olive knot in Syria (thesis record; 68% coastal incidence)",
+          "url": "https://sebina.iamb.it/opac/resource/incidence-distribution-and-characterization-of-pseudomonas-savastanoi-pv-savastanoi-in-syria-and-ide/CIH0019331"
+        },
+        {
+          "title": "Ahmad et al. (2026) – The Antagonistic Effect of a Local Isolate of Trichoderma harzianum Against Olive Knot Disease in Syria",
+          "url": "https://www.arabjournalpp.org/article/2026/02/5045/"
+        }
+      ]
+    },
+    {
+      "id": "olive-peacock-spot-coastal-syria",
+      "crop": "olive",
+      "commonNames": [
+        "عين الطاووس",
+        "تبقع عين الطاووس",
+        "Peacock spot / olive leaf spot"
+      ],
+      "scientificName": "Venturia oleaginea (syn. Spilocaea oleagina)",
+      "evidenceStatus": "reference_only",
+      "notes": "A 2012 coastal-hills study reported severe historical incidence in parts of Latakia and Tartous during 2007–2008, including up to 100% in some cultivar/area combinations. A separate 2025 spatial-analysis paper examined Latakia and Idlib for 2009–2012 and related mapped severity to relative humidity; it is not a 2026 survey and does not cover Tartous. These are historical research findings, not current prevalence or image labels. Target leaf images separately from fruit/branch tasks and seek expert confirmation.",
+      "sources": [
+        {
+          "title": "Al-Chaabi et al. (2012) – Incidence of Peacock Spot Disease on Olive Trees in the Coastal Hills of Syria and Evaluation of Resistance Among Local and Imported Olive Cultivars",
+          "url": "https://arabjournalpp.org/wp-content/uploads/2021/04/110-127.pdf"
+        },
+        {
+          "title": "Hilal (2025) – Spatial Analysis of the Spread of Peacock Eye Disease in Lattakia and Idlib and its Relation to Relative Humidity",
+          "url": "https://journalajgr.com/index.php/AJGR/article/view/349"
+        }
+      ]
+    },
+    {
+      "id": "citrus-psorosis-virus-syria",
+      "crop": "citrus",
+      "commonNames": [
+        "فيروس تقشر قلف الحمضيات",
+        "Citrus psorosis virus"
+      ],
+      "scientificName": "Citrus psorosis virus",
+      "evidenceStatus": "reference_only",
+      "notes": "A 2011 sampling campaign included 250 symptomatic and asymptomatic trees from Latakia mother block and commercial orchards in Jableh, Tartous and Latakia; two Navel orange trees in Latakia were confirmed by serology and RT-PCR. Historical detection only; not current prevalence. Bark/trunk symptoms and leaf symptoms should not be collapsed into one leaf-image class.",
+      "sources": [
+        {
+          "title": "Abou Kubaa et al. (2014) – First report of Citrus psorosis virus in Syria",
+          "url": "https://www.sipav.org/en/16/Archive/3220"
+        }
+      ]
+    },
+    {
+      "id": "tomato-brown-rugose-fruit-virus-syria",
+      "crop": "tomato",
+      "commonNames": [
+        "فيروس تجعد واصفرار/تجعد الثمار البني",
+        "Tomato brown rugose fruit virus (ToBRFV)"
+      ],
+      "scientificName": "Tomato brown rugose fruit virus",
+      "evidenceStatus": "reference_only",
+      "notes": "A 2022 Plant Disease report describes virus-like symptoms observed in greenhouse tomatoes in spring/autumn 2017 in the east of Akkar plain, Tartous governorate, Syria. The report documents first detection; do not infer present-day distribution. Important visible signs include leaf mosaic and fruit rugosity/discoloration, so a leaf-only classifier cannot fully represent the disease. Confirm with molecular testing.",
+      "sources": [
+        {
+          "title": "Hasan et al. (2022) – First Report of Tomato Brown Rugose Fruit Virus on Greenhouse Tomato in Syria",
+          "url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-07-21-1356-PDN"
+        }
+      ]
+    },
+    {
+      "id": "tomato-yellow-leaf-curl-virus-coastal-syria",
+      "crop": "tomato",
+      "commonNames": [
+        "فيروس تجعد واصفرار أوراق البندورة",
+        "Tomato yellow leaf curl virus (TYLCV)"
+      ],
+      "scientificName": "Tomato yellow leaf curl virus complex",
+      "evidenceStatus": "reference_only",
+      "notes": "Research records PCR-confirmed TYLCV/TYLCSV strains in greenhouse tomato on the Syrian coast, with work on local cultivar responses. An FAO AGRIS record for a 2022 study describes Spanish and Sicilian strains in addition to previously detected Mld and IL strains. This is evidence of historical regional research, not a current prevalence estimate or visual-only confirmation. Similar symptoms can have other causes; molecular testing is required for pathogen identity.",
+      "sources": [
+        {
+          "title": "FAO AGRIS – Evaluation of Resistance of some Tomato Varieties for TYLCV and Study of Resistance Inducers Effects (2022)",
+          "url": "https://agris.fao.org/search/ar/records/651a9180528c4f6c2ac8399f"
+        },
+        {
+          "title": "Arab and Near East Plant Protection Bulletin (2023) – coastal tomato virus research review",
+          "url": "https://arabjournalpp.org/wp-content/uploads/2023/12/V414-Pages-444-458-MS-83-22.pdf"
+        }
+      ]
+    },
+    {
+      "id": "tomato-bacterial-canker-coastal-syria",
+      "crop": "tomato",
+      "commonNames": [
+        "التقرح البكتيري للبندورة",
+        "Bacterial canker of tomato"
+      ],
+      "scientificName": "Clavibacter michiganensis subsp. michiganensis",
+      "evidenceStatus": "reference_only",
+      "notes": "Field surveys in Latakia and Tartous greenhouses in 2007 reported bacterial canker; incidence in affected surveyed greenhouses was reported as 15% in spring and up to 70% by late July. Ten isolates were identified by classical tests and PCR. Historical survey only; the percentages are not current prevalence. Symptom classes must account for vascular discoloration/wilting and distinguish other wilts.",
+      "sources": [
+        {
+          "title": "Ftayeh et al. (2010) – Occurrence of Clavibacter michiganensis subsp. michiganensis, the causal agent of bacterial canker of tomato, in Syria",
+          "url": "https://oajournals.fupress.net/index.php/pm/article/view/5342"
+        }
+      ]
+    },
+    {
+      "id": "tomato-fusarium-wilt-coastal-syria",
+      "crop": "tomato",
+      "commonNames": [
+        "ذبول الفيوزاريوم في البندورة",
+        "Tomato Fusarium wilt"
+      ],
+      "scientificName": "Fusarium oxysporum f. sp. lycopersici",
+      "evidenceStatus": "reference_only",
+      "notes": "A 2025 study surveyed greenhouses in Latakia and Tartous during 2019–2020, isolated the pathogen from wilted tomato stems, confirmed pathogenicity and identified race 1 by PCR. This is strong regional pathogen evidence but not a public image dataset. Leaf yellowing/wilting alone is not a specific image label; root/stem and laboratory evidence should be retained.",
+      "sources": [
+        {
+          "title": "Sbieh et al. (2025) – Identification of Physiological Races for Fusarium oxysporum f. sp. lycopersici Causing Tomato Fusarium Wilt in Greenhouses Along the Syrian Coast",
+          "url": "https://www.arabjournalpp.org/article/2025/02/4608/"
+        }
+      ]
+    },
+    {
+      "id": "tomato-root-knot-nematodes-coastal-syria",
+      "crop": "tomato",
+      "commonNames": [
+        "نيماتودا تعقد الجذور",
+        "Root-knot nematodes"
+      ],
+      "scientificName": "Meloidogyne spp.",
+      "evidenceStatus": "reference_only",
+      "notes": "A 2026 study reports a coastal greenhouse survey in Latakia and Tartous: 273 soil/root samples from 67 locations during 2023–2024. It measured nematode counts and root gall severity. This is a root/soil diagnostic task, not a leaf-photo class; keep it out of leaf-only image training unless a separate validated root-image task is designed.",
+      "sources": [
+        {
+          "title": "Ahmad et al. (2026) – Prevalence of Root-Knot Nematodes, Meloidogyne spp. in Greenhouse Tomato Crops in the Syrian Coastal Region",
+          "url": "https://www.arabjournalpp.org/article/2026/03/5266/"
         }
       ]
     }
@@ -615,6 +793,30 @@
           "url": "https://data.mendeley.com/datasets/compare/8d9fv6kpt3"
         }
       ]
+    },
+    {
+      "id": "syrian-grapevine-images-alkan-2021",
+      "name": "Syrian and internet-sourced grapevine leaf images reported by Alkan et al. (2021)",
+      "crop": "grape",
+      "classes": [
+        "Paper reports nine disease classes plus healthy; exact class list requires full-text extraction and author confirmation"
+      ],
+      "license": "Not stated for a reusable image archive; written permission required unless authors identify a public licensed source",
+      "status": "author_contact_required_no_public_archive_verified",
+      "source": "https://journals.tubitak.gov.tr/agriculture/vol45/iss6/3/",
+      "doi": "10.3906/tar-2007-105",
+      "intendedUse": "Highest-priority lead for obtaining original Syrian vineyard images, image-level provenance, labels and permission. Do not download from unofficial mirrors or train until exact Syrian subset, source provenance and reuse rights are documented.",
+      "notes": "The paper abstract says over 1,000 vine-leaf images were collected from vineyards in Syria and the internet. It does not state how many were Syrian, nor identify a public archive in the journal record. A 2024 review lists dataset location as Türkiye/PlantVillage, creating a provenance discrepancy that must be resolved with the full paper and authors. No images are included in this repository.",
+      "sources": [
+        {
+          "title": "Alkan et al. (2021) – journal article",
+          "url": "https://journals.tubitak.gov.tr/agriculture/vol45/iss6/3/"
+        },
+        {
+          "title": "2024 grapevine AI dataset review – provenance cross-check",
+          "url": "https://doi.org/10.3390/s24196211"
+        }
+      ]
     }
   ],
   "contributions": [],
@@ -693,6 +895,11 @@
       "date": "2026-11-15",
       "change": "Registered the latest Large-Scale Lemon Leaf Disease and Pest dataset V3 (17,586 images, 18 classes including citrus scab) as a high-priority candidate.",
       "limitation": "The archive, exact per-class counts, file-level provenance, duplicate groups, and per-image site/plant/session metadata remain unaudited; no images downloaded or trained."
+    },
+    {
+      "date": "2026-11-21",
+      "change": "Added a Syrian coastal evidence register to the knowledge base: grapevine image-study contact lead; historical coastal citrus, olive and greenhouse tomato disease records; and root-knot nematode survey. Corrected the CTV sample denominator to the verified 2,653 samples / 89 positives and flagged the conflicting 288 / 61.23% claim.",
+      "limitation": "These are literature references, not locally supplied image files. No Syrian image archive was downloaded, licensed, expert-labelled or used for training; historical survey percentages are not current prevalence."
     }
   ]
 }
