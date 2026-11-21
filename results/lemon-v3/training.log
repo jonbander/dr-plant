@@ -1,0 +1,44 @@
+{"epoch": 1, "train_loss": 1.580579252521713, "val_accuracy": 0.5822592873388931}
+{"epoch": 2, "train_loss": 1.241325679692355, "val_accuracy": 0.6258529188779378}
+{"epoch": 3, "train_loss": 1.1508150247784403, "val_accuracy": 0.6315390447308568}
+/workspace/dr-plant/scripts/train_lemon_v3_exploratory.py:61: UserWarning: # 'dynamic_axes' is not recommended when dynamo=True, and may lead to 'torch._dynamo.exc.UserError: Constraints violated.' Supply the 'dynamic_shapes' argument instead if export is unsuccessful.
+  torch.onnx.export(model,torch.zeros(1,3,size,size),str(a.out/"lemon-v3-mobilenetv3-small.onnx"),input_names=["images"],output_names=["logits"],dynamic_axes={"images":{0:"batch"},"logits":{0:"batch"}},opset_version=17);report["onnx_export"]="success"
+W1121 19:27:25.913000 4721 torch/onnx/_internal/exporter/_compat.py:133] Setting ONNX exporter to use operator set version 18 because the requested opset_version 17 is a lower version than we have implementations for. Automatic version conversion will be performed, which may not be successful at converting to the requested version. If version conversion is unsuccessful, the opset version of the exported model will be kept at 18. Please consider setting opset_version >=18 to leverage latest ONNX features
+The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 17).
+Failed to convert the model to the target version 17 using the ONNX C API. The model was not modified
+Traceback (most recent call last):
+  File "/workspace/drplant-venv/lib/python3.12/site-packages/onnxscript/version_converter/__init__.py", line 137, in call
+    converted_proto = _c_api_utils.call_onnx_api(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/drplant-venv/lib/python3.12/site-packages/onnxscript/version_converter/_c_api_utils.py", line 65, in call_onnx_api
+    result = func(proto)
+             ^^^^^^^^^^^
+  File "/workspace/drplant-venv/lib/python3.12/site-packages/onnxscript/version_converter/__init__.py", line 132, in _partial_convert_version
+    return onnx.version_converter.convert_version(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/drplant-venv/lib/python3.12/site-packages/onnx/version_converter.py", line 39, in convert_version
+    converted_model_str = C.convert_version(model_str, target_version)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: /project/onnx/version_converter/adapters/axes_input_to_attribute.h:55: adapt: Assertion `node->hasAttribute(kaxes)` failed: No initializer or constant input to node found
+[torch.onnx] Obtain model graph for `MobileNetV3([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `MobileNetV3([...]` with `torch.export.export(..., strict=False)`... ✅
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... ✅
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... ✅
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... ✅
+{
+  "status": "exploratory_image_level_split_non_independent",
+  "images": 17586,
+  "best_validation_accuracy": 0.6315390447308568,
+  "test_accuracy": 0.6588324488248674,
+  "test_macro_f1": 0.6064638714564009,
+  "images_per_split": {
+    "train": 12310,
+    "val": 2638,
+    "test": 2638
+  },
+  "onnx_export": "success",
+  "elapsed_seconds": 297.0
+}
