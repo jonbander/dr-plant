@@ -31,6 +31,8 @@ bun run build
 - قاعدة المعرفة البحثية: [data/knowledge-base.json](./data/knowledge-base.json)
 - أضيف جرب الحمضيات (*Elsinoë fawcettii*) كمرجع أولي للّيمون؛ لا يعني ذلك تأكيد وجوده محلياً أو أن النموذج تعلمه.
 - دليل الأدلة وحدود التشخيص: [docs/DIAGNOSTIC_EVIDENCE.md](./docs/DIAGNOSTIC_EVIDENCE.md)
+- سجل الأدلة البحثية الخاصة بالساحل السوري وأولويات الحصول على الصور: [docs/SYRIAN_COAST_EVIDENCE.md](./docs/SYRIAN_COAST_EVIDENCE.md)
+- سجل المصادر الساحلية القابل للفرز: [research/2026-11/syrian-coast-source-register.csv](./research/2026-11/syrian-coast-source-register.csv)
 - يجب أن تمر كل إضافة بحثية بفحص المصدر والحالة العلمية وترخيص الصور.
 - لا تمنح علنية المستودع أي وكيل صلاحية على حسابات أو ملفات خاصة.
 
