@@ -7,3 +7,5 @@ coverage/
 data/external/
 .env*
 !.env.example
+data/plantvillage-full-v2/
+data/plantvillage-multicrop-subset/
