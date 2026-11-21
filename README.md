@@ -57,3 +57,16 @@ bun run build
 - Xiang et al. (2026), cross-domain reliability gap in plant disease classification: https://doi.org/10.3389/fpls.2026.1826962
 
 هذه المراجع تساعد على فهم الأعراض ومخاطر التعميم، ولا تثبت ملاءمة أي مبيد أو جرعة للسوق السورية.
+
+
+## Research-only training outputs (2026-11-21)
+
+Candidate training runs and their reports are kept separate from the application runtime:
+
+- [November 2026 training report](./results/2026-11/REPORT_AR.md)
+- [Dataset source audit and version corrections](./research/2026-11/dataset-audit.md)
+- [Citrus Field V3 metrics](./results/citrus-field-v3/metrics.json)
+- [Lemon V3 metrics](./results/lemon-v3/metrics.json)
+- [Previous training archive](./results/archive/README_AR.md)
+
+These research candidates are **not enabled in the app**. Neither source-domain scores nor tree-held-out results from a single Moroccan orchard establish performance on Syrian coastal farms. Syrian external validation, label review, calibration and abstention are required before integration.
