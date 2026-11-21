@@ -178,3 +178,13 @@ It creates a SHA-256 manifest and JSON report covering image/XML pairing, Pascal
 - Do not confuse sour citrus scab (*E. fawcettii*) with sweet orange scab (*E. australis*).
 - References: [UF/IFAS CH159](https://ask.ifas.ufl.edu/publication/CH159), [NSW DPIRD citrus field guide](https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0008/1629467/Pests%2C-beneficials%2C-diseases-and-disorders-in-citrus.pdf), [UGA Extension B1520](https://extension.uga.edu/publications/detail.html?number=B1520).
 - Evidence status remains `reference_only`; no current Syrian coastal specimen or expert confirmation was supplied.
+
+## Syrian coastal source integration — 21 November 2026
+
+A dedicated source register has been added at [docs/SYRIAN_COAST_EVIDENCE.md](./SYRIAN_COAST_EVIDENCE.md), with a machine-readable list at [research/2026-11/syrian-coast-source-register.csv](../research/2026-11/syrian-coast-source-register.csv). The knowledge base now links historical coastal evidence for olive knot, peacock spot, citrus tristeza and psorosis, greenhouse tomato ToBRFV, TYLCV, bacterial canker, Fusarium wilt, and root-knot nematodes. These are evidence leads only, not training images or confirmed current prevalence.
+
+**Important correction:** the cited 2008 Syrian CTV report describes 2,653 samples and 89 positives (~3.35%) in the EPPO summary, not 288 samples / 61.23%. The latter figure is not assigned to this study and remains unverified until its original source is identified. The 2025 GIS peacock-eye study concerns Latakia and Idlib observations from 2009–2012; it is not a 2026 survey and does not cover Tartous. The alleged *Fusarium solani* olive-nursery reference was not verified and was not added as a fact.
+
+The Alkan et al. (2021) grapevine paper is prioritized for author contact because its abstract reports more than 1,000 images from Syrian vineyards and the internet. The exact Syrian subset, source manifest, archive availability and image reuse permission remain unresolved; a 2024 review describes the dataset location differently. Do not train on or redistribute these images until the discrepancy is resolved.
+
+Repository inspection found no Syrian coastal image archive in the inspected data tree and no GitHub issue matching `repo:jonbander/dr-plant Syria`. No new training was performed and no model was enabled. A coastal dataset must pass image provenance, permission, expert-label, duplicate and tree/site-aware holdout gates before training.
