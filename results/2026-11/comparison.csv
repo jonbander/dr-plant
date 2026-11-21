@@ -2,4 +2,4 @@ training,dataset,images,classes,validation_accuracy,test_accuracy,test_macro_f1,
 plantvillage-v1,PlantVillage subset,2660,38,0.7684,0.7908,0.7830,leaf_id group split,exploratory
 plantvillage-v2,PlantVillage full,54304,38,0.8875,0.8936,0.8668,leaf_id group split,exploratory source-domain
 citrus-field-v3,Mendeley 10.17632/szsms728jf.3,610,4,0.8611,0.8657,0.8576,tree-level disjoint,field-source benchmark
-lemon-v3,Mendeley 10.17632/8d9fv6kpt3.3,17586,18,0.6315,0.6588,0.6065,image-level stratified only,exploratory non-independent
+lemon-v3,Mendeley 10.17632/8d9fv6kpt3.3,17586,18,0.7017,0.7127,0.6634,image-level stratified only,exploratory non-independent
