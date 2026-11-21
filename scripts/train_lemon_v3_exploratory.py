@@ -40,9 +40,10 @@ def main():
  model=models.mobilenet_v3_small(weights=models.MobileNet_V3_Small_Weights.DEFAULT)
  model.classifier[-1]=nn.Linear(model.classifier[-1].in_features,len(classes))
  for q in model.features.parameters():q.requires_grad=False
- for block in list(model.features.children())[-a.unfreeze_last_blocks:]:
-  for q in block.parameters():q.requires_grad=True
- best=0;best_state=None;hist=[];start_epoch=1
+ if a.unfreeze_last_blocks>0:
+  for block in list(model.features.children())[-a.unfreeze_last_blocks:]:
+   for q in block.parameters():q.requires_grad=True
+ best=0;best_state=None;hist=[];start_epoch=1;start=time.time()
  if a.resume and (a.out/"best-model.pt").is_file():
   ck=torch.load(a.out/"best-model.pt",map_location="cpu",weights_only=False)
   if ck["classes"]!=classes: raise ValueError("Checkpoint class order mismatch")
@@ -69,6 +70,7 @@ def main():
  try:
   torch.onnx.export(model,torch.zeros(1,3,size,size),str(a.out/"lemon-v3-mobilenetv3-small.onnx"),input_names=["images"],output_names=["logits"],dynamic_axes={"images":{0:"batch"},"logits":{0:"batch"}},opset_version=17);report["onnx_export"]="success"
  except Exception as e:report["onnx_export"]="failed: "+repr(e)
+ (a.out/"labels.json").write_text(json.dumps(classes,ensure_ascii=False,indent=2)+"\\n")
  (a.out/"metrics.json").write_text(json.dumps(report,ensure_ascii=False,indent=2))
  print(json.dumps({k:report[k] for k in ["status","images","best_validation_accuracy","test_accuracy","test_macro_f1","images_per_split","onnx_export","elapsed_seconds"]},ensure_ascii=False,indent=2),flush=True)
 if __name__=="__main__":main()
