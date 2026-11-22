@@ -615,6 +615,87 @@
           "url": "https://data.mendeley.com/datasets/compare/8d9fv6kpt3"
         }
       ]
+    },
+    {
+      "id": "plantvillage-original-2016",
+      "name": "PlantVillage (unaugmented reference release)",
+      "crop": "multiple_crops",
+      "imageCount": 54303,
+      "classes": [
+        "38 crop-disease categories; see TensorFlow Datasets label list"
+      ],
+      "license": "Unresolved for the exact image package used here. The official GitHub repository has no visible LICENSE file; third-party mirrors report conflicting terms. Do not download/reuse until the original Mendeley record and exact package terms are verified.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://github.com/spMohanty/PlantVillage-Dataset",
+      "intendedUse": "Controlled-image classification baseline and label-map reference only; not a field-generalization benchmark.",
+      "region": "United States / source institution Penn State; precise image acquisition locations not fully represented in the supplied metadata",
+      "imageTask": "Leaf-level image classification; mostly controlled/simple backgrounds. Not fruit, bunch, or lesion segmentation.",
+      "sourceAudit": "GitHub README reports 54,306 images, 14 crop species and 26 diseases; TensorFlow Datasets catalog reports 54,303 examples in 38 classes and notes that its copy is republished from Mendeley with the Background_without_leaves class removed. The repository itself does not expose an image-data license. Secondary catalogues/mirrors report inconsistent terms; no image archive was downloaded. Do not treat the 2016 paper license as image-data permission."
+    },
+    {
+      "id": "new-plant-diseases-kaggle-augmented",
+      "name": "New Plant Diseases Dataset (Kaggle augmented PlantVillage derivative)",
+      "crop": "multiple_crops",
+      "imageCount": 87867,
+      "classes": [
+        "38 crop-disease categories"
+      ],
+      "license": "Kaggle dataset license and per-file rights not verified. Underlying images substantially overlap PlantVillage and include offline augmentations; do not download/reuse until Kaggle terms and source rights are checked.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset",
+      "intendedUse": "Potential training-pipeline reproduction and class-map comparison only; not independent new field data.",
+      "region": "Primarily derived from PlantVillage; source image acquisition locations are not independently documented in the Kaggle listing reviewed.",
+      "imageTask": "Leaf classification; augmented derivative of PlantVillage, not a distinct independent field dataset.",
+      "sourceAudit": "Commonly reported as approximately 87,000 images across 38 classes with train/valid/test folders. Secondary analysis reports 54,305 source PlantVillage images plus 32,695 offline augmentations. These figures indicate substantial duplicate/near-duplicate leakage risk; deduplicate/group augmented variants with their source image. No archive downloaded."
+    },
+    {
+      "id": "plantdoc-cropped-2020",
+      "name": "PlantDoc Cropped Dataset",
+      "crop": "multiple_crops",
+      "imageCount": 2598,
+      "classes": [
+        "27 reported crop/disease/healthy categories; verify exact folder names in archive"
+      ],
+      "license": "Repository declares CC BY 4.0, but README states images were scraped from internet search engines. Underlying third-party image copyright/permissions are uncertain; metadata only until image-level provenance and reuse rights are established.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://github.com/pratikkayal/PlantDoc-Dataset",
+      "intendedUse": "Field-like external evaluation and possible classification research after image-level rights/provenance review; not a trusted ground-truth set by default.",
+      "region": "India-focused research; images were internet-scraped and exact capture locations are not consistently documented.",
+      "imageTask": "Cropped leaf-image classification; distinct object-detection variant exists and must not be mixed without task conversion.",
+      "sourceAudit": "Repository README reports 2,598 images, 13 plant species and up to 17 disease classes; a 2026 Roboflow summary reports 27 total classes including healthy categories. The repo exposes a CC BY 4.0 license, but the authors describe annotating internet-scraped images, so the repository license cannot necessarily clear underlying photo rights. Annotation quality and original-source attribution require audit. No images downloaded."
+    },
+    {
+      "id": "plantseg-field-segmentation-2024",
+      "name": "PlantSeg in-the-wild disease segmentation dataset",
+      "crop": "multiple_crops",
+      "imageCount": 11400,
+      "classes": [
+        "115 plant-disease cases with pixel-level lesion masks"
+      ],
+      "license": "Zenodo record Rights section has a License heading but no value; reuse license is unverified. Do not download, redistribute, or train until license and image-level source terms are confirmed.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://zenodo.org/records/13762907",
+      "doi": "10.5281/zenodo.13762907",
+      "intendedUse": "Separate lesion-localization/segmentation research and possible later evaluation of field symptom localization; not a drop-in image-classification dataset.",
+      "region": "Multiple environments; 34 host plants according to the associated Scientific Data paper; individual image sources/regions must be read from metadata.",
+      "imageTask": "Pixel-level lesion segmentation with masks; keep masks/task separate from image-level disease classification, severity grading, and object detection.",
+      "sourceAudit": "Zenodo v2 reports more than 11,400 images across 115 plant diseases and a 3.0 GB archive. The current Zenodo Rights field is blank. The Nature Scientific Data paper describes metadata fields including image URL and license; these per-image fields must be checked before any reuse. No archive downloaded."
+    },
+    {
+      "id": "leafnet-leafbench-2026",
+      "name": "LeafNet and LeafBench multimodal plant pathology resource",
+      "crop": "multiple_crops",
+      "imageCount": 186000,
+      "classes": [
+        "97 disease classes across 22 crop species (LeafNet); LeafBench has 2,910 images and 13,950 QA pairs"
+      ],
+      "license": "Hugging Face metadata labels LeafNet data CC BY 4.0 and LeafBench MIT, but LeafNet includes public-source and in-house images whose upstream licenses may differ; datasets are gated and require contact-sharing consent. Per-image source rights remain unresolved. Metadata only; no image download.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://huggingface.co/datasets/enalis/LeafNet",
+      "intendedUse": "Future vision-language assistant evaluation and symptom-reasoning benchmark; not a replacement for the compact image classifier or local expert-labelled dataset.",
+      "region": "22 crop species; 7 countries reported in dataset metadata; source-level geography must be inspected.",
+      "imageTask": "Multimodal image-text classification and visual question answering; LeafBench QA labels are not simple classifier labels.",
+      "sourceAudit": "The arXiv paper reports 186,000 leaf images, 97 disease classes and 13,950 QA pairs. Hugging Face dataset access is gated and requires accepting conditions/contact sharing. Public metadata reports roughly 70% public content; some images originate from other public datasets and retain upstream terms. LeafBench's own card describes 2,910 images and six hierarchical VQA tasks. Do not treat the dataset-card license tag or code license as automatically licensing every embedded image."
     }
   ],
   "contributions": [],
@@ -693,6 +774,11 @@
       "date": "2026-11-15",
       "change": "Registered the latest Large-Scale Lemon Leaf Disease and Pest dataset V3 (17,586 images, 18 classes including citrus scab) as a high-priority candidate.",
       "limitation": "The archive, exact per-class counts, file-level provenance, duplicate groups, and per-image site/plant/session metadata remain unaudited; no images downloaded or trained."
+    },
+    {
+      "date": "2026-11-22",
+      "change": "Reviewed user-supplied Dr.Plant, PlantVillage, New Plant Diseases, PlantDoc, PlantSeg, LeafNet/LeafBench, Arab Society for Plant Protection, Arab Journal of Plant Protection and ACSAD references; indexed five dataset resources with task separation and license/provenance gates.",
+      "limitation": "No dataset archive or image was downloaded. PlantVillage and its Kaggle derivative have unresolved/conflicting image-data terms; PlantDoc source-photo rights need per-image review despite repository CC BY 4.0; PlantSeg Zenodo Rights field is blank; LeafNet/LeafBench are gated and contain mixed-source imagery with unresolved per-image rights. No training or model evaluation was performed."
     }
   ]
 }
