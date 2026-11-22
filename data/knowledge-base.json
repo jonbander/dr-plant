@@ -17,7 +17,7 @@
       ],
       "scientificName": "Plasmopara viticola",
       "evidenceStatus": "reference_only",
-      "notes": "Reference for symptom research; local field confirmation is still required. A 2026 FRAC monitoring report summarizes 2025 CAA fungicide-resistance findings in Plasmopara viticola populations across France, Italy, Spain, and Portugal; this is regional resistance surveillance, not evidence of disease prevalence or resistance in Syria, and the report notes that data were supplied by industry monitoring programs.",
+      "notes": "Reference for symptom research; local field confirmation is still required. A 2026 FRAC monitoring report summarizes 2025 CAA fungicide-resistance findings in Plasmopara viticola populations across France, Italy, Spain, and Portugal; this is regional resistance surveillance, not evidence of disease prevalence or resistance in Syria, and the report notes that data were supplied by industry monitoring programs. A 18 November 2026 Italian population study analysed 164 P. viticola sporangia suspensions from Apulia, Calabria, Veneto, Friuli Venezia Giulia, Lombardy and Piedmont; all sampled isolates belonged to the aestivalis clade. The reported low overall diversity and greater northern variability are preliminary and affected by different sampling designs, and do not establish Syrian population structure. A 30 March 2026 Swiss vineyard study tested airborne-sporangium monitoring against microscopy and qPCR in 2023–2024; correlations improved later in the season but were weaker early, so it is a research direction rather than a ready-made local warning threshold.",
       "sources": [
         {
           "title": "UC IPM – Grape downy mildew",
@@ -30,6 +30,14 @@
         {
           "title": "FRAC 2026 CAA Working Group – 2025 grape downy mildew resistance monitoring",
           "url": "https://www.frac.info/media/gplfgmfu/minutes-of-the-2026-caa-meeting-recommendations-for-2026.pdf"
+        },
+        {
+          "title": "Coronelli et al. (2026) – Population structure of Plasmopara viticola in Italian vineyards",
+          "url": "https://doi.org/10.1094/PDIS-05-26-0915-RE"
+        },
+        {
+          "title": "Cattani et al. (2026) – Automated air-flow cytometry for vineyard Plasmopara sporangia monitoring",
+          "url": "https://doi.org/10.1128/aem.02152-25"
         }
       ]
     },
@@ -335,6 +343,70 @@
           "url": "https://extension.uga.edu/publications/detail.html?number=B1520"
         }
       ]
+    },
+    {
+      "id": "grape-black-rot",
+      "crop": "grape",
+      "commonNames": [
+        "العفن الأسود للعنب",
+        "Black rot"
+      ],
+      "scientificName": "Phyllosticta ampelicida (syn. Guignardia bidwellii)",
+      "evidenceStatus": "reference_only",
+      "notes": "Reference for grape-leaf differential diagnosis. French INRAE ePhytia and university extension references describe round to polygonal tan/brown necrotic leaf spots with darker margins; small black pycnidia may become visible in mature lesions. The pathogen can also affect canes and bunches, but cane and bunch symptoms must remain separate image-organ tasks from leaf classification. Leaf spots overlap with other grape disorders, so a photograph alone is not definitive. The French reference describes European occurrence but does not establish occurrence or prevalence on the Syrian coast. INRAE's linked field photographs are references only: no image was copied and image-reuse rights were not independently checked.",
+      "sources": [
+        {
+          "title": "EPPO Global Database – Phyllosticta ampelicida (preferred name; Guignardia bidwellii synonym)",
+          "url": "https://gd.eppo.int/taxon/GUIGBI"
+        },
+        {
+          "title": "INRAE ePhytia – Grapevine black rot diagnosis and field photographs",
+          "url": "https://ephytia.inrae.fr/en/D/1929"
+        },
+        {
+          "title": "University of Minnesota Extension – Grape leaf spots (Black Rot differential)",
+          "url": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html"
+        }
+      ]
+    },
+    {
+      "id": "grape-esca-complex",
+      "crop": "grape",
+      "commonNames": [
+        "إسكا العنب",
+        "Esca complex",
+        "Grapevine measles"
+      ],
+      "scientificName": "Esca-associated grapevine trunk-disease complex (multiple fungi)",
+      "evidenceStatus": "reference_only",
+      "notes": "Esca is a multifactorial grapevine trunk-disease syndrome, not a single leaf pathogen. Foliar expression can include irregular interveinal discoloration and necrosis with a tiger-stripe appearance; an apoplectic form can cause sudden whole-vine wilting and leaf drying, often in summer after rain followed by heat. INRAE describes associated wood symptoms such as white soft rot and central or sectorial brown necrosis, and multiple associated fungi including Phaeomoniella chlamydospora, Phaeoacremonium spp. and Fomitiporia mediterranea. Do not infer Esca from a leaf photograph alone: inspect trunk/cordon context and seek expert or laboratory assessment. The linked French field reference is not evidence of local coastal-Syria prevalence.",
+      "sources": [
+        {
+          "title": "INRAE ePhytia – Grapevine Esca: main symptoms and wood signs",
+          "url": "https://ephytia.inrae.fr/en/C/6969/Grapevine-Main-symptoms"
+        },
+        {
+          "title": "SCRI Trunk Disease Project – Esca (Grape Measles)",
+          "url": "https://treeandvinetrunkdiseases.org/trunk-disease-pamplet/esca-grape-measles"
+        }
+      ]
+    },
+    {
+      "id": "grape-erineum-mite",
+      "crop": "grape",
+      "commonNames": [
+        "حلم إيرينيوم العنب",
+        "Grape erineum mite"
+      ],
+      "scientificName": "Colomerus vitis (Eriophyidae)",
+      "evidenceStatus": "reference_only",
+      "notes": "A grapevine eriophyid mite pest, not a fungal disease. The erineum strain produces roundish warty swellings on the upper leaf surface and corresponding discolored, felt-like patches (erinea) on the underside. The mites are minute (about 0.25 mm), and UC IPM notes that several strains occur and may represent different species; visible symptoms support a pest differential but do not always settle species identity. Keep this distinct from Tetranychid spider mites, thrips and fungal mildews. No Syrian coastal occurrence is asserted.",
+      "sources": [
+        {
+          "title": "UC IPM – Grape erineum mite (Colomerus vitis)",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/grape-erineum-mite/"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -355,7 +427,11 @@
       "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split.",
       "doi": "10.17632/wkymf8bhcg.5",
       "notes": "Field-acquired images from Maharashtra, India. The 2026 Scientific Data descriptor reports metadata and expert-verified annotations; audit package metadata and label consistency before use. Regional transfer to Syrian coastal vineyards must be tested.",
-      "licenseEvidence": "Mendeley Data record lists CC BY 4.0."
+      "licenseEvidence": "Mendeley Data V5 landing page lists CC BY 4.0. Individual image/file attribution and package contents still require archive-level verification before reuse; no files have been downloaded or copied.",
+      "region": "34 vineyards in Tasgaon, Sangli district, Maharashtra, India",
+      "collectionPeriod": "July–November 2023",
+      "imageTask": "Grapevine leaf classification; both adaxial and abaxial sides were photographed. The paper describes both in-situ vineyard and ex-situ neutral-grey-board acquisition; separate these acquisition domains and keep paired sides of the same leaf in one split.",
+      "sourceAudit": "The 2026 Scientific Data descriptor reports 3,792 raw images and 3,477 final images after removal of 15 corrupt files, 200 blurred/overexposed images and 100 near-duplicates detected by perceptual hashing. It describes 34 vineyards, field collection in July–November 2023, smartphone capture and expert labeling with inter-/intra-rater agreement on a subset (κ=0.86–0.92). The article says healthy images are overrepresented by about 1.65×. A third-party Hugging Face reformat preview lists 28 vineyard IDs and shows capture_time examples dated 2023-06-15, which does not match the paper's 34 vineyards and July–November period; treat mirror metadata as unresolved and audit the original Mendeley V5 package before relying on GPS/date/site fields. This is Indian data, not Mediterranean or Syrian coastal evidence."
     },
     {
       "id": "hermos-grape",
@@ -410,12 +486,12 @@
         "leaf blight",
         "healthy"
       ],
-      "license": "CC BY 4.0 for the cited upstream sources; verify attribution and terms for each included image/source before redistribution.",
-      "status": "candidate_dataset_not_integrated",
+      "license": "The Zenodo FieldVitis record's Rights section shows no license value. CC BY 4.0 is stated for named upstream datasets only; this does not automatically establish reuse rights for the compiled FieldVitis archive or every included/cropped image.",
+      "status": "candidate_dataset_license_unverified",
       "source": "https://zenodo.org/records/17307846",
       "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use.",
       "doi": "10.5281/zenodo.17307846",
-      "notes": "Field images with class counts; dataset combines upstream datasets, so deduplication against source datasets is required."
+      "notes": "Field images with natural lighting and variable backgrounds; reported class counts are healthy 158, black rot 39, Esca 200 and leaf blight 158. The archive combines selected/cropped material from upstream sources. The Zenodo record-level license is not displayed, and each included image's source/attribution cannot be traced from the landing page alone. Do not download, redistribute or train on this archive until the rights and provenance of every included image are verified. Deduplication against upstream datasets is also required."
     },
     {
       "id": "grape-bunch-powdery-mildew-morocco-2026",
@@ -615,6 +691,46 @@
           "url": "https://data.mendeley.com/datasets/compare/8d9fv6kpt3"
         }
       ]
+    },
+    {
+      "id": "plasmopara-spain-norway-2025",
+      "name": "A dataset for early detection and classification of Plasmopara disease",
+      "crop": "grape",
+      "imageCount": 281,
+      "classes": [
+        "healthy",
+        "Plasmopara-infected"
+      ],
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://zenodo.org/records/17368692",
+      "doi": "10.5281/zenodo.17368692",
+      "region": "Vineyards in Spain and Norway; record does not provide per-country or per-site image counts",
+      "collectionPeriod": "Not stated on the record page",
+      "license": "The Zenodo Rights section displays a License heading but no license value; repository-level and per-file/image reuse terms are unverified.",
+      "intendedUse": "Metadata-only candidate for a separate grape-leaf downy-mildew binary classification task. Do not download, mirror, redistribute or train until the record license, archive terms, provenance, label method and image-level rights are confirmed. If rights are later established, audit country/site grouping, duplicates and class balance before any split or training.",
+      "notes": "The record describes 281 high-resolution grapevine-leaf images in two classes (healthy and Plasmopara-infected), collected from vineyards in Spain and Norway. The archive is reported as 1.0 GB. No country-level counts, cultivar details, collection dates or expert/laboratory confirmation method are exposed on the landing page. Spain is geographically relevant to the Mediterranean search scope, but the mixed Spain/Norway dataset is not local Syrian evidence. No archive was downloaded.",
+      "licenseEvidence": "Unverified: the record's Rights section contains no displayed license value."
+    },
+    {
+      "id": "morocco-field-citrus-2026",
+      "name": "Field-Based Citrus Leaf Disease Image Dataset",
+      "crop": "citrus",
+      "imageCount": 611,
+      "classes": [
+        "healthy",
+        "greasy spot",
+        "greening",
+        "California red scale"
+      ],
+      "status": "candidate_dataset_metadata_only",
+      "source": "https://data.mendeley.com/datasets/szsms728jf/1",
+      "doi": "10.17632/szsms728jf.1",
+      "region": "Fes-Meknes region, Morocco",
+      "collectionPeriod": "Not stated on the landing page",
+      "license": "Mendeley Data Version 1 landing page lists CC BY 4.0; individual file/image rights, embedded third-party content and attribution details have not been independently checked.",
+      "intendedUse": "Metadata-only candidate until package and per-file rights are verified. If rights are confirmed, separate leaf photographs from fruit photographs before any model task; do not mix organs or assume class counts from the four class names. Audit the labels, annotation evidence, exact/near duplicates and class balance before creating group-aware splits.",
+      "notes": "The contributor reports 611 manually annotated images from Fes-Meknes, Morocco, covering healthy, greasy spot, greening and California red scale. The description explicitly says the collection contains both citrus fruits and leaves, despite the dataset title; no per-organ or per-class counts are provided on the landing page. Annotation is attributed to a named domain expert by the contributor, but the reviewer's credentials, method and laboratory confirmation are not independently documented here. Greening and scale labels should not be treated as confirmed causal diagnoses without checking the original annotation protocol. No images were downloaded or copied.",
+      "licenseEvidence": "Mendeley Data landing page lists CC BY 4.0; file-level review remains pending."
     }
   ],
   "contributions": [],
@@ -693,6 +809,11 @@
       "date": "2026-11-15",
       "change": "Registered the latest Large-Scale Lemon Leaf Disease and Pest dataset V3 (17,586 images, 18 classes including citrus scab) as a high-priority candidate.",
       "limitation": "The archive, exact per-class counts, file-level provenance, duplicate groups, and per-image site/plant/session metadata remain unaudited; no images downloaded or trained."
+    },
+    {
+      "date": "2026-11-22",
+      "change": "Added reference-only grape black rot, Esca-complex and erineum-mite evidence; appended 2026 Italian Plasmopara population and Swiss airborne-sporangia monitoring references; indexed new Spain/Norway Plasmopara and Morocco field-citrus dataset candidates; corrected FieldVitis license uncertainty and expanded the GVLiD provenance/metadata audit.",
+      "limitation": "No images or dataset archives were downloaded, copied, or redistributed. The Spain/Norway Zenodo record has no visible license value; Morocco citrus file-level rights and organ-level breakdown remain unverified; FieldVitis record-level license remains blank. GVLiD remains an Indian, mixed in-situ/ex-situ candidate with metadata discrepancies requiring original-archive audit. No model training, expert confirmation of local Syrian cases, or coastal-Syria validation was performed."
     }
   ]
 }
