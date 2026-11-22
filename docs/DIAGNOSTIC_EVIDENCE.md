@@ -178,3 +178,36 @@ It creates a SHA-256 manifest and JSON report covering image/XML pairing, Pascal
 - Do not confuse sour citrus scab (*E. fawcettii*) with sweet orange scab (*E. australis*).
 - References: [UF/IFAS CH159](https://ask.ifas.ufl.edu/publication/CH159), [NSW DPIRD citrus field guide](https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0008/1629467/Pests%2C-beneficials%2C-diseases-and-disorders-in-citrus.pdf), [UGA Extension B1520](https://extension.uga.edu/publications/detail.html?number=B1520).
 - Evidence status remains `reference_only`; no current Syrian coastal specimen or expert confirmation was supplied.
+
+
+## User-supplied model and dataset references — 22 November 2026
+
+### Dr.Plant reference implementation
+
+The linked upstream repository is a code/reference project, not an additional labelled dataset. The GitHub repository metadata currently reports `main` as its default branch, and a branch search returned only `main`; the supplied note about `master` and `deploy` does not match the currently visible branch list. Re-check the live repository before copying training or deployment code. Do not copy a model, class-index order, or preprocessing assumptions into this project without comparing the exact inference pipeline and label map. Upstream project: https://github.com/Pallav7533/Dr.Plant
+
+### Classification datasets and licensing decisions
+
+- **PlantVillage:** useful as a controlled-image baseline and to inspect the 38-category crop/disease label map. The GitHub README reports 54,306 images, 14 crops and 26 diseases; TensorFlow Datasets reports 54,303 examples in 38 classes and explains that its copy is republished from Mendeley with the background-only class removed. The GitHub dataset repository has no visible image-data LICENSE file, and secondary mirrors/catalogues report inconsistent terms. The paper's license is not a substitute for image rights. Metadata only; no download. Sources: https://github.com/spMohanty/PlantVillage-Dataset ; https://www.tensorflow.org/datasets/catalog/plant_village ; https://doi.org/10.3389/fpls.2016.01419 .
+- **New Plant Diseases Dataset (Kaggle):** approximately 87,000 images/38 classes, but it is an augmented PlantVillage derivative rather than 87,000 independent field photographs. Published descriptions report substantial overlap with PlantVillage and offline augmentations. Treat it as a derivative variant, deduplicate/group augmentations by original source, and do not use the Kaggle copy until its actual terms and source-image rights are verified. Metadata only. Source: https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset .
+- **PlantDoc:** 2,598 images from 13 plant species; the repository declares CC BY 4.0 and describes cropped classification data, with a separate object-detection dataset. However, its README says the images were scraped from internet search engines. The repository-level license does not necessarily clear third-party photo copyrights. It is a promising field-like evaluation candidate only after image-level source/rights and label review. Metadata only. Source: https://github.com/pratikkayal/PlantDoc-Dataset .
+- **PlantSeg:** v2 Zenodo record reports over 11,400 images, 115 plant-disease cases and pixel-level masks; archive size is 3.0 GB. Its current Rights field has a License heading but no value. The Nature paper describes per-image URLs and license metadata; those must be audited. This is a separate lesion-segmentation task, not an image-classification label set. No download. Sources: https://zenodo.org/records/13762907 ; https://www.nature.com/articles/s41597-025-06513-4 .
+- **LeafNet / LeafBench:** paper reports 186,000 leaf images, 97 disease classes and 13,950 QA pairs; the LeafBench card describes a 2,910-image, six-task visual question-answering benchmark. Hugging Face access is gated; the dataset contains mixed public and in-house imagery, and upstream images retain their own rights. Dataset-card license tags are not sufficient to clear each embedded image. This is a future vision-language evaluation resource, not a drop-in classifier dataset. Metadata only. Sources: https://arxiv.org/abs/2602.13662 ; https://huggingface.co/datasets/enalis/LeafNet ; https://huggingface.co/datasets/enalis/LeafBench .
+
+### Methodology papers and regional knowledge sources
+
+- The 2025 multi-dataset paper is useful for its within-dataset and cross-dataset evaluation design, class-wise F1 scores, and confusion matrices. It reinforces the need to test transfer to a separate image source rather than relying on a random split. Source: https://www.mdpi.com/2571-8800/8/1/4 .
+- The 2016 Mohanty et al. paper is foundational for PlantVillage and transfer-learning baselines, but controlled-background performance is not evidence of field reliability. Source: https://doi.org/10.3389/fpls.2016.01419 .
+- The Arab Society for Plant Protection and Arab Journal of Plant Protection are high-value regional literature discovery sources; the journal is open access and indexed in CABI, AGRIS, Google Scholar and Scopus. Search papers by crop, pathogen, country, season and method; a regional paper is not automatically coastal-Syria confirmation. Sources: https://asplantprotection.org/ ; https://www.arabjournalpp.org/ .
+- The ACSAD library is a useful Arabic agricultural reference catalogue. Treat catalog entries as discovery leads and verify the underlying publication, date and scientific content before adding disease claims. Source: https://acsad.org/المكتبة/ .
+- The Geopard Arabic article is introductory material only; it should not establish a pathogen identity, diagnosis, treatment, or training label without a primary scientific or official extension source.
+
+### Implications for Dr Plant
+
+1. PlantVillage and New Plant Diseases overlap substantially; do not count them as independent datasets or merge their train/test splits. The Kaggle derivative's augmentation variants must remain grouped with their original image to prevent leakage.
+2. PlantDoc is more field-like, but internet-scraped source rights and label provenance require image-by-image review before any image is copied or trained on.
+3. PlantSeg masks support a future segmentation task only; do not convert mask pixels into disease-severity labels or mix masks with classification labels without a separately defined protocol.
+4. LeafNet/LeafBench may support a later visual-language assistant benchmark, but gated access, mixed-source image licenses, and the difference between QA and classification must be preserved.
+5. None of these sources is Mediterranean coastal-Syria evidence. Use them for generic pretraining or external stress tests only after rights and labels are audited; retain a fixed, independent coastal-Syria test set before enabling any model in the application.
+
+No dataset files or images were downloaded, copied, redistributed, or used for training in this update. No model was trained and no diagnostic accuracy or improvement is claimed.
