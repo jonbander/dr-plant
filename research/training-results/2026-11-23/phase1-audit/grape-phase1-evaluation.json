@@ -1,0 +1,96 @@
+{
+  "dataset": "Grape Leaf Health Mendeley v1",
+  "checkpoint_epoch": 8,
+  "class_order": [
+    "Black_Rot",
+    "Brown_Spot",
+    "Downy_Mildew",
+    "Healthy",
+    "Mites"
+  ],
+  "split_counts": {
+    "train": 1647,
+    "val": 412,
+    "test": 515
+  },
+  "baseline_test": {
+    "accuracy": 0.6116504854368932,
+    "macro_f1": 0.5508464728139866,
+    "balanced_accuracy": 0.5527228264418828,
+    "confusion_matrix": [
+      [
+        31,
+        7,
+        47,
+        19,
+        3
+      ],
+      [
+        11,
+        114,
+        16,
+        4,
+        5
+      ],
+      [
+        4,
+        4,
+        33,
+        20,
+        1
+      ],
+      [
+        10,
+        1,
+        18,
+        119,
+        1
+      ],
+      [
+        7,
+        13,
+        6,
+        3,
+        18
+      ]
+    ]
+  },
+  "temperature_scaling": {
+    "temperature_fitted_on_validation_only": 1.4390169764704126,
+    "validation_nll_before": 0.8851730227470398,
+    "validation_nll_after": 0.840601921081543,
+    "test_nll_before": 1.0427448749542236,
+    "test_nll_after": 0.9660947322845459,
+    "test_ece_before": 0.11981243300206454,
+    "test_ece_after": 0.05727994436199225,
+    "test_accuracy_after": 0.6116504854368932
+  },
+  "embedding_retrieval": {
+    "feature": "MobileNetV3-Small penultimate hidden representation; cosine similarity; reference set=train only",
+    "top_k_majority_vote": {
+      "1": {
+        "accuracy": 0.5980582524271845,
+        "macro_f1": 0.5253366323323665
+      },
+      "3": {
+        "accuracy": 0.6058252427184466,
+        "macro_f1": 0.5318557395350894
+      },
+      "5": {
+        "accuracy": 0.6213592233009708,
+        "macro_f1": 0.5357086146016721
+      }
+    }
+  },
+  "group_leakage": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "limitations": [
+    "Single-source dataset; no farm/site/plant metadata.",
+    "Folder labels have not been independently expert-reviewed.",
+    "Retrieval and calibration are exploratory analyses, not independent field validation.",
+    "No OOD threshold can be validated without a separate unknown-class dataset."
+  ]
+}
