@@ -19,7 +19,8 @@
     "prepare:classification-splits": "python scripts/prepare_classification_splits.py",
     "test:classification-splits": "python scripts/test_prepare_classification_splits.py",
     "prepare:exploratory-splits": "python scripts/prepare_exploratory_splits.py",
-    "test:exploratory-splits": "python scripts/test_prepare_exploratory_splits.py"
+    "test:exploratory-splits": "python scripts/test_prepare_exploratory_splits.py",
+    "validate:models": "node scripts/validate-model-bundle.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

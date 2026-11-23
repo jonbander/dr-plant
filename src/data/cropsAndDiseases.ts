@@ -1401,6 +1401,24 @@ export const SAMPLE_TEST_LEAVES = [
     </svg>`
   },
   {
+    titleAr: 'عينة مرجعية: تبقع أوراق العنب (Isariopsis)',
+    cropId: 'french_grape_leaf',
+    expectedDiseaseId: 'grape_leaf_blight',
+    previewColor: '#15803d',
+    descAr: 'صورة مرجعية من مجموعة PlantVillage لاختبار فئة تبقع أوراق العنب؛ ليست صورة حقلية سورية.',
+    imageUrl: '/samples/grape-leaf-blight-plantvillage.jpg',
+    svgData: ''
+  },
+  {
+    titleAr: 'عينة مرجعية: فيروس تجعد واصفرار أوراق البندورة',
+    cropId: 'tomato',
+    expectedDiseaseId: 'tomato_yellow_leaf_curl_virus',
+    previewColor: '#15803d',
+    descAr: 'صورة مرجعية من مجموعة PlantVillage لاختبار فئة فيروس تجعد واصفرار الأوراق؛ ليست صورة حقلية سورية.',
+    imageUrl: '/samples/tomato-yellow-leaf-curl-plantvillage.jpg',
+    svgData: ''
+  },
+  {
     titleAr: 'حمضيات الساحل: مينوز (صانعة أنفاق الأوراق)',
     cropId: 'citrus_syrian',
     expectedDiseaseId: 'citrus_leafminer_syria',

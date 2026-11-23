@@ -1,22 +1,74 @@
 {
   "schemaVersion": 1,
   "enabled": true,
-  "modelVersion": "grape-esca-pilot-v0.1.0",
-  "modelPath": "/models/plant-disease/grape-esca-pilot.onnx",
-  "labelsPath": "/models/plant-disease/labels.json",
-  "inputSize": 160,
-  "inputLayout": "NCHW",
-  "channelOrder": "RGB",
-  "normalization": "image_net",
-  "resizeMode": "center_crop",
-  "outputKind": "logits",
-  "reviewStatus": "candidate",
-  "pilotMode": true,
-  "thresholdsReviewed": true,
-  "minimumScore": 0.85,
-  "minimumMargin": 0.7,
-  "source": "GVLiD Mendeley Data V5; DOI 10.17632/wkymf8bhcg.5",
-  "license": "CC BY 4.0; attribute Shikalgar et al. (2026). ONNX Runtime Web 1.22.0 is MIT-licensed.",
-  "validationReportPath": "/models/plant-disease/validation-report.json",
-  "notes": "Experimental French-grape leaf pilot only: Esca vs source-labeled Healthy. It does not detect other grape diseases, pests, nutrient deficiencies, or abiotic injury. A no-Esca result must never be presented as a healthy-leaf diagnosis. Raw softmax score is not a calibrated probability. Data are from Maharashtra, India; no Syrian coastal field validation. Not integrated into the unified multi-crop model."
+  "bundleVersion": "drplant-multimodel-pilot-v0.2.0",
+  "routes": {
+    "french_grape_leaf": {
+      "model": {
+        "schemaVersion": 1,
+        "enabled": true,
+        "modelVersion": "plantvillage-grape-38class-v2.0",
+        "modelPath": "/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+        "labelsPath": "/models/plant-disease/multicrop-labels.json",
+        "inputSize": 128,
+        "inputLayout": "NCHW",
+        "channelOrder": "RGB",
+        "normalization": "image_net",
+        "resizeMode": "stretch",
+        "outputKind": "logits",
+        "reviewStatus": "candidate",
+        "pilotMode": true,
+        "thresholdsReviewed": true,
+        "minimumScore": 0.9,
+        "minimumMargin": 0.2,
+        "validationReportPath": "/models/plant-disease/multicrop-validation.json",
+        "expectedOutputCount": 38
+      }
+    },
+    "citrus_syrian": {
+      "model": {
+        "schemaVersion": 1,
+        "enabled": true,
+        "modelVersion": "citrus-field-v3.0",
+        "modelPath": "/models/plant-disease/citrus-field-v3.onnx",
+        "labelsPath": "/models/plant-disease/citrus-field-labels.json",
+        "inputSize": 160,
+        "inputLayout": "NCHW",
+        "channelOrder": "RGB",
+        "normalization": "image_net",
+        "resizeMode": "stretch",
+        "outputKind": "logits",
+        "reviewStatus": "candidate",
+        "pilotMode": true,
+        "thresholdsReviewed": true,
+        "minimumScore": 0.55,
+        "minimumMargin": 0.15,
+        "validationReportPath": "/models/plant-disease/citrus-field-validation.json",
+        "expectedOutputCount": 4
+      }
+    },
+    "tomato": {
+      "model": {
+        "schemaVersion": 1,
+        "enabled": true,
+        "modelVersion": "plantvillage-tomato-38class-v2.0",
+        "modelPath": "/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+        "labelsPath": "/models/plant-disease/multicrop-labels.json",
+        "inputSize": 128,
+        "inputLayout": "NCHW",
+        "channelOrder": "RGB",
+        "normalization": "image_net",
+        "resizeMode": "stretch",
+        "outputKind": "logits",
+        "reviewStatus": "candidate",
+        "pilotMode": true,
+        "thresholdsReviewed": true,
+        "minimumScore": 0.55,
+        "minimumMargin": 0.15,
+        "validationReportPath": "/models/plant-disease/multicrop-validation.json",
+        "expectedOutputCount": 38
+      }
+    }
+  },
+  "notes": "Research-only multi-model pilot. Routes are selected only after the user chooses a crop. No model is validated for Syrian field diagnosis; scores are raw and uncalibrated. A source Healthy class means only that no class in that model was detected, not that the plant is healthy."
 }

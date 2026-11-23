@@ -1,89 +1,134 @@
 {
-  "schemaVersion": 1,
-  "activePilot": "grape-esca-pilot-v0.1.0",
-  "unifiedModel": null,
+  "schemaVersion": 2,
+  "activeBundle": "drplant-multimodel-pilot-v0.2.0",
+  "status": "experimental_pilot_not_field_validated",
   "previousBehavior": "color-screening-only",
-  "models": [
-    {
-      "version": "grape-esca-pilot-v0.1.0",
-      "status": "pilot_candidate",
-      "crop": "french_grape_leaf",
-      "task": "Esca-like foliar pattern vs source-labeled Healthy",
-      "modelPath": "public/models/plant-disease/grape-esca-pilot.onnx",
-      "modelSha256": "032c0a54175b28c2d462888e5307ceba161654b4546d3eb10144357df129a096",
-      "checkpointSha256": "41c5c17030ddfb5bf3a3d3bb73201237a9611ac75857d2190f36b8284bdc0307",
-      "checkpointArchive": {
-        "url": "https://drive.google.com/file/d/1I66zrshhVEvnM_pqnPlAYPf6gnYDK3wm/view?usp=sharing",
-        "archiveSha256": "61a5291c13f3d81c0aeef912eabe1137182b123f84c245fd8ab8adfac44cbd02",
-        "containedPath": "data/gvlid-v5-clean-2class/results/mobilenetv3-small/best.pt",
-        "containedCheckpointSha256": "41c5c17030ddfb5bf3a3d3bb73201237a9611ac75857d2190f36b8284bdc0307",
-        "verification": "Extracted the exact archive entry and confirmed its SHA256 matches the active checkpoint."
-      },
-      "manifestPath": "public/models/plant-disease/manifest.json",
-      "labelsPath": "public/models/plant-disease/labels.json",
-      "trainingConfigPath": "public/models/plant-disease/training-config.json",
-      "validationReportPath": "public/models/plant-disease/validation-report.json",
-      "modelCardPath": "public/models/plant-disease/MODEL_CARD.md",
-      "pilotThreshold": {
-        "minimumRawSoftmaxScore": 0.85,
-        "minimumTopTwoMargin": 0.7
-      },
-      "unifiedIntegrationAccepted": false,
-      "reasonNotIntegrated": "No Syrian field validation; only two classes; open-set false alerts; external probe has no Esca-positive examples; score is not calibrated.",
-      "rollback": "Disable public/models/plant-disease/manifest.json or revert the pilot integration commit to restore color-screening-only behavior.",
-      "sidecars": {
-        "manifest": {
-          "path": "public/models/plant-disease/manifest.json",
-          "sha256": "58a267adc69aaf11ac22d7e2534e284cc826509ce78974e3ada5555c2c70dcf2"
-        },
-        "labels": {
-          "path": "public/models/plant-disease/labels.json",
-          "sha256": "6e2b4c674d1723fabdf8b160b2ee4f1f4b5ba63e9ee8bf0559bbe0a79cd523e7"
-        },
-        "trainingConfig": {
-          "path": "public/models/plant-disease/training-config.json",
-          "sha256": "8a68a06233050d02ac194c1e8c912293cf135225ea204733d444f1039477eaa0"
-        },
-        "validationReport": {
-          "path": "public/models/plant-disease/validation-report.json",
-          "sha256": "2f1d6d6d0514e2b68eaf89cd25b4f7efe9df9ee3c514514d8233ecec66bd2f2f"
-        },
-        "failureReport": {
-          "path": "public/models/plant-disease/failure-report.json",
-          "sha256": "4b13ecb751f4cc65df33bc936361a8f7f26c14cf5b30e0a53869c4c0817f4a47"
-        },
-        "modelCard": {
-          "path": "public/models/plant-disease/MODEL_CARD.md",
-          "sha256": "31d58a482ea401c1493b7787bee4e993f996649811bbeafdf3354cdf4b2aaa86"
-        }
-      },
-      "dataArtifacts": {
-        "recoveredImageManifest": {
-          "path": "research/training-results/2026-11-23/gvlid-recovery/recovered-image-manifest.csv",
-          "sha256": "beffe48f5ead672ea4d82720f64b9fd1d1a6e2023e2329d7b7c8f9ea6c73a509"
-        },
-        "sourceImageInventory": {
-          "path": "research/training-results/2026-11-23/gvlid-recovery/source-image-inventory.csv",
-          "sha256": "fd616f3a9740d13685e877b3bc75bc87f412f5f20aeefd46e510619f9144c5f6"
-        },
-        "recoveryAudit": {
-          "path": "research/training-results/2026-11-23/gvlid-recovery/recovery-audit.json",
-          "sha256": "566b79247b09fad2fe765bdb647766895a67a813827822d219f51d3f5c6d17b7"
-        },
-        "restoredSplitEvaluation": {
-          "path": "research/training-results/2026-11-23/gvlid-recovery/restored-split-evaluation.json",
-          "sha256": "862d69cb307b3121a4317750d98a12844ea632918ac7d3ad3161ce83d87a3267"
-        }
-      },
-      "runtime": {
-        "version": "onnxruntime-web 1.22.0",
-        "license": "MIT",
-        "assets": {
-          "ort.min.js": "2e547300edd10000dd8f370d064e5844bf28e560a40c79174f273e03d588ee72",
-          "ort-wasm-simd-threaded.mjs": "6e2180c97c109434ba67f1b83454cc48c5f812e79990094ed0cc3cffeabe18b0",
-          "ort-wasm-simd-threaded.wasm": "71aef04959c5c1b6de461b6538e2058e306610034a85aad2742d0c7fd4533fe4"
-        }
-      }
+  "routes": {
+    "french_grape_leaf": {
+      "modelVersion": "plantvillage-grape-38class-v2.0",
+      "modelPath": "public/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+      "expectedOutputCount": 38,
+      "exposedClasses": [
+        "grape_esca",
+        "grape_leaf_blight",
+        "grape_source_healthy"
+      ],
+      "suppressedClasses": [
+        "grape_black_rot"
+      ],
+      "minimumRawScore": 0.9,
+      "minimumMargin": 0.2
+    },
+    "citrus_syrian": {
+      "modelVersion": "citrus-field-v3.0",
+      "modelPath": "public/models/plant-disease/citrus-field-v3.onnx",
+      "expectedOutputCount": 4,
+      "exposedClasses": [
+        "citrus_scale_like",
+        "citrus_greasy_spot_like",
+        "citrus_source_healthy",
+        "citrus_greening_like"
+      ],
+      "minimumRawScore": 0.55,
+      "minimumMargin": 0.15
+    },
+    "tomato": {
+      "modelVersion": "plantvillage-tomato-38class-v2.0",
+      "modelPath": "public/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+      "expectedOutputCount": 38,
+      "exposedClasses": [
+        "tomato_bacterial_spot",
+        "tomato_yellow_leaf_curl_virus",
+        "tomato_mosaic_virus",
+        "tomato_source_healthy"
+      ],
+      "suppressedClasses": [
+        "tomato_early_blight",
+        "tomato_late_blight",
+        "tomato_leaf_mold",
+        "tomato_septoria",
+        "tomato_spider_mites",
+        "tomato_target_spot"
+      ],
+      "minimumRawScore": 0.55,
+      "minimumMargin": 0.15
     }
-  ]
+  },
+  "artifacts": [
+    {
+      "path": "public/models/plant-disease/manifest.json",
+      "sha256": "e2e347b1f3373feb261751a09c6d44bed64815c76e011c2525beb8d02169a628",
+      "bytes": 2740
+    },
+    {
+      "path": "public/models/plant-disease/multicrop-labels.json",
+      "sha256": "b1a3d52a83c332661ec6f283a3b8677f8a9f467dd21b26280bc5ad5271057c01",
+      "bytes": 7159
+    },
+    {
+      "path": "public/models/plant-disease/citrus-field-labels.json",
+      "sha256": "8526864aaffe6b164db13c5c9c9dab20213457ab1b688351b147b842ac1a4506",
+      "bytes": 892
+    },
+    {
+      "path": "public/models/plant-disease/multicrop-validation.json",
+      "sha256": "a40ef1e08fe018af46756d8e31fd5cae1dfba9cc3d5c39d84f7d0ff91eb5327b",
+      "bytes": 1091
+    },
+    {
+      "path": "public/models/plant-disease/citrus-field-validation.json",
+      "sha256": "fc73a5a1c914665c9082cb6231d65ff0b4d023bf4bd88e3b57f32cc9ca201378",
+      "bytes": 760
+    },
+    {
+      "path": "public/models/plant-disease/training-config.json",
+      "sha256": "51747c741441b73bda5b84323bd9ddbd018fba9b23d05ce01cd4cdc671c5ec5b",
+      "bytes": 1202
+    },
+    {
+      "path": "public/models/plant-disease/MODEL_CARD.md",
+      "sha256": "1c6d994db7d0736b564762f8df176a1650690ab9240e331ed39fd8e1d7f4e0b1",
+      "bytes": 2412
+    },
+    {
+      "path": "public/models/plant-disease/README.md",
+      "sha256": "2429d972d36f16a5b79a6b6cefe4f301946d7aefb36e521e322048f2e6831390",
+      "bytes": 3587
+    },
+    {
+      "path": "public/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+      "sha256": "045ca2220a16878eb70ff2cddb4a12c4e6ce25c3d5b8659692eac9b161d4410f",
+      "bytes": 6236849
+    },
+    {
+      "path": "public/models/plant-disease/citrus-field-v3.onnx",
+      "sha256": "afdea74d552a6ee4508ea76ae498ef75f2ba620cf9b2042134496fd8156f16da",
+      "bytes": 6358335
+    },
+    {
+      "path": "public/samples/README.md",
+      "sha256": "3cb271dfebe0ab08f1c44fa41fbf9bda344b094ea66a945f5d7625d9dd35b415",
+      "bytes": 462
+    },
+    {
+      "path": "public/samples/grape-leaf-blight-plantvillage.jpg",
+      "sha256": "b7e88eb796896ce1785240bdf03a345f405804a1d1ab0f349205fb900a06b8d2",
+      "bytes": 25671
+    },
+    {
+      "path": "public/samples/tomato-yellow-leaf-curl-plantvillage.jpg",
+      "sha256": "5fc5b2e342331be0a92046d204de07f64df49abddc74388bd97690a0c779b107",
+      "bytes": 10368
+    }
+  ],
+  "archive": {
+    "path": "research/models/archive/grape-esca-pilot-v0.1.0.onnx",
+    "sha256": "032c0a54175b28c2d462888e5307ceba161654b4546d3eb10144357df129a096"
+  },
+  "safety": {
+    "noSyrianFieldValidation": true,
+    "rawScoresNotCalibrated": true,
+    "healthyClassNotHealthConfirmation": true,
+    "noTreatmentRecommendations": true
+  }
 }

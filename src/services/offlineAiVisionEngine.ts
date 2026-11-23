@@ -41,37 +41,32 @@ function createThumbnail(img: HTMLImageElement, sourceWidth: number, sourceHeigh
   return canvas.toDataURL('image/jpeg', 0.72);
 }
 
-function createModelPlaceholder(cropId: string, uncertain: boolean): DiseasePest {
+function createModelPlaceholder(cropId: string, uncertain: boolean, label?: string): DiseasePest {
+  const resultName = uncertain ? 'نتيجة النموذج غير حاسمة' : (label || 'اشتباه بصري ضمن فئات النموذج');
   return {
-    id: uncertain ? 'model_result_uncertain' : 'model_no_esca_pattern_detected',
-    nameAr: uncertain ? 'نتيجة النموذج غير حاسمة' : 'لم يرصد النموذج نمطاً واضحاً متوافقاً مع Esca',
-    nameEn: uncertain ? 'Uncertain model result' : 'No clear Esca-like pattern detected',
-    scientificName: 'غير منطبق',
+    id: uncertain ? 'model_result_uncertain' : 'model_experimental_candidate',
+    nameAr: resultName,
+    nameEn: uncertain ? 'Uncertain model result' : 'Experimental model candidate',
+    scientificName: 'غير مؤكد — يلزم تحقق مختص',
     category: 'undetermined',
     severity: 'low',
     targetCropIds: [cropId],
-    visualSymptomsAr: [
-      uncertain
-        ? 'درجة النموذج لم تبلغ عتبة العرض؛ لا يمكن استنتاج وجود Esca أو غيابه.'
-        : 'عدم رصد نمط Esca لا يعني أن الورقة سليمة، ولا يستبعد وجود مرض آخر.'
-    ],
+    visualSymptomsAr: [uncertain
+      ? 'لم تبلغ درجات النموذج العتبة التجريبية المطلوبة؛ لا يمكن ترجيح فئة بعينها.'
+      : 'هذه الفئة هي الأقرب بين الفئات التي تدرب عليها النموذج فقط، وليست تشخيصاً مؤكداً.'],
     descriptionAr: uncertain
-      ? 'النموذج التجريبي لم يصل إلى درجة كافية لترجيح إحدى فئتيه. أعد التصوير أو اعرض العينة على مختص.'
-      : 'النموذج لم يرصد نمطاً ورقياً قوياً متوافقاً مع Esca ضمن الفئتين اللتين تدرب عليهما. لا يفحص هذا النموذج بقية أمراض العنب أو الآفات أو نقص العناصر؛ لذلك لا تُفسّر النتيجة على أنها ورقة سليمة.',
-    favorableConditionsAr: 'غير متاح؛ هذه نتيجة فرز بصري آلي وليست تشخيصاً زراعياً.',
+      ? 'النموذج التجريبي لم يصل إلى درجة كافية لترجيح إحدى فئاته. أعد التصوير أو اطلب مراجعة مختص.'
+      : 'نتيجة فرز بصري تجريبية. قد تتشابه الأعراض مع أمراض أو آفات أو اضطرابات غير موجودة في بيانات التدريب؛ لا تعتمد عليها وحدها لتحديد المرض أو العلاج.',
+    favorableConditionsAr: 'غير متاح؛ هذه نتيجة نموذج بصري تجريبي وليست تشخيصاً زراعياً.',
     organicTreatmentAr: [],
     chemicalTreatments: [],
     preventiveMeasuresAr: [],
     identificationTipsAr: [
-      'افحص وجهي الورقة وعدة أوراق من الكرمة نفسها، ولا تعتمد على صورة واحدة.',
-      'إذا ظهرت تخططات أو نخور، افحص الأفرع والخشب مع مهندس زراعي؛ أعراض أمراض الخشب قد تتشابه.',
-      'النموذج الحالي لا يميّز البياض الزغبي أو الدقيقي أو العفن الأسود أو الأكاروس أو نقص العناصر.'
+      'صوّر وجهي الورقة في ضوء طبيعي مع لقطة قريبة وأخرى للنبات كاملاً.',
+      'قارن عدة أوراق من النبات نفسه وسجّل وقت ظهور الأعراض والظروف الجوية.',
+      'اعرض النتيجة والصور على مهندس زراعي قبل اتخاذ أي إجراء علاجي.'
     ],
-    visionSignatures: {
-      dominantHues: [],
-      spotTexture: 'scattered_dots',
-      targetPart: 'leaf'
-    }
+    visionSignatures: { dominantHues: [], spotTexture: 'scattered_dots', targetPart: 'leaf' }
   };
 }
 
@@ -90,9 +85,8 @@ function toAnalysisData(metrics: ReturnType<typeof analyzeLeafPixels>, observedP
 }
 
 /**
- * The default workflow remains coarse color screening. When the user explicitly
- * selects French grape leaves, a limited Esca-vs-Healthy ONNX pilot is attempted.
- * The pilot never labels the leaf healthy and never recommends a treatment.
+ * When a supported crop is selected, the app routes to its corresponding experimental ONNX model.
+ * Unsupported crops retain color screening only. No model result is an expert diagnosis.
  */
 export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanResult> {
   const img = await loadImageElement(input.imageSource);
@@ -124,21 +118,21 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
   if (observedPatterns.length === 0) observedPatterns.push('لم تُرصد تغيرات لونية قوية وفق العتبات البسيطة؛ هذا لا يثبت أن النبات سليم.');
 
   const notes = [...quality.warnings];
-  if (quality.isUsable && selectedCrop?.id === 'french_grape_leaf') {
+  if (quality.isUsable && selectedCrop) {
     const modelResult = await classifyPlantDiseaseWithOnnx(img, selectedCrop.id);
     if (modelResult.status === 'possible_match' || modelResult.status === 'unsure') {
       const disease = modelResult.diseaseId
         ? DISEASES_DATABASE.find(item => item.id === modelResult.diseaseId && item.targetCropIds.includes(selectedCrop.id))
         : undefined;
       const diseaseOrPest = disease
-        ? { ...disease, nameAr: modelResult.label || 'النمط البصري أقرب إلى فئة Esca في النموذج', nameEn: 'Esca-like leaf pattern (experimental model)' }
-        : createModelPlaceholder(selectedCrop.id, modelResult.status === 'unsure');
+        ? { ...disease, nameAr: modelResult.label || disease.nameAr, nameEn: 'Experimental visual model candidate' }
+        : createModelPlaceholder(selectedCrop.id, modelResult.status === 'unsure', modelResult.label);
       const modelNotes = [
-        'هذا نموذج تجريبي محدود لورق العنب: Esca مقابل فئة Healthy فقط؛ لا يتعرف على بقية أمراض العنب أو الآفات أو نقص العناصر.',
-        'تدرب النموذج على صور من مزارع في ولاية ماهاراشترا بالهند؛ لم يُختبر ميدانياً على الساحل السوري.',
-        'درجة النموذج المعروضة خام وغير معايرة؛ ليست احتمالاً طبياً أو نسبة موثوقية تشخيصية.',
+        `النموذج المستخدم: ${modelResult.modelVersion || 'إصدار تجريبي غير محدد'}.`,
+        'الفئات المتاحة تختلف حسب المحصول؛ الأمراض غير الموجودة في بيانات النموذج لا يمكنه اكتشافها.',
+        'درجة النموذج خام وغير معايرة، وليست نسبة احتمال أو دقة تشخيصية.',
         modelResult.message,
-        'عدم رصد Esca لا يعني أن الورقة سليمة. لا تستخدم النتيجة لاختيار مبيد أو علاج.'
+        'لا تستخدم النتيجة لاختيار مبيد أو جرعة أو علاج؛ يلزم التحقق الحقلي أو مراجعة مختص.'
       ];
       return {
         id: createScanId(),
@@ -155,13 +149,15 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
         analysisData: toAnalysisData(metrics, observedPatterns)
       };
     }
-    if (modelResult.status !== 'disabled' && modelResult.status !== 'unsupported_crop') {
-      notes.push(`تعذر تقديم نتيجة نموذجية؛ عُرض فحص الألوان فقط. ${modelResult.message}`);
+    if (modelResult.status !== 'unsupported_crop' && modelResult.status !== 'disabled') {
+      notes.push(`لم تكتمل نتيجة النموذج؛ عُرض فحص الألوان فقط. ${modelResult.message}`);
+    } else {
+      notes.push('لا يتوفر حالياً نموذج مدرّب لهذا المحصول؛ النتيجة تقتصر على مؤشرات الألوان ولا تحدد المرض.');
     }
-  } else if (selectedCrop?.id !== 'french_grape_leaf') {
-    notes.push('النموذج العصبي التجريبي الحالي مخصص لفرز نمط Esca في ورق العنب فقط؛ هذا الفحص للمحصول المحدد يعتمد على مؤشرات الألوان البسيطة.');
+  } else if (!quality.isUsable) {
+    notes.push('الصورة لم تجتز شروط الجودة؛ لم يتم تشغيل النموذج العصبي.');
   } else {
-    notes.push('الصورة لم تجتز شروط الجودة؛ لم يُشغّل نموذج Esca التجريبي.');
+    notes.push('اختر المحصول أولاً لتحديد ما إذا كان له نموذج تجريبي متاح.');
   }
 
   notes.push('هذا تحليل ألوان ومساحة خضراء تقريبي، وليس نموذجاً مدرّباً لتحديد الأمراض أو الآفات لهذا المحصول.');
@@ -223,7 +219,10 @@ function loadImageElement(source: HTMLImageElement | HTMLCanvasElement | string)
     image.onload = () => resolve(image);
     image.onerror = () => reject(new Error('تعذر قراءة الصورة.'));
     if (typeof source === 'string') {
-      image.src = source;
+      const svgPrefix = 'data:image/svg+xml;utf8,';
+      image.src = source.startsWith(svgPrefix)
+        ? 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(source.slice(svgPrefix.length))
+        : source;
     } else if (typeof HTMLCanvasElement !== 'undefined' && source instanceof HTMLCanvasElement) {
       image.src = source.toDataURL('image/jpeg', 0.88);
     } else {

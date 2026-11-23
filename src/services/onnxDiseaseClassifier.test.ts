@@ -115,7 +115,7 @@ test('the source Healthy class is never translated into a healthy-plant diagnosi
   );
   assert.equal(result.status, 'possible_match');
   assert.ok(result.label?.includes('لم يرصد'));
-  assert.ok(result.message.includes('لا يعني أن الورقة سليمة'));
+  assert.ok(result.message.includes('ليست شهادة سلامة للنبات'));
   assert.equal(result.diseaseId, undefined);
 });
 

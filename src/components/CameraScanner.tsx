@@ -6,7 +6,7 @@ import { CROPS_DATABASE, SAMPLE_TEST_LEAVES } from '../data/cropsAndDiseases';
 interface CameraScannerProps {
   selectedCropId: string;
   onSelectCropId: (cropId: string) => void;
-  onImageCaptured: (imageSrc: string) => void;
+  onImageCaptured: (imageSrc: string, cropId?: string) => void;
   isAnalyzing: boolean;
 }
 
@@ -289,7 +289,7 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({
             </div>
 
             <p className="text-xs text-stone-400 mt-3 mb-4 leading-relaxed">
-              اختر أي عينة ورقة نبات من القائمة أدناه لاختبار قدرة الذكاء الاصطناعي على كشف نوع المحصول والمرض فورياً بدون إنترنت:
+              اختر عينة لاختبار فئة مدرّبة بعد تحديد المحصول؛ بعض العينات التعليمية تمثل أمراضاً غير مفعّلة في النموذج الحالي وستُرفض بدلاً من تخمينها:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -298,14 +298,14 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({
                   key={idx}
                   onClick={() => {
                     onSelectCropId(sample.cropId);
-                    onImageCaptured(sample.svgData);
+                    onImageCaptured(sample.imageUrl || sample.svgData, sample.cropId);
                     setShowSamplesModal(false);
                   }}
                   className="group cursor-pointer rounded-xl bg-stone-800/80 hover:bg-stone-800 border border-stone-700 hover:border-emerald-500/60 p-3 transition flex flex-col items-center text-center space-y-2"
                 >
                   <div className="w-24 h-24 rounded-lg overflow-hidden border border-stone-700 bg-stone-950 flex items-center justify-center">
                     <img
-                      src={sample.svgData}
+                      src={sample.imageUrl || sample.svgData}
                       alt={sample.titleAr}
                       className="w-full h-full object-contain group-hover:scale-105 transition"
                     />

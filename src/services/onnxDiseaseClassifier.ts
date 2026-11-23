@@ -9,6 +9,7 @@ export interface OnnxClassLabel {
   cropId: string;
   diseaseId?: string;
   healthy?: boolean;
+  experimentalOnly?: boolean;
 }
 
 export interface OnnxModelManifest {
@@ -20,7 +21,7 @@ export interface OnnxModelManifest {
   inputLayout: 'NCHW' | 'NHWC';
   channelOrder: 'RGB';
   normalization: 'zero_to_one' | 'image_net';
-  resizeMode: 'center_crop';
+  resizeMode: 'center_crop' | 'stretch';
   outputKind: 'logits' | 'probabilities';
   reviewStatus: ModelReviewStatus;
   thresholdsReviewed?: boolean;
@@ -30,6 +31,7 @@ export interface OnnxModelManifest {
   minimumProbability?: number;
   minimumMargin?: number;
   modelVersion?: string;
+  expectedOutputCount?: number;
   source?: string;
   license?: string;
   validationReportPath?: string;
@@ -64,10 +66,16 @@ export type OnnxClassificationResult =
   | { status: 'disabled' | 'model_unavailable' | 'needs_crop' | 'unsupported_crop' | 'bad_image' | 'unsure' | 'candidate_only' | 'model_error'; message: string; label?: string; diseaseId?: string; cropId?: string; score?: number; modelVersion?: string }
   | { status: 'possible_match'; message: string; label: string; diseaseId?: string; cropId: string; score: number; modelVersion?: string };
 
+interface OnnxModelBundle {
+  schemaVersion: 1;
+  enabled: boolean;
+  routes?: Record<string, { model: OnnxModelManifest }>;
+}
+
 let runtimePromise: Promise<OrtRuntime> | null = null;
-let sessionPromise: Promise<OrtSession> | null = null;
-let manifestPromise: Promise<OnnxModelManifest> | null = null;
-let labelsPromise: Promise<OnnxClassLabel[]> | null = null;
+const sessionPromises = new Map<string, Promise<OrtSession>>();
+let manifestPromise: Promise<OnnxModelBundle> | null = null;
+const labelsPromises = new Map<string, Promise<OnnxClassLabel[]>>();
 
 export function stableSoftmax(values: ArrayLike<number>): number[] {
   if (values.length === 0) throw new Error('لا توجد درجات خرج من النموذج.');
@@ -94,7 +102,7 @@ export function chooseCropScopedClass(
   const eligible = classes
     .map((item, index) => ({ item, score: scores[index] }))
     .filter(({ item }) => item.cropId === cropId)
-    .filter(({ item }) => item.healthy || Boolean(item.diseaseId && DISEASES_DATABASE.some(disease =>
+    .filter(({ item }) => item.experimentalOnly === true || item.healthy || Boolean(item.diseaseId && DISEASES_DATABASE.some(disease =>
       disease.id === item.diseaseId && disease.targetCropIds.includes(cropId)
     )))
     .sort((a, b) => b.score - a.score);
@@ -116,6 +124,11 @@ export function chooseCropScopedClass(
     };
   }
 
+  const globalWinner = classes[scores.indexOf(Math.max(...scores))];
+  if (globalWinner && globalWinner.cropId !== cropId) {
+    return { status: 'unsure', message: 'الصورة لا تطابق بوضوح فئات المحصول المحدد؛ تحقق من اختيار المحصول وأعد التصوير.', score: Math.max(...scores), cropId, modelVersion: manifest.modelVersion };
+  }
+
   const first = eligible[0];
   const secondScore = eligible[1]?.score ?? 0;
   const scoreThreshold = minimumScore ?? 1;
@@ -134,11 +147,11 @@ export function chooseCropScopedClass(
   if (first.item.healthy) {
     return {
       status: 'possible_match',
-      label: 'لم يرصد النموذج نمطاً واضحاً متوافقاً مع Esca',
+      label: 'لم يرصد النموذج مرضاً واضحاً ضمن الفئات التي تدرب عليها فقط',
       cropId,
       score: first.score,
       modelVersion: manifest.modelVersion,
-      message: 'هذا لا يعني أن الورقة سليمة؛ النموذج لا يفحص بقية أمراض العنب أو الآفات أو نقص العناصر.'
+      message: 'هذه ليست شهادة سلامة للنبات؛ النموذج لا يفحص إلا الفئات المسجلة في هذا الإصدار وقد يفوته مرض أو آفة أو نقص عناصر آخر.'
     };
   }
 
@@ -150,24 +163,30 @@ export function chooseCropScopedClass(
     score: first.score,
     modelVersion: manifest.modelVersion,
     message: isPilot
-      ? 'اشتباه تجريبي أولي بنمط ورقي متوافق مع Esca؛ النموذج محدود بفئتي Esca وHealthy ولا يثبت المرض أو يحدد المسبب.'
+      ? 'اشتباه بصري تجريبي فقط ضمن فئات هذا النموذج؛ لا يثبت المرض أو يحدد المسبب، ويحتاج إلى تحقق حقلي.'
       : 'اشتباه آلي أولي يحتاج إلى مطابقة الأعراض وفحص ميداني؛ لا تستخدمه لاختيار علاج أو مبيد.'
   };
 }
 
-async function loadManifest(): Promise<OnnxModelManifest> {
+async function loadRoute(cropId: string): Promise<{ manifest: OnnxModelManifest; labels: OnnxClassLabel[] } | null> {
   if (!manifestPromise) {
     manifestPromise = fetch('/models/plant-disease/manifest.json').then(async response => {
-      if (!response.ok) throw new Error('تعذر تحميل إعدادات نموذج ONNX.');
-      return response.json() as Promise<OnnxModelManifest>;
+      if (!response.ok) throw new Error('تعذر تحميل إعدادات نماذج ONNX.');
+      return response.json() as Promise<OnnxModelBundle>;
     });
   }
-  return manifestPromise;
-}
-
-async function loadLabels(path: string): Promise<OnnxClassLabel[]> {
+  const bundle = await manifestPromise;
+  if (bundle.schemaVersion !== 1) throw new Error('إصدار حزمة النماذج غير مدعوم.');
+  if (!bundle.enabled) return null;
+  const route = bundle.routes?.[cropId];
+  if (!route?.model?.enabled) return null;
+  const manifest = route.model;
+  if (manifest.schemaVersion !== 1 || manifest.channelOrder !== 'RGB' || !['center_crop', 'stretch'].includes(manifest.resizeMode)) {
+    throw new Error('إعدادات النموذج لا تطابق إصدار محرك الفحص.');
+  }
+  let labelsPromise = labelsPromises.get(manifest.labelsPath);
   if (!labelsPromise) {
-    labelsPromise = fetch(path).then(async response => {
+    labelsPromise = fetch(manifest.labelsPath).then(async response => {
       if (!response.ok) throw new Error('تعذر تحميل تسميات النموذج.');
       const data = await response.json() as OnnxClassLabel[];
       if (!Array.isArray(data) || data.some(item => !item.id || !item.labelAr || !item.cropId)) {
@@ -175,8 +194,13 @@ async function loadLabels(path: string): Promise<OnnxClassLabel[]> {
       }
       return data;
     });
+    labelsPromises.set(manifest.labelsPath, labelsPromise);
   }
-  return labelsPromise;
+  const labels = await labelsPromise;
+  if (manifest.expectedOutputCount !== undefined && labels.length !== manifest.expectedOutputCount) {
+    throw new Error('عدد التسميات لا يطابق عدد مخارج النموذج المسجل.');
+  }
+  return { manifest, labels };
 }
 
 async function loadRuntime(): Promise<OrtRuntime> {
@@ -197,8 +221,10 @@ async function loadRuntime(): Promise<OrtRuntime> {
 }
 
 async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
-  if (!sessionPromise) {
-    sessionPromise = loadRuntime().then(async ort => {
+  const key = manifest.modelPath;
+  let pending = sessionPromises.get(key);
+  if (!pending) {
+    pending = loadRuntime().then(async ort => {
       ort.env.wasm.wasmPaths = {
         mjs: '/vendor/onnxruntime/ort-wasm-simd-threaded.mjs',
         wasm: '/vendor/onnxruntime/ort-wasm-simd-threaded.wasm'
@@ -209,8 +235,9 @@ async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
         graphOptimizationLevel: 'all'
       });
     });
+    sessionPromises.set(key, pending);
   }
-  return sessionPromise;
+  return pending;
 }
 
 function prepareInput(image: HTMLImageElement, manifest: OnnxModelManifest, ort: OrtRuntime): unknown {
@@ -219,22 +246,20 @@ function prepareInput(image: HTMLImageElement, manifest: OnnxModelManifest, ort:
   const sourceHeight = image.naturalHeight || image.height;
   if (!sourceWidth || !sourceHeight) throw new Error('الصورة فارغة أو لم يتم تحميلها.');
 
-  const scale = size / Math.min(sourceWidth, sourceHeight);
-  const scaledWidth = Math.round(sourceWidth * scale);
-  const scaledHeight = Math.round(sourceHeight * scale);
   const canvas = document.createElement('canvas');
   canvas.width = size;
   canvas.height = size;
   const context = canvas.getContext('2d', { willReadFrequently: true });
   if (!context) throw new Error('تعذر تجهيز الصورة للنموذج.');
 
-  context.drawImage(
-    image,
-    (size - scaledWidth) / 2,
-    (size - scaledHeight) / 2,
-    scaledWidth,
-    scaledHeight
-  );
+  if (manifest.resizeMode === 'stretch') {
+    context.drawImage(image, 0, 0, size, size);
+  } else {
+    const scale = size / Math.min(sourceWidth, sourceHeight);
+    const scaledWidth = Math.round(sourceWidth * scale);
+    const scaledHeight = Math.round(sourceHeight * scale);
+    context.drawImage(image, (size - scaledWidth) / 2, (size - scaledHeight) / 2, scaledWidth, scaledHeight);
+  }
   const pixels = context.getImageData(0, 0, size, size).data;
   const plane = size * size;
   const channels = [new Float32Array(plane), new Float32Array(plane), new Float32Array(plane)];
@@ -269,18 +294,14 @@ export async function classifyPlantDiseaseWithOnnx(
   cropId?: string
 ): Promise<OnnxClassificationResult> {
   try {
-    const manifest = await loadManifest();
-    if (!manifest.enabled) return { status: 'disabled', message: 'نموذج الكشف العصبي غير مفعّل بعد.' };
-    if (manifest.schemaVersion !== 1 || manifest.channelOrder !== 'RGB' || manifest.resizeMode !== 'center_crop') {
-      return { status: 'model_error', message: 'إعدادات النموذج لا تطابق إصدار محرك الفحص.' };
-    }
-    const classes = await loadLabels(manifest.labelsPath);
-    if (!cropId || cropId === 'auto') return chooseCropScopedClass([], classes, cropId, manifest);
-
+    if (!cropId || cropId === 'auto') return { status: 'needs_crop', message: 'اختر نوع المحصول أولاً؛ لا يستنتج التطبيق نوع النبات تلقائياً.' };
     const crop = CROPS_DATABASE.find(item => item.id === cropId);
-    if (!crop) return { status: 'unsupported_crop', message: 'المحصول المحدد غير مدعوم.' };
+    if (!crop) return { status: 'unsupported_crop', message: 'المحصول المحدد غير موجود في قاعدة بيانات التطبيق.' };
+    const loadedRoute = await loadRoute(cropId);
+    if (!loadedRoute) return { status: 'unsupported_crop', message: 'لا يوجد نموذج تجريبي مفعّل لهذا المحصول؛ سيُعرض فحص الألوان فقط.' };
+    const { manifest, labels: classes } = loadedRoute;
     if (!classes.some(item => item.cropId === cropId)) {
-      return { status: 'unsupported_crop', message: 'لا توجد فئات مدربة ومراجعة لهذا المحصول في النموذج الحالي.' };
+      return { status: 'unsupported_crop', message: 'لا توجد فئات مدرّبة لهذا المحصول في النموذج الحالي.' };
     }
 
     const width = image.naturalWidth || image.width;
@@ -298,9 +319,7 @@ export async function classifyPlantDiseaseWithOnnx(
     if (!quality.isUsable) return { status: 'bad_image', message: quality.warnings.join(' ') };
 
     const [ort, session] = await Promise.all([loadRuntime(), loadSession(manifest)]);
-    if (classes.length === 0) {
-      return { status: 'model_error', message: 'ملف تسميات النموذج فارغ.' };
-    }
+    if (classes.length === 0) return { status: 'model_error', message: 'ملف تسميات النموذج فارغ.' };
     const tensor = prepareInput(image, manifest, ort);
     const output = await session.run({ [session.inputNames[0]]: tensor });
     const outputTensor = output[session.outputNames[0]];
@@ -325,7 +344,7 @@ export async function classifyPlantDiseaseWithOnnx(
 /** Clears cached runtime/session state after a model bundle is replaced. */
 export function resetOnnxDiseaseClassifier(): void {
   runtimePromise = null;
-  sessionPromise = null;
+  sessionPromises.clear();
+  labelsPromises.clear();
   manifestPromise = null;
-  labelsPromise = null;
 }

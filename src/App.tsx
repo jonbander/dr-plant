@@ -44,12 +44,12 @@ export default function App() {
   }, []);
 
   // Handle image capture from camera or gallery
-  const handleImageCaptured = async (imageSrc: string) => {
+  const handleImageCaptured = async (imageSrc: string, cropIdOverride?: string) => {
     setIsAnalyzing(true);
     try {
       const result = await analyzePlantOffline({
         imageSource: imageSrc,
-        suggestedCropId: selectedCropId
+        suggestedCropId: cropIdOverride || selectedCropId
       });
 
       // Save to offline storage
@@ -115,7 +115,7 @@ export default function App() {
       {/* Quick Offline & Syrian Coastal Capability Ribbon */}
       <div className="bg-emerald-950/60 border-b border-emerald-800/30 px-4 py-1.5 text-center text-[11px] text-emerald-300 flex items-center justify-center gap-2 flex-wrap">
         <span className="px-1.5 py-0.5 bg-emerald-500/20 rounded font-bold text-white text-[10px]">🇸🇾 الساحل السوري</span>
-        <span>مخصص لبيئة الساحل السوري • نموذج العنب التجريبي يفحص Esca فقط؛ بقية المحاصيل ما زالت في مرحلة الفرز اللوني. الإنذار الجوي يحتاج اتصالاً وموقع المزرعة.</span>
+        <span>مخصص لبيئة الساحل السوري • تتوفر نماذج تجريبية متعددة للعنب والحمضيات والبندورة، وتختلف الفئات حسب المحصول. الإنذار الجوي يحتاج اتصالاً وموقع المزرعة.</span>
       </div>
 
       {/* Desktop Navigation Tabs */}
@@ -158,7 +158,7 @@ export default function App() {
                 وجّه الكاميرا نحو الورقة المصابة
               </h2>
               <p className="text-xs text-stone-400">
-                اختر «ورق العنب الفرنسي» لتشغيل نموذج تجريبي محدود لفرز نمط Esca. بقية المحاصيل تستخدم حالياً فحص الألوان الأولي فقط؛ ولا تثبت أي نتيجة وجود المرض أو غيابه.
+                اختر المحصول لتشغيل النموذج التجريبي المتاح له إن وُجد. تتوفر حالياً فئات محدودة للعنب والحمضيات والبندورة؛ ولا تثبت أي نتيجة وجود المرض أو غيابه.
               </p>
             </div>
 

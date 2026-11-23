@@ -13,7 +13,7 @@ Dr Plant already has a deterministic color-screening pipeline. This optional ONN
 
 ## Current status
 
-The adapter, local ONNX Runtime Web 1.22.0 WASM assets, and a 160px MobileNetV3-Small model bundle are now shipped for a narrow experimental French-grape Esca pilot. The manifest is enabled only with `reviewStatus: candidate` and `pilotMode: true`. It runs only when the user explicitly selects French grape leaves. It does not replace the unified multi-crop model; other crops still use color-based preliminary screening.
+The app now ships experimental bundle v0.2.0 with three crop routes: French grape leaf and tomato use a 128px PlantVillage multi-crop MobileNetV3-Small ONNX; citrus uses a 160px Field-Based Citrus Leaf Disease MobileNetV3-Small ONNX. Route-specific manifests, labels, preprocessing, score/margin gates, and validation notes are stored under `public/models/plant-disease/`. Other crops use color-based preliminary screening. This bundle is not a Syrian-validated unified model.
 
 ## Browser runtime
 
@@ -21,11 +21,11 @@ Use ONNX Runtime Web (MIT) from its official package. Copy the `ort.min.js` and 
 
 ## Model requirements
 
-The model manifest defines input size/layout, RGB channel order, normalization, center-crop resize, output type, source and license. The output label list must exactly match the graph output dimension. Disease IDs must exist in the Dr Plant knowledge base and include the selected crop in their target list. Unsupported crops return an explicit unsupported status rather than being assigned a neighbouring crop's class.
+Each route manifest defines input size/layout, RGB channel order, normalization, model-specific resize mode (`stretch` or `center_crop`), output type, and validation report. The output label list must exactly match the graph output dimension. A class without a reviewed knowledge-base disease record may appear only as an experimental placeholder with no treatment details. Unsupported crops return an explicit unsupported status rather than being assigned a neighbouring crop's class.
 
 ## Promotion policy
 
-A candidate can run in the app only when the manifest explicitly opts into `pilotMode`; the output remains an experimental possible match and never becomes a confirmed diagnosis. The current Esca pilot has only two source classes and cannot identify other grape diseases. It uses a raw score threshold, displays that score as uncalibrated, and never labels a no-Esca result as healthy. Promotion into the unified model requires a new fixed independent test, external Esca-positive field images, no material per-class regression, calibrated crop-specific rejection, and Syrian coastal evaluation.
+A candidate can run in the app only when the manifest explicitly opts into `pilotMode`; the output remains an experimental possible match and never becomes a confirmed diagnosis. The current multi-model bundle exposes only selected source classes; weak classes are suppressed and the app abstains on unsupported outputs. Scores are raw and uncalibrated, and source Healthy is never a health confirmation. Promotion into a validated diagnostic model requires expert-reviewed local field images, group-disjoint splits by farm/season, external testing across phone cameras, per-class sensitivity/specificity, calibrated rejection, and Syrian coastal evaluation.
 
 ## References
 
