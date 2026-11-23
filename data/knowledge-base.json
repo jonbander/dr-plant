@@ -335,6 +335,32 @@
           "url": "https://extension.uga.edu/publications/detail.html?number=B1520"
         }
       ]
+    },
+    {
+      "id": "grape-esca-complex",
+      "crop": "grape",
+      "commonNames": [
+        "إسكَا العنب",
+        "Esca",
+        "Black measles"
+      ],
+      "scientificName": "Disease complex associated with Phaeomoniella chlamydospora, Phaeoacremonium spp., and Fomitiporia mediterranea among other fungi",
+      "evidenceStatus": "reference_only",
+      "notes": "Esca is a complex of grapevine trunk diseases, not a single pathogen. Foliar expression may include interveinal striping (yellow in white cultivars, dark red in red cultivars) that becomes necrotic, but expression varies by cultivar and season. Wood symptoms and expert examination may be needed. These Mediterranean/California references do not confirm occurrence or prevalence in Syrian coastal vineyards.",
+      "sources": [
+        {
+          "title": "UC IPM – Esca (Black Measles) / Grape",
+          "url": "https://ipm.ucanr.edu/agriculture/grape/esca-black-measles/"
+        },
+        {
+          "title": "INRAE Ephytia – Champignons associés à l’Esca",
+          "url": "https://ephytia.inrae.fr/fr/C/6106/Vigne-Champignons-associes-a-l-esca"
+        },
+        {
+          "title": "INRAE Ephytia – Vigne: principaux symptômes",
+          "url": "https://ephytia.inrae.fr/fr/C/6969/Vigne-Principaux-symptomes"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -352,10 +378,11 @@
       "license": "CC BY 4.0",
       "status": "candidate_dataset_not_integrated",
       "source": "https://data.mendeley.com/datasets/wkymf8bhcg/5",
-      "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split.",
+      "intendedUse": "A curated two-class Esca-vs-Healthy pilot experiment is available, but it remains a limited research/pilot candidate and is not an integrated multi-disease model. Only the 1,323 checksum-verified Esca/Healthy images were retained; Black Rot and Leaf Blight were excluded after source-label conflict and duplicate audits.",
       "doi": "10.17632/wkymf8bhcg.5",
-      "notes": "Field-acquired images from Maharashtra, India. The 2026 Scientific Data descriptor reports metadata and expert-verified annotations; audit package metadata and label consistency before use. Regional transfer to Syrian coastal vineyards must be tested.",
-      "licenseEvidence": "Mendeley Data record lists CC BY 4.0."
+      "notes": "Field-acquired images from Maharashtra, India. A recovered row-level manifest now covers the 1,323 retained images and reconstructs vineyard-disjoint splits (953/195/175) matching the prior run summary. The full 3,477-row source inventory records 1,344 folder-vs-metadata label conflicts and 446 exact-SHA duplicate groups (1,514 files in groups; 3 cross-label groups). The source paper reports 34 vineyards, while the curated subset includes 28. A two-class Esca-vs-Healthy MobileNetV3-Small pilot reached 99.43% on its India vineyard-held-out test set, but external other-disease probes show open-set false Esca alerts; this is not Syrian validation and the model is not integrated into the unified classifier.",
+      "licenseEvidence": "Mendeley Data record lists CC BY 4.0.",
+      "metadataSource": "https://github.com/MilindGayakwad/DNN/tree/main/METADATA"
     },
     {
       "id": "hermos-grape",

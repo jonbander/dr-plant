@@ -4,14 +4,14 @@ This file is the shared source of truth for Codex, Gemini, Claude, Manus, Copilo
 
 ## Project purpose and current truth
 
-Dr Plant is an Arabic-first plant-health project focused first on grapevine and coastal Syrian crops. The current camera workflow performs **coarse visual screening only** using image-quality gates and approximate color statistics. It is not a trained plant-disease classifier, does not identify a pathogen with certainty, and must not recommend pesticide products or doses.
+Dr Plant is an Arabic-first plant-health project focused first on grapevine and coastal Syrian crops. Most crops still use **coarse color-based visual screening only**. A narrow experimental ONNX pilot is enabled only when the user explicitly selects French grape leaves; it compares two source classes (Esca-like foliar pattern vs source-labeled Healthy). It is not a general grape-disease classifier, has no Syrian coastal field validation, and is not integrated into the unified multi-crop model. A no-Esca result must never be described as a healthy-plant diagnosis. Neither workflow may claim a confirmed pathogen diagnosis or recommend pesticide products/doses.
 
-Never claim diagnostic accuracy, model training, image-based learning, or improved diagnosis unless the repository contains reproducible training and independent evaluation evidence supporting that exact claim.
+Never claim Syrian diagnostic accuracy, confirmed diagnosis, model improvement, or field readiness unless reproducible training and an independent Syrian field evaluation support that exact claim. Report source-specific model metrics only with their dataset, split, class scope, and limitations. Do not describe the Esca pilot as a validated general disease model.
 
 ## Safe collaboration rules
 
 1. Make development changes on a focused, short-lived branch based on the latest `main`.
-2. The maintainer has explicitly authorized automatic merging of completed development PRs into `main`: once all required GitHub Actions checks pass, the PR is mergeable, and the exact tested head SHA is unchanged, merge it immediately without asking for separate confirmation. Never merge while checks are pending/failed, when conflicts remain, or when a safety/evidence gate is unresolved.
+2. The maintainer's default is to merge completed development PRs after all required GitHub Actions checks pass, the PR is mergeable, and the exact tested head SHA is unchanged. **An explicit maintainer instruction for a task to keep the PR open or not merge to `main` overrides this default; in that case, push the authorized branch and leave the PR unmerged.** Never merge while checks are pending/failed, when conflicts remain, or when a safety/evidence gate is unresolved.
 3. Do not publish a release, change repository visibility, add collaborators, or expose secrets unless separately authorized.
 4. Keep changes small, reviewable, and documented. Explain changed files, tests run, and remaining limitations in the pull request.
 4. Never add API keys, tokens, private user data, patient/farm identifying data, or credentials.
@@ -54,7 +54,7 @@ If a command cannot be run in the available environment, state that clearly; do 
 
 ## Pull request expectations
 
-Use a focused PR against `main`. After all required checks pass and the tested head SHA is unchanged, merge it immediately under the maintainer's standing instruction. Include:
+Use a focused PR against `main`. Merge only when the maintainer has not explicitly requested PR-only/no-merge for that task; an explicit no-merge instruction takes precedence over the default auto-merge policy. Include:
 - what changed and why;
 - sources and evidence status for new research records;
 - image licensing/provenance decisions;

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "activePilot": "grape-esca-pilot-v0.1.0",
+  "unifiedModel": null,
+  "previousBehavior": "color-screening-only",
+  "models": [
+    {
+      "version": "grape-esca-pilot-v0.1.0",
+      "status": "pilot_candidate",
+      "crop": "french_grape_leaf",
+      "task": "Esca-like foliar pattern vs source-labeled Healthy",
+      "modelPath": "public/models/plant-disease/grape-esca-pilot.onnx",
+      "modelSha256": "032c0a54175b28c2d462888e5307ceba161654b4546d3eb10144357df129a096",
+      "checkpointSha256": "41c5c17030ddfb5bf3a3d3bb73201237a9611ac75857d2190f36b8284bdc0307",
+      "checkpointArchive": {
+        "url": "https://drive.google.com/file/d/1I66zrshhVEvnM_pqnPlAYPf6gnYDK3wm/view?usp=sharing",
+        "archiveSha256": "61a5291c13f3d81c0aeef912eabe1137182b123f84c245fd8ab8adfac44cbd02",
+        "containedPath": "data/gvlid-v5-clean-2class/results/mobilenetv3-small/best.pt",
+        "containedCheckpointSha256": "41c5c17030ddfb5bf3a3d3bb73201237a9611ac75857d2190f36b8284bdc0307",
+        "verification": "Extracted the exact archive entry and confirmed its SHA256 matches the active checkpoint."
+      },
+      "manifestPath": "public/models/plant-disease/manifest.json",
+      "labelsPath": "public/models/plant-disease/labels.json",
+      "trainingConfigPath": "public/models/plant-disease/training-config.json",
+      "validationReportPath": "public/models/plant-disease/validation-report.json",
+      "modelCardPath": "public/models/plant-disease/MODEL_CARD.md",
+      "pilotThreshold": {
+        "minimumRawSoftmaxScore": 0.85,
+        "minimumTopTwoMargin": 0.7
+      },
+      "unifiedIntegrationAccepted": false,
+      "reasonNotIntegrated": "No Syrian field validation; only two classes; open-set false alerts; external probe has no Esca-positive examples; score is not calibrated.",
+      "rollback": "Disable public/models/plant-disease/manifest.json or revert the pilot integration commit to restore color-screening-only behavior.",
+      "sidecars": {
+        "manifest": {
+          "path": "public/models/plant-disease/manifest.json",
+          "sha256": "58a267adc69aaf11ac22d7e2534e284cc826509ce78974e3ada5555c2c70dcf2"
+        },
+        "labels": {
+          "path": "public/models/plant-disease/labels.json",
+          "sha256": "6e2b4c674d1723fabdf8b160b2ee4f1f4b5ba63e9ee8bf0559bbe0a79cd523e7"
+        },
+        "trainingConfig": {
+          "path": "public/models/plant-disease/training-config.json",
+          "sha256": "8a68a06233050d02ac194c1e8c912293cf135225ea204733d444f1039477eaa0"
+        },
+        "validationReport": {
+          "path": "public/models/plant-disease/validation-report.json",
+          "sha256": "2f1d6d6d0514e2b68eaf89cd25b4f7efe9df9ee3c514514d8233ecec66bd2f2f"
+        },
+        "failureReport": {
+          "path": "public/models/plant-disease/failure-report.json",
+          "sha256": "4b13ecb751f4cc65df33bc936361a8f7f26c14cf5b30e0a53869c4c0817f4a47"
+        },
+        "modelCard": {
+          "path": "public/models/plant-disease/MODEL_CARD.md",
+          "sha256": "31d58a482ea401c1493b7787bee4e993f996649811bbeafdf3354cdf4b2aaa86"
+        }
+      },
+      "dataArtifacts": {
+        "recoveredImageManifest": {
+          "path": "research/training-results/2026-11-23/gvlid-recovery/recovered-image-manifest.csv",
+          "sha256": "beffe48f5ead672ea4d82720f64b9fd1d1a6e2023e2329d7b7c8f9ea6c73a509"
+        },
+        "sourceImageInventory": {
+          "path": "research/training-results/2026-11-23/gvlid-recovery/source-image-inventory.csv",
+          "sha256": "fd616f3a9740d13685e877b3bc75bc87f412f5f20aeefd46e510619f9144c5f6"
+        },
+        "recoveryAudit": {
+          "path": "research/training-results/2026-11-23/gvlid-recovery/recovery-audit.json",
+          "sha256": "566b79247b09fad2fe765bdb647766895a67a813827822d219f51d3f5c6d17b7"
+        },
+        "restoredSplitEvaluation": {
+          "path": "research/training-results/2026-11-23/gvlid-recovery/restored-split-evaluation.json",
+          "sha256": "862d69cb307b3121a4317750d98a12844ea632918ac7d3ad3161ce83d87a3267"
+        }
+      },
+      "runtime": {
+        "version": "onnxruntime-web 1.22.0",
+        "license": "MIT",
+        "assets": {
+          "ort.min.js": "2e547300edd10000dd8f370d064e5844bf28e560a40c79174f273e03d588ee72",
+          "ort-wasm-simd-threaded.mjs": "6e2180c97c109434ba67f1b83454cc48c5f812e79990094ed0cc3cffeabe18b0",
+          "ort-wasm-simd-threaded.wasm": "71aef04959c5c1b6de461b6538e2058e306610034a85aad2742d0c7fd4533fe4"
+        }
+      }
+    }
+  ]
+}

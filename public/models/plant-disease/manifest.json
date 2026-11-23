@@ -1,16 +1,22 @@
 {
   "schemaVersion": 1,
-  "enabled": false,
-  "modelPath": "/models/plant-disease/model.onnx",
+  "enabled": true,
+  "modelVersion": "grape-esca-pilot-v0.1.0",
+  "modelPath": "/models/plant-disease/grape-esca-pilot.onnx",
   "labelsPath": "/models/plant-disease/labels.json",
-  "inputSize": 224,
+  "inputSize": 160,
   "inputLayout": "NCHW",
   "channelOrder": "RGB",
   "normalization": "image_net",
   "resizeMode": "center_crop",
   "outputKind": "logits",
   "reviewStatus": "candidate",
-  "source": "",
-  "license": "",
-  "notes": "Disabled until the exact ONNX artifact, ordered labels, preprocessing, license and coastal field validation are verified."
+  "pilotMode": true,
+  "thresholdsReviewed": true,
+  "minimumScore": 0.85,
+  "minimumMargin": 0.7,
+  "source": "GVLiD Mendeley Data V5; DOI 10.17632/wkymf8bhcg.5",
+  "license": "CC BY 4.0; attribute Shikalgar et al. (2026). ONNX Runtime Web 1.22.0 is MIT-licensed.",
+  "validationReportPath": "/models/plant-disease/validation-report.json",
+  "notes": "Experimental French-grape leaf pilot only: Esca vs source-labeled Healthy. It does not detect other grape diseases, pests, nutrient deficiencies, or abiotic injury. A no-Esca result must never be presented as a healthy-leaf diagnosis. Raw softmax score is not a calibrated probability. Data are from Maharashtra, India; no Syrian coastal field validation. Not integrated into the unified multi-crop model."
 }

@@ -6,8 +6,9 @@
 
 - تطبيق React + TypeScript + Vite مع دعم PWA.
 - لوحة اختيارية للإنذار الجوي المبكر عن مؤشرات خطر البياض الزغبي في العنب، تعتمد على موقع المزرعة وبيانات الطقس الساعية؛ تتطلب الإنترنت ولا تمثل تشخيصاً أو نموذجاً محلياً معايراً.
-- الفحص الحالي يقيس نسباً لونية تقريبية ويجري بوابات أولية لجودة الصورة.
-- **لا يحتوي هذا الإصدار على نموذج تعلم عميق مدرّب لتشخيص أمراض النبات.**
+- معظم المحاصيل ما زالت تستخدم نسباً لونية تقريبية وبوابات أولية لجودة الصورة فقط.
+- عند اختيار «ورق العنب الفرنسي» يعمل نموذج ONNX تجريبي محدود يقارن نمط الورقة بفئتي Esca وHealthy في مصدر التدريب فقط؛ لا يتعرف على بقية أمراض العنب، ولا يثبت المرض أو سلامة الورقة، ولم يُختبر ميدانياً في الساحل السوري.
+- درجة النموذج الخام ليست احتمالاً معايراً؛ النتائج التجريبية تظهر دائماً كفرز أولي مع رفض للدرجات المنخفضة وتحذير من الأمراض غير المدعومة.
 - لا يحدد نوع المحصول تلقائياً، ولا يصدر اسم مرض مؤكداً، ولا يوصي بمبيد أو جرعة.
 - المساعد اليدوي يطابق المحصول والجزء المتأثر ونمط العرض قبل عرض سجل مرجعي محتمل؛ إذا لم يوجد تطابق مدعوم يبقي السبب غير محدد بدلاً من تخمين مرض. ولا يُعد ذلك تشخيصاً مؤكداً.
 - جرعات المبيدات القديمة غير موثقة محلياً ولا ينبغي استخدامها.
@@ -31,6 +32,8 @@ bun run build
 - قاعدة المعرفة البحثية: [data/knowledge-base.json](./data/knowledge-base.json)
 - أضيف جرب الحمضيات (*Elsinoë fawcettii*) كمرجع أولي للّيمون؛ لا يعني ذلك تأكيد وجوده محلياً أو أن النموذج تعلمه.
 - دليل الأدلة وحدود التشخيص: [docs/DIAGNOSTIC_EVIDENCE.md](./docs/DIAGNOSTIC_EVIDENCE.md)
+- بطاقة نموذج العنب التجريبي وتقييمه: [MODEL_CARD.md](./public/models/plant-disease/MODEL_CARD.md) و[validation-report.json](./public/models/plant-disease/validation-report.json)
+- جرد GVLiD واستعادة manifest: [تقرير الاستعادة](./research/training-results/2026-11-23/gvlid-recovery/README.md)
 - يجب أن تمر كل إضافة بحثية بفحص المصدر والحالة العلمية وترخيص الصور.
 - لا تمنح علنية المستودع أي وكيل صلاحية على حسابات أو ملفات خاصة.
 
@@ -51,6 +54,8 @@ bun run build
 
 - UC IPM — البياض الزغبي على العنب: https://ipm.ucanr.edu/agriculture/grape/downy-mildew/
 - UC IPM — البياض الدقيقي على العنب: https://ipm.ucanr.edu/agriculture/grape/powdery-mildew/
+- UC IPM — Esca (Black Measles) على العنب: https://ipm.ucanr.edu/agriculture/grape/esca-black-measles/
+- INRAE Ephytia — الفطريات المرتبطة بـ Esca: https://ephytia.inrae.fr/fr/C/6106/Vigne-Champignons-associes-a-l-esca
 - University of Minnesota Extension — تبقعات أوراق العنب: https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html
 - UF/IFAS — تشخيص أمراض الحمضيات: https://ask.ifas.ufl.edu/publication/CH159
 - UF/IFAS — صانعة أنفاق أوراق الحمضيات: https://ask.ifas.ufl.edu/publication/IN165

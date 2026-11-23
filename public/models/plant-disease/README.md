@@ -1,40 +1,19 @@
-# ONNX plant-disease model bundle
+# Plant disease model bundle
 
-The classifier is intentionally disabled in `manifest.json`. Do not enable it by changing a flag alone.
+The active bundle is an **experimental French-grape Esca screening pilot**, not a validated general disease classifier.
 
-## Required files
+- Model: `grape-esca-pilot.onnx`
+- Version: `grape-esca-pilot-v0.1.0`
+- Ordered labels: `labels.json` (`Esca`, then source-labeled `Healthy`)
+- Runtime manifest: `manifest.json`
+- Validation report: `validation-report.json`
+- Training configuration (partial): `training-config.json`
+- Model card: `MODEL_CARD.md`
 
-- `model.onnx`: exact model artifact whose architecture and input/output contract have been verified.
-- `labels.json`: ordered output classes. Each entry must include `id`, `labelAr`, and an existing `cropId`. Disease classes must also include a `diseaseId` that exists in the app knowledge base and targets that crop. Healthy classes use `healthy: true`.
-- `manifest.json`: model-specific preprocessing and validation metadata.
+The model is limited to Esca-like leaf patterns vs the source's Healthy class. A no-Esca output is **not** a healthy diagnosis. Other grape diseases are not recognized. The score is not calibrated. Syrian coastal field validation has not been performed.
 
-## ONNX Runtime Web assets
+Model and dataset attribution: Shikalgar et al. (2026), GVLiD, Mendeley Data V5, DOI 10.17632/wkymf8bhcg.5, CC BY 4.0.
 
-Place the matching ONNX Runtime Web distribution files under `public/vendor/onnxruntime/`:
-- `ort.min.js`
-- the WASM files from the same package version (including the SIMD single-thread WASM binary used by the selected build).
+ONNX Runtime Web 1.22.0 is MIT-licensed. Runtime assets are vendored under `public/vendor/onnxruntime/`.
 
-The application loads the runtime locally, so inference does not send leaf photos to a third-party service. Do not mix runtime JavaScript and WASM files from different versions.
-
-## Manifest promotion gate
-
-A candidate model stays disabled / research-only until all of the following are documented:
-
-1. Source URL, exact version/revision, file checksum and license for both model weights and training data.
-2. Input dimensions, channel layout, color order, resizing/cropping policy, normalization, output tensor and exact ordered labels verified against the exported graph.
-3. Every output class mapped to an existing crop and, where applicable, a disease entry whose target crop includes that crop.
-4. Independent evaluation on field photographs from the Syrian coast, grouped by orchard/site, plant and capture session to prevent leakage.
-5. Per-crop and per-class precision/recall, macro-F1, confusion matrix, class coverage and failure analysis.
-6. Probability calibration and crop-specific rejection thresholds reviewed on a separate validation set. Raw softmax output is not a calibrated confidence score.
-7. A plant-health reviewer approves the disease-label mapping and the validation report is checked into the repository.
-
-Only then may `reviewStatus` become `validated`, `thresholdsReviewed` become `true`, and `enabled` become `true`.
-
-## Scope and safety
-
-- PlantVillage-trained models are not automatically valid for coastal Syrian field photos; controlled-background datasets can have substantial domain shift.
-- The current app catalog contains many crops without reviewed disease mappings. A model only supports the crops explicitly listed in its labels.
-- Crop selection is required; this classifier does not identify the plant species.
-- A healthy-class output means only that none of the model's known disease classes scored highest; it does not prove the plant is healthy.
-- No pesticide, dose, spray schedule or treatment suggestion is generated from model output.
-- This is image classification, not lesion localization or object detection.
+Representative failure cases are recorded in `failure-report.json`. The training checkpoint is retained in the verified Drive archive linked from `MODEL_CARD.md`; the app-serving ONNX artifact is embedded and versioned in this repository.

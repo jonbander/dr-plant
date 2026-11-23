@@ -1,0 +1,48 @@
+{
+  "modelVersion": "grape-esca-pilot-v0.1.0",
+  "architecture": "torchvision MobileNetV3-Small",
+  "inputSize": 160,
+  "classOrder": [
+    "Esca",
+    "Healthy"
+  ],
+  "dataset": "GVLiD Mendeley Data V5 curated subset",
+  "datasetLicense": "CC BY 4.0",
+  "curatedImageCount": 1323,
+  "classCounts": {
+    "Esca": 885,
+    "Healthy": 438
+  },
+  "splitCounts": {
+    "train": 953,
+    "validation": 195,
+    "test": 175
+  },
+  "splitMethod": "Vineyard-disjoint; test Vineyard_1, Vineyard_8, Vineyard_15, Vineyard_22; validation Vineyard_4, Vineyard_11, Vineyard_18, Vineyard_25; remaining vineyards train.",
+  "epochsRun": 8,
+  "bestEpoch": 6,
+  "device": "CPU",
+  "preprocessing": {
+    "colorSpace": "RGB",
+    "resize": "160x160 bilinear",
+    "scale": "pixel / 255",
+    "normalization": "ImageNet mean [0.485,0.456,0.406], std [0.229,0.224,0.225]",
+    "layout": "NCHW"
+  },
+  "optimizer": null,
+  "learningRate": null,
+  "batchSize": null,
+  "randomSeed": null,
+  "augmentation": null,
+  "weightInitialization": "not recoverable from the saved training artifacts",
+  "lossFunction": "not recoverable from the saved training artifacts",
+  "configCompleteness": "partial; missing optimizer, learning rate, batch size, random seed, augmentation and weight-initialization details. Do not claim exact training reproduction until the original training script/config is restored.",
+  "artifactHashes": {
+    "modelOnnxSha256": "032c0a54175b28c2d462888e5307ceba161654b4546d3eb10144357df129a096",
+    "labelsSha256": "6e2b4c674d1723fabdf8b160b2ee4f1f4b5ba63e9ee8bf0559bbe0a79cd523e7",
+    "manifestSha256": "58a267adc69aaf11ac22d7e2534e284cc826509ce78974e3ada5555c2c70dcf2",
+    "recoveredImageManifestSha256": "beffe48f5ead672ea4d82720f64b9fd1d1a6e2023e2329d7b7c8f9ea6c73a509",
+    "sourceImageInventorySha256": "fd616f3a9740d13685e877b3bc75bc87f412f5f20aeefd46e510619f9144c5f6",
+    "recoveryAuditSha256": "566b79247b09fad2fe765bdb647766895a67a813827822d219f51d3f5c6d17b7"
+  }
+}

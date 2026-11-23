@@ -24,8 +24,12 @@ export interface OnnxModelManifest {
   outputKind: 'logits' | 'probabilities';
   reviewStatus: ModelReviewStatus;
   thresholdsReviewed?: boolean;
+  pilotMode?: boolean;
+  minimumScore?: number;
+  /** @deprecated Use minimumScore; scores are not calibrated probabilities. */
   minimumProbability?: number;
   minimumMargin?: number;
+  modelVersion?: string;
   source?: string;
   license?: string;
   validationReportPath?: string;
@@ -43,7 +47,7 @@ interface OrtSession {
 }
 
 interface OrtRuntime {
-  env: { wasm: { wasmPaths: string; numThreads?: number } };
+  env: { wasm: { wasmPaths: string | { mjs?: string; wasm?: string }; numThreads?: number } };
   InferenceSession: {
     create(path: string, options: Record<string, unknown>): Promise<OrtSession>;
   };
@@ -57,8 +61,8 @@ declare global {
 }
 
 export type OnnxClassificationResult =
-  | { status: 'disabled' | 'model_unavailable' | 'needs_crop' | 'unsupported_crop' | 'bad_image' | 'unsure' | 'candidate_only' | 'model_error'; message: string; label?: string; diseaseId?: string; cropId?: string }
-  | { status: 'possible_match'; message: string; label: string; diseaseId?: string; cropId: string };
+  | { status: 'disabled' | 'model_unavailable' | 'needs_crop' | 'unsupported_crop' | 'bad_image' | 'unsure' | 'candidate_only' | 'model_error'; message: string; label?: string; diseaseId?: string; cropId?: string; score?: number; modelVersion?: string }
+  | { status: 'possible_match'; message: string; label: string; diseaseId?: string; cropId: string; score: number; modelVersion?: string };
 
 let runtimePromise: Promise<OrtRuntime> | null = null;
 let sessionPromise: Promise<OrtSession> | null = null;
@@ -99,28 +103,42 @@ export function chooseCropScopedClass(
     return { status: 'unsupported_crop', message: 'لا توجد فئات مرضية مراجعة لهذا المحصول في النموذج الحالي.' };
   }
 
-  if (manifest.reviewStatus !== 'validated' || manifest.thresholdsReviewed !== true ||
-      typeof manifest.minimumProbability !== 'number' || typeof manifest.minimumMargin !== 'number' ||
-      !manifest.validationReportPath) {
+  const isPilot = manifest.reviewStatus === 'candidate' && manifest.pilotMode === true;
+  const minimumScore = manifest.minimumScore ?? manifest.minimumProbability;
+  const hasReviewedThresholds = manifest.thresholdsReviewed === true &&
+    typeof minimumScore === 'number' && typeof manifest.minimumMargin === 'number' &&
+    Boolean(manifest.validationReportPath);
+
+  if ((!isPilot && manifest.reviewStatus !== 'validated') || !hasReviewedThresholds) {
     return {
       status: 'candidate_only',
-      message: 'النموذج متاح للاختبار البحثي فقط؛ لم تُعتمد معايرته واختباره المستقل على صور الحقول الساحلية.'
+      message: 'النموذج متاح للاختبار البحثي فقط؛ لم تُعتمد بوابة التشغيل التجريبي لهذا الإصدار.'
     };
   }
 
   const first = eligible[0];
   const secondScore = eligible[1]?.score ?? 0;
+  const scoreThreshold = minimumScore ?? 1;
+  const minimumMargin = manifest.minimumMargin ?? 1;
   const margin = first.score - secondScore;
-  if (first.score < manifest.minimumProbability || margin < manifest.minimumMargin) {
-    return { status: 'unsure', message: 'نتيجة النموذج غير حاسمة. لا يمكن تحديد مرض من هذه الصورة.' };
+  if (first.score < scoreThreshold || margin < minimumMargin) {
+    return {
+      status: 'unsure',
+      message: 'درجة النموذج غير كافية لتقديم نتيجة؛ أعد التصوير أو اطلب مراجعة مختص.',
+      score: first.score,
+      cropId,
+      modelVersion: manifest.modelVersion
+    };
   }
 
   if (first.item.healthy) {
     return {
       status: 'possible_match',
-      label: 'لم يرصد النموذج مرضاً من الفئات التي تدرب عليها',
+      label: 'لم يرصد النموذج نمطاً واضحاً متوافقاً مع Esca',
       cropId,
-      message: 'هذه النتيجة لا تثبت خلو النبات من المرض؛ قد تكون المشكلة غير موجودة ضمن فئات النموذج.'
+      score: first.score,
+      modelVersion: manifest.modelVersion,
+      message: 'هذا لا يعني أن الورقة سليمة؛ النموذج لا يفحص بقية أمراض العنب أو الآفات أو نقص العناصر.'
     };
   }
 
@@ -129,7 +147,11 @@ export function chooseCropScopedClass(
     label: first.item.labelAr,
     diseaseId: first.item.diseaseId,
     cropId,
-    message: 'اشتباه آلي أولي يحتاج إلى مطابقة الأعراض وفحص ميداني؛ لا تستخدمه لاختيار علاج أو مبيد.'
+    score: first.score,
+    modelVersion: manifest.modelVersion,
+    message: isPilot
+      ? 'اشتباه تجريبي أولي بنمط ورقي متوافق مع Esca؛ النموذج محدود بفئتي Esca وHealthy ولا يثبت المرض أو يحدد المسبب.'
+      : 'اشتباه آلي أولي يحتاج إلى مطابقة الأعراض وفحص ميداني؛ لا تستخدمه لاختيار علاج أو مبيد.'
   };
 }
 
@@ -177,7 +199,10 @@ async function loadRuntime(): Promise<OrtRuntime> {
 async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
   if (!sessionPromise) {
     sessionPromise = loadRuntime().then(async ort => {
-      ort.env.wasm.wasmPaths = '/vendor/onnxruntime/';
+      ort.env.wasm.wasmPaths = {
+        mjs: '/vendor/onnxruntime/ort-wasm-simd-threaded.mjs',
+        wasm: '/vendor/onnxruntime/ort-wasm-simd-threaded.wasm'
+      };
       ort.env.wasm.numThreads = 1;
       return ort.InferenceSession.create(manifest.modelPath, {
         executionProviders: ['wasm'],

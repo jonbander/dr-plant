@@ -13,7 +13,7 @@ Dr Plant already has a deterministic color-screening pipeline. This optional ONN
 
 ## Current status
 
-The adapter and tests are committed as a foundation, but the runtime and model bundle are not shipped. The manifest is disabled and labels are empty. The current scanner therefore continues to use the existing non-diagnostic color screening until a compatible, licensed ONNX artifact and ordered labels are added and independently validated.
+The adapter, local ONNX Runtime Web 1.22.0 WASM assets, and a 160px MobileNetV3-Small model bundle are now shipped for a narrow experimental French-grape Esca pilot. The manifest is enabled only with `reviewStatus: candidate` and `pilotMode: true`. It runs only when the user explicitly selects French grape leaves. It does not replace the unified multi-crop model; other crops still use color-based preliminary screening.
 
 ## Browser runtime
 
@@ -25,7 +25,7 @@ The model manifest defines input size/layout, RGB channel order, normalization, 
 
 ## Promotion policy
 
-A candidate can be run for research only; it cannot produce an accepted disease match. Promotion requires independent coastal field evaluation and calibrated crop-specific thresholds. The UI must not display raw softmax as a confidence percentage. Even a validated model result remains a possible match, not a confirmed diagnosis.
+A candidate can run in the app only when the manifest explicitly opts into `pilotMode`; the output remains an experimental possible match and never becomes a confirmed diagnosis. The current Esca pilot has only two source classes and cannot identify other grape diseases. It uses a raw score threshold, displays that score as uncalibrated, and never labels a no-Esca result as healthy. Promotion into the unified model requires a new fixed independent test, external Esca-positive field images, no material per-class regression, calibrated crop-specific rejection, and Syrian coastal evaluation.
 
 ## References
 

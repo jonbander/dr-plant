@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "grape_esca",
+    "labelAr": "النمط البصري أقرب إلى فئة Esca (لا يؤكد المرض)",
+    "cropId": "french_grape_leaf",
+    "diseaseId": "grape_esca"
+  },
+  {
+    "id": "grape_no_esca_pattern",
+    "labelAr": "لم يرصد النموذج نمط Esca واضحاً",
+    "cropId": "french_grape_leaf",
+    "healthy": true
+  }
+]

@@ -1,12 +1,16 @@
 # Evidence and limits of the current workflow
 
-The current camera workflow measures coarse HSV color proportions, estimates green-like pixels, and applies basic photo-quality gates. These are image statistics, not plant pathology features. Background foliage, shadows, pesticide residues, leaf age, nutrient disorders, and camera white balance can change the measurements.
+For crops without a supported ONNX pilot, the camera workflow measures coarse HSV color proportions, estimates green-like pixels, and applies basic photo-quality gates. These are image statistics, not plant pathology features. Background foliage, shadows, pesticide residues, leaf age, nutrient disorders, and camera white balance can change the measurements. The software does not infer crop species from color.
 
-The software intentionally does not map these measurements to a pathogen name and does not infer crop species from color.
+## Current status — 23 November 2026
 
-## Why no disease classifier is enabled
+An experimental ONNX pilot is now enabled only when the user selects French grape leaves. It distinguishes two source labels only: Esca-like foliar pattern vs source-labeled Healthy. It is not a general grape classifier, not a Syrian-validated diagnostic model, and not integrated into the unified multi-crop model. A no-Esca result is never presented as a healthy-plant diagnosis. The app shows a raw model score (not a calibrated probability), rejects low-scoring outputs, and displays an experimental-screening warning. Other crops continue to use color-based preliminary screening only.
 
-A disease classifier must be trained and independently evaluated on representative field photographs. A 2026 cross-domain study found a 67.7 percentage-point accuracy drop when a model moved from controlled PlantVillage imagery to field-sourced PlantDoc images, while mean confidence remained 79.76%. This demonstrates why confidence scores and laboratory dataset accuracy cannot establish field reliability.
+The pilot is based on GVLiD Mendeley Data V5 (Maharashtra, India; CC BY 4.0). Its restored vineyard-disjoint test set reached 174/175 correct argmax predictions, but an external open-set probe still produced false Esca alerts on other grape diseases. The model has no Syrian coastal field validation. See `public/models/plant-disease/MODEL_CARD.md`, `public/models/plant-disease/validation-report.json`, and `research/training-results/2026-11-23/gvlid-recovery/`.
+
+## Why only a limited pilot is enabled
+
+A broadly useful disease classifier must be evaluated on representative field photographs from outside its training source. A 2026 cross-domain study found a 67.7 percentage-point accuracy drop when a model moved from controlled PlantVillage imagery to field-sourced PlantDoc images, while mean confidence remained 79.76%. This demonstrates why confidence scores and laboratory dataset accuracy cannot establish field reliability. The Esca pilot is deliberately narrow and remains experimental because its external probe contains no Esca-positive samples and no Syrian field images.
 
 Reference: https://doi.org/10.3389/fpls.2026.1826962
 
@@ -29,7 +33,7 @@ All datasets remain candidates, not integrated training data. No image files wer
 
 ## Not yet validated
 
-No expert-labelled Syrian coastal image dataset, independent test set, calibration report, or official Syrian pesticide-registration source is included. This release must not advertise diagnostic accuracy, disease certainty, or locally approved pesticide rates.
+No expert-labelled Syrian coastal image dataset or independent Syrian field test is included. The pilot's raw softmax score is not calibrated, and no official Syrian pesticide-registration source is included. This release must not advertise Syrian diagnostic accuracy, disease certainty, or locally approved pesticide rates.
 
 - **North Portugal grapevine leaf field dataset (2026):** 5,267 field RGB images across five classes (healthy, downy mildew, powdery mildew, Esca complex, erineum mite), collected at four vineyard sites during the 2024 and 2025 growing seasons. The paper reports natural vineyard lighting, smartphone acquisition, and a second reviewer for final annotation quality control. Zenodo record: https://zenodo.org/records/17343473; DOI: https://doi.org/10.5281/zenodo.17343473. The article is CC BY 4.0, but the Zenodo dataset record's own license and archive terms still require direct verification before download/reuse. This is a high-priority candidate for a leaf-only baseline; it is not Syrian coastal data and transfer must be tested independently. Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC13098524/.
 
@@ -178,3 +182,11 @@ It creates a SHA-256 manifest and JSON report covering image/XML pairing, Pascal
 - Do not confuse sour citrus scab (*E. fawcettii*) with sweet orange scab (*E. australis*).
 - References: [UF/IFAS CH159](https://ask.ifas.ufl.edu/publication/CH159), [NSW DPIRD citrus field guide](https://www.dpird.nsw.gov.au/__data/assets/pdf_file/0008/1629467/Pests%2C-beneficials%2C-diseases-and-disorders-in-citrus.pdf), [UGA Extension B1520](https://extension.uga.edu/publications/detail.html?number=B1520).
 - Evidence status remains `reference_only`; no current Syrian coastal specimen or expert confirmation was supplied.
+
+## Esca reference evidence used by the pilot
+
+- UC IPM describes Esca as a grapevine trunk-disease complex, with interveinal striping that starts dark red in red cultivars or yellow in white cultivars and may become necrotic; affected leaves may dry and drop early. It also notes that symptoms vary between years and that pruning wounds during fall-to-spring rainfall can be infection sites: https://ipm.ucanr.edu/agriculture/grape/esca-black-measles/
+- INRAE Ephytia lists the principal fungi associated with Esca in Europe, including *Phaeomoniella chlamydospora*, *Phaeoacremonium aleophilum*, and *Fomitiporia mediterranea*, and cautions that the disease is a complex syndrome with incompletely understood symptom expression: https://ephytia.inrae.fr/fr/C/6106/Vigne-Champignons-associes-a-l-esca
+- INRAE Ephytia describes foliar discoloration and interveinal necrosis, as well as wood symptoms such as white rot, central/sectorial brown necrosis, and black spots: https://ephytia.inrae.fr/fr/C/6969/Vigne-Principaux-symptomes
+
+These are reference sources, not evidence that Esca is present in a specific Syrian vineyard. The app's Esca pilot is based on Indian GVLiD images and must not be used to infer local prevalence or prescribe treatment.

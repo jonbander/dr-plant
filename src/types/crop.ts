@@ -74,7 +74,7 @@ export interface OfflineVisionAnalysis {
   boundingBoxes: BoundingBox[];
 }
 
-export type DiagnosticStatus = 'screening_only' | 'insufficient_image' | 'symptom_triage';
+export type DiagnosticStatus = 'screening_only' | 'insufficient_image' | 'symptom_triage' | 'model_screening';
 
 export interface ScanResult {
   id: string;
@@ -82,7 +82,9 @@ export interface ScanResult {
   imageThumbnail: string; // base64
   crop: Crop;
   diseaseOrPest: DiseasePest;
-  confidence: number; // 0 - 100%
+  confidence: number; // 0 - 100%; not used for experimental model scores
+  modelScore?: number; // Raw model score (not a calibrated probability)
+  modelVersion?: string;
   severity: SeverityLevel;
   analysisData: OfflineVisionAnalysis;
   diagnosticStatus?: DiagnosticStatus;

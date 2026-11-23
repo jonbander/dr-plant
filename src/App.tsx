@@ -115,7 +115,7 @@ export default function App() {
       {/* Quick Offline & Syrian Coastal Capability Ribbon */}
       <div className="bg-emerald-950/60 border-b border-emerald-800/30 px-4 py-1.5 text-center text-[11px] text-emerald-300 flex items-center justify-center gap-2 flex-wrap">
         <span className="px-1.5 py-0.5 bg-emerald-500/20 rounded font-bold text-white text-[10px]">🇸🇾 الساحل السوري</span>
-        <span>مخصص لبيئة الساحل السوري • الفحص المحلي يعمل دون إنترنت، أما الإنذار الجوي فيحتاج اتصالاً وموقع المزرعة.</span>
+        <span>مخصص لبيئة الساحل السوري • نموذج العنب التجريبي يفحص Esca فقط؛ بقية المحاصيل ما زالت في مرحلة الفرز اللوني. الإنذار الجوي يحتاج اتصالاً وموقع المزرعة.</span>
       </div>
 
       {/* Desktop Navigation Tabs */}
@@ -158,7 +158,7 @@ export default function App() {
                 وجّه الكاميرا نحو الورقة المصابة
               </h2>
               <p className="text-xs text-stone-400">
-                يفحص ألوان الصورة ومساحة اللون الأخضر محلياً. هذه أداة فرز بصري أولي وليست نموذجاً لتشخيص الأمراض أو وصف العلاج.
+                اختر «ورق العنب الفرنسي» لتشغيل نموذج تجريبي محدود لفرز نمط Esca. بقية المحاصيل تستخدم حالياً فحص الألوان الأولي فقط؛ ولا تثبت أي نتيجة وجود المرض أو غيابه.
               </p>
             </div>
 

@@ -27,6 +27,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
 
   const { crop, diseaseOrPest, confidence, severity, analysisData } = scan;
   const isHealthy = diseaseOrPest.id === 'healthy_leaf';
+  const isModelScreening = scan.diagnosticStatus === 'model_screening';
   const isScreeningOnly = Boolean(scan.diagnosticStatus);
 
   useEffect(() => {
@@ -42,7 +43,9 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
       setIsReadingAudio(false);
     } else {
       let speechText = '';
-      if (isHealthy) {
+      if (isModelScreening) {
+        speechText = `هذا نموذج تجريبي محدود لورق العنب يفحص نمط إيسكا فقط. درجة النموذج ${scan.modelScore ?? 'غير متاحة'} وهي ليست احتمالاً معايراً. عدم رصد إيسكا لا يعني أن الورقة سليمة، وقد تكون مصابة بمرض آخر. النتيجة لا تثبت التشخيص ولا تحدد علاجاً.`;
+      } else if (isHealthy) {
         speechText = `قياسات اللون في صورة ${crop.nameAr} أظهرت نسبة اخضرار مقدرة ${analysisData.greenHealthIndex} بالمئة. هذا القياس لا يثبت سلامة النبات ولا يستبعد وجود مرض أو آفة؛ افحص النبات ميدانياً.`;
       } else if (isScreeningOnly) {
         speechText = 'هذه نتيجة فرز أولي فقط وليست تشخيصاً مؤكداً. لا تستخدمها لاختيار علاج أو مبيد.';
@@ -162,7 +165,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
             {/* Diagnosis Core Info */}
             <div className="sm:col-span-7 space-y-2.5">
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-bold">
-                {scan.diagnosticStatus === 'symptom_triage' ? (diseaseOrPest.id === 'unclassified_symptom' ? 'فرز أولي — السبب غير محدد' : 'مرشح للمقارنة من إجاباتك') : scan.diagnosticStatus === 'insufficient_image' ? 'الصورة غير كافية' : isScreeningOnly ? 'فحص بصري أولي فقط' : 'نتيجة محفوظة من إصدار سابق'}
+                {scan.diagnosticStatus === 'symptom_triage' ? (diseaseOrPest.id === 'unclassified_symptom' ? 'فرز أولي — السبب غير محدد' : 'مرشح للمقارنة من إجاباتك') : scan.diagnosticStatus === 'insufficient_image' ? 'الصورة غير كافية' : isModelScreening ? 'نموذج تجريبي محدود — Esca فقط' : isScreeningOnly ? 'فحص بصري أولي فقط' : 'نتيجة محفوظة من إصدار سابق'}
               </div>
 
               <h3 className="text-lg sm:text-xl font-extrabold text-white">
@@ -175,9 +178,19 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
               <p className="text-xs text-stone-300 leading-relaxed">
                 {diseaseOrPest.descriptionAr}
               </p>
+              {isModelScreening && typeof scan.modelScore === 'number' && (
+                <div className="bg-stone-900 border border-emerald-500/20 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div>
+                    <span className="block text-xs font-bold text-stone-200">درجة النموذج الخام</span>
+                    <span className="block text-[10px] text-stone-500">ليست احتمالاً معايراً أو دقة تشخيصية</span>
+                    {scan.modelVersion && <span className="block text-[10px] text-stone-500">{scan.modelVersion}</span>}
+                  </div>
+                  <span className="text-xl font-extrabold text-emerald-300 tabular-nums">{scan.modelScore}%</span>
+                </div>
+              )}
 
-              {/* Pixel statistics are not applicable to the manual symptom wizard. */}
-              {scan.diagnosticStatus !== 'symptom_triage' && (
+              {/* Pixel statistics are not applicable to the manual symptom wizard or ONNX pilot. */}
+              {scan.diagnosticStatus !== 'symptom_triage' && !isModelScreening && (
                 <div className="pt-2 grid grid-cols-2 gap-2 text-[11px] text-stone-400">
                   <div className="bg-stone-900 p-2 rounded-lg border border-stone-800">
                     <span className="block text-stone-500">نسبة البكسلات الخضراء المقدّرة</span>
@@ -196,7 +209,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
           <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
             <h4 className="text-xs font-bold text-stone-300 flex items-center gap-1.5">
               <Activity className="w-4 h-4 text-emerald-400" />
-              <span>{scan.diagnosticStatus === 'symptom_triage' ? 'أعراض مرجعية للمقارنة — ليست أعراضاً مؤكدة في نباتك:' : 'المؤشرات المرصودة — لا تعني تشخيص مرض:'}</span>
+              <span>{scan.diagnosticStatus === 'symptom_triage' || isModelScreening ? 'أعراض مرجعية للمقارنة — ليست أعراضاً مؤكدة في الصورة:' : 'المؤشرات المرصودة — لا تعني تشخيص مرض:'}</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
               {diseaseOrPest.visualSymptomsAr.map((symp, idx) => (
@@ -213,6 +226,8 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
             <p className="text-xs leading-6 text-stone-200">
               {scan.diagnosticStatus === 'symptom_triage'
                 ? (diseaseOrPest.id === 'unclassified_symptom' ? 'لم يظهر تطابق محدد بين المحصول والجزء المتأثر والنمط المختار. السبب ما زال غير محدد، وقد يكون مرضياً أو حشرياً أو فسيولوجياً أو بيئياً.' : 'المرشح المعروض مبني على الأعراض التي اخترتها يدوياً للمقارنة فقط؛ وقد تتشابه أعراض أمراض مختلفة أو نقص العناصر أو أضرار الطقس.')
+                : isModelScreening
+                  ? 'هذا نموذج تجريبي محدود جداً لورق العنب: Esca مقابل فئة Healthy فقط. لا يكتشف البياض الزغبي أو الدقيقي أو العفن الأسود أو الأكاروس أو نقص العناصر، ولا يجوز تفسير نتيجة عدم رصد Esca على أنها سلامة النبات. بياناته من الهند ولم يُختبر ميدانياً في الساحل السوري، ودرجة النموذج غير معايرة.'
                 : scan.diagnosticStatus === 'insufficient_image'
                   ? 'الصورة لم تجتز شروط الجودة الأساسية. لا يمكن تفسيرها حتى تعاد بصورة أوضح.'
                   : isScreeningOnly
@@ -227,7 +242,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
               {diseaseOrPest.identificationTipsAr.map((tip, index) => <li key={index}>{tip}</li>)}
             </ul>
           </div>
-          {scan.diagnosticStatus !== 'symptom_triage' && (
+          {scan.diagnosticStatus !== 'symptom_triage' && !isModelScreening && (
             <div className="bg-stone-900/60 rounded-2xl p-4 border border-stone-800 space-y-2">
               <h4 className="text-xs font-bold text-stone-300">قياسات لونية تقريبية</h4>
             <div className="grid grid-cols-2 gap-2 text-xs">
