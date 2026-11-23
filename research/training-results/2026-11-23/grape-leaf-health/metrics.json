@@ -1,0 +1,48 @@
+{
+  "dataset": "Grape Leaf dataset for leaf Health Classification and Disease Detection",
+  "doi": "10.17632/378c69nwk5.1",
+  "source_url": "https://data.mendeley.com/datasets/378c69nwk5/1",
+  "license": "CC BY 4.0",
+  "source_archive_bytes": 3011970459,
+  "source_archive_raw_entries": 3001,
+  "source_description_claimed_raw_images": 3000,
+  "unique_images_after_exact_sha256_dedup": 2574,
+  "exact_duplicate_copies_excluded": 427,
+  "unique_class_counts": {
+    "Black Rot": 533,
+    "Brown Spot": 748,
+    "Downy Mildew": 313,
+    "Mites": 236,
+    "Healthy": 744
+  },
+  "perceptual_near_duplicate_pairs_hamming_le_6": 34,
+  "perceptual_group_count": 2541,
+  "split_counts": {
+    "train": 1647,
+    "validation": 412,
+    "test": 515
+  },
+  "split_method": "StratifiedGroupKFold after grouping pHash Hamming distance <=6; no group crosses splits; no farm/site metadata.",
+  "architecture": "MobileNetV3-Small",
+  "sampling": "WeightedRandomSampler",
+  "image_size": 160,
+  "epochs_run": 12,
+  "best_epoch": 8,
+  "best_validation_macro_f1": 0.6373123861495955,
+  "test_accuracy": 0.6116504854368932,
+  "macro_f1": 0.5508464728139866,
+  "balanced_accuracy": 0.5527228264418828,
+  "onnx_test_accuracy": 0.6116504854368932,
+  "onnx_test_macro_f1": 0.5508464728139866,
+  "onnx_runtime": "1.32.0",
+  "test_count": 515,
+  "device": "CPU",
+  "exact_sha_overlap_with_previously_trained_sources": 0,
+  "limitations": [
+    "Source labels are folder-derived and were not independently expert-reviewed by Dr Plant.",
+    "No orchard/site/plant/session metadata; only known exact and perceptual duplicates were grouped.",
+    "Archive has 3,001 raw entries although the source description claims 3,000.",
+    "The source reports 18,000 images including 15,000 augmented derivatives; only raw Process_Images entries were used.",
+    "No Syrian coastal field validation; exploratory research model only."
+  ]
+}

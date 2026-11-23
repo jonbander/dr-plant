@@ -1,0 +1,56 @@
+{
+  "purpose": "Open-set stress test: apply GVLiD Esca-vs-Healthy model to held-out images from a different grape dataset. Non-Healthy grape disease classes are unknown to this binary model, not Esca ground truth.",
+  "source_model_classes": [
+    "Esca",
+    "Healthy"
+  ],
+  "external_dataset": "Mendeley 378c69nwk5 v1",
+  "test_images": 515,
+  "by_source_class": {
+    "Black_Rot": {
+      "n": 107,
+      "mean_p_esca": 0.3015522037014783,
+      "pred_esca_fraction": 0.205607476635514,
+      "pred_healthy_fraction": 0.794392523364486
+    },
+    "Brown_Spot": {
+      "n": 150,
+      "mean_p_esca": 0.39293470590996243,
+      "pred_esca_fraction": 0.32666666666666666,
+      "pred_healthy_fraction": 0.6733333333333333
+    },
+    "Downy_Mildew": {
+      "n": 62,
+      "mean_p_esca": 0.33362825869041823,
+      "pred_esca_fraction": 0.25806451612903225,
+      "pred_healthy_fraction": 0.7419354838709677
+    },
+    "Mites": {
+      "n": 47,
+      "mean_p_esca": 0.32030239695326446,
+      "pred_esca_fraction": 0.23404255319148937,
+      "pred_healthy_fraction": 0.7659574468085106
+    },
+    "Healthy": {
+      "n": 149,
+      "mean_p_esca": 0.207854944364099,
+      "pred_esca_fraction": 0.087248322147651,
+      "pred_healthy_fraction": 0.912751677852349
+    }
+  },
+  "unknown_vs_healthy_proxy": {
+    "healthy_count": 149,
+    "unseen_disease_count": 366,
+    "mean_p_esca_healthy": 0.207854944364099,
+    "mean_p_esca_unseen_diseases": 0.34684550922995055,
+    "fraction_unseen_diseases_predicted_esca": 0.2677595628415301,
+    "fraction_healthy_predicted_healthy": 0.912751677852349,
+    "auroc_using_p_esca_as_unknown_score": 0.6236843070378113
+  },
+  "limitations": [
+    "This is an OOD stress test, not a disease diagnostic evaluation.",
+    "Source folders are not independent expert-confirmed ground truth.",
+    "Only one external dataset and one source model were tested.",
+    "No threshold is selected or promoted from this probe."
+  ]
+}
