@@ -1,0 +1,31 @@
+{
+  "dataset": "GVLiD V5 curated safe subset",
+  "doi": "10.17632/wkymf8bhcg.5",
+  "license": "CC BY 4.0",
+  "source_total_images": 3477,
+  "curated_training_images": 1323,
+  "excluded_or_quarantined_images": 2154,
+  "classes": {"Esca": 885, "Healthy": 438},
+  "split_counts": {"train": 953, "validation": 195, "test": 175},
+  "split_method": "Vineyard-disjoint; test vineyards 1,8,15,22; validation vineyards 4,11,18,25; remaining 20 vineyards train.",
+  "architecture": "MobileNetV3-Small",
+  "image_size": 160,
+  "epochs": 8,
+  "best_epoch": 6,
+  "best_validation_accuracy": 1.0,
+  "test_accuracy": 0.9942857142857143,
+  "macro_f1": 0.9928690762397621,
+  "balanced_accuracy": 0.9960629921259843,
+  "confusion_matrix_class_order": ["Esca", "Healthy"],
+  "confusion_matrix": [[126, 1], [0, 48]],
+  "device": "CPU",
+  "onnx_runtime_test_accuracy": 0.9942857142857143,
+  "onnx_runtime_macro_f1": 0.9928690762397621,
+  "onnx_validation": "ONNX Runtime CPU inference validated on the held-out test set.",
+  "limitations": [
+    "Only Esca and Healthy survived strict provenance, label-review and duplicate auditing.",
+    "Black Rot and Leaf Blight remain excluded pending source clarification.",
+    "Dataset source is from India; no Syrian field validation.",
+    "Exploratory two-class model only; not integrated into the production classifier."
+  ]
+}
