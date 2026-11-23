@@ -92,3 +92,11 @@ Detailed result: `phase1-audit/gvlid-external-open-set-probe.json`.
 ## Safety and deployment status
 
 No model is promoted to the app or described as field-ready. No disease-specific pesticide treatment is generated from these experiments. The current results are research baselines only and do not establish performance on Syrian coastal farms.
+
+## Project validation status
+
+- `node scripts/validate-knowledge-base.mjs`: passed (12 disease records, 8 datasets).
+- `scripts/test_audit_image_classification_dataset.py`: 3 tests passed.
+- `scripts/test_prepare_classification_splits.py`: 3 tests passed.
+- `scripts/test_prepare_training_splits.py`: 8 tests passed.
+- TypeScript lint could not run because `tsc` is not installed in this workspace; `bun` is also unavailable. App tests and production build were not run because the local Node dependencies are not installed. No application source code was changed in this phase.
