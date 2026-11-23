@@ -50,3 +50,15 @@ SHA-256:
 - None of these models is integrated into the app's production multi-disease classifier. Do not use these models for pesticide decisions.
 
 See `gvlid-v5/metrics.json`, `citrus-leaf-disease/metrics.json`, and `grape-leaf-health/metrics.json` for machine-readable metrics. See `FINAL-TRAINING-REPORT.md` for the consolidated report.
+
+
+## Phase 1 independent audit and additional evaluation
+
+See [PHASE1-INDEPENDENT-AUDIT.md](./PHASE1-INDEPENDENT-AUDIT.md) and the machine-readable results in [phase1-audit](./phase1-audit/).
+
+- Rechecked the Grape Leaf Health checkpoint and ONNX model: predictions agree on all 515 held-out images.
+- Validation-fitted temperature scaling reduced test ECE from 0.120 to 0.057 without changing accuracy.
+- MobileNet embedding retrieval did not yet improve macro-F1; it remains experimental.
+- A cross-source GVLiD stress test exposed weak rejection of unseen grape diseases: 73.2% of those images were forced into the Healthy class.
+- Citrus image files and the GVLiD row-level source/split manifests are not included in the current bundle, so those results need additional reproducibility artifacts before further promotion.
+- DINOv2 benchmarking is deferred until storage and CPU runtime are safely planned. No model is field-ready or integrated into production.
