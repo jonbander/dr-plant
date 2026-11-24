@@ -27,18 +27,21 @@ function createScanId(): string {
 
 function createThumbnail(img: HTMLImageElement, sourceWidth: number, sourceHeight: number): string {
   const canvas = document.createElement('canvas');
-  canvas.width = 120;
-  canvas.height = 120;
+  const previewSize = 512;
+  const scale = Math.min(1, previewSize / Math.max(sourceWidth, sourceHeight));
+  const previewWidth = Math.max(1, Math.round(sourceWidth * scale));
+  const previewHeight = Math.max(1, Math.round(sourceHeight * scale));
+  canvas.width = previewWidth;
+  canvas.height = previewHeight;
   const context = canvas.getContext('2d');
   if (context) {
     context.fillStyle = '#171717';
-    context.fillRect(0, 0, 120, 120);
-    const scale = Math.min(120 / sourceWidth, 120 / sourceHeight);
-    const width = sourceWidth * scale;
-    const height = sourceHeight * scale;
-    context.drawImage(img, (120 - width) / 2, (120 - height) / 2, width, height);
+    context.fillRect(0, 0, previewWidth, previewHeight);
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = 'high';
+    context.drawImage(img, 0, 0, previewWidth, previewHeight);
   }
-  return canvas.toDataURL('image/jpeg', 0.72);
+  return canvas.toDataURL('image/jpeg', 0.84);
 }
 
 function createModelPlaceholder(cropId: string, uncertain: boolean, label?: string): DiseasePest {

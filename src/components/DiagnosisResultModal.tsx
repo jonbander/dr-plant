@@ -138,7 +138,7 @@ export const DiagnosisResultModal: React.FC<DiagnosisResultModalProps> = ({
                 <img
                   src={scan.imageThumbnail}
                   alt="صورة الفحص"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               )}
 

@@ -24,9 +24,14 @@ export function getOfflineScans(): ScanResult[] {
 export function saveOfflineScan(scan: ScanResult): void {
   try {
     const scans = getOfflineScans();
-    // Prepend to show latest first, limit to 50 for storage quota
-    const updated = [scan, ...scans.filter(s => s.id !== scan.id)].slice(0, 50);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    // Keep the latest 20 scans; previews are now higher resolution.
+    const updated = [scan, ...scans.filter(s => s.id !== scan.id)].slice(0, 20);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    } catch (storageError) {
+      // Recover from a nearly full browser quota without losing the new scan.
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated.slice(0, 8)));
+    }
   } catch (e) {
     console.error('Error saving scan offline:', e);
   }

@@ -35,8 +35,8 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({
       const newStream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: { ideal: facing },
-          width: { ideal: 1280 },
-          height: { ideal: 720 }
+          width: { ideal: 1920 },
+          height: { ideal: 1080 }
         },
         audio: false
       });
@@ -121,7 +121,7 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({
             onChange={(e) => onSelectCropId(e.target.value)}
             className="bg-stone-800 border border-stone-700 text-stone-100 text-xs font-medium rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
           >
-            <option value="auto">✨ التعرف التلقائي الذكي</option>
+            <option value="auto">اختر نوع المحصول أولاً</option>
             {CROPS_DATABASE.map((crop) => (
               <option key={crop.id} value={crop.id}>
                 {crop.icon} {crop.nameAr}

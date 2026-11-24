@@ -45,11 +45,16 @@ export default function App() {
 
   // Handle image capture from camera or gallery
   const handleImageCaptured = async (imageSrc: string, cropIdOverride?: string) => {
+    const cropId = cropIdOverride || selectedCropId;
+    if (!cropId || cropId === 'auto') {
+      alert('اختر نوع المحصول أولاً (مثل العنب أو الحمضيات) حتى نشغّل النموذج المناسب. لا يتعرف التطبيق على المحصول تلقائياً في هذا الإصدار.');
+      return;
+    }
     setIsAnalyzing(true);
     try {
       const result = await analyzePlantOffline({
         imageSource: imageSrc,
-        suggestedCropId: cropIdOverride || selectedCropId
+        suggestedCropId: cropId
       });
 
       // Save to offline storage
@@ -158,7 +163,7 @@ export default function App() {
                 وجّه الكاميرا نحو الورقة المصابة
               </h2>
               <p className="text-xs text-stone-400">
-                اختر المحصول لتشغيل النموذج التجريبي المتاح له إن وُجد. تتوفر حالياً فئات محدودة للعنب والحمضيات والبندورة؛ ولا تثبت أي نتيجة وجود المرض أو غيابه.
+                اختر نوع المحصول أولاً لتشغيل النموذج التجريبي المتاح له إن وُجد. تتوفر حالياً فئات محدودة للعنب والحمضيات والبندورة؛ ولا تثبت أي نتيجة وجود المرض أو غيابه.
               </p>
             </div>
 
