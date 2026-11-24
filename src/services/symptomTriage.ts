@@ -11,6 +11,23 @@ export const SYMPTOM_PATTERN_OPTIONS = [
   { id: 'blister_swell', title: 'بثور وانتفاخات على ورق العنب', desc: 'قد تتوافق مع حلم تبثر أوراق العنب' },
   { id: 'target_rings', title: 'بقع دائرية بحلقات متداخلة', desc: 'نمط غير نوعي وقد يظهر في أكثر من مرض' },
   { id: 'rust_stripes', title: 'خطوط أو بثرات صدئية متوازية على الورقة', desc: 'نمط قد يتوافق مع أصداء الحبوب' },
+
+  // Morphology is recorded independently from color and causal diagnosis.
+  { id: 'leaf_curl_up', title: 'التفاف حواف الورقة إلى الأعلى', desc: 'تشوه شكلي؛ قد يرتبط بآفات أو إجهاد أو مرض ولا يحدد السبب وحده' },
+  { id: 'leaf_curl_down', title: 'التفاف الورقة إلى الأسفل', desc: 'تشوه شكلي غير نوعي؛ يلزم ربطه بالمحصول وعمر الورقة والظروف' },
+  { id: 'leaf_rolling', title: 'انطواء الورقة أو تدحرجها طولياً', desc: 'قد ينتج عن حشرات أو إجهاد مائي أو عوامل أخرى' },
+  { id: 'leaf_wrinkling', title: 'تجعد واضح في سطح الورقة', desc: 'عرض بنيوي قد يظهر دون بقع لونية واضحة' },
+  { id: 'leaf_crumpling', title: 'تكرمش أو انكماش نسيج الورقة', desc: 'عرض شكلي غير نوعي؛ لا يثبت مرضاً بعينه' },
+  { id: 'leaf_puckering', title: 'تغضن أو تنقير وانتفاخ غير منتظم', desc: 'قد يترافق مع تغذية حلم/حشرات أو نمو غير طبيعي' },
+  { id: 'leaf_twisting', title: 'التواء محور الورقة أو عنقها', desc: 'تشوه اتجاهي؛ يجب فحص النموات الحديثة والساق' },
+  { id: 'leaf_cupping', title: 'تقعر الورقة بشكل يشبه الكأس', desc: 'قد يرتبط بآفات أو إجهاد أو اختلالات نمو' },
+  { id: 'leaf_margin_distortion', title: 'حواف غير منتظمة أو ملتوية', desc: 'عرض غير نوعي ويحتاج مقارنة بأوراق سليمة من النبات نفسه' },
+  { id: 'vein_distortion', title: 'تشوه العروق أو بروزها أو انحناؤها', desc: 'يحتاج فحص نمط العروق وعمر الورقة والأعراض المصاحبة' },
+  { id: 'leaf_narrowing', title: 'ورقة ضيقة أو ممدودة بشكل غير طبيعي', desc: 'اختلاف شكلي قد يرتبط بالنمو أو عوامل مرضية وبيئية' },
+  { id: 'leaf_size_distortion', title: 'صغر أو تضخم غير طبيعي في حجم الورقة', desc: 'يجب مقارنة أوراق من العمر والفرع نفسيهما' },
+  { id: 'surface_roughness', title: 'خشونة أو سماكة غير معتادة في سطح الورقة', desc: 'صفة ملمسية وليست تشخيصاً سببياً' },
+  { id: 'leaf_brittleness', title: 'هشاشة أو تيبس غير معتاد في الورقة', desc: 'قد يرتبط بالجفاف أو الملوحة أو المرض أو ضرر كيميائي' },
+  { id: 'mixed_morphology', title: 'عدة تشوهات شكلية معاً', desc: 'سجّل الأعراض منفصلة ولا تفترض مرضاً واحداً' },
   { id: 'unknown', title: 'شكل آخر / لست متأكداً', desc: 'لا نفرض مرضاً عند عدم وضوح الأعراض' },
 ] as const;
 
@@ -23,7 +40,8 @@ export function getSymptomPatternLabel(patternId: string): string {
 
 /**
  * Returns a candidate record only for an explicitly supported crop/part/pattern
- * combination. A null result means the wizard must keep the cause undetermined.
+ * combination. Generic deformation patterns intentionally stay undetermined:
+ * curl, wrinkles and distortion have many infectious and non-infectious causes.
  */
 export function getSymptomCandidateId(
   cropId: string,
