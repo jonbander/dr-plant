@@ -57,7 +57,7 @@
   "artifacts": [
     {
       "path": "public/models/plant-disease/manifest.json",
-      "sha256": "e2e347b1f3373feb261751a09c6d44bed64815c76e011c2525beb8d02169a628",
+      "sha256": "e8994f526aa66c4d49aa3b57621243072665474977d4e8be4dcb1cdeab8cc996",
       "bytes": 2740
     },
     {

@@ -8,8 +8,8 @@
         "schemaVersion": 1,
         "enabled": true,
         "modelVersion": "plantvillage-grape-38class-v2.0",
-        "modelPath": "/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
-        "labelsPath": "/models/plant-disease/multicrop-labels.json",
+        "modelPath": "models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+        "labelsPath": "models/plant-disease/multicrop-labels.json",
         "inputSize": 128,
         "inputLayout": "NCHW",
         "channelOrder": "RGB",
@@ -21,7 +21,7 @@
         "thresholdsReviewed": true,
         "minimumScore": 0.9,
         "minimumMargin": 0.2,
-        "validationReportPath": "/models/plant-disease/multicrop-validation.json",
+        "validationReportPath": "models/plant-disease/multicrop-validation.json",
         "expectedOutputCount": 38
       }
     },
@@ -30,8 +30,8 @@
         "schemaVersion": 1,
         "enabled": true,
         "modelVersion": "citrus-field-v3.0",
-        "modelPath": "/models/plant-disease/citrus-field-v3.onnx",
-        "labelsPath": "/models/plant-disease/citrus-field-labels.json",
+        "modelPath": "models/plant-disease/citrus-field-v3.onnx",
+        "labelsPath": "models/plant-disease/citrus-field-labels.json",
         "inputSize": 160,
         "inputLayout": "NCHW",
         "channelOrder": "RGB",
@@ -43,7 +43,7 @@
         "thresholdsReviewed": true,
         "minimumScore": 0.55,
         "minimumMargin": 0.15,
-        "validationReportPath": "/models/plant-disease/citrus-field-validation.json",
+        "validationReportPath": "models/plant-disease/citrus-field-validation.json",
         "expectedOutputCount": 4
       }
     },
@@ -52,8 +52,8 @@
         "schemaVersion": 1,
         "enabled": true,
         "modelVersion": "plantvillage-tomato-38class-v2.0",
-        "modelPath": "/models/plant-disease/plantvillage-multicrop-v2-128.onnx",
-        "labelsPath": "/models/plant-disease/multicrop-labels.json",
+        "modelPath": "models/plant-disease/plantvillage-multicrop-v2-128.onnx",
+        "labelsPath": "models/plant-disease/multicrop-labels.json",
         "inputSize": 128,
         "inputLayout": "NCHW",
         "channelOrder": "RGB",
@@ -65,7 +65,7 @@
         "thresholdsReviewed": true,
         "minimumScore": 0.55,
         "minimumMargin": 0.15,
-        "validationReportPath": "/models/plant-disease/multicrop-validation.json",
+        "validationReportPath": "models/plant-disease/multicrop-validation.json",
         "expectedOutputCount": 38
       }
     }

@@ -170,7 +170,7 @@ export function chooseCropScopedClass(
 
 async function loadRoute(cropId: string): Promise<{ manifest: OnnxModelManifest; labels: OnnxClassLabel[] } | null> {
   if (!manifestPromise) {
-    manifestPromise = fetch('/models/plant-disease/manifest.json').then(async response => {
+    manifestPromise = fetch(new URL('models/plant-disease/manifest.json', import.meta.env.BASE_URL)).then(async response => {
       if (!response.ok) throw new Error('تعذر تحميل إعدادات نماذج ONNX.');
       return response.json() as Promise<OnnxModelBundle>;
     });
@@ -186,7 +186,7 @@ async function loadRoute(cropId: string): Promise<{ manifest: OnnxModelManifest;
   }
   let labelsPromise = labelsPromises.get(manifest.labelsPath);
   if (!labelsPromise) {
-    labelsPromise = fetch(manifest.labelsPath).then(async response => {
+    labelsPromise = fetch(new URL(manifest.labelsPath, import.meta.env.BASE_URL)).then(async response => {
       if (!response.ok) throw new Error('تعذر تحميل تسميات النموذج.');
       const data = await response.json() as OnnxClassLabel[];
       if (!Array.isArray(data) || data.some(item => !item.id || !item.labelAr || !item.cropId)) {
@@ -208,7 +208,7 @@ async function loadRuntime(): Promise<OrtRuntime> {
   if (!runtimePromise) {
     runtimePromise = new Promise<OrtRuntime>((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = '/vendor/onnxruntime/ort.min.js';
+      script.src = new URL('vendor/onnxruntime/ort.min.js', import.meta.env.BASE_URL).toString();
       script.async = true;
       script.onload = () => window.ort
         ? resolve(window.ort)
@@ -226,11 +226,11 @@ async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
   if (!pending) {
     pending = loadRuntime().then(async ort => {
       ort.env.wasm.wasmPaths = {
-        mjs: '/vendor/onnxruntime/ort-wasm-simd-threaded.mjs',
-        wasm: '/vendor/onnxruntime/ort-wasm-simd-threaded.wasm'
+        mjs: new URL('vendor/onnxruntime/ort-wasm-simd-threaded.mjs', import.meta.env.BASE_URL).toString(),
+        wasm: new URL('vendor/onnxruntime/ort-wasm-simd-threaded.wasm', import.meta.env.BASE_URL).toString()
       };
       ort.env.wasm.numThreads = 1;
-      return ort.InferenceSession.create(manifest.modelPath, {
+      return ort.InferenceSession.create(new URL(manifest.modelPath, import.meta.env.BASE_URL).toString(), {
         executionProviders: ['wasm'],
         graphOptimizationLevel: 'all'
       });
