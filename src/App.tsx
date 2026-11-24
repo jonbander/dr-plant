@@ -127,7 +127,7 @@ export default function App() {
             { id: 'calculator', label: '🧮 حاسبة جرعات الرش', icon: Calculator },
             { id: 'wizard', label: '🧙 المساعد التشخيصي', icon: HelpCircle },
             { id: 'history', label: `📂 سجل الفحوصات (${scansHistory.length})`, icon: History },
-            { id: 'weather', label: '🌦️ الإنذار المبكر', icon: CloudRain },
+            { id: 'weather', label: '🌦️ إنذار الأمراض', icon: CloudRain },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
