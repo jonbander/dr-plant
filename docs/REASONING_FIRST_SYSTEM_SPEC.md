@@ -148,3 +148,16 @@ Score not only top-1 disease accuracy but also symptom fidelity, differential qu
 ## Current truth
 
 The existing code provides a symptom taxonomy and an initial multi-disease weather registry. The weather registry currently has one implemented grape downy-mildew rule; other profiles remain not ready. This specification is a plan, not evidence that the reasoning engine, DINOv2 model, expert-level diagnosis or unseen-disease generalization is already implemented.
+
+
+## Initial code-path audit: image fidelity and current inference boundary
+
+The current branch was inspected after the specification was added:
+
+- Gallery upload reads the selected file as a data URL in `src/components/CameraScanner.tsx`; it does not explicitly resize the source file at that point.
+- Camera capture uses the browser's actual `videoWidth`/`videoHeight`, then encodes JPEG at quality 0.9.
+- `src/services/offlineAiVisionEngine.ts` downsizes the decoded image so its longest edge is at most 320 pixels before pixel analysis.
+- The saved result preview is separately reduced to 120×120 pixels at JPEG quality 0.72. The result modal enlarges this thumbnail, which explains why the displayed result image can look visibly blurry even when the original upload was larger.
+- The present analysis is HSV/pixel-threshold screening in `src/services/leafScreening.ts`, not a trained visual encoder or disease classifier. Its sharpness estimate is computed after the 320-pixel resize, so it cannot certify original-image focus.
+
+**Immediate Phase 1 engineering task:** retain the original image for the active result view without storing full-resolution base64 images in localStorage; improve history preview resolution only within a measured storage budget; record original decoded dimensions and analysis dimensions; assess focus/resolution on the source before resizing; and test large JPEG/HEIC/PNG uploads, orientation, mobile camera capture, and repeated selection. Do not imply that a clearer preview alone improves diagnostic accuracy. Replace the 320-pixel color-only pipeline with visual feature extraction only after a validated model/encoder is available.
