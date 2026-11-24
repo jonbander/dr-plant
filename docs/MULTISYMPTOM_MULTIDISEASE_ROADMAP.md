@@ -78,3 +78,10 @@ This is an extensible foundation, not yet the finished multi-disease forecasting
 - Continue restoring row-level GVLiD/Citrus manifests, auditing unused candidate images and licenses, and running the planned independent/open-set checks before any promotion.
 - The next model experiment should compare a frozen compact DINOv2 encoder (start with ViT-S/14 if memory permits) to the existing MobileNetV3-Small baseline on the exact same verified splits. If no compatible cached weights or sufficient memory exist, stop before a large download and prepare an Android-friendly Colab/Drive run instead.
 - No experimental model is promoted into the Android/PWA app without reproducible results and external validation. No current metric establishes accuracy on Syrian coastal farms.
+
+
+## Project foundation: reasoning-first Dr.PLANT
+
+The five foundational capabilities and the staged implementation gates are now specified in [REASONING_FIRST_SYSTEM_SPEC.md](./REASONING_FIRST_SYSTEM_SPEC.md): (1) visual understanding, (2) agricultural context, (3) differential reasoning, (4) evidence-grounded scientific reasoning, and (5) unknown/OOD handling. This is the project's central product requirement, not an optional feature.
+
+The success criterion is generalization to carefully held-out diseases, crops, sites and symptom patterns through evidence-based reasoning and calibrated abstention—not memorization of every disease image. Training remains necessary for visual competence, but each new disease must not require a dedicated labelled training set before Dr.PLANT can form and evaluate a cautious differential. Phase gates, unseen-case challenge design, data integrity rules and release restrictions are defined in the system specification.
