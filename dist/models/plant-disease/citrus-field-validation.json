@@ -1,9 +1,0 @@
-{
-  "modelVersion":"citrus-field-v3.0",
-  "dataset":"Mendeley Field-Based Citrus Leaf Disease Image Dataset V3",
-  "doi":"10.17632/szsms728jf.3",
-  "license":"CC BY 4.0",
-  "training":{"architecture":"MobileNetV3-Small","inputSize":160,"epochs":18,"train":332,"validation":144,"test":134,"treeDisjoint":true},
-  "evaluation":{"accuracy":0.8656716417910447,"macroF1":0.8575668071962986,"scope":"tree-held-out; one Moroccan orchard/region and one collection campaign"},
-  "limitations":["Not validated in Syria.","Labels include -like visual categories and are not all laboratory-confirmed.","Small independent test set (134 images).","No citrus scab, leafminer, gummosis, medfly or nutrient-deficiency classes.","No model score is a calibrated probability."]
-}

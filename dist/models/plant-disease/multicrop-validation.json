@@ -1,9 +1,0 @@
-{
-  "modelVersion": "plantvillage-multicrop-v2.0",
-  "dataset": "PlantVillage full multicrop 54,304 images, 38 classes, 14 crops",
-  "license": "Source project metadata must be reviewed before redistribution; training report flags commercial redistribution licensing review as outstanding.",
-  "training": {"architecture":"MobileNetV3-Small","inputSize":128,"epochs":5,"device":"CPU","train":34683,"validation":8673,"test":10948,"groupsDisjoint":true},
-  "evaluation": {"accuracy":0.8935878699305809,"macroF1":0.8668326487027204,"scope":"within-source group-isolated holdout; not independent field validation"},
-  "grapeClassF1": {"Black_rot":0.7551020408163265,"Esca":0.8668831168831169,"Leaf_blight":0.9669811320754716,"healthy":0.9545454545454546},
-  "limitations": ["PlantVillage-style imagery; no Syrian coastal field validation.","Expert label review not completed.","The 38-class model has no Brown Spot, Downy Mildew, Powdery Mildew, or grape mite class.","Per-class recall for grape Black Rot is only 0.627; treat as exploratory.","No disease score is a calibrated probability."]
-}
