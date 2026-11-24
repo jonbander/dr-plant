@@ -12,7 +12,7 @@ import { ScanHistoryView } from './components/ScanHistoryView';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { PWAInstallButton } from './components/PWAInstallButton';
 import { ScanResult } from './types/crop';
-import { GrapeWeatherEarlyWarning } from './components/GrapeWeatherEarlyWarning';
+import { MultiDiseaseWeatherEarlyWarning } from './components/MultiDiseaseWeatherEarlyWarning';
 import { analyzePlantOffline } from './services/offlineAiVisionEngine';
 import { getOfflineScans, saveOfflineScan, updateScanNotes } from './services/historyStorage';
 
@@ -190,7 +190,7 @@ export default function App() {
 
         {activeTab === 'encyclopedia' && <CropPestEncyclopedia />}
 
-        {activeTab === 'weather' && <GrapeWeatherEarlyWarning />}
+        {activeTab === 'weather' && <MultiDiseaseWeatherEarlyWarning />}
 
         {activeTab === 'calculator' && (
           <TreatmentDoseCalculator
