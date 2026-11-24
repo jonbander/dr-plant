@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getSymptomCandidateId, getSymptomPatternLabel } from './symptomTriage';
+import { getSymptomCandidateId, getSymptomPatternLabel, SYMPTOM_PATTERN_OPTIONS } from './symptomTriage';
 
 test('grape leaf patterns map only to their corresponding candidate records', () => {
   assert.equal(getSymptomCandidateId('french_grape_leaf', 'leaves', 'white_powder'), 'grape_powdery_mildew');
@@ -39,11 +39,26 @@ test('uncertain or unmatched patterns stay undetermined', () => {
   assert.equal(getSymptomPatternLabel('not-a-pattern'), 'نمط غير محدد');
 });
 
-
 test('citrus scab requires raised corky wart symptoms on leaves or fruit', () => {
   assert.equal(getSymptomCandidateId('citrus_syrian', 'leaves', 'citrus_scab_warts'), 'citrus_scab_syria');
   assert.equal(getSymptomCandidateId('citrus_syrian', 'fruit', 'citrus_scab_warts'), 'citrus_scab_syria');
   assert.equal(getSymptomCandidateId('citrus_syrian', 'stem', 'citrus_scab_warts'), null);
   assert.equal(getSymptomCandidateId('french_grape_leaf', 'leaves', 'citrus_scab_warts'), null);
   assert.equal(getSymptomCandidateId('olive', 'leaves', 'citrus_scab_warts'), null);
+});
+
+test('morphological symptoms are represented independently from color', () => {
+  const ids = SYMPTOM_PATTERN_OPTIONS.map((item) => item.id);
+  for (const id of ['leaf_curl_up', 'leaf_curl_down', 'leaf_wrinkling', 'leaf_crumpling', 'leaf_puckering', 'leaf_twisting', 'leaf_cupping', 'vein_distortion', 'leaf_narrowing', 'surface_roughness']) {
+    assert.ok(ids.includes(id as typeof ids[number]), `missing morphology symptom: ${id}`);
+    assert.notEqual(getSymptomPatternLabel(id), 'نمط غير محدد');
+  }
+});
+
+test('generic leaf deformation never becomes an automatic disease diagnosis', () => {
+  for (const id of ['leaf_curl_up', 'leaf_curl_down', 'leaf_wrinkling', 'leaf_crumpling', 'leaf_puckering', 'leaf_twisting', 'vein_distortion', 'leaf_brittleness']) {
+    assert.equal(getSymptomCandidateId('french_grape_leaf', 'leaves', id), null);
+    assert.equal(getSymptomCandidateId('citrus_syrian', 'leaves', id), null);
+    assert.equal(getSymptomCandidateId('olive', 'leaves', id), null);
+  }
 });
