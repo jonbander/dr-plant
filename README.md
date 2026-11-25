@@ -57,3 +57,9 @@ bun run build
 - Xiang et al. (2026), cross-domain reliability gap in plant disease classification: https://doi.org/10.3389/fpls.2026.1826962
 
 هذه المراجع تساعد على فهم الأعراض ومخاطر التعميم، ولا تثبت ملاءمة أي مبيد أو جرعة للسوق السورية.
+
+## التدريب والتكامل المستمر
+
+- إجراءات ما بعد كل تدريب: [docs/TRAINING_PIPELINE.md](./docs/TRAINING_PIPELINE.md) — رفع فوري إلى Drive والتحقق قبل حذف الملفات الثقيلة، مع دمج المعلومات المؤكدة وسجل النموذج في المشروع.
+- سجل مرجع شكل أوراق العنب الفرنسي التجريبي: [data/vitis-morphology/README-AR.md](./data/vitis-morphology/README-AR.md).
+- نتائج النموذج التجريبي وقيوده محفوظة ضمن `data/vitis-morphology/`؛ وهو نموذج تشابه مورفولوجي لا نموذج تشخيص أمراض، وغير مفعّل في التطبيق.

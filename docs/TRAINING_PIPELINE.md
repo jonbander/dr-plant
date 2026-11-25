@@ -114,3 +114,39 @@ Open it in Colab from the GitHub file page, choose a GPU runtime if available, a
 The exploratory splitter groups byte-identical images by SHA-256. If one hash appears under more than one class label, **all rows in that hash group are quarantined** in `quarantined-conflicting-label-duplicates.csv`; none is assigned to train, validation, or test. The report records the number of quarantined files and hash groups. This avoids arbitrarily trusting one of two contradictory labels. If quarantine leaves fewer than three unique unambiguous images in any class, the split is blocked and a report with status `blocked_insufficient_unique_images_after_quarantine` is written. Resolve the source data or obtain additional valid images; do not disable this check.
 
 The Colab notebook checks the split command's exit status before reading its report or starting training, so a failed split cannot be followed by a misleading `FileNotFoundError` or accidental training on stale outputs.
+
+
+## Immediate post-training delivery and confirmed-knowledge integration (mandatory)
+
+This is the default operating sequence for every future research/training batch. **Training and backup run in parallel; verified results are integrated into the project immediately rather than left only in a notebook or chat.**
+
+### A. After every training run
+
+1. Save the complete reproducible run: source/version/license, archive checksum when available, image manifest, group split, code/config, pretrained and trained weights, metrics, per-class results, confusion matrix, limitations, and a model card.
+2. Package the run as one versioned artifact and upload it to Google Drive immediately after the run finishes. Do not wait until the end of a large research phase. If a run is too large, split it into clearly named packages and upload each package as soon as it is complete.
+3. Confirm the exact uploaded filename, successful completion, and displayed size in Drive. Record the local SHA-256 and upload evidence in `docs/DRIVE_BACKUP_REGISTER.md`. A displayed filename/size is not remote cryptographic verification; state that limitation unless a remote checksum was actually compared.
+4. Only after confirming the Drive copy, remove the corresponding heavy local archive, temporary images, embeddings, checkpoints, and package. Keep the small source code, manifests, metrics, model card, audit reports, and backup register in the project. Never delete the only copy of any artifact.
+5. If upload or verification fails, keep the local copy and retry using another method; do not delete it to free space.
+
+### B. Immediately integrate confirmed information into the project
+
+1. When a scientific fact, dataset metadata, license, source, symptom relationship, or other finding is confirmed, add it in the same work session to the appropriate project location: `data/knowledge-base.json`, a crop/disease reference document, dataset registry, or evidence documentation. Include the source URL/DOI, evidence status, date/version where relevant, and limitations. Run `bun run validate:knowledge` after knowledge-base changes.
+2. Keep evidence levels explicit: reference-only, suspected, reported, or expert-confirmed. A paper or dataset description alone does not make a local Syrian field diagnosis expert-confirmed. Never upgrade evidence status merely because multiple models agree.
+3. For each completed training run, immediately add a project-side model/dataset record and a short result summary linking to the Drive artifact, code, manifest, metrics, model card, intended use, and known limitations. Do not leave the model's existence discoverable only from Drive or chat.
+4. Add confirmed knowledge to the shared knowledge base immediately; do not wait for another training cycle. Conversely, a knowledge update does not automatically require weight retraining. Retrain only when the new verified data are suitable and enough to justify it.
+
+### C. Model integration and merge gate
+
+1. A completed training run is immediately attached to the project as a versioned, documented research artifact. It is **not** automatically activated in the user-facing app.
+2. Before activation or merging model weights into the app, verify the input/output contract, preprocessing, class mapping, calibration/abstention behavior, independent group/site test, per-class metrics, and regression tests against the current model/version. Preserve the previous working model and make rollback possible.
+3. If a model is only a controlled-image morphology pilot, exploratory classifier, or otherwise not field validated, register it as experimental and keep it outside disease diagnosis. Do not present it as a disease model or as validated for Syrian coastal farms.
+4. After all gates pass, integrate the versioned model and required metadata into the model registry/app, run tests/build, document the change, and only then propose or perform the code merge. Never replace a working model merely because a new run completed.
+
+### D. Parallel-work checklist
+
+For each batch, track these two workstreams together:
+
+- **Research/training:** source and license audit → image/label/duplicate review → group-isolated evaluation → model card and metrics.
+- **Preservation/integration:** package → Drive upload → verify → update backup register → delete only verified heavy local copies; at the same time, add confirmed findings and the run record to the project.
+
+A batch is not considered finished until both workstreams are recorded, or any blocked step is explicitly reported with its reason.

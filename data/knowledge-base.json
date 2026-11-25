@@ -615,6 +615,33 @@
           "url": "https://data.mendeley.com/datasets/compare/8d9fv6kpt3"
         }
       ]
+    },
+    {
+      "id": "vitis-vinifera-french-morphology-dryad-2026",
+      "name": "Vitis vinifera leaf morphology reference dataset (French-origin cultivar subset)",
+      "crop": "grape",
+      "imageCount": 504,
+      "classes": [
+        "125 cultivar names in the French-origin subset",
+        "14 cultivars used in the first morphology pilot"
+      ],
+      "license": "CC0-1.0",
+      "status": "morphology_reference_pilot_not_disease_training",
+      "source": "https://doi.org/10.5061/dryad.g79cnp5mn",
+      "intendedUse": "Controlled-image reference for grape-leaf morphology and an experimental cultivar-similarity feature only; not for plant-disease classification or diagnosis.",
+      "doi": "10.5061/dryad.g79cnp5mn",
+      "notes": "The French-origin subset contains 504 readable images from 272 vine-position groups and 125 cultivar names. The first supervised morphology pilot used 127 images from 63 vine groups across 14 cultivars, with 3-fold StratifiedGroupKFold by block-row-vine. Mean grouped CV: accuracy 71.72%, balanced accuracy 70.44%, macro-F1 66.23%, top-3 accuracy 84.29%. Images were captured under controlled light-box/backlit conditions at the USDA Wolfskill repository in California, not in Syrian vineyards. The source has no disease labels; the model is experimental, not field validated, and must not be activated as a disease diagnostic model. Model artifact: DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip in Google Drive. Audit and metrics are retained in data/vitis-morphology/.",
+      "sources": [
+        {
+          "title": "Dryad dataset record — Vitis vinifera leaf images",
+          "url": "https://doi.org/10.5061/dryad.g79cnp5mn"
+        },
+        {
+          "title": "Zenodo archive record 5001792",
+          "url": "https://zenodo.org/records/5001792"
+        }
+      ],
+      "licenseEvidence": "CC0-1.0 recorded for the dataset; the source README and NLM catalog were retained with the audit artifacts."
     }
   ],
   "contributions": [],
