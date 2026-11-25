@@ -83,3 +83,22 @@
 - التدريب: خبير شكل/تشابه صنفي فقط، 14 صنفاً فرنسياً، 127 صورة، 63 مجموعة كرمة، 3 طيات Group CV. Accuracy 71.72%، Balanced Accuracy 70.44%، Macro-F1 66.23%، Top-3 84.29%. ليس مصنف أمراض ولا مفعلاً في التطبيق.
 - بعد ظهور الحزمة في Drive، حُذفت النسخة المحلية المضغوطة، أوزان النموذج والـembeddings الثقيلة، والصور الفرنسية المؤقتة، وملفات تنزيل الأرشيف المؤقتة. بقيت manifests والتقارير والسكربتات الصغيرة في المشروع.
 - مساحة Box الحرة بعد التنظيف: 4.2 GB. مصدر الصور العام يمكن إعادة تنزيله من Dryad/Zenodo عند الحاجة؛ لم نحتفظ بنسخة محلية من الصور.
+
+## 2026-11-25 — Lemon V3 refined exploratory training package
+
+- `DrPlant-LemonV3-Training-2026-11-25.zip` — رُفع إلى My Drive وظهر في قائمة الملفات بحجم 5.7 MB مع رسالة اكتمال الرفع.
+- Local package: `/workspace/backups/DrPlant-LemonV3-Training-2026-11-25.zip`; size 5.7 MB. SHA-256 المحلي: `b110eb2c5e27df7470b4f43ab43c7a59ec4d3efe6f1984c9fdb8178ac1a16419`. لم يتم التحقق من SHA-256 على خادم Drive؛ التأكيد بالاسم والحجم الظاهر ورسالة اكتمال الرفع.
+- Contents: best-model.pt, ONNX model, labels, manifest, training history, metrics, rerun log, Arabic Model Card, and training script.
+- Training resumed from checkpoint after epoch 6 and completed through epoch 9; test accuracy 72.06%, macro-F1 67.46%; ONNX export succeeded. The test split is image-level, not independent by plant/farm.
+- Package and source outputs remain on Box; no local files were deleted.
+
+## 2026-11-25 — Plasmopara V2 exploratory baseline
+
+- الحزمة المحلية: `DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip`؛ حالة الرفع: pending (محاولة الرفع عبر Drive UI لم تنجح).
+- المصدر: Zenodo DOI `10.5281/zenodo.17368692`، CC BY 4.0.
+- 280 صورة أصلية فقط (129 Disease، 151 Healthy)، مع استبعاد 1,600 مشتق اصطناعي. 280 SHA فريدة؛ لا exact duplicates؛ لا pHash pairs عند Hamming <=8؛ لا exact SHA overlap مع manifests التدريب السابقة التي فُحصت.
+- التقسيم stratified image-level: 196/42/42؛ لا توجد معرفات مستقلة للمزرعة/الكرمة/النبات/جلسة التصوير.
+- MobileNetV3-Small، 8 عصور CPU: validation 88.10%، test 73.81%، macro-F1 73.79%.
+- تحذير حاسم: 127/151 Healthy تحمل EXIF لجهاز iPad Pro بتاريخ 2024-07-10، بينما 113/129 Disease بلا EXIF؛ يوجد confounding قوي بين الفئة ومصدر التصوير. التسميات غير مراجعة مستقلاً من خبير. النموذج بحثي فقط ولا يدمج بالتطبيق.
+- محتويات الحزمة: best-model.pt، training-checkpoint.pt، metrics، manifest، audit summary، source metadata، report، model card، training log، وسكربت التدريب.
+- لم يتم التحقق من ظهور الحزمة في Drive بعد. لا تحذف الأوزان أو الحزمة المضغوطة من Box قبل نجاح الرفع والتحقق من الاسم والحجم. عند نجاحه لا يتوفر تحقق SHA-256 عن بُعد تلقائياً.

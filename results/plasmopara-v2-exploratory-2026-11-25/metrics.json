@@ -1,0 +1,123 @@
+{
+  "status": "exploratory_non_independent_baseline",
+  "evaluation_scope": "within-source image-level exploratory holdout; not independent by site/plant/session",
+  "architecture": "MobileNetV3-Small",
+  "pretrained_imagenet": true,
+  "freeze_backbone": false,
+  "unfreeze_last_blocks": 2,
+  "initialized_from": null,
+  "image_size": 128,
+  "seed": 42,
+  "epochs_requested": 8,
+  "epochs_completed": 8,
+  "best_validation_accuracy": 0.8809523809523809,
+  "test_accuracy": 0.7380952380952381,
+  "test_macro_f1": 0.7379466817923993,
+  "classes": [
+    "Disease",
+    "Healthy"
+  ],
+  "test_classification_report": {
+    "Disease": {
+      "precision": 0.7142857142857143,
+      "recall": 0.75,
+      "f1-score": 0.7317073170731707,
+      "support": 20.0
+    },
+    "Healthy": {
+      "precision": 0.7619047619047619,
+      "recall": 0.7272727272727273,
+      "f1-score": 0.7441860465116279,
+      "support": 22.0
+    },
+    "accuracy": 0.7380952380952381,
+    "macro avg": {
+      "precision": 0.7380952380952381,
+      "recall": 0.7386363636363636,
+      "f1-score": 0.7379466817923993,
+      "support": 42.0
+    },
+    "weighted avg": {
+      "precision": 0.7392290249433106,
+      "recall": 0.7380952380952381,
+      "f1-score": 0.7382437943980769,
+      "support": 42.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      15,
+      5
+    ],
+    [
+      6,
+      16
+    ]
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5526051363166498,
+      "validation_accuracy": 0.7380952380952381,
+      "validation_macro_f1": 0.7343300747556067
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.34177390166691374,
+      "validation_accuracy": 0.7857142857142857,
+      "validation_macro_f1": 0.7855927396483267
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2687195709773472,
+      "validation_accuracy": 0.8571428571428571,
+      "validation_macro_f1": 0.8558352402745995
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.22893920662451764,
+      "validation_accuracy": 0.8809523809523809,
+      "validation_macro_f1": 0.8803418803418803
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.21798744820514504,
+      "validation_accuracy": 0.8571428571428571,
+      "validation_macro_f1": 0.8558352402745995
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.23749816478515157,
+      "validation_accuracy": 0.8571428571428571,
+      "validation_macro_f1": 0.8558352402745995
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.1801587144026951,
+      "validation_accuracy": 0.8571428571428571,
+      "validation_macro_f1": 0.8558352402745995
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.15571833599586876,
+      "validation_accuracy": 0.8809523809523809,
+      "validation_macro_f1": 0.8803418803418803
+    }
+  ],
+  "images_per_split": {
+    "train": 196,
+    "validation": 42,
+    "test": 42
+  },
+  "groups_per_split": {
+    "train": 196,
+    "validation": 42,
+    "test": 42
+  },
+  "limitations": [
+    "Metrics apply only to these source datasets and this split, not Syrian coastal orchards.",
+    "Dataset class labels may not be laboratory-confirmed pathogens.",
+    "This is a baseline, not a production-validated model.",
+    "Exploratory mode bypasses expert-label and near-duplicate review gates; image-level split may leak plant/session/background information and is not independent validation. Do not advertise these metrics as accuracy on unseen farms."
+  ]
+}

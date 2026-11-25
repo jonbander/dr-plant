@@ -671,6 +671,29 @@
       "doi": "10.5281/zenodo.10450043",
       "intendedUse": "Citrus leaf image research only after explicit reuse rights, source/plant/session provenance, label review, deduplication, and leakage-safe evaluation are resolved.",
       "notes": "Zenodo describes 1,944 images selected from shoots in three classes. Local inventory: 221 Anthracnose, 341 Canker, 1,382 Leaf Miner. There are 1,863 unique SHA-256 hashes, 80 exact-duplicate groups containing 161 files, no exact duplicate group spanning labels, and no exact SHA overlap with local PlantVillage full v2, Lemon V3, Citrus Field V3, Multi-Fruit original, or Plasmopara original collections. No corrupt image was detected. The Zenodo record does not state a reuse license; the extracted files do not provide verified plant/shoot/session IDs, and expert label review has not occurred. Training is blocked. Local archive MD5 was not verified because the original archive is not present."
+    },
+    {
+      "id": "plasmopara-zenodo-17368692-v2",
+      "name": "A dataset for early detection and classification of Plasmopara disease (V2)",
+      "crop": "grape",
+      "imageCount": 280,
+      "classes": [
+        "Disease",
+        "Healthy"
+      ],
+      "license": "CC BY 4.0",
+      "status": "exploratory_baseline_trained_not_diagnostic_blocked_by_source_confounding_and_missing_group_metadata",
+      "source": "https://zenodo.org/records/17368692",
+      "doi": "10.5281/zenodo.17368692",
+      "intendedUse": "Research-only binary baseline; not for field diagnosis or application integration.",
+      "notes": "Source metadata declares CC BY 4.0 and open access. Archive claims 281 originals; 280 extracted (129 Disease, 151 Healthy) plus 1,600 augmented derivatives. Only 280 originals were used; all are SHA-256 unique, no exact duplicates, no pHash pairs at Hamming <=8, and no exact SHA overlap with previously trained manifests checked. Stratified image-level split 196/42/42; no plant/vine/site/session IDs. Severe EXIF/source confounding: 127/151 Healthy have iPad Pro metadata dated 2024-07-10; 113/129 Disease lack EXIF; 29 images across classes carry SM-G981B metadata dated 2024-05-15. Eight-epoch MobileNetV3-Small baseline: validation accuracy 88.10%, test accuracy 73.81%, test macro-F1 73.79%. Test set only 42 images. Labels not independently expert-reviewed. Research-only; no production integration or treatment use.",
+      "sources": [
+        {
+          "title": "Zenodo dataset record and metadata",
+          "url": "https://zenodo.org/records/17368692"
+        }
+      ],
+      "trainingResult": "results/plasmopara-v2-exploratory-2026-11-25/REPORT_AR.md"
     }
   ],
   "contributions": [],
@@ -749,6 +772,11 @@
       "date": "2026-11-15",
       "change": "Registered the latest Large-Scale Lemon Leaf Disease and Pest dataset V3 (17,586 images, 18 classes including citrus scab) as a high-priority candidate.",
       "limitation": "The archive, exact per-class counts, file-level provenance, duplicate groups, and per-image site/plant/session metadata remain unaudited; no images downloaded or trained."
+    },
+    {
+      "date": "2026-11-25",
+      "change": "Completed a refined 9-epoch exploratory Lemon V3 run by resuming from the prior epoch-6 checkpoint; test accuracy 72.06%, macro-F1 67.46%; ONNX validation passed with 100% PyTorch/ONNX prediction agreement on 2,638 test images. Added a user-submitted lemon leaf phenotype case describing simultaneous leaf deformation and green-yellow color variation as an unlabelled evaluation challenge.",
+      "limitation": "Image-level split lacks tree/farm/session grouping; Bangladesh white-background images; no independent Syrian field validation or Dr.Plant expert relabelling. User photographs remain unlabelled and excluded from supervised training."
     }
   ]
 }
