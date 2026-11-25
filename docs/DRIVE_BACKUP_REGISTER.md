@@ -1,6 +1,6 @@
 # سجل النسخ الاحتياطية على Google Drive
 
-آخر تحديث: 2026-11-25
+آخر تحديث: 2026-11-25 (v9)
 
 ## نسخة مؤكدة على Drive
 
@@ -102,7 +102,7 @@
 - تحذير حاسم: 127/151 Healthy تحمل EXIF لجهاز iPad Pro بتاريخ 2024-07-10، بينما 113/129 Disease بلا EXIF؛ يوجد confounding قوي بين الفئة ومصدر التصوير. التسميات غير مراجعة مستقلاً من خبير. النموذج بحثي فقط ولا يدمج بالتطبيق.
 - محتويات الحزمة: best-model.pt، training-checkpoint.pt، metrics، manifest، audit summary، source metadata، report، model card، training log، وسكربت التدريب.
 - اكتمل التحقق المستقل: نُزّلت النسخة من Drive باستخدام معرّف الملف `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK` إلى ملف مؤقت، ثم طوبقت بايتاً ببايت مع النسخة المحلية. الحجم الدقيق للطرفين `24,151,918` bytes، وSHA-256 للطرفين `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903`، وفحص ZIP للنسخة المنزّلة نجح (`unzip -t`: no errors). هذا تحقق تشفيري عبر تنزيل مستقل، وليس مجرد مطابقة اسم/حجم الواجهة.
-- النسخة المحلية الأصلية بقيت محفوظة حتى اكتمال المطابقة؛ لا تُحذف إلا بعد حفظ تحديث السجل ورفعه إلى GitHub والتحقق من نشره. لا تُحذف أي ملفات تدريب أخرى.
+- بعد اكتمال مطابقة Drive وتوثيقها على GitHub، نُظّفت النسخ المحلية الثقيلة المحددة فقط: حُذف ZIP المحلي (24,151,918 bytes) وملفا `best-model.pt` و`training-checkpoint.pt` من مجلد `model-output`، بعد أن ثبتت مطابقة الحزمة السحابية بايتاً ببايت. بقيت manifests والتقارير والـmetrics والسكربتات وملفات metadata والسجل الصغير محلياً. لم تُحذف أي بيانات مصدر أو نماذج/تدريبات أخرى.
 
 
 ## 2026-11-25 — Plasmopara V2 Drive integrity verification
@@ -113,3 +113,10 @@
 - `cmp` byte-for-byte comparison: PASS. `unzip -t` on downloaded copy: PASS, no compressed-data errors.
 - Upload route: Chrome DevTools Protocol file-input transfer to the already authenticated Google Drive session (not the previously failing Drive picker workflow); Drive displayed the file and an upload-complete notification.
 - Cleanup decision: only the Plasmopara archive and its associated local training-output directory may be removed after the updated register is published and verified on GitHub. No other datasets/models are in scope.
+
+
+## Local cleanup confirmation — 2026-11-25
+
+- Removed only the Plasmopara V2 package ZIP and its two packaged weight/checkpoint files from the local training output after the Drive archive had passed byte-for-byte SHA-256 verification.
+- Retained the small local audit summary, image manifest, source metadata, metrics, report, model card, training script, and log (about 88 KB total).
+- No other dataset, training run, model, or source image was deleted.
