@@ -1,0 +1,45 @@
+{
+  "candidate_image_files": 1944,
+  "candidate_unique_hashes": 1863,
+  "candidate_duplicate_groups": 80,
+  "candidate_duplicate_files": 161,
+  "cross_class_exact_duplicate_groups": 0,
+  "cross_class_exact_duplicate_examples": [],
+  "comparisons": {
+    "PlantVillage-full-v2": {
+      "image_files": 54304,
+      "unique_hashes": 54283,
+      "overlap_candidate_files": 0,
+      "overlap_unique_hashes": 0,
+      "examples": []
+    },
+    "Lemon-v3": {
+      "image_files": 17586,
+      "unique_hashes": 14941,
+      "overlap_candidate_files": 0,
+      "overlap_unique_hashes": 0,
+      "examples": []
+    },
+    "Citrus-field-v3": {
+      "image_files": 611,
+      "unique_hashes": 611,
+      "overlap_candidate_files": 0,
+      "overlap_unique_hashes": 0,
+      "examples": []
+    },
+    "Multi-fruit-original": {
+      "image_files": 2308,
+      "unique_hashes": 2308,
+      "overlap_candidate_files": 0,
+      "overlap_unique_hashes": 0,
+      "examples": []
+    },
+    "Plasmopara-original": {
+      "image_files": 280,
+      "unique_hashes": 280,
+      "overlap_candidate_files": 0,
+      "overlap_unique_hashes": 0,
+      "examples": []
+    }
+  }
+}

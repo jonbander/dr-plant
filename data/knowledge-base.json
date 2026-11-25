@@ -411,11 +411,18 @@
         "healthy"
       ],
       "license": "CC BY 4.0 for the cited upstream sources; verify attribution and terms for each included image/source before redistribution.",
-      "status": "candidate_dataset_not_integrated",
+      "status": "blocked_pending_upstream_mapping_group_metadata_and_source_confounding_review",
       "source": "https://zenodo.org/records/17307846",
       "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use.",
       "doi": "10.5281/zenodo.17307846",
-      "notes": "Field images with class counts; dataset combines upstream datasets, so deduplication against source datasets is required."
+      "notes": "Zenodo API confirms CC BY 4.0; archive 201,804,611 bytes verified against official MD5 3bf223ea8d83ce8ca73ef59585d61b12. Inventory: 555 readable images, 555 unique SHA-256, no internal exact duplicates, no exact SHA overlap with local PlantVillage full v2, Lemon V3, Citrus Field V3, Multi-Fruit original, Plasmopara original, or Citrus Zenodo v1. DCT pHash at Hamming <=8 found no pairs. However the archive does not map each image to its upstream source (ESCA-dataset, PlantDoc-Dataset, Grape Disease) and has no plant/vine/site/session IDs. EXIF shows strong class/source confounding: Healthy EXIF records are all dated 2025-07-04 (86); Leaf_blight 148/151 EXIF records are dated 2024-10-27; Esca 0/200 images retain EXIF; Black_rot records have mixed dates/devices. Therefore no diagnostic training until per-image source mapping, independent group metadata, and expert label review are resolved.",
+      "imageCount": 555,
+      "classCounts": {
+        "black rot": 39,
+        "Esca": 200,
+        "leaf blight": 158,
+        "healthy": 158
+      }
     },
     {
       "id": "grape-bunch-powdery-mildew-morocco-2026",
@@ -447,14 +454,14 @@
         "Esca complex",
         "erineum mite"
       ],
-      "status": "candidate_dataset_not_integrated",
+      "status": "blocked_source_record_unavailable_410_license_and_archive_unverified",
       "source": "https://zenodo.org/records/17343473",
       "doi": "10.5281/zenodo.17343473",
       "region": "Four vineyard sites in northern Portugal (Vila Real and Ponte de Lima)",
       "collectionPeriod": "2024-06 to 2025-10",
       "intendedUse": "High-priority candidate for a separate field grape-leaf classification baseline after downloading the archive, verifying the Zenodo record's own license and file integrity, auditing labels and near-duplicates, and building location/date-aware train/validation/test splits.",
       "license": "The Data in Brief article is CC BY 4.0; the Zenodo dataset record's own license and file-level terms have not yet been independently verified.",
-      "notes": "The peer-reviewed Data in Brief article provides detailed provenance and collection dates. Data came from four northern-Portugal vineyard sites over 2024–2025. It is the highest-priority candidate for a field leaf-classification baseline, but only after direct Zenodo record Rights/file terms are confirmed, archive checksum and files are inspected, and duplicates are checked. Article CC BY 4.0 does not by itself establish the Zenodo dataset file license. Keep site/date groups together in the holdout split; the same-site/time random split used in the paper may overstate transfer to new vineyards. Not Syrian coastal evidence.",
+      "notes": "The Data in Brief article (DOI 10.1016/j.dib.2026.112743) describes 5,267 in-situ RGB grape-leaf images from four northern-Portugal vineyard sites across 2024–2025: Healthy 1,122 (Loureiro 494, Viosinho 223, Malvasia Fina 405), Downy Mildew 1,006, Powdery Mildew 1,126, Esca Complex 1,000, Erineum Mite 1,013. Captured with Redmi Note 12 Pro under natural light; filenames encode timestamps and, for healthy images, cultivar names; EXIF retains timestamp/exposure and GPS when available. Authors report manual initial labeling and independent second-review QC, but labels are visual and not laboratory-confirmed; disease/site/date distributions are uneven. The cited Zenodo record 17343473 currently returns HTTP 410 from the Zenodo API, so the archive cannot be retrieved and its dataset-level license/file terms cannot be verified. The article is CC BY 4.0, but that does not establish the dataset archive's license. Keep as a high-value research lead, not a usable training source until authors/record restore access and dataset rights are clarified.",
       "classCounts": {
         "healthy": 1122,
         "downy mildew": 1006,
@@ -642,6 +649,28 @@
         }
       ],
       "licenseEvidence": "CC0-1.0 recorded for the dataset; the source README and NLM catalog were retained with the audit artifacts."
+    },
+    {
+      "id": "citrus-disease-zenodo-10450043-v1",
+      "name": "Citrus disease dataset (shoot-selected leaf images, Zenodo v1)",
+      "crop": "citrus",
+      "imageCount": 1944,
+      "classes": [
+        "Anthracnose / anthrax_leaf",
+        "Canker / canker_leaf",
+        "Leaf Miner / leafminer_leaf"
+      ],
+      "classCounts": {
+        "Anthracnose": 221,
+        "Canker": 341,
+        "Leaf Miner": 1382
+      },
+      "license": "Not specified in the Zenodo record Rights/License section; reuse permission unresolved",
+      "status": "blocked_pending_license_group_provenance_and_expert_label_review",
+      "source": "https://zenodo.org/records/10450043",
+      "doi": "10.5281/zenodo.10450043",
+      "intendedUse": "Citrus leaf image research only after explicit reuse rights, source/plant/session provenance, label review, deduplication, and leakage-safe evaluation are resolved.",
+      "notes": "Zenodo describes 1,944 images selected from shoots in three classes. Local inventory: 221 Anthracnose, 341 Canker, 1,382 Leaf Miner. There are 1,863 unique SHA-256 hashes, 80 exact-duplicate groups containing 161 files, no exact duplicate group spanning labels, and no exact SHA overlap with local PlantVillage full v2, Lemon V3, Citrus Field V3, Multi-Fruit original, or Plasmopara original collections. No corrupt image was detected. The Zenodo record does not state a reuse license; the extracted files do not provide verified plant/shoot/session IDs, and expert label review has not occurred. Training is blocked. Local archive MD5 was not verified because the original archive is not present."
     }
   ],
   "contributions": [],

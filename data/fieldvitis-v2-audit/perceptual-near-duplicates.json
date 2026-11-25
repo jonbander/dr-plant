@@ -1,0 +1,6 @@
+{
+  "method": "32x32 grayscale DCT pHash, 63 low-frequency bits, Hamming distance <= 8; candidates require human review",
+  "threshold": 8,
+  "candidate_pair_count": 0,
+  "pairs": []
+}

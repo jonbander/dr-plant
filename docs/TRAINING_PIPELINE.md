@@ -150,3 +150,8 @@ For each batch, track these two workstreams together:
 - **Preservation/integration:** package → Drive upload → verify → update backup register → delete only verified heavy local copies; at the same time, add confirmed findings and the run record to the project.
 
 A batch is not considered finished until both workstreams are recorded, or any blocked step is explicitly reported with its reason.
+
+
+### Capture-source confounding gate (mandatory)
+
+Before any image-level or group-aware split, audit EXIF and all available acquisition metadata by class: capture date/time, camera/device, GPS/site, resolution, background, and source/archive. Quantify class–metadata association and inspect whether a class is represented by a unique device, date, source, background, or preprocessing pipeline. A high association blocks diagnostic training until independent source/site/plant groups or a defensible cross-source evaluation are available. Missing EXIF is not evidence of independent acquisition. For compiled datasets, map every image to its upstream source and retain original-source attribution; otherwise treat source identity as unresolved and do not claim an independent test.
