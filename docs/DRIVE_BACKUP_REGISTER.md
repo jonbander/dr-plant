@@ -1,6 +1,6 @@
 # سجل النسخ الاحتياطية على Google Drive
 
-آخر تحديث: 2026-11-24
+آخر تحديث: 2026-11-25
 
 ## نسخة مؤكدة على Drive
 
@@ -94,11 +94,22 @@
 
 ## 2026-11-25 — Plasmopara V2 exploratory baseline
 
-- الحزمة المحلية: `DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip`؛ حالة الرفع: pending (محاولة الرفع عبر Drive UI لم تنجح).
+- الحزمة: `DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip`؛ حالة الرفع النهائية: مؤكدة على My Drive بعد اكتمال الرفع وظهورها في قائمة الملفات بحجم 23 MB (تقريب الواجهة).
 - المصدر: Zenodo DOI `10.5281/zenodo.17368692`، CC BY 4.0.
 - 280 صورة أصلية فقط (129 Disease، 151 Healthy)، مع استبعاد 1,600 مشتق اصطناعي. 280 SHA فريدة؛ لا exact duplicates؛ لا pHash pairs عند Hamming <=8؛ لا exact SHA overlap مع manifests التدريب السابقة التي فُحصت.
 - التقسيم stratified image-level: 196/42/42؛ لا توجد معرفات مستقلة للمزرعة/الكرمة/النبات/جلسة التصوير.
 - MobileNetV3-Small، 8 عصور CPU: validation 88.10%، test 73.81%، macro-F1 73.79%.
 - تحذير حاسم: 127/151 Healthy تحمل EXIF لجهاز iPad Pro بتاريخ 2024-07-10، بينما 113/129 Disease بلا EXIF؛ يوجد confounding قوي بين الفئة ومصدر التصوير. التسميات غير مراجعة مستقلاً من خبير. النموذج بحثي فقط ولا يدمج بالتطبيق.
 - محتويات الحزمة: best-model.pt، training-checkpoint.pt، metrics، manifest، audit summary، source metadata، report، model card، training log، وسكربت التدريب.
-- لم يتم التحقق من ظهور الحزمة في Drive بعد. لا تحذف الأوزان أو الحزمة المضغوطة من Box قبل نجاح الرفع والتحقق من الاسم والحجم. عند نجاحه لا يتوفر تحقق SHA-256 عن بُعد تلقائياً.
+- اكتمل التحقق المستقل: نُزّلت النسخة من Drive باستخدام معرّف الملف `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK` إلى ملف مؤقت، ثم طوبقت بايتاً ببايت مع النسخة المحلية. الحجم الدقيق للطرفين `24,151,918` bytes، وSHA-256 للطرفين `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903`، وفحص ZIP للنسخة المنزّلة نجح (`unzip -t`: no errors). هذا تحقق تشفيري عبر تنزيل مستقل، وليس مجرد مطابقة اسم/حجم الواجهة.
+- النسخة المحلية الأصلية بقيت محفوظة حتى اكتمال المطابقة؛ لا تُحذف إلا بعد حفظ تحديث السجل ورفعه إلى GitHub والتحقق من نشره. لا تُحذف أي ملفات تدريب أخرى.
+
+
+## 2026-11-25 — Plasmopara V2 Drive integrity verification
+
+- Drive file ID: `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK` (My Drive).
+- Independent download size: `24,151,918` bytes; local archive size: `24,151,918` bytes.
+- SHA-256 (local and independently downloaded Drive copy): `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903` — exact match.
+- `cmp` byte-for-byte comparison: PASS. `unzip -t` on downloaded copy: PASS, no compressed-data errors.
+- Upload route: Chrome DevTools Protocol file-input transfer to the already authenticated Google Drive session (not the previously failing Drive picker workflow); Drive displayed the file and an upload-complete notification.
+- Cleanup decision: only the Plasmopara archive and its associated local training-output directory may be removed after the updated register is published and verified on GitHub. No other datasets/models are in scope.
