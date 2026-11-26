@@ -1,0 +1,4 @@
+Multi-Fruit Leaf Image Dataset: Guava, Jackfruit, Mango, and Olive.
+Mendeley Data, Version 1, DOI: 10.17632/82vn9k44ky.1
+Dataset record license: CC BY 4.0 (attribution required).
+Source: https://data.mendeley.com/datasets/82vn9k44ky/1

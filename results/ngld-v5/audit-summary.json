@@ -1,0 +1,55 @@
+{
+  "dataset": "Niphad Grape Leaf Disease Dataset V5",
+  "doi": "10.17632/8nnd2ypcv3.5",
+  "license": "CC BY 4.0",
+  "archive_sha256": "7b4b4f426e258ac0a317a72d399c1c22da4bc105aa8b65526391a413719b62aa",
+  "source_images": 2726,
+  "readable_unique_images": 2393,
+  "exact_duplicates_removed": 333,
+  "class_counts_unique": {
+    "Bacterial Leaf Spot": 100,
+    "Downy Mildew": 966,
+    "Healthy Leaves": 927,
+    "Powdery Mildew": 400
+  },
+  "near_duplicate_pairs_from_prior_audit": 462,
+  "cross_class_near_duplicate_pairs": 3,
+  "quarantined_cross_class_candidate_images": 4,
+  "usable_images": 2389,
+  "split_counts": {
+    "train": 1433,
+    "validation": 478,
+    "test": 478
+  },
+  "class_split_counts": {
+    "Bacterial Leaf Spot": {
+      "train": 60,
+      "validation": 20,
+      "test": 20
+    },
+    "Downy Mildew": {
+      "train": 578,
+      "validation": 193,
+      "test": 193
+    },
+    "Healthy Leaves": {
+      "train": 556,
+      "validation": 185,
+      "test": 185
+    },
+    "Powdery Mildew": {
+      "train": 239,
+      "validation": 80,
+      "test": 80
+    }
+  },
+  "groups_per_split": {
+    "train": 1222,
+    "validation": 406,
+    "test": 407
+  },
+  "split_group_disjoint": true,
+  "biological_group_ids": "not present in source; pHash components only prevent near-duplicate leakage, not plant/site/session leakage",
+  "expert_label_review": "not completed; source folder labels retained but not independently expert-verified",
+  "training_scope": "exploratory source-specific image classifier only; not independent biological validation or Syrian field validation"
+}

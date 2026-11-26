@@ -1,0 +1,42 @@
+{
+  "fieldvitis_images": 555,
+  "fieldvitis_unique_hashes": 555,
+  "comparisons": {
+    "PlantVillage full v2": {
+      "image_files": 54304,
+      "unique_hashes": 54283,
+      "exact_overlap_images": 0,
+      "examples": []
+    },
+    "Lemon V3": {
+      "image_files": 17586,
+      "unique_hashes": 14941,
+      "exact_overlap_images": 0,
+      "examples": []
+    },
+    "Citrus Field V3": {
+      "image_files": 611,
+      "unique_hashes": 611,
+      "exact_overlap_images": 0,
+      "examples": []
+    },
+    "Multi-Fruit original": {
+      "image_files": 2308,
+      "unique_hashes": 2308,
+      "exact_overlap_images": 0,
+      "examples": []
+    },
+    "Plasmopara original": {
+      "image_files": 280,
+      "unique_hashes": 280,
+      "exact_overlap_images": 0,
+      "examples": []
+    },
+    "Citrus Zenodo v1": {
+      "image_files": 1944,
+      "unique_hashes": 1863,
+      "exact_overlap_images": 0,
+      "examples": []
+    }
+  }
+}

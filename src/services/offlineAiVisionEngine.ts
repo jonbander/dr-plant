@@ -41,7 +41,7 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
 
   context.drawImage(img, 0, 0, width, height);
   const metrics = analyzeLeafPixels(context.getImageData(0, 0, width, height).data, width, height);
-  const quality = evaluateImageQuality(width, height, metrics);
+  const quality = evaluateImageQuality(width, height, metrics, sourceWidth, sourceHeight);
   const selectedCrop = input.suggestedCropId && input.suggestedCropId !== 'auto'
     ? CROPS_DATABASE.find(crop => crop.id === input.suggestedCropId)
     : undefined;

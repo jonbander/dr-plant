@@ -1,0 +1,61 @@
+{
+  "project": "Dr Plant multi-crop PlantVillage baseline v1",
+  "dataset": "fatemehENG/plantvillage-full",
+  "architecture": "MobileNetV3-Small",
+  "classes": 38,
+  "crops": [
+    "Apple",
+    "Blueberry",
+    "Cherry",
+    "Corn",
+    "Grape",
+    "Orange",
+    "Peach",
+    "Pepper",
+    "Potato",
+    "Raspberry",
+    "Soybean",
+    "Squash",
+    "Strawberry",
+    "Tomato"
+  ],
+  "images": 2660,
+  "images_per_split": {
+    "train": 1520,
+    "validation": 380,
+    "test": 760
+  },
+  "groups_per_split": {
+    "train": 1368,
+    "validation": 342,
+    "test": 634
+  },
+  "epochs_completed": 5,
+  "best_validation_accuracy": 0.7684210526,
+  "test_accuracy": 0.7907894737,
+  "test_macro_f1": 0.7829833763,
+  "pretrained_imagenet": true,
+  "freeze_backbone": true,
+  "training_image_size": 160,
+  "onnx_input_size": [
+    224,
+    224
+  ],
+  "onnx_max_abs_difference": 0.00000286102294921875,
+  "group_isolation_verified": true,
+  "status": "exploratory_non_independent_baseline",
+  "limitations": [
+    "Balanced subset: 50 source-train and 20 source-test images per class; not full-dataset training.",
+    "CPU-only fast baseline: feature extractor frozen; only final classification layer trained.",
+    "Metrics are not field validation and do not estimate accuracy on Syrian farms.",
+    "Dataset labels may not be laboratory-confirmed pathogens; expert label review remains required.",
+    "Review dataset license and model-derivative obligations before commercial distribution."
+  ],
+  "binary_artifacts_created_in_box": [
+    "plantvillage-multicrop-mobilenetv3-small.onnx",
+    "best-model.pt",
+    "training-checkpoint.pt",
+    "labels.json",
+    "metrics.json"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "Cabernet Sauvignon": {
+    "precision": 0.8333333333333334,
+    "recall": 0.625,
+    "f1-score": 0.7142857142857143,
+    "support": 8.0
+  },
+  "Carignane": {
+    "precision": 0.8888888888888888,
+    "recall": 0.9411764705882353,
+    "f1-score": 0.9142857142857143,
+    "support": 17.0
+  },
+  "Chardonnay": {
+    "precision": 0.9090909090909091,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.8695652173913043,
+    "support": 12.0
+  },
+  "Chasselas Napoleon": {
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1-score": 0.8,
+    "support": 6.0
+  },
+  "Cinsaut": {
+    "precision": 0.7,
+    "recall": 0.6363636363636364,
+    "f1-score": 0.6666666666666666,
+    "support": 11.0
+  },
+  "Durif": {
+    "precision": 1.0,
+    "recall": 0.16666666666666666,
+    "f1-score": 0.2857142857142857,
+    "support": 6.0
+  },
+  "Folle Blanche": {
+    "precision": 0.6923076923076923,
+    "recall": 0.6923076923076923,
+    "f1-score": 0.6923076923076923,
+    "support": 13.0
+  },
+  "Muscat St. Laurent": {
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1-score": 0.8333333333333334,
+    "support": 5.0
+  },
+  "Olivette Blanche": {
+    "precision": 0.8571428571428571,
+    "recall": 0.75,
+    "f1-score": 0.8,
+    "support": 8.0
+  },
+  "Pinot Noir": {
+    "precision": 0.6470588235294118,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.7333333333333333,
+    "support": 13.0
+  },
+  "Poet Matabon": {
+    "precision": 0.875,
+    "recall": 0.875,
+    "f1-score": 0.875,
+    "support": 8.0
+  },
+  "Sauvignon Vert": {
+    "precision": 0.5555555555555556,
+    "recall": 0.7142857142857143,
+    "f1-score": 0.625,
+    "support": 7.0
+  },
+  "Semillon": {
+    "precision": 0.16666666666666666,
+    "recall": 0.14285714285714285,
+    "f1-score": 0.15384615384615385,
+    "support": 7.0
+  },
+  "Terret Blanc": {
+    "precision": 0.4,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.36363636363636365,
+    "support": 6.0
+  },
+  "accuracy": 0.7165354330708661,
+  "macro avg": {
+    "precision": 0.7075712219619782,
+    "recall": 0.6826055597063999,
+    "f1-score": 0.6662124624857544,
+    "support": 127.0
+  },
+  "weighted avg": {
+    "precision": 0.7297855147785671,
+    "recall": 0.7165354330708661,
+    "f1-score": 0.7029392580488096,
+    "support": 127.0
+  }
+}

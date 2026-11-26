@@ -20,7 +20,7 @@ export interface OnnxModelManifest {
   inputLayout: 'NCHW' | 'NHWC';
   channelOrder: 'RGB';
   normalization: 'zero_to_one' | 'image_net';
-  resizeMode: 'center_crop';
+  resizeMode: 'stretch' | 'center_crop';
   outputKind: 'logits' | 'probabilities';
   reviewStatus: ModelReviewStatus;
   thresholdsReviewed?: boolean;
@@ -64,6 +64,22 @@ let runtimePromise: Promise<OrtRuntime> | null = null;
 let sessionPromise: Promise<OrtSession> | null = null;
 let manifestPromise: Promise<OnnxModelManifest> | null = null;
 let labelsPromise: Promise<OnnxClassLabel[]> | null = null;
+
+export function validateOnnxModelManifest(value: unknown): value is OnnxModelManifest {
+  if (!value || typeof value !== 'object') return false;
+  const manifest = value as Partial<OnnxModelManifest>;
+  return manifest.schemaVersion === 1 &&
+    typeof manifest.enabled === 'boolean' &&
+    typeof manifest.modelPath === 'string' && manifest.modelPath.startsWith('/') &&
+    typeof manifest.labelsPath === 'string' && manifest.labelsPath.startsWith('/') &&
+    Number.isInteger(manifest.inputSize) && Number(manifest.inputSize) > 0 &&
+    (manifest.inputLayout === 'NCHW' || manifest.inputLayout === 'NHWC') &&
+    manifest.channelOrder === 'RGB' &&
+    (manifest.normalization === 'zero_to_one' || manifest.normalization === 'image_net') &&
+    (manifest.resizeMode === 'stretch' || manifest.resizeMode === 'center_crop') &&
+    (manifest.outputKind === 'logits' || manifest.outputKind === 'probabilities') &&
+    (manifest.reviewStatus === 'candidate' || manifest.reviewStatus === 'validated');
+}
 
 export function stableSoftmax(values: ArrayLike<number>): number[] {
   if (values.length === 0) throw new Error('لا توجد درجات خرج من النموذج.');
@@ -188,15 +204,20 @@ async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
   return sessionPromise;
 }
 
+export function getInputDrawRect(sourceWidth: number, sourceHeight: number, size: number, resizeMode: OnnxModelManifest['resizeMode']) {
+  if (sourceWidth <= 0 || sourceHeight <= 0 || size <= 0) throw new Error('أبعاد الصورة أو الإدخال غير صالحة.');
+  if (resizeMode === 'stretch') return { x: 0, y: 0, width: size, height: size };
+  const scale = size / Math.min(sourceWidth, sourceHeight);
+  return { x: (size - sourceWidth * scale) / 2, y: (size - sourceHeight * scale) / 2, width: sourceWidth * scale, height: sourceHeight * scale };
+}
+
 function prepareInput(image: HTMLImageElement, manifest: OnnxModelManifest, ort: OrtRuntime): unknown {
   const size = manifest.inputSize;
   const sourceWidth = image.naturalWidth || image.width;
   const sourceHeight = image.naturalHeight || image.height;
   if (!sourceWidth || !sourceHeight) throw new Error('الصورة فارغة أو لم يتم تحميلها.');
 
-  const scale = size / Math.min(sourceWidth, sourceHeight);
-  const scaledWidth = Math.round(sourceWidth * scale);
-  const scaledHeight = Math.round(sourceHeight * scale);
+  const drawRect = getInputDrawRect(sourceWidth, sourceHeight, size, manifest.resizeMode);
   const canvas = document.createElement('canvas');
   canvas.width = size;
   canvas.height = size;
@@ -205,10 +226,10 @@ function prepareInput(image: HTMLImageElement, manifest: OnnxModelManifest, ort:
 
   context.drawImage(
     image,
-    (size - scaledWidth) / 2,
-    (size - scaledHeight) / 2,
-    scaledWidth,
-    scaledHeight
+    drawRect.x,
+    drawRect.y,
+    drawRect.width,
+    drawRect.height
   );
   const pixels = context.getImageData(0, 0, size, size).data;
   const plane = size * size;
@@ -246,7 +267,7 @@ export async function classifyPlantDiseaseWithOnnx(
   try {
     const manifest = await loadManifest();
     if (!manifest.enabled) return { status: 'disabled', message: 'نموذج الكشف العصبي غير مفعّل بعد.' };
-    if (manifest.schemaVersion !== 1 || manifest.channelOrder !== 'RGB' || manifest.resizeMode !== 'center_crop') {
+    if (!validateOnnxModelManifest(manifest)) {
       return { status: 'model_error', message: 'إعدادات النموذج لا تطابق إصدار محرك الفحص.' };
     }
     const classes = await loadLabels(manifest.labelsPath);
@@ -269,7 +290,7 @@ export async function classifyPlantDiseaseWithOnnx(
     if (!probeContext) return { status: 'bad_image', message: 'تعذر فحص جودة الصورة.' };
     probeContext.drawImage(image, 0, 0, probe.width, probe.height);
     const metrics = analyzeLeafPixels(probeContext.getImageData(0, 0, probe.width, probe.height).data, probe.width, probe.height);
-    const quality = evaluateImageQuality(probe.width, probe.height, metrics);
+    const quality = evaluateImageQuality(probe.width, probe.height, metrics, width, height);
     if (!quality.isUsable) return { status: 'bad_image', message: quality.warnings.join(' ') };
 
     const [ort, session] = await Promise.all([loadRuntime(), loadSession(manifest)]);
@@ -279,7 +300,9 @@ export async function classifyPlantDiseaseWithOnnx(
     const tensor = prepareInput(image, manifest, ort);
     const output = await session.run({ [session.inputNames[0]]: tensor });
     const outputTensor = output[session.outputNames[0]];
-    if (!outputTensor || outputTensor.data.length !== classes.length) {
+    if (!outputTensor || outputTensor.data.length !== classes.length ||
+        (outputTensor.dims && (outputTensor.dims[outputTensor.dims.length - 1] !== classes.length ||
+          outputTensor.dims.reduce((product, dimension) => product * dimension, 1) !== classes.length))) {
       return { status: 'model_error', message: 'عدد مخارج النموذج لا يطابق عدد الفئات.' };
     }
     const scores = manifest.outputKind === 'logits'

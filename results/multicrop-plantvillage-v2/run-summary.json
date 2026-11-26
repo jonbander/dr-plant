@@ -1,0 +1,20 @@
+{
+  "project": "Dr Plant full multicrop training v2",
+  "dataset": "fatemehENG/plantvillage-full",
+  "total_images": 54304,
+  "classes": 38,
+  "images_per_split": {"train": 34683, "validation": 8673, "test": 10948},
+  "groups_per_split": {"train": 15606, "validation": 3902, "test": 4877},
+  "architecture": "MobileNetV3-Small",
+  "epochs_completed": 5,
+  "best_validation_accuracy": 0.8874668511472386,
+  "test_accuracy": 0.8935878699305809,
+  "test_macro_f1": 0.8668326487027204,
+  "onnx_max_abs_difference": 0.0000019073486328125,
+  "onnx_file": "plantvillage-full-multicrop-mobilenetv3-small.onnx",
+  "onnx_size_bytes": 6236849,
+  "group_isolation_verified": true,
+  "expert_label_review": "not completed",
+  "field_validation": "not completed",
+  "limitations": ["Full dataset images used; not a random small subset.", "Training used CPU, 128px images, and fine-tuned final two MobileNet feature blocks initialized from v1.", "PlantVillage-style image holdout is not field validation; results may not transfer to phone photos or Syrian farms.", "Expert label review and near-duplicate review are still needed.", "Review dataset licensing before commercial distribution."]
+}
