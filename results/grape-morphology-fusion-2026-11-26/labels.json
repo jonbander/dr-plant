@@ -1,0 +1,15 @@
+{
+  "model_id": "grape-leaf-continual-finetune-candidate-2026-11-26",
+  "status": "research_only_not_expert_confirmed_not_syria_validated",
+  "label_source": "Mendeley 10.17632/378c69nwk5.1 folder labels; not independently expert-reviewed",
+  "input": {"layout":"NCHW","color":"RGB","width":160,"height":160,"normalization_mean":[0.485,0.456,0.406],"normalization_std":[0.229,0.224,0.225]},
+  "classes": [
+    {"index":0,"id":"Black_Rot","source_label":"Black Rot","label_ar":"العفن الأسود","evidence_status":"reference_only"},
+    {"index":1,"id":"Brown_Spot","source_label":"Brown Spot","label_ar":"التبقع البني","evidence_status":"reference_only"},
+    {"index":2,"id":"Downy_Mildew","source_label":"Downy Mildew","label_ar":"البياض الزغبي","evidence_status":"reference_only"},
+    {"index":3,"id":"Healthy","source_label":"Healthy","label_ar":"سليم حسب تسمية المصدر","evidence_status":"reference_only"},
+    {"index":4,"id":"Mites","source_label":"Mites","label_ar":"أضرار منسوبة للأكاروسات حسب تسمية المصدر","evidence_status":"reference_only"}
+  ],
+  "production_enabled": false,
+  "diagnostic_claim": false
+}
