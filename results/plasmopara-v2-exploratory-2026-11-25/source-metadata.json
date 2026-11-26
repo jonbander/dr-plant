@@ -1,0 +1,18 @@
+{
+  "dataset": "A dataset for early detection and classification of Plasmopara disease",
+  "version": "v2",
+  "doi": "10.5281/zenodo.17368692",
+  "source_url": "https://zenodo.org/records/17368692",
+  "access_right": "open",
+  "license": "CC BY 4.0",
+  "archive": "Plasmopara Dataset.zip",
+  "archive_size_bytes": 1026640779,
+  "archive_md5": "a1f372d90a5277d5bd5d6dc4e30169a7",
+  "published_claimed_original_images": 281,
+  "extracted_original_images": 280,
+  "classes_extracted": {"Disease":129,"Healthy":151},
+  "augmented_images_in_archive": 1600,
+  "augmented_images_admitted_to_audit_or_training": 0,
+  "retrieval_date": "2026-11-21",
+  "notes": ["Do not split augmented derivatives across train/validation/test.", "Dataset description says Spain and Norway but does not provide per-image country, vineyard, plant or session identifiers.", "Archive contains 280 originals in class folders, one fewer than the 281 claimed in the record; discrepancy requires author clarification.", "Archive contains 1600 pre-augmented derivatives; excluded pending lineage mapping and near-duplicate audit."]
+}

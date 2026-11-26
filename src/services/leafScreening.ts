@@ -109,11 +109,20 @@ export function analyzeLeafPixels(data: ArrayLike<number>, width: number, height
   };
 }
 
-export function evaluateImageQuality(width: number, height: number, metrics: LeafPixelMetrics): ImageQualityAssessment {
+export function evaluateImageQuality(
+  width: number,
+  height: number,
+  metrics: LeafPixelMetrics,
+  sourceWidth: number = width,
+  sourceHeight: number = height
+): ImageQualityAssessment {
   const warnings: string[] = [];
   let isUsable = true;
 
-  if (width < 240 || height < 240) {
+  // The resolution gate must reflect the original source image, not the
+  // downscaled analysis probe. Callers that downscale before measuring pass the
+  // original dimensions; legacy callers default to the probe dimensions.
+  if (sourceWidth < 240 || sourceHeight < 240) {
     isUsable = false;
     warnings.push('دقة الصورة منخفضة؛ التقط صورة أوضح وأقرب للورقة.');
   }

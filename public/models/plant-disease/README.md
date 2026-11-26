@@ -38,3 +38,16 @@ Only then may `reviewStatus` become `validated`, `thresholdsReviewed` become `tr
 - A healthy-class output means only that none of the model's known disease classes scored highest; it does not prove the plant is healthy.
 - No pesticide, dose, spray schedule or treatment suggestion is generated from model output.
 - This is image classification, not lesion localization or object detection.
+
+## Candidate model preprocessing contracts (2026-11-26)
+
+The public model bundle remains a disabled placeholder. Do not enable it or copy a research artifact into this directory until label-to-app-ID mapping, checksum verification, output-shape verification, preprocessing parity, calibration and independent coastal field validation are complete.
+
+Research candidates have explicit training-matched contracts:
+
+- `results/lemon-v3/model-contract.json`: MobileNetV3-Small, 128×128 RGB, direct square resize (`stretch`), ImageNet mean/std, 18 logits.
+- `results/citrus-field-v3/model-contract.json`: MobileNetV3-Small, 160×160 RGB, direct square resize (`stretch`), ImageNet mean/std, 4 logits.
+
+Both training/evaluation scripts use `Resize((size, size))`; this differs from the production placeholder's center-crop contract. The ONNX classifier now supports both modes, but the production manifest is deliberately still disabled. Browser canvas interpolation must still be compared numerically with the Python/PIL pipeline before claiming exact preprocessing parity.
+
+Run `python3 scripts/validate_model_artifacts.py` to verify recorded SHA-256 values, candidate input contracts, label counts, and the disabled production placeholder.

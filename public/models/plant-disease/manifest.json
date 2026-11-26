@@ -12,5 +12,5 @@
   "reviewStatus": "candidate",
   "source": "",
   "license": "",
-  "notes": "Disabled until the exact ONNX artifact, ordered labels, preprocessing, license and coastal field validation are verified."
+  "notes": "Placeholder only. No production model is installed. Research candidates have separate training-matched contracts under results/; do not copy them here until labels are mapped to app disease IDs, preprocessing parity and on-device validation pass."
 }

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { chooseCropScopedClass, stableSoftmax, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
+import { chooseCropScopedClass, classifyPlantDiseaseWithOnnx, getInputDrawRect, stableSoftmax, validateOnnxModelManifest, validateRouteLabels, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
+import { MODEL_ROUTES } from './modelRouter';
 
 const baseManifest: OnnxModelManifest = {
   schemaVersion: 1,
@@ -65,4 +66,58 @@ test('unknown or cross-crop disease labels are ignored', () => {
   ];
   const result = chooseCropScopedClass([1], unknownClasses, 'tomato', validated);
   assert.equal(result.status, 'unsupported_crop');
+});
+
+test('route label contract rejects class-count mismatch and duplicate ids', () => {
+  const route = MODEL_ROUTES.find(candidate => candidate.id === 'lemon-v3')!;
+  assert.ok(validateRouteLabels(route, classes)?.includes('عدد التسميات'));
+  const duplicate = Array.from({ length: route.classCount }, (_, index) => ({
+    id: index === 0 ? 'same' : index === 1 ? 'same' : `label-${index}`,
+    labelAr: `تسمية ${index}`,
+    cropId: 'citrus_syrian'
+  }));
+  assert.ok(validateRouteLabels(route, duplicate)?.includes('معرفات مكررة'));
+  const valid = Array.from({ length: route.classCount }, (_, index) => ({
+    id: `label-${index}`, labelAr: `تسمية ${index}`, cropId: 'citrus_syrian'
+  }));
+  assert.equal(validateRouteLabels(route, valid), null);
+});
+
+test('stretch preprocessing matches square Resize((size,size)) used by exploratory training', () => {
+  assert.deepEqual(getInputDrawRect(400, 200, 128, 'stretch'), { x: 0, y: 0, width: 128, height: 128 });
+});
+
+test('center-crop preprocessing preserves aspect ratio and crops overflow symmetrically', () => {
+  const rect = getInputDrawRect(400, 200, 128, 'center_crop');
+  assert.equal(rect.width, 256);
+  assert.equal(rect.height, 128);
+  assert.equal(rect.x, -64);
+  assert.equal(rect.y, 0);
+});
+
+test('invalid source dimensions are rejected', () => {
+  assert.throws(() => getInputDrawRect(0, 100, 128, 'stretch'));
+});
+
+test('manifest contract rejects invalid dimensions and unknown resize modes', () => {
+  assert.equal(validateOnnxModelManifest(baseManifest), true);
+  assert.equal(validateOnnxModelManifest({ ...baseManifest, inputSize: 0 }), false);
+  assert.equal(validateOnnxModelManifest({ ...baseManifest, resizeMode: 'letterbox' }), false);
+  assert.equal(validateOnnxModelManifest({ ...baseManifest, modelPath: 'relative.onnx' }), false);
+});
+
+test('explicit research routes do not fall back to the disabled production manifest', async () => {
+  const route = MODEL_ROUTES.find(candidate => candidate.id === 'lemon-v3');
+  const result = await classifyPlantDiseaseWithOnnx({} as HTMLImageElement, 'citrus_syrian', route);
+  assert.equal(result.status, 'model_unavailable');
+  assert.match(result.message, /Lemon V3/);
+  assert.match(result.message, /results\/lemon-v3/);
+});
+
+test('each candidate route remains independently blocked when app label mapping is absent', async () => {
+  for (const route of MODEL_ROUTES) {
+    const result = await classifyPlantDiseaseWithOnnx({} as HTMLImageElement, 'citrus_syrian', route);
+    assert.equal(result.status, 'model_unavailable');
+    assert.match(result.message, /ربط تسميات متحقق/);
+  }
 });

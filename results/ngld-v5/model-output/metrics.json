@@ -1,0 +1,174 @@
+{
+  "status": "exploratory_non_independent_baseline",
+  "evaluation_scope": "within-source holdout with perceptual-near-duplicate groups kept intact; no biological/site/plant/session independence",
+  "architecture": "MobileNetV3-Small",
+  "pretrained_imagenet": false,
+  "freeze_backbone": false,
+  "unfreeze_last_blocks": 0,
+  "initialized_from": null,
+  "image_size": 160,
+  "seed": 42,
+  "epochs_requested": 8,
+  "epochs_completed": 8,
+  "best_validation_accuracy": 0.7531380753138075,
+  "test_accuracy": 0.7405857740585774,
+  "test_macro_f1": 0.6693426445168639,
+  "classes": [
+    "Bacterial Leaf Spot",
+    "Downy Mildew",
+    "Healthy Leaves",
+    "Powdery Mildew"
+  ],
+  "test_classification_report": {
+    "Bacterial Leaf Spot": {
+      "precision": 0.3953488372093023,
+      "recall": 0.85,
+      "f1-score": 0.5396825396825397,
+      "support": 20.0
+    },
+    "Downy Mildew": {
+      "precision": 0.9917355371900827,
+      "recall": 0.6217616580310881,
+      "f1-score": 0.7643312101910829,
+      "support": 193.0
+    },
+    "Healthy Leaves": {
+      "precision": 0.6728624535315985,
+      "recall": 0.9783783783783784,
+      "f1-score": 0.7973568281938326,
+      "support": 185.0
+    },
+    "Powdery Mildew": {
+      "precision": 0.8,
+      "recall": 0.45,
+      "f1-score": 0.576,
+      "support": 80.0
+    },
+    "accuracy": 0.7405857740585774,
+    "macro avg": {
+      "precision": 0.7149867069827458,
+      "recall": 0.7250350091023667,
+      "f1-score": 0.6693426445168639,
+      "support": 478.0
+    },
+    "weighted avg": {
+      "precision": 0.8112792663707483,
+      "recall": 0.7405857740585774,
+      "f1-score": 0.7361936978585539,
+      "support": 478.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      17,
+      0,
+      0,
+      3
+    ],
+    [
+      11,
+      120,
+      56,
+      6
+    ],
+    [
+      4,
+      0,
+      181,
+      0
+    ],
+    [
+      11,
+      1,
+      32,
+      36
+    ]
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.8697861826511338,
+      "validation_accuracy": 0.38702928870292885,
+      "validation_macro_f1": 0.13951734539969834
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6184767934299397,
+      "validation_accuracy": 0.38702928870292885,
+      "validation_macro_f1": 0.13951734539969834
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.49249672149330775,
+      "validation_accuracy": 0.38702928870292885,
+      "validation_macro_f1": 0.13951734539969834
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.442321668033906,
+      "validation_accuracy": 0.38702928870292885,
+      "validation_macro_f1": 0.13951734539969834
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.3683009390554807,
+      "validation_accuracy": 0.38702928870292885,
+      "validation_macro_f1": 0.13951734539969834
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.35431479954336875,
+      "validation_accuracy": 0.39330543933054396,
+      "validation_macro_f1": 0.15822133102102753
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.32781459560613907,
+      "validation_accuracy": 0.5271966527196653,
+      "validation_macro_f1": 0.5040052284615905
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.2889113718252538,
+      "validation_accuracy": 0.7531380753138075,
+      "validation_macro_f1": 0.7082962042720123
+    }
+  ],
+  "images_per_split": {
+    "train": 1433,
+    "validation": 478,
+    "test": 478
+  },
+  "groups_per_split": {
+    "train": 1222,
+    "validation": 406,
+    "test": 407
+  },
+  "limitations": [
+    "Source does not provide plant, vineyard, farm, or capture-session IDs; pHash grouping prevents candidate near-duplicate leakage only and is not biological group validation.",
+    "Source folder labels were not independently reviewed by a plant pathologist; cross-class pHash candidates (3 pairs, 4 image endpoints) were quarantined pending visual review.",
+    "Dataset originates from Niphad, Maharashtra, India; no independent Syrian coastal field validation.",
+    "Class imbalance is substantial, especially Bacterial Leaf Spot (100 unique images); test class F1 values vary widely.",
+    "Exploratory benchmark only; not a production diagnostic model, not integrated into the app, and not for treatment recommendations."
+  ],
+  "data_audit": {
+    "source_images": 2726,
+    "unique_sha256_images": 2393,
+    "exact_duplicate_files_removed": 333,
+    "pHash_candidate_pairs_hamming_le_6": 462,
+    "cross_class_candidate_pairs_quarantined": 3,
+    "quarantined_image_endpoints": 4,
+    "usable_images": 2389,
+    "group_split": {
+      "train": 1433,
+      "validation": 478,
+      "test": 478
+    },
+    "groups": {
+      "train": 1222,
+      "validation": 406,
+      "test": 407
+    },
+    "historical_sha256_overlap": "0 across 8 prior manifests, per existing audit"
+  }
+}

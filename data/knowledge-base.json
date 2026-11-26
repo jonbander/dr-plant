@@ -411,11 +411,18 @@
         "healthy"
       ],
       "license": "CC BY 4.0 for the cited upstream sources; verify attribution and terms for each included image/source before redistribution.",
-      "status": "candidate_dataset_not_integrated",
+      "status": "blocked_pending_upstream_mapping_group_metadata_and_source_confounding_review",
       "source": "https://zenodo.org/records/17307846",
       "intendedUse": "Candidate field-image collection; audit upstream provenance and duplicate overlap before use.",
       "doi": "10.5281/zenodo.17307846",
-      "notes": "Field images with class counts; dataset combines upstream datasets, so deduplication against source datasets is required."
+      "notes": "Zenodo API confirms CC BY 4.0; archive 201,804,611 bytes verified against official MD5 3bf223ea8d83ce8ca73ef59585d61b12. Inventory: 555 readable images, 555 unique SHA-256, no internal exact duplicates, no exact SHA overlap with local PlantVillage full v2, Lemon V3, Citrus Field V3, Multi-Fruit original, Plasmopara original, or Citrus Zenodo v1. DCT pHash at Hamming <=8 found no pairs. However the archive does not map each image to its upstream source (ESCA-dataset, PlantDoc-Dataset, Grape Disease) and has no plant/vine/site/session IDs. EXIF shows strong class/source confounding: Healthy EXIF records are all dated 2025-07-04 (86); Leaf_blight 148/151 EXIF records are dated 2024-10-27; Esca 0/200 images retain EXIF; Black_rot records have mixed dates/devices. Therefore no diagnostic training until per-image source mapping, independent group metadata, and expert label review are resolved.",
+      "imageCount": 555,
+      "classCounts": {
+        "black rot": 39,
+        "Esca": 200,
+        "leaf blight": 158,
+        "healthy": 158
+      }
     },
     {
       "id": "grape-bunch-powdery-mildew-morocco-2026",
@@ -447,14 +454,14 @@
         "Esca complex",
         "erineum mite"
       ],
-      "status": "candidate_dataset_not_integrated",
+      "status": "blocked_source_record_unavailable_410_license_and_archive_unverified",
       "source": "https://zenodo.org/records/17343473",
       "doi": "10.5281/zenodo.17343473",
       "region": "Four vineyard sites in northern Portugal (Vila Real and Ponte de Lima)",
       "collectionPeriod": "2024-06 to 2025-10",
       "intendedUse": "High-priority candidate for a separate field grape-leaf classification baseline after downloading the archive, verifying the Zenodo record's own license and file integrity, auditing labels and near-duplicates, and building location/date-aware train/validation/test splits.",
       "license": "The Data in Brief article is CC BY 4.0; the Zenodo dataset record's own license and file-level terms have not yet been independently verified.",
-      "notes": "The peer-reviewed Data in Brief article provides detailed provenance and collection dates. Data came from four northern-Portugal vineyard sites over 2024–2025. It is the highest-priority candidate for a field leaf-classification baseline, but only after direct Zenodo record Rights/file terms are confirmed, archive checksum and files are inspected, and duplicates are checked. Article CC BY 4.0 does not by itself establish the Zenodo dataset file license. Keep site/date groups together in the holdout split; the same-site/time random split used in the paper may overstate transfer to new vineyards. Not Syrian coastal evidence.",
+      "notes": "The Data in Brief article (DOI 10.1016/j.dib.2026.112743) describes 5,267 in-situ RGB grape-leaf images from four northern-Portugal vineyard sites across 2024–2025: Healthy 1,122 (Loureiro 494, Viosinho 223, Malvasia Fina 405), Downy Mildew 1,006, Powdery Mildew 1,126, Esca Complex 1,000, Erineum Mite 1,013. Captured with Redmi Note 12 Pro under natural light; filenames encode timestamps and, for healthy images, cultivar names; EXIF retains timestamp/exposure and GPS when available. Authors report manual initial labeling and independent second-review QC, but labels are visual and not laboratory-confirmed; disease/site/date distributions are uneven. The cited Zenodo record 17343473 currently returns HTTP 410 from the Zenodo API, so the archive cannot be retrieved and its dataset-level license/file terms cannot be verified. The article is CC BY 4.0, but that does not establish the dataset archive's license. Keep as a high-value research lead, not a usable training source until authors/record restore access and dataset rights are clarified.",
       "classCounts": {
         "healthy": 1122,
         "downy mildew": 1006,
@@ -615,6 +622,147 @@
           "url": "https://data.mendeley.com/datasets/compare/8d9fv6kpt3"
         }
       ]
+    },
+    {
+      "id": "vitis-vinifera-french-morphology-dryad-2026",
+      "name": "Vitis vinifera leaf morphology reference dataset (French-origin cultivar subset)",
+      "crop": "grape",
+      "imageCount": 504,
+      "classes": [
+        "125 cultivar names in the French-origin subset",
+        "14 cultivars used in the first morphology pilot"
+      ],
+      "license": "CC0-1.0",
+      "status": "morphology_reference_pilot_not_disease_training",
+      "source": "https://doi.org/10.5061/dryad.g79cnp5mn",
+      "intendedUse": "Controlled-image reference for grape-leaf morphology and an experimental cultivar-similarity feature only; not for plant-disease classification or diagnosis.",
+      "doi": "10.5061/dryad.g79cnp5mn",
+      "notes": "The French-origin subset contains 504 readable images from 272 vine-position groups and 125 cultivar names. The first supervised morphology pilot used 127 images from 63 vine groups across 14 cultivars, with 3-fold StratifiedGroupKFold by block-row-vine. Mean grouped CV: accuracy 71.72%, balanced accuracy 70.44%, macro-F1 66.23%, top-3 accuracy 84.29%. Images were captured under controlled light-box/backlit conditions at the USDA Wolfskill repository in California, not in Syrian vineyards. The source has no disease labels; the model is experimental, not field validated, and must not be activated as a disease diagnostic model. Model artifact: DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip in Google Drive. Audit and metrics are retained in data/vitis-morphology/.",
+      "sources": [
+        {
+          "title": "Dryad dataset record — Vitis vinifera leaf images",
+          "url": "https://doi.org/10.5061/dryad.g79cnp5mn"
+        },
+        {
+          "title": "Zenodo archive record 5001792",
+          "url": "https://zenodo.org/records/5001792"
+        }
+      ],
+      "licenseEvidence": "CC0-1.0 recorded for the dataset; the source README and NLM catalog were retained with the audit artifacts."
+    },
+    {
+      "id": "citrus-disease-zenodo-10450043-v1",
+      "name": "Citrus disease dataset (shoot-selected leaf images, Zenodo v1)",
+      "crop": "citrus",
+      "imageCount": 1944,
+      "classes": [
+        "Anthracnose / anthrax_leaf",
+        "Canker / canker_leaf",
+        "Leaf Miner / leafminer_leaf"
+      ],
+      "classCounts": {
+        "Anthracnose": 221,
+        "Canker": 341,
+        "Leaf Miner": 1382
+      },
+      "license": "Not specified in the Zenodo record Rights/License section; reuse permission unresolved",
+      "status": "blocked_pending_license_group_provenance_and_expert_label_review",
+      "source": "https://zenodo.org/records/10450043",
+      "doi": "10.5281/zenodo.10450043",
+      "intendedUse": "Citrus leaf image research only after explicit reuse rights, source/plant/session provenance, label review, deduplication, and leakage-safe evaluation are resolved.",
+      "notes": "Zenodo describes 1,944 images selected from shoots in three classes. Local inventory: 221 Anthracnose, 341 Canker, 1,382 Leaf Miner. There are 1,863 unique SHA-256 hashes, 80 exact-duplicate groups containing 161 files, no exact duplicate group spanning labels, and no exact SHA overlap with local PlantVillage full v2, Lemon V3, Citrus Field V3, Multi-Fruit original, or Plasmopara original collections. No corrupt image was detected. The Zenodo record does not state a reuse license; the extracted files do not provide verified plant/shoot/session IDs, and expert label review has not occurred. Training is blocked. Local archive MD5 was not verified because the original archive is not present."
+    },
+    {
+      "id": "plasmopara-zenodo-17368692-v2",
+      "name": "A dataset for early detection and classification of Plasmopara disease (V2)",
+      "crop": "grape",
+      "imageCount": 280,
+      "classes": [
+        "Disease",
+        "Healthy"
+      ],
+      "license": "CC BY 4.0",
+      "status": "exploratory_baseline_trained_not_diagnostic_blocked_by_source_confounding_and_missing_group_metadata",
+      "source": "https://zenodo.org/records/17368692",
+      "doi": "10.5281/zenodo.17368692",
+      "intendedUse": "Research-only binary baseline; not for field diagnosis or application integration.",
+      "notes": "Source metadata declares CC BY 4.0 and open access. Archive claims 281 originals; 280 extracted (129 Disease, 151 Healthy) plus 1,600 augmented derivatives. Only 280 originals were used; all are SHA-256 unique, no exact duplicates, no pHash pairs at Hamming <=8, and no exact SHA overlap with previously trained manifests checked. Stratified image-level split 196/42/42; no plant/vine/site/session IDs. Severe EXIF/source confounding: 127/151 Healthy have iPad Pro metadata dated 2024-07-10; 113/129 Disease lack EXIF; 29 images across classes carry SM-G981B metadata dated 2024-05-15. Eight-epoch MobileNetV3-Small baseline: validation accuracy 88.10%, test accuracy 73.81%, test macro-F1 73.79%. Test set only 42 images. Labels not independently expert-reviewed. Research-only; no production integration or treatment use.",
+      "sources": [
+        {
+          "title": "Zenodo dataset record and metadata",
+          "url": "https://zenodo.org/records/17368692"
+        }
+      ],
+      "trainingResult": "results/plasmopara-v2-exploratory-2026-11-25/REPORT_AR.md"
+    },
+    {
+      "id": "multi-fruit-v1-exploratory-2026-11-25",
+      "name": "Multi-Fruit Leaf Image Dataset V1 — exploratory 18-class baseline",
+      "crop": "guava; jackfruit; mango; olive",
+      "imageCount": 2308,
+      "classes": [
+        "Guava _Defective",
+        "Guava _Healthy",
+        "Guava _Senescent",
+        "Jackfruit_Blight",
+        "Jackfruit_Dried",
+        "Jackfruit_Fungal_Spot",
+        "Jackfruit_Healthy",
+        "Jackfruit_Pest_Damage",
+        "Jackfruit_Senescent",
+        "Jackfruit_Young",
+        "Mango_Anthracnose",
+        "Mango_Healthy",
+        "Mango_Senescent",
+        "Olive_Healthy",
+        "Olive_Mild_Edge_Damage",
+        "Olive_Pest_Damage",
+        "Olive_Senescent_Spot",
+        "Olive_Young"
+      ],
+      "license": "CC BY 4.0",
+      "status": "exploratory_baseline_not_for_diagnosis_or_app_integration",
+      "source": "https://data.mendeley.com/datasets/82vn9k44ky/1",
+      "doi": "10.17632/82vn9k44ky.1",
+      "intendedUse": "Separate exploratory multi-crop condition classification benchmark only; not a grape/citrus disease classifier and not production diagnostic evidence.",
+      "notes": "2,308 readable original images across 18 source-folder labels. Exact SHA-256 unique; no overlap with available historical SHA manifests. pHash Hamming <=6 groups: 2,120; group-isolated split 1,378/460/470. MobileNetV3-Small random initialization, 160px, 8 CPU epochs: validation accuracy 67.17%, test accuracy 65.96%, test macro-F1 63.89%. Olive_Pest_Damage test F1=0.00 (18 images). Source labels include healthy, senescent, young, and damage categories; not all are diseases. No plant/site/session IDs and no expert label review; research only. Full report: results/multi-fruit-v1/MODEL-CARD-AR.md.",
+      "licenseEvidence": "Mendeley Data V1 record lists CC BY 4.0; attribution retained in results/multi-fruit-v1/SOURCE-ATTRIBUTION.txt."
+    },
+    {
+      "id": "ngld-v5-exploratory-2026-11-25",
+      "name": "Niphad Grape Leaf Disease Dataset V5 — exploratory 4-class baseline",
+      "crop": "grape",
+      "imageCount": 2389,
+      "classes": [
+        "Bacterial Leaf Spot",
+        "Downy Mildew",
+        "Healthy Leaves",
+        "Powdery Mildew"
+      ],
+      "license": "CC BY 4.0",
+      "status": "exploratory_baseline_not_for_diagnosis_or_app_integration",
+      "source": "https://data.mendeley.com/datasets/8nnd2ypcv3/5",
+      "doi": "10.17632/8nnd2ypcv3.5",
+      "intendedUse": "Separate source-specific exploratory grape leaf classifier benchmark only; not Syrian field validation and not production diagnostic evidence.",
+      "notes": "2,726 source images; 2,393 unique SHA-256; 333 exact duplicate files removed; no exact overlap with 8 historical manifests per prior audit. 462 pHash candidate pairs (Hamming<=6) grouped; 3 cross-class pairs / 4 image endpoints quarantined. 2,389 used with pHash-group-disjoint split 1,433/478/478. MobileNetV3-Small random init, 160px, 8 CPU epochs: validation accuracy 75.31%, test accuracy 74.06%, macro-F1 66.93%. No plant/site/session IDs or expert label review. Per-class test F1: Bacterial Leaf Spot 54.0%, Downy Mildew 76.4%, Healthy 79.7%, Powdery Mildew 57.6%.",
+      "licenseEvidence": "Mendeley Data V5 record lists CC BY 4.0; attribution retained in results/ngld-v5/SOURCE-ATTRIBUTION.txt."
+    },
+    {
+      "id": "esca-mendeley-v1-camera-confounded-2026-11-25",
+      "name": "ESCA-dataset V1 — restored source images, diagnostic training blocked",
+      "crop": "grape",
+      "imageCount": 1770,
+      "classes": [
+        "Esca",
+        "Healthy"
+      ],
+      "license": "CC BY 4.0",
+      "status": "source_restored_training_blocked_camera_label_confounding",
+      "source": "https://data.mendeley.com/datasets/89cnxc58kj/1",
+      "doi": "10.17632/89cnxc58kj.1",
+      "intendedUse": "Visual reference and source audit only until camera-label confounding is resolved with independent data; not eligible for diagnostic training as-is.",
+      "notes": "Restored 1,770 original images from Drive. Every SHA-256 matched the prior audited manifest exactly: Esca 888, Healthy 882. Camera is perfectly confounded with label: Esca cam1=389, cam2=499, cam3=0; Healthy cam1=0, cam2=0, cam3=882. No plant/leaf IDs or capture timestamps/GPS. Training blocked because a model can learn camera identity rather than disease symptoms. Source archive SHA-256 e5ee253955613bb5a862b861c2f52ad9da96bf92e01e80e97e14fb8126fb3fb9.",
+      "licenseEvidence": "Mendeley Data V1 record lists CC BY 4.0."
     }
   ],
   "contributions": [],
@@ -693,6 +841,26 @@
       "date": "2026-11-15",
       "change": "Registered the latest Large-Scale Lemon Leaf Disease and Pest dataset V3 (17,586 images, 18 classes including citrus scab) as a high-priority candidate.",
       "limitation": "The archive, exact per-class counts, file-level provenance, duplicate groups, and per-image site/plant/session metadata remain unaudited; no images downloaded or trained."
+    },
+    {
+      "date": "2026-11-25",
+      "change": "Completed a refined 9-epoch exploratory Lemon V3 run by resuming from the prior epoch-6 checkpoint; test accuracy 72.06%, macro-F1 67.46%; ONNX validation passed with 100% PyTorch/ONNX prediction agreement on 2,638 test images. Added a user-submitted lemon leaf phenotype case describing simultaneous leaf deformation and green-yellow color variation as an unlabelled evaluation challenge.",
+      "limitation": "Image-level split lacks tree/farm/session grouping; Bangladesh white-background images; no independent Syrian field validation or Dr.Plant expert relabelling. User photographs remain unlabelled and excluded from supervised training."
+    },
+    {
+      "date": "2026-11-25",
+      "change": "Added an exploratory 18-class Multi-Fruit V1 baseline after SHA/pHash audit; all 2,308 original images were included in a group-isolated split.",
+      "limitation": "The dataset combines four crops and non-disease states; no plant/site/session IDs or expert label review. Test accuracy 65.96%, macro-F1 63.89%; not suitable for disease diagnosis or app integration."
+    },
+    {
+      "date": "2026-11-25",
+      "change": "Restored NGLD V5 source archive, verified ZIP integrity and SHA-256, rebuilt duplicate-aware/pHash-grouped split, and trained a separate 4-class exploratory baseline.",
+      "limitation": "No biological group IDs or expert label review; test accuracy 74.06%, macro-F1 66.93%; not suitable for production diagnosis or app integration."
+    },
+    {
+      "date": "2026-11-25",
+      "change": "Restored ESCA V1 original image archive from Drive and verified all 1,770 image SHA-256 values against the prior audit manifest.",
+      "limitation": "Training remains blocked: every Healthy image is from cam3 while Esca images are from cam1/cam2, fully confounding camera and label."
     }
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "research_candidate_disabled",
+  "architecture": "MobileNetV3-Small",
+  "checkpoint": "best-model.pt",
+  "onnx": "lemon-v3-mobilenetv3-small-embedded.onnx",
+  "input": {
+    "size": [
+      128,
+      128
+    ],
+    "layout": "NCHW",
+    "channelOrder": "RGB",
+    "resizeMode": "stretch",
+    "normalization": "image_net",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "output": {
+    "kind": "logits",
+    "classCount": 18,
+    "labelsPath": "labels.json"
+  },
+  "preprocessingSource": "scripts/train_lemon_v3_exploratory.py: evaluation transforms.Resize((size,size))",
+  "limitations": [
+    "Image-level split; not independent by orchard/site.",
+    "Exploratory dataset labels are not Syrian expert-confirmed diagnoses.",
+    "Not approved for production or treatment advice."
+  ]
+}

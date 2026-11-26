@@ -1,0 +1,27 @@
+{
+  "dataset": "Plasmopara V2 original images only",
+  "doi": "10.5281/zenodo.17368692",
+  "license": "CC BY 4.0",
+  "images": 280,
+  "class_counts": {
+    "Disease": 129,
+    "Healthy": 151
+  },
+  "images_per_split": {
+    "train": 196,
+    "validation": 42,
+    "test": 42
+  },
+  "split_method": "stratified random image-level split; group IDs unavailable and synthetic derivatives excluded",
+  "sha256_unique": 280,
+  "exact_duplicates": 0,
+  "phash_pairs_hamming_le_8": 0,
+  "exact_overlap_with_known_training_manifests": 0,
+  "limitations": [
+    "EXIF/source confounding is severe: 127/151 healthy images carry iPad Pro metadata on 2024-07-10; 113/129 disease images have no EXIF; remaining 29 images across both classes carry SM-G981B metadata on 2024-05-15.",
+    "No per-image vineyard, plant, or session IDs; image-level test is not independent.",
+    "No expert label review.",
+    "280 extracted originals vs 281 claimed upstream; 1600 augmented derivatives excluded.",
+    "This is an exploratory binary baseline only, not field-validated diagnosis."
+  ]
+}
