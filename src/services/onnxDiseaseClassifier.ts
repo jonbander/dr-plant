@@ -82,6 +82,16 @@ export function validateOnnxModelManifest(value: unknown): value is OnnxModelMan
     (manifest.reviewStatus === 'candidate' || manifest.reviewStatus === 'validated');
 }
 
+export function validateRouteLabels(route: ModelRoute, classes: OnnxClassLabel[]): string | null {
+  if (classes.length !== route.classCount) {
+    return `عدد التسميات (${classes.length}) لا يطابق عقد النموذج (${route.classCount}).`;
+  }
+  if (new Set(classes.map(item => item.id)).size !== classes.length) {
+    return 'ملف التسميات يحتوي معرفات مكررة.';
+  }
+  return null;
+}
+
 export function stableSoftmax(values: ArrayLike<number>): number[] {
   if (values.length === 0) throw new Error('لا توجد درجات خرج من النموذج.');
   const max = Math.max(...Array.from(values));
@@ -286,6 +296,10 @@ export async function classifyPlantDiseaseWithOnnx(
       return { status: 'model_error', message: 'إعدادات النموذج لا تطابق إصدار محرك الفحص.' };
     }
     const classes = await loadLabels(modelId, route?.runtimeLabelsPath ?? manifest.labelsPath);
+    if (route) {
+      const labelError = validateRouteLabels(route, classes);
+      if (labelError) return { status: 'model_error', message: labelError };
+    }
     if (!cropId || cropId === 'auto') return chooseCropScopedClass([], classes, cropId, manifest);
 
     const crop = CROPS_DATABASE.find(item => item.id === cropId);

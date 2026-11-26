@@ -147,11 +147,19 @@ export function selectModelRoute(request: RouteRequest): RouteDecision {
     };
   }
   const context = request.context ?? 'unknown';
-  const ordered = [...candidates].sort((a, b) => {
-    const aExact = a.context === context ? 0 : 1;
-    const bExact = b.context === context ? 0 : 1;
-    return aExact - bExact;
-  });
+  // Prefer crop specialists over the broad PlantVillage reference model.
+  // With no sub-crop context, general citrus should use the field specialist;
+  // an explicit lemon context selects the lemon specialist.
+  const priority = (route: ModelRoute): number => {
+    if (context === 'lemon') {
+      return route.context === 'lemon' ? 0 : route.context === 'citrus' ? 1 : 2;
+    }
+    if (context === 'citrus' || context === 'unknown') {
+      return route.context === 'citrus' ? 0 : route.context === 'lemon' ? 1 : 2;
+    }
+    return route.context === context ? 0 : 1;
+  };
+  const ordered = [...candidates].sort((a, b) => priority(a) - priority(b));
   const primary = ordered[0];
   if (primary.lifecycle === 'research_only' && !request.allowResearchModels) {
     return {

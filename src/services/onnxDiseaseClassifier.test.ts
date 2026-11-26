@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { chooseCropScopedClass, classifyPlantDiseaseWithOnnx, getInputDrawRect, stableSoftmax, validateOnnxModelManifest, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
+import { chooseCropScopedClass, classifyPlantDiseaseWithOnnx, getInputDrawRect, stableSoftmax, validateOnnxModelManifest, validateRouteLabels, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
 import { MODEL_ROUTES } from './modelRouter';
 
 const baseManifest: OnnxModelManifest = {
@@ -66,6 +66,21 @@ test('unknown or cross-crop disease labels are ignored', () => {
   ];
   const result = chooseCropScopedClass([1], unknownClasses, 'tomato', validated);
   assert.equal(result.status, 'unsupported_crop');
+});
+
+test('route label contract rejects class-count mismatch and duplicate ids', () => {
+  const route = MODEL_ROUTES.find(candidate => candidate.id === 'lemon-v3')!;
+  assert.ok(validateRouteLabels(route, classes)?.includes('عدد التسميات'));
+  const duplicate = Array.from({ length: route.classCount }, (_, index) => ({
+    id: index === 0 ? 'same' : index === 1 ? 'same' : `label-${index}`,
+    labelAr: `تسمية ${index}`,
+    cropId: 'citrus_syrian'
+  }));
+  assert.ok(validateRouteLabels(route, duplicate)?.includes('معرفات مكررة'));
+  const valid = Array.from({ length: route.classCount }, (_, index) => ({
+    id: `label-${index}`, labelAr: `تسمية ${index}`, cropId: 'citrus_syrian'
+  }));
+  assert.equal(validateRouteLabels(route, valid), null);
 });
 
 test('stretch preprocessing matches square Resize((size,size)) used by exploratory training', () => {

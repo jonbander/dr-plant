@@ -2,11 +2,13 @@ import { Crop, DiseasePest, ScanResult } from '../types/crop';
 import { CROPS_DATABASE } from '../data/cropsAndDiseases';
 import { analyzeLeafPixels, evaluateImageQuality } from './leafScreening';
 import { classifyPlantDiseaseWithOnnx } from './onnxDiseaseClassifier';
-import { selectModelRoute } from './modelRouter';
+import { selectModelRoute, type CropContext } from './modelRouter';
 
 export interface AnalysisInput {
   imageSource: HTMLImageElement | HTMLCanvasElement | string;
   suggestedCropId?: string;
+  /** Optional sub-crop context; use 'lemon' to select the lemon specialist. */
+  modelContext?: CropContext;
   /** Research-only opt-in; production keeps this false until all promotion gates pass. */
   allowResearchModels?: boolean;
 }
@@ -52,6 +54,7 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
   const crop = selectedCrop || UNKNOWN_CROP;
   const routeDecision = selectModelRoute({
     crop: selectedCrop,
+    context: input.modelContext,
     allowResearchModels: input.allowResearchModels === true
   });
 

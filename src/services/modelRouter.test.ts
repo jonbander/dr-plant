@@ -21,7 +21,22 @@ test('lemon context prefers the lemon specialist over broad citrus', () => {
   const result = selectModelRoute({ crop, context: 'lemon', allowResearchModels: true });
   assert.equal(result.status, 'selected');
   assert.equal(result.primary?.id, 'lemon-v3');
-  assert.deepEqual(result.alternatives.map(route => route.id), ['plantvillage-full-v2', 'citrus-field-v3']);
+  assert.deepEqual(result.alternatives.map(route => route.id), ['citrus-field-v3', 'plantvillage-full-v2']);
+});
+
+test('general citrus defaults to the field specialist, not the broad PlantVillage model', () => {
+  const crop = CROPS_DATABASE.find(item => item.id === 'citrus_syrian');
+  const result = selectModelRoute({ crop, allowResearchModels: true });
+  assert.equal(result.status, 'selected');
+  assert.equal(result.primary?.id, 'citrus-field-v3');
+  assert.deepEqual(result.alternatives.map(route => route.id), ['lemon-v3', 'plantvillage-full-v2']);
+});
+
+test('grape remains on its only registered broad research route until a field ONNX specialist exists', () => {
+  const crop = CROPS_DATABASE.find(item => item.id === 'french_grape_leaf');
+  const result = selectModelRoute({ crop, allowResearchModels: true });
+  assert.equal(result.status, 'selected');
+  assert.equal(result.primary?.id, 'plantvillage-full-v2');
 });
 
 test('research specialists are blocked by default', () => {
