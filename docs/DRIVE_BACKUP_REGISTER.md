@@ -143,3 +143,15 @@
 - Size: 28,774,996 bytes. SHA-256: `b7fc2bbaccd2082aa134476fc105eb1669bbc3c401c929c95e49355d6392af95`.
 - Verification: downloaded from Drive through authenticated Drive UI; remote size and SHA-256 exactly match local; `cmp` byte-for-byte match and `unzip -t` passed.
 - Package includes audit manifest, model weights/checkpoint, metrics, reports, source attribution, and training script. Research-only; test accuracy 65.96%, macro-F1 63.89%; not a disease diagnostic model.
+
+## 2026-11-26 — grape leaf continual fine-tuning and morphology ablation package (Drive verified)
+
+- Drive file: `DrPlant-Grape-Morphology-Fusion-2026-11-26.zip` in My Drive.
+- Archive size: 75,957,706 bytes (Drive UI displayed 72.4 MB).
+- SHA-256: `2a37f9e88e80ddd6c4310906cf95a6711963c492682c91efdefa3ec8ce45bef4`.
+- Verification: downloaded the uploaded Drive archive through the authenticated Drive UI; downloaded size and SHA-256 matched exactly, `cmp` byte-for-byte match passed, and `unzip -t` passed.
+- Package contains the preserved grape disease teacher, one-epoch continual fine-tuning candidate, ONNX export and parity report, 3-fold group-CV fold weights/results, train/validation feature cache, HOG/LBP/shape and French Vitis morphology-expert ablations, source/split manifests, training scripts, and the recovered French Vitis morphology expert package.
+- Training result: fixed validation Macro-F1 63.73% -> 65.32% (+1.59 points); 3-fold grouped CV mean delta +0.48 points. ONNX Runtime/PyTorch prediction agreement 100% on 412 validation images. Historical test split was not loaded in this new run.
+- Source dataset: Mendeley DOI `10.17632/378c69nwk5.1`, CC BY 4.0; 2,574 unique images across five grape-leaf classes. Labels are folder-derived and not independently expert-confirmed; no farm/plant/session identifiers; no Syrian coastal/French-cultivar field validation.
+- The ONNX manifest remains explicitly `enabled: false` and `production_eligible: false`. Research only; do not use for definitive diagnosis or pesticide/treatment advice.
+- After remote download and byte-for-byte verification, temporary local archive/download copies, extracted expert package, and duplicate training-run outputs were deleted to free Box storage. The teacher, candidate, ONNX, manifests, reports, and scripts remain in GitHub `main` under `results/grape-morphology-fusion-2026-11-26/` and `scripts/research/`.
