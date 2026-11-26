@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { chooseCropScopedClass, stableSoftmax, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
+import { chooseCropScopedClass, getInputDrawRect, stableSoftmax, validateOnnxModelManifest, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
 
 const baseManifest: OnnxModelManifest = {
   schemaVersion: 1,
@@ -65,4 +65,27 @@ test('unknown or cross-crop disease labels are ignored', () => {
   ];
   const result = chooseCropScopedClass([1], unknownClasses, 'tomato', validated);
   assert.equal(result.status, 'unsupported_crop');
+});
+
+test('stretch preprocessing matches square Resize((size,size)) used by exploratory training', () => {
+  assert.deepEqual(getInputDrawRect(400, 200, 128, 'stretch'), { x: 0, y: 0, width: 128, height: 128 });
+});
+
+test('center-crop preprocessing preserves aspect ratio and crops overflow symmetrically', () => {
+  const rect = getInputDrawRect(400, 200, 128, 'center_crop');
+  assert.equal(rect.width, 256);
+  assert.equal(rect.height, 128);
+  assert.equal(rect.x, -64);
+  assert.equal(rect.y, 0);
+});
+
+test('invalid source dimensions are rejected', () => {
+  assert.throws(() => getInputDrawRect(0, 100, 128, 'stretch'));
+});
+
+test('manifest contract rejects invalid dimensions and unknown resize modes', () => {
+  assert.equal(validateOnnxModelManifest(baseManifest), true);
+  assert.equal(validateOnnxModelManifest({ ...baseManifest, inputSize: 0 }), false);
+  assert.equal(validateOnnxModelManifest({ ...baseManifest, resizeMode: 'letterbox' }), false);
+  assert.equal(validateOnnxModelManifest({ ...baseManifest, modelPath: 'relative.onnx' }), false);
 });

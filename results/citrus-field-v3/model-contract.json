@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "status": "research_candidate_disabled",
+  "architecture": "MobileNetV3-Small",
+  "checkpoint": "best-model.pt",
+  "onnx": "citrus-field-v3-mobilenetv3-small-embedded.onnx",
+  "input": {
+    "size": [
+      160,
+      160
+    ],
+    "layout": "NCHW",
+    "channelOrder": "RGB",
+    "resizeMode": "stretch",
+    "normalization": "image_net",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "output": {
+    "kind": "logits",
+    "classCount": 4,
+    "labelsPath": "labels.json"
+  },
+  "preprocessingSource": "scripts/train_citrus_field_v3.py: evaluation transforms.Resize((image_size,image_size))",
+  "limitations": [
+    "Tree-held-out but single Moroccan orchard/collection campaign.",
+    "Labels include symptom-like categories; not all are lab-confirmed pathogens.",
+    "Not validated on Syrian coastal farms.",
+    "Not approved for production or treatment advice."
+  ]
+}
