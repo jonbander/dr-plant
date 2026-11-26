@@ -1,0 +1,4 @@
+Niphad Grape Leaf Disease Dataset (NGLD), Version 5.
+Dharrao, Madhuri; Dharrao, Deepak; Sonawane, Rakesh; Zade, Nilima (2025).
+Mendeley Data, DOI: 10.17632/8nnd2ypcv3.5. License: CC BY 4.0.
+Source: https://data.mendeley.com/datasets/8nnd2ypcv3/5

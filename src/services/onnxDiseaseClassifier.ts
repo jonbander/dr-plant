@@ -269,7 +269,7 @@ export async function classifyPlantDiseaseWithOnnx(
     if (!probeContext) return { status: 'bad_image', message: 'تعذر فحص جودة الصورة.' };
     probeContext.drawImage(image, 0, 0, probe.width, probe.height);
     const metrics = analyzeLeafPixels(probeContext.getImageData(0, 0, probe.width, probe.height).data, probe.width, probe.height);
-    const quality = evaluateImageQuality(probe.width, probe.height, metrics);
+    const quality = evaluateImageQuality(probe.width, probe.height, metrics, width, height);
     if (!quality.isUsable) return { status: 'bad_image', message: quality.warnings.join(' ') };
 
     const [ort, session] = await Promise.all([loadRuntime(), loadSession(manifest)]);

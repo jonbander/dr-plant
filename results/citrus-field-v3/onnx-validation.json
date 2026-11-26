@@ -1,0 +1,17 @@
+{
+  "onnx_checker": "passed",
+  "onnxruntime": "loaded",
+  "test_images": 134,
+  "torch_accuracy": 0.8656716417910447,
+  "onnx_accuracy": 0.8656716417910447,
+  "torch_macro_f1": 0.8575668071962986,
+  "onnx_macro_f1": 0.8575668071962986,
+  "prediction_agreement": 1.0,
+  "max_abs_logit_difference": 8.20159912109375e-05,
+  "classes": [
+    "California red scale-like (Aonidiella aurantii)",
+    "Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri)",
+    "apparently healthy",
+    "greening-like"
+  ]
+}

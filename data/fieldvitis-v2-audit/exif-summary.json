@@ -1,0 +1,73 @@
+{
+  "images_with_exif": 268,
+  "images_with_datetime": 260,
+  "images_with_camera": 176,
+  "images_with_gps": 0,
+  "capture_days": {
+    "2024:10:27": 163,
+    "2016:07:05": 1,
+    "2008:07:02": 1,
+    "2008:07:17": 3,
+    "2017:07:25": 2,
+    "2015:07:06": 1,
+    "2011:06:14": 1,
+    "2008:07:08": 1,
+    "2025:07:04": 86
+  },
+  "camera_models": {
+    "SM-A037F": 124,
+    "M2101K6I": 43,
+    "Canon EOS REBEL T3i": 1,
+    "E4500": 1,
+    "Canon PowerShot A620": 3,
+    "DSC-WX80": 2,
+    "SCH-I545": 1,
+    "SP500UZ": 1
+  },
+  "gps_coordinate_clusters": {},
+  "by_class": {
+    "Black_rot": {
+      "exif": 31,
+      "date_days": {
+        "2024:10:27": 15,
+        "2016:07:05": 1,
+        "2008:07:02": 1,
+        "2008:07:17": 3,
+        "2017:07:25": 2,
+        "2015:07:06": 1,
+        "2011:06:14": 1,
+        "2008:07:08": 1
+      },
+      "cameras": {
+        "SM-A037F": 10,
+        "M2101K6I": 6,
+        "Canon EOS REBEL T3i": 1,
+        "E4500": 1,
+        "Canon PowerShot A620": 3,
+        "DSC-WX80": 2,
+        "SCH-I545": 1,
+        "SP500UZ": 1
+      },
+      "gps_count": 0
+    },
+    "Healthy": {
+      "exif": 86,
+      "date_days": {
+        "2025:07:04": 86
+      },
+      "cameras": {},
+      "gps_count": 0
+    },
+    "Leaf_blight": {
+      "exif": 151,
+      "date_days": {
+        "2024:10:27": 148
+      },
+      "cameras": {
+        "SM-A037F": 114,
+        "M2101K6I": 37
+      },
+      "gps_count": 0
+    }
+  }
+}

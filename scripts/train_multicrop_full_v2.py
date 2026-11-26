@@ -136,4 +136,3 @@ def main():
     print(json.dumps({k:metrics[k] for k in ("status","architecture","best_validation_accuracy","test_accuracy","test_macro_f1","images_per_split","groups_per_split")},ensure_ascii=False,indent=2),flush=True)
 
 if __name__=="__main__": main()
-[exit status 0]

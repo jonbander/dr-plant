@@ -1,0 +1,103 @@
+{
+  "task": "French grape cultivar morphology recognition (not disease diagnosis)",
+  "status": "experimental_controlled_image_domain_not_field_validated",
+  "dataset": "Vitis vinifera leaf images, CC0-1.0",
+  "all_french_reference_images": 504,
+  "supervised_images": 127,
+  "classes": [
+    "Cabernet Sauvignon",
+    "Carignane",
+    "Chardonnay",
+    "Chasselas Napoleon",
+    "Cinsaut",
+    "Durif",
+    "Folle Blanche",
+    "Muscat St. Laurent",
+    "Olivette Blanche",
+    "Pinot Noir",
+    "Poet Matabon",
+    "Sauvignon Vert",
+    "Semillon",
+    "Terret Blanc"
+  ],
+  "class_image_counts": {
+    "Carignane": 17,
+    "Folle Blanche": 13,
+    "Pinot Noir": 13,
+    "Chardonnay": 12,
+    "Cinsaut": 11,
+    "Poet Matabon": 8,
+    "Olivette Blanche": 8,
+    "Cabernet Sauvignon": 8,
+    "Sauvignon Vert": 7,
+    "Semillon": 7,
+    "Chasselas Napoleon": 6,
+    "Durif": 6,
+    "Terret Blanc": 6,
+    "Muscat St. Laurent": 5
+  },
+  "class_vine_group_counts": {
+    "Cabernet Sauvignon": 4,
+    "Carignane": 6,
+    "Chardonnay": 6,
+    "Chasselas Napoleon": 3,
+    "Cinsaut": 4,
+    "Durif": 4,
+    "Folle Blanche": 6,
+    "Muscat St. Laurent": 4,
+    "Olivette Blanche": 4,
+    "Pinot Noir": 7,
+    "Poet Matabon": 4,
+    "Sauvignon Vert": 4,
+    "Semillon": 4,
+    "Terret Blanc": 3
+  },
+  "split": "3-fold StratifiedGroupKFold by real vine position (block-row-vine); same vine never appears in train and test",
+  "feature_extractor": "ImageNet pretrained MobileNetV3-Small, frozen; average original + horizontal-flip embeddings",
+  "classifier": "StandardScaler + LogisticRegression(C=0.1,class_weight=balanced)",
+  "fold_metrics": [
+    {
+      "fold": 1,
+      "train_images": 85,
+      "test_images": 42,
+      "train_vines": 43,
+      "test_vines": 20,
+      "accuracy": 0.7857142857142857,
+      "balanced_accuracy": 0.7535714285714287,
+      "macro_f1": 0.7116823652537939,
+      "top3_accuracy": 0.8809523809523809
+    },
+    {
+      "fold": 2,
+      "train_images": 84,
+      "test_images": 43,
+      "train_vines": 41,
+      "test_vines": 22,
+      "accuracy": 0.627906976744186,
+      "balanced_accuracy": 0.630952380952381,
+      "macro_f1": 0.6045395081109367,
+      "top3_accuracy": 0.7906976744186046
+    },
+    {
+      "fold": 3,
+      "train_images": 85,
+      "test_images": 42,
+      "train_vines": 42,
+      "test_vines": 21,
+      "accuracy": 0.7380952380952381,
+      "balanced_accuracy": 0.7285714285714285,
+      "macro_f1": 0.6706349206349206,
+      "top3_accuracy": 0.8571428571428571
+    }
+  ],
+  "mean_accuracy": 0.7172388335179033,
+  "mean_balanced_accuracy": 0.7043650793650794,
+  "mean_macro_f1": 0.6622855979998837,
+  "mean_top3_accuracy": 0.8429309708379477,
+  "limitations": [
+    "controlled backlit/light-box images, not field photos",
+    "cultivar recognition only; no disease labels",
+    "Chardonay spelling alias excluded pending source verification",
+    "no claim of field performance or disease diagnostic accuracy"
+  ]
+}

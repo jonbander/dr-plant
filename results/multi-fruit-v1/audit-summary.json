@@ -1,0 +1,36 @@
+{
+  "dataset": "Multi-Fruit Leaf Image Dataset V1",
+  "source_doi": "10.17632/82vn9k44ky.1",
+  "license": "CC BY 4.0 per Mendeley dataset record; attribution required",
+  "unique_readable_images": 2308,
+  "classes": {
+    "Guava _Defective": 100,
+    "Guava _Healthy": 131,
+    "Guava _Senescent": 112,
+    "Jackfruit_Blight": 134,
+    "Jackfruit_Dried": 149,
+    "Jackfruit_Fungal_Spot": 145,
+    "Jackfruit_Healthy": 130,
+    "Jackfruit_Pest_Damage": 135,
+    "Jackfruit_Senescent": 138,
+    "Jackfruit_Young": 143,
+    "Mango_Anthracnose": 159,
+    "Mango_Healthy": 166,
+    "Mango_Senescent": 137,
+    "Olive_Healthy": 118,
+    "Olive_Mild_Edge_Damage": 121,
+    "Olive_Pest_Damage": 82,
+    "Olive_Senescent_Spot": 63,
+    "Olive_Young": 145
+  },
+  "split_counts": {
+    "train": 1378,
+    "validation": 460,
+    "test": 470
+  },
+  "near_duplicate_group_count": 2120,
+  "near_duplicate_threshold_hamming": 6,
+  "exact_duplicates_removed": 0,
+  "split_group_disjoint": true,
+  "limitation": "No plant/site/session identifiers; image-group holdout is exploratory only. Folder labels include healthy, senescent, young, and damage categories, not a unified disease taxonomy. Expert label review not completed."
+}

@@ -1,0 +1,4 @@
+aa762e8be59ee510db2988d98cbad8334aeeed3d19302eb62260cc3bacadb8c7  scripts/research/prepare_multifruit_audit_split.py
+a5e69e569db15b044cacf999cab576630715205885cf3c482ca59a41b8364cd6  results/multi-fruit-v1/image-manifest.csv
+a1fe9012b8f4637624f053cecedbd6322c31badfeb095d002a528dca58acde3e  results/multi-fruit-v1/model-output/best-model.pt
+2d77c02724a47d962a16b0aff499c2050dd98899ca5f1253345d481cbf131616  results/multi-fruit-v1/model-output/metrics.json
