@@ -1,0 +1,63 @@
+{
+  "status": "research_candidate_not_for_app",
+  "method": "two_view_contrastive_learning_plus_frozen_teacher_knowledge_distillation",
+  "architecture": "MobileNetV3-Small",
+  "classes": [
+    "Bacterial Leaf Spot",
+    "Downy Mildew",
+    "Healthy Leaves",
+    "Powdery Mildew"
+  ],
+  "image_size": 160,
+  "epochs": 3,
+  "batch_size": 8,
+  "learning_rate": 0.00002,
+  "unfreeze_last_blocks": 2,
+  "train_images_unlabeled": 1433,
+  "validation_images": 478,
+  "test_images": 478,
+  "teacher": {
+    "accuracy": 0.7405857740585774,
+    "macro_f1": 0.6693426445168639
+  },
+  "candidate": {
+    "accuracy": 0.7447698744769874,
+    "macro_f1": 0.6763878209145516
+  },
+  "delta": {
+    "accuracy": 0.004184100418409997,
+    "macro_f1": 0.007045176397687758
+  },
+  "per_class_f1": {
+    "Bacterial Leaf Spot": {
+      "teacher": 0.5396825396825397,
+      "candidate": 0.5614035087719298,
+      "support": 20
+    },
+    "Downy Mildew": {
+      "teacher": 0.7643312101910829,
+      "candidate": 0.7760252365930599,
+      "support": 193
+    },
+    "Healthy Leaves": {
+      "teacher": 0.7973568281938326,
+      "candidate": 0.7921225382932167,
+      "support": 185
+    },
+    "Powdery Mildew": {
+      "teacher": 0.576,
+      "candidate": 0.576,
+      "support": 80
+    }
+  },
+  "limitations": [
+    "Labels not independently expert-reviewed.",
+    "Test split is pHash-group isolated only, not independent by vineyard, plant, or capture session.",
+    "No Syrian field validation.",
+    "Test split has been consumed for this pilot and is development data for subsequent work."
+  ],
+  "drive_package": "https://drive.google.com/file/d/1YJ6pgmeOsLZ17vOiAb9PjGfW7hY2_37X/view",
+  "drive_package_sha256": "2e4722c38af1e521116b4cd6f31fa3a2cb1b36768bfeb1d71bb149b22792e2f3",
+  "teacher_sha256": "47103964b7c3c501daee3a7a206334ccaf3e3225bf02f642cc54b845a60c5c94",
+  "candidate_sha256": "42de27f1dd22f00654f3214733b0ac43bd13a77021f1ecd80fddd9f2c8226d70"
+}
