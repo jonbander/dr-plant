@@ -1,10 +1,14 @@
 import { Crop, DiseasePest, ScanResult } from '../types/crop';
 import { CROPS_DATABASE } from '../data/cropsAndDiseases';
 import { analyzeLeafPixels, evaluateImageQuality } from './leafScreening';
+import { classifyPlantDiseaseWithOnnx } from './onnxDiseaseClassifier';
+import { selectModelRoute } from './modelRouter';
 
 export interface AnalysisInput {
   imageSource: HTMLImageElement | HTMLCanvasElement | string;
   suggestedCropId?: string;
+  /** Research-only opt-in; production keeps this false until all promotion gates pass. */
+  allowResearchModels?: boolean;
 }
 
 const UNKNOWN_CROP: Crop = {
@@ -46,6 +50,10 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
     ? CROPS_DATABASE.find(crop => crop.id === input.suggestedCropId)
     : undefined;
   const crop = selectedCrop || UNKNOWN_CROP;
+  const routeDecision = selectModelRoute({
+    crop: selectedCrop,
+    allowResearchModels: input.allowResearchModels === true
+  });
 
   const observedPatterns: string[] = [];
   if (metrics.yellowPercent >= 5) observedPatterns.push('توجد نسبة ملحوظة من البكسلات الصفراء ضمن المنطقة الخضراء المقدّرة؛ قد تتوافق مع اصفرار أو تغير لون.');
@@ -54,6 +62,16 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
   if (observedPatterns.length === 0) observedPatterns.push('لم تُرصد تغيرات لونية قوية وفق العتبات البسيطة؛ هذا لا يثبت أن النبات سليم.');
 
   const notes = [...quality.warnings];
+  if (routeDecision.status === 'research_blocked' || routeDecision.status === 'unsupported_crop' || routeDecision.status === 'unknown_crop') {
+    notes.push(routeDecision.reason);
+  }
+  if (quality.isUsable && routeDecision.status === 'selected' && input.allowResearchModels === true) {
+    const modelResult = await classifyPlantDiseaseWithOnnx(img, selectedCrop?.id);
+    notes.push(`مسار النموذج: ${routeDecision.primary?.id || 'غير محدد'}. ${modelResult.message}`);
+    if (modelResult.status === 'possible_match' || modelResult.status === 'unsure' || modelResult.status === 'candidate_only') {
+      notes.push('هذه نتيجة بحثية/احتمالية ضمن فئات النموذج فقط، وليست تشخيصاً مؤكداً ولا توصية علاجية.');
+    }
+  }
   notes.push('هذا تحليل ألوان ومساحة خضراء تقريبي، وليس نموذجاً مدرّباً لتحديد الأمراض أو الآفات.');
   notes.push('لا يتم تحديد نوع النبات تلقائياً. اختر المحصول الصحيح قبل تفسير الأعراض.');
   notes.push('لا تستخدم النتيجة لاختيار مبيد أو جرعة؛ يلزم فحص وجهي الورقة والسياق الحقلي.');
