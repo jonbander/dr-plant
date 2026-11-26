@@ -1,6 +1,6 @@
 # سجل النسخ الاحتياطية على Google Drive
 
-آخر تحديث: 2026-11-25 (v9)
+آخر تحديث: 2026-11-26 (v13)
 
 ## نسخة مؤكدة على Drive
 
@@ -90,33 +90,78 @@
 - Local package: `/workspace/backups/DrPlant-LemonV3-Training-2026-11-25.zip`; size 5.7 MB. SHA-256 المحلي: `b110eb2c5e27df7470b4f43ab43c7a59ec4d3efe6f1984c9fdb8178ac1a16419`. لم يتم التحقق من SHA-256 على خادم Drive؛ التأكيد بالاسم والحجم الظاهر ورسالة اكتمال الرفع.
 - Contents: best-model.pt, ONNX model, labels, manifest, training history, metrics, rerun log, Arabic Model Card, and training script.
 - Training resumed from checkpoint after epoch 6 and completed through epoch 9; test accuracy 72.06%, macro-F1 67.46%; ONNX export succeeded. The test split is image-level, not independent by plant/farm.
-- Package and source outputs remain on Box; no local files were deleted.
+- After independent Drive re-download and exact SHA-256/byte comparison on 2026-11-25, the local ZIP package was deleted during the subsequent cleanup; the individual training outputs and source data remain.
 
-## 2026-11-25 — Plasmopara V2 exploratory baseline
+## 2026-11-25 — Plasmopara V2 exploratory baseline (Drive verified)
 
-- الحزمة: `DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip`؛ حالة الرفع النهائية: مؤكدة على My Drive بعد اكتمال الرفع وظهورها في قائمة الملفات بحجم 23 MB (تقريب الواجهة).
+- الحزمة `DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip` رُفعت إلى Drive وتم تنزيلها مرة أخرى؛ الحجم وبصمة SHA-256 تطابقا تماماً. Drive file ID: `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK`.
 - المصدر: Zenodo DOI `10.5281/zenodo.17368692`، CC BY 4.0.
 - 280 صورة أصلية فقط (129 Disease، 151 Healthy)، مع استبعاد 1,600 مشتق اصطناعي. 280 SHA فريدة؛ لا exact duplicates؛ لا pHash pairs عند Hamming <=8؛ لا exact SHA overlap مع manifests التدريب السابقة التي فُحصت.
 - التقسيم stratified image-level: 196/42/42؛ لا توجد معرفات مستقلة للمزرعة/الكرمة/النبات/جلسة التصوير.
 - MobileNetV3-Small، 8 عصور CPU: validation 88.10%، test 73.81%، macro-F1 73.79%.
 - تحذير حاسم: 127/151 Healthy تحمل EXIF لجهاز iPad Pro بتاريخ 2024-07-10، بينما 113/129 Disease بلا EXIF؛ يوجد confounding قوي بين الفئة ومصدر التصوير. التسميات غير مراجعة مستقلاً من خبير. النموذج بحثي فقط ولا يدمج بالتطبيق.
 - محتويات الحزمة: best-model.pt، training-checkpoint.pt، metrics، manifest، audit summary، source metadata، report، model card، training log، وسكربت التدريب.
-- اكتمل التحقق المستقل: نُزّلت النسخة من Drive باستخدام معرّف الملف `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK` إلى ملف مؤقت، ثم طوبقت بايتاً ببايت مع النسخة المحلية. الحجم الدقيق للطرفين `24,151,918` bytes، وSHA-256 للطرفين `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903`، وفحص ZIP للنسخة المنزّلة نجح (`unzip -t`: no errors). هذا تحقق تشفيري عبر تنزيل مستقل، وليس مجرد مطابقة اسم/حجم الواجهة.
-- بعد اكتمال مطابقة Drive وتوثيقها على GitHub، نُظّفت النسخ المحلية الثقيلة المحددة فقط: حُذف ZIP المحلي (24,151,918 bytes) وملفا `best-model.pt` و`training-checkpoint.pt` من مجلد `model-output`، بعد أن ثبتت مطابقة الحزمة السحابية بايتاً ببايت. بقيت manifests والتقارير والـmetrics والسكربتات وملفات metadata والسجل الصغير محلياً. لم تُحذف أي بيانات مصدر أو نماذج/تدريبات أخرى.
+- تأكيد الرفع والتحقق: 24,151,918 bytes؛ SHA-256 `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903`؛ byte-for-byte match و`unzip -t` ناجح. حُذفت ملفات النموذج الثقيلة محلياً بعد التحقق، وبقيت ملفات التدقيق.
+
+## 2026-11-25 — NGLD V5 exploratory training package (verified)
+
+- Drive file: `DrPlant-NGLD-V5-Exploratory-Training-2026-11-25.zip`.
+- Google Drive file ID: `1Jej-YFmTlKGm0H6vKS_I4j4x_L1DOGe1`.
+- Local archive: `/workspace/backups/DrPlant-NGLD-V5-Exploratory-Training-2026-11-25.zip`.
+- Size: 55,219,865 bytes. SHA-256: `d7bf92c55781403e1d2154c16ef774a125d42e1c5bfc6ee64c3a300421d278e8`.
+- Verification: downloaded the uploaded Drive file through the authenticated Drive UI; remote download size and SHA-256 matched local archive exactly; `cmp` byte-for-byte match and `unzip -t` passed.
+- Package contains source archive, full and training manifests, pHash review pairs, model weights/checkpoint, metrics, training log, model card, and audit scripts.
+- Result: 2,389 images used; 4 cross-class pHash candidate endpoints quarantined; test accuracy 74.06%, macro-F1 66.93%. Research-only; no biological group IDs or expert label review.
+- The local backup ZIP was deleted after the verified Drive copy was confirmed; the original teacher checkpoint, source archive, manifests, and training results remain on Box.
+
+## 2026-11-25 — ESCA V1 source archive restored from Drive
+
+- Restored the existing Drive folder `My Drive/esca-mendeley-v1/extracted/esca_dataset` (folder IDs: `1bfsgaWgUQj_lo6FH6mWJXTLCcf8x1_Gx` / `1H19DAHr3CAxYPb9u0Iff_jZl8E6pt1nx` / `1AWLcQb-GTBOhojK0zR3AW3c-kgSGeqqn`).
+- Local source archive: `data/external/2026-11/esca-mendeley-v1/ESCA-Drive-Archive.zip`; 943,843,513 uncompressed bytes across 1,773 archive entries, including 1,770 images.
+- SHA-256 of the restored source archive: `e5ee253955613bb5a862b861c2f52ad9da96bf92e01e80e97e14fb8126fb3fb9`.
+- All 1,770 extracted image SHA-256 values matched the prior audited manifest exactly (Esca 888, Healthy 882).
+- Training remains blocked: all Healthy images are from cam3, Esca images from cam1/cam2; camera identity is fully confounded with label.
+- Temporary duplicate download was removed only after byte-for-byte comparison with the retained local archive. The Drive source folder remains untouched.
+
+## 2026-11-25 — Plasmopara V2 backup verification update
+
+- The Plasmopara package was uploaded and independently downloaded from Drive; exact size and SHA-256 matched the local package (`b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903`).
+- Drive file ID: `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK`; size 24,151,918 bytes.
+- Package archive integrity test passed. Local heavy model/checkpoint files were removed only after this byte-for-byte verification, while audit and source metadata files remain.
+
+## 2026-11-25 — Multi-Fruit V1 backup status
+
+- Local package: `/workspace/backups/DrPlant-MultiFruit-V1-Exploratory-Training-2026-11-25.zip`.
+- SHA-256: `b7fc2bbaccd2082aa134476fc105eb1669bbc3c401c929c95e49355d6392af95`.
+- Archive integrity test passed. **Drive upload has not been performed or verified.** Keep local package and model outputs until a Drive backup is independently confirmed.
+
+## 2026-11-25 — Multi-Fruit V1 exploratory training package (verified)
+
+- Drive file: `DrPlant-MultiFruit-V1-Exploratory-Training-2026-11-25.zip`.
+- Google Drive file ID: `11sjcNmPC6HY-wlktDljOvRfifoxSciY8`.
+- Local archive: `/workspace/backups/DrPlant-MultiFruit-V1-Exploratory-Training-2026-11-25.zip`.
+- Size: 28,774,996 bytes. SHA-256: `b7fc2bbaccd2082aa134476fc105eb1669bbc3c401c929c95e49355d6392af95`.
+- Verification: downloaded from Drive through authenticated Drive UI; remote size and SHA-256 exactly match local; `cmp` byte-for-byte match and `unzip -t` passed.
+- Package includes audit manifest, model weights/checkpoint, metrics, reports, source attribution, and training script. Research-only; test accuracy 65.96%, macro-F1 63.89%; not a disease diagnostic model.
 
 
-## 2026-11-25 — Plasmopara V2 Drive integrity verification
+## 2026-11-25 — Cleanup of locally duplicated Drive packages
 
-- Drive file ID: `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK` (My Drive).
-- Independent download size: `24,151,918` bytes; local archive size: `24,151,918` bytes.
-- SHA-256 (local and independently downloaded Drive copy): `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903` — exact match.
-- `cmp` byte-for-byte comparison: PASS. `unzip -t` on downloaded copy: PASS, no compressed-data errors.
-- Upload route: Chrome DevTools Protocol file-input transfer to the already authenticated Google Drive session (not the previously failing Drive picker workflow); Drive displayed the file and an upload-complete notification.
-- Cleanup decision: only the Plasmopara archive and its associated local training-output directory may be removed after the updated register is published and verified on GitHub. No other datasets/models are in scope.
+The following local backup ZIPs were removed from `/workspace/backups/` only after confirming their Drive copies:
+
+- `DrPlant-NGLD-V5-Exploratory-Training-2026-11-25.zip` — Drive ID `1Jej-YFmTlKGm0H6vKS_I4j4x_L1DOGe1`; previously independently downloaded, exact SHA-256 match `d7bf92c55781403e1d2154c16ef774a125d42e1c5bfc6ee64c3a300421d278e8`.
+- `DrPlant-MultiFruit-V1-Exploratory-Training-2026-11-25.zip` — Drive ID `11sjcNmPC6HY-wlktDljOvRfifoxSciY8`; previously independently downloaded, exact SHA-256 match `b7fc2bbaccd2082aa134476fc105eb1669bbc3c401c929c95e49355d6392af95`.
+- `DrPlant-LemonV3-Training-2026-11-25.zip` — Drive listing showed completed upload; an independent download was made on 2026-11-25 and compared byte-for-byte with the local package. Both SHA-256 values matched: `b110eb2c5e27df7470b4f43ab43c7a59ec4d3efe6f1984c9fdb8178ac1a16419`; ZIP integrity check passed.
+- The temporary independent Lemon download was also removed after comparison.
+
+Total local bytes removed: 95,872,897 bytes (about 91.4 MiB). No files were deleted from Google Drive. The NGLD V5 teacher checkpoint `results/ngld-v5/model-output/best-model.pt` was deliberately retained for the next learning-method experiment; its SHA-256 remains `47103964b7c3c501daee3a7a206334ccaf3e3225bf02f642cc54b845a60c5c94`. No source image directories, extracted datasets, other model weights, or unverified archives were deleted.
 
 
-## Local cleanup confirmation — 2026-11-25
+## 2026-11-26 — إعادة تحقق مستقلة من نسخة Plasmopara V2 على Drive
 
-- Removed only the Plasmopara V2 package ZIP and its two packaged weight/checkpoint files from the local training output after the Drive archive had passed byte-for-byte SHA-256 verification.
-- Retained the small local audit summary, image manifest, source metadata, metrics, report, model card, training script, and log (about 88 KB total).
-- No other dataset, training run, model, or source image was deleted.
+- فُتح عنصر Google Drive بالمعرّف `1A0aupSTSGkHNccRjw5FkjL0sP3U54HeK`، وظهر باسم `DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip`.
+- لم تُجرَ عملية رفع جديدة لأن النسخة موجودة مسبقاً؛ بدلاً من ذلك نُزّلت النسخة الموجودة مباشرةً من Drive عبر جلسة الحساب المسجّلة للتحقق من محتواها الحالي.
+- حجم التنزيل المستقل: `24,151,918` bytes. SHA-256: `b7e83a3f1d6acdbcb74b407bd30147711ba5e1cf7ab27965dec83f3f69022903`، مطابق تماماً للبصمة المحلية المرجعية المسجلة في 2026-11-25.
+- فحص الأرشيف المنزّل بواسطة `unzip -t` نجح: `No errors detected in compressed data`.
+- ملاحظة مهمة عن النسخة المحلية: المسار `/workspace/backups/DrPlant-Plasmopara-V2-Exploratory-Training-2026-11-25.zip` لم يكن موجوداً عند بدء هذه المراجعة؛ كان قد حُذف سابقاً بعد التحقق الموثق في سجل v12. لذلك لم تُجرَ مقارنة `cmp` جديدة مع الملف الأصلي في هذه الجولة؛ تمت مطابقة SHA-256 للتنزيل الحالي مع البصمة المرجعية المحفوظة.
+- حُذف فقط ملف التنزيل المؤقت الذي أُنشئ لهذه المراجعة بعد نجاح فحص الحجم والبصمة وسلامة ZIP. لم تُحذف أو تُعدّل أي بيانات تدريب أو نماذج أخرى، ولم يُنشأ ملف Drive مكرر.
