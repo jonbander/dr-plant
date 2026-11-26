@@ -1,0 +1,566 @@
+{
+  "status": "research_only_group_cv_no_test",
+  "method": "3-fold StratifiedGroupKFold on prior train+validation rows only; groups are pHash components, not plants/farms; one-epoch fine-tuning from same teacher per fold.",
+  "test_split_loaded": false,
+  "teacher_sha256": "6978cb89963ca243e617c3545376387d18d8a198f42c70413f33c0a15d94d05d",
+  "folds": [
+    {
+      "fold": 1,
+      "train_images": 1373,
+      "validation_images": 686,
+      "train_groups": 1355,
+      "validation_groups": 677,
+      "train_loss": 0.7467278650183792,
+      "teacher": {
+        "accuracy": 0.8075801749271136,
+        "balanced_accuracy": 0.8067861284783057,
+        "macro_f1": 0.7830762646713538,
+        "per_class": {
+          "Black_Rot": {
+            "precision": 0.7865168539325843,
+            "recall": 0.49295774647887325,
+            "f1-score": 0.6060606060606061,
+            "support": 142.0
+          },
+          "Brown_Spot": {
+            "precision": 0.9617486338797814,
+            "recall": 0.88,
+            "f1-score": 0.9190600522193212,
+            "support": 200.0
+          },
+          "Downy_Mildew": {
+            "precision": 0.5467625899280576,
+            "recall": 0.9156626506024096,
+            "f1-score": 0.6846846846846847,
+            "support": 83.0
+          },
+          "Healthy": {
+            "precision": 0.8523809523809524,
+            "recall": 0.9040404040404041,
+            "f1-score": 0.8774509803921569,
+            "support": 198.0
+          },
+          "Mites": {
+            "precision": 0.8153846153846154,
+            "recall": 0.8412698412698413,
+            "f1-score": 0.828125,
+            "support": 63.0
+          },
+          "accuracy": 0.8075801749271136,
+          "macro avg": {
+            "precision": 0.7925587291011983,
+            "recall": 0.8067861284783057,
+            "f1-score": 0.7830762646713538,
+            "support": 686.0
+          },
+          "weighted avg": {
+            "precision": 0.8302581258587045,
+            "recall": 0.8075801749271136,
+            "f1-score": 0.805551916109251,
+            "support": 686.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            70,
+            2,
+            39,
+            27,
+            4
+          ],
+          [
+            6,
+            176,
+            11,
+            0,
+            7
+          ],
+          [
+            4,
+            0,
+            76,
+            3,
+            0
+          ],
+          [
+            7,
+            0,
+            11,
+            179,
+            1
+          ],
+          [
+            2,
+            5,
+            2,
+            1,
+            53
+          ]
+        ]
+      },
+      "candidate": {
+        "accuracy": 0.8206997084548106,
+        "balanced_accuracy": 0.8103672963912232,
+        "macro_f1": 0.7972120364011778,
+        "per_class": {
+          "Black_Rot": {
+            "precision": 0.728,
+            "recall": 0.6408450704225352,
+            "f1-score": 0.6816479400749064,
+            "support": 142.0
+          },
+          "Brown_Spot": {
+            "precision": 0.9567567567567568,
+            "recall": 0.885,
+            "f1-score": 0.9194805194805195,
+            "support": 200.0
+          },
+          "Downy_Mildew": {
+            "precision": 0.6774193548387096,
+            "recall": 0.7590361445783133,
+            "f1-score": 0.7159090909090909,
+            "support": 83.0
+          },
+          "Healthy": {
+            "precision": 0.8509615384615384,
+            "recall": 0.8939393939393939,
+            "f1-score": 0.8719211822660099,
+            "support": 198.0
+          },
+          "Mites": {
+            "precision": 0.7333333333333333,
+            "recall": 0.873015873015873,
+            "f1-score": 0.7971014492753623,
+            "support": 63.0
+          },
+          "accuracy": 0.8206997084548106,
+          "macro avg": {
+            "precision": 0.7892941966780677,
+            "recall": 0.8103672963912232,
+            "f1-score": 0.7972120364011778,
+            "support": 686.0
+          },
+          "weighted avg": {
+            "precision": 0.8245532688314124,
+            "recall": 0.8206997084548106,
+            "f1-score": 0.8206535733603687,
+            "support": 686.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            91,
+            2,
+            20,
+            23,
+            6
+          ],
+          [
+            7,
+            177,
+            4,
+            0,
+            12
+          ],
+          [
+            11,
+            1,
+            63,
+            8,
+            0
+          ],
+          [
+            13,
+            1,
+            5,
+            177,
+            2
+          ],
+          [
+            3,
+            4,
+            1,
+            0,
+            55
+          ]
+        ]
+      },
+      "delta_macro_f1": 0.014135771729823943
+    },
+    {
+      "fold": 2,
+      "train_images": 1372,
+      "validation_images": 687,
+      "train_groups": 1354,
+      "validation_groups": 678,
+      "train_loss": 0.7437683851308795,
+      "teacher": {
+        "accuracy": 0.7991266375545851,
+        "balanced_accuracy": 0.7914535790960167,
+        "macro_f1": 0.7762923892054607,
+        "per_class": {
+          "Black_Rot": {
+            "precision": 0.8024691358024691,
+            "recall": 0.45774647887323944,
+            "f1-score": 0.5829596412556054,
+            "support": 142.0
+          },
+          "Brown_Spot": {
+            "precision": 0.9521276595744681,
+            "recall": 0.8994974874371859,
+            "f1-score": 0.9250645994832042,
+            "support": 199.0
+          },
+          "Downy_Mildew": {
+            "precision": 0.5109489051094891,
+            "recall": 0.8333333333333334,
+            "f1-score": 0.6334841628959276,
+            "support": 84.0
+          },
+          "Healthy": {
+            "precision": 0.8190045248868778,
+            "recall": 0.9095477386934674,
+            "f1-score": 0.861904761904762,
+            "support": 199.0
+          },
+          "Mites": {
+            "precision": 0.9,
+            "recall": 0.8571428571428571,
+            "f1-score": 0.8780487804878049,
+            "support": 63.0
+          },
+          "accuracy": 0.7991266375545851,
+          "macro avg": {
+            "precision": 0.7969100450746608,
+            "recall": 0.7914535790960167,
+            "f1-score": 0.7762923892054607,
+            "support": 687.0
+          },
+          "weighted avg": {
+            "precision": 0.8239092140043021,
+            "recall": 0.7991266375545851,
+            "f1-score": 0.796094490288924,
+            "support": 687.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            65,
+            6,
+            42,
+            26,
+            3
+          ],
+          [
+            3,
+            179,
+            12,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            70,
+            8,
+            1
+          ],
+          [
+            7,
+            0,
+            11,
+            181,
+            0
+          ],
+          [
+            3,
+            1,
+            2,
+            3,
+            54
+          ]
+        ]
+      },
+      "candidate": {
+        "accuracy": 0.8034934497816594,
+        "balanced_accuracy": 0.7916689977946967,
+        "macro_f1": 0.7774472017574348,
+        "per_class": {
+          "Black_Rot": {
+            "precision": 0.7358490566037735,
+            "recall": 0.5492957746478874,
+            "f1-score": 0.6290322580645161,
+            "support": 142.0
+          },
+          "Brown_Spot": {
+            "precision": 0.9505494505494505,
+            "recall": 0.8693467336683417,
+            "f1-score": 0.9081364829396326,
+            "support": 199.0
+          },
+          "Downy_Mildew": {
+            "precision": 0.6161616161616161,
+            "recall": 0.7261904761904762,
+            "f1-score": 0.6666666666666666,
+            "support": 84.0
+          },
+          "Healthy": {
+            "precision": 0.8141592920353983,
+            "recall": 0.9246231155778895,
+            "f1-score": 0.8658823529411764,
+            "support": 199.0
+          },
+          "Mites": {
+            "precision": 0.7567567567567568,
+            "recall": 0.8888888888888888,
+            "f1-score": 0.8175182481751825,
+            "support": 63.0
+          },
+          "accuracy": 0.8034934497816594,
+          "macro avg": {
+            "precision": 0.7746952344213989,
+            "recall": 0.7916689977946967,
+            "f1-score": 0.7774472017574348,
+            "support": 687.0
+          },
+          "weighted avg": {
+            "precision": 0.8080070702261605,
+            "recall": 0.8034934497816594,
+            "f1-score": 0.8003726035232588,
+            "support": 687.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            78,
+            5,
+            26,
+            27,
+            6
+          ],
+          [
+            6,
+            173,
+            7,
+            2,
+            11
+          ],
+          [
+            10,
+            2,
+            61,
+            10,
+            1
+          ],
+          [
+            10,
+            1,
+            4,
+            184,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            3,
+            56
+          ]
+        ]
+      },
+      "delta_macro_f1": 0.001154812551974027
+    },
+    {
+      "fold": 3,
+      "train_images": 1373,
+      "validation_images": 686,
+      "train_groups": 1355,
+      "validation_groups": 677,
+      "train_loss": 0.7788570020117207,
+      "teacher": {
+        "accuracy": 0.8177842565597667,
+        "balanced_accuracy": 0.8173382562263587,
+        "macro_f1": 0.803655393101471,
+        "per_class": {
+          "Black_Rot": {
+            "precision": 0.8,
+            "recall": 0.5633802816901409,
+            "f1-score": 0.6611570247933884,
+            "support": 142.0
+          },
+          "Brown_Spot": {
+            "precision": 0.9617486338797814,
+            "recall": 0.8844221105527639,
+            "f1-score": 0.9214659685863874,
+            "support": 199.0
+          },
+          "Downy_Mildew": {
+            "precision": 0.5357142857142857,
+            "recall": 0.8928571428571429,
+            "f1-score": 0.6696428571428571,
+            "support": 84.0
+          },
+          "Healthy": {
+            "precision": 0.8585365853658536,
+            "recall": 0.8888888888888888,
+            "f1-score": 0.8734491315136477,
+            "support": 198.0
+          },
+          "Mites": {
+            "precision": 0.9310344827586207,
+            "recall": 0.8571428571428571,
+            "f1-score": 0.8925619834710744,
+            "support": 63.0
+          },
+          "accuracy": 0.8177842565597667,
+          "macro avg": {
+            "precision": 0.8174067975437083,
+            "recall": 0.8173382562263587,
+            "f1-score": 0.803655393101471,
+            "support": 686.0
+          },
+          "weighted avg": {
+            "precision": 0.8434889132045316,
+            "recall": 0.8177842565597667,
+            "f1-score": 0.8202337584077728,
+            "support": 686.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            80,
+            3,
+            35,
+            23,
+            1
+          ],
+          [
+            6,
+            176,
+            12,
+            2,
+            3
+          ],
+          [
+            6,
+            1,
+            75,
+            2,
+            0
+          ],
+          [
+            6,
+            0,
+            16,
+            176,
+            0
+          ],
+          [
+            2,
+            3,
+            2,
+            2,
+            54
+          ]
+        ]
+      },
+      "candidate": {
+        "accuracy": 0.8250728862973761,
+        "balanced_accuracy": 0.8226783828701869,
+        "macro_f1": 0.8027501223798753,
+        "per_class": {
+          "Black_Rot": {
+            "precision": 0.7368421052631579,
+            "recall": 0.5915492957746479,
+            "f1-score": 0.65625,
+            "support": 142.0
+          },
+          "Brown_Spot": {
+            "precision": 0.9779005524861878,
+            "recall": 0.8894472361809045,
+            "f1-score": 0.9315789473684211,
+            "support": 199.0
+          },
+          "Downy_Mildew": {
+            "precision": 0.6847826086956522,
+            "recall": 0.75,
+            "f1-score": 0.7159090909090909,
+            "support": 84.0
+          },
+          "Healthy": {
+            "precision": 0.8379629629629629,
+            "recall": 0.9141414141414141,
+            "f1-score": 0.8743961352657005,
+            "support": 198.0
+          },
+          "Mites": {
+            "precision": 0.7349397590361446,
+            "recall": 0.9682539682539683,
+            "f1-score": 0.8356164383561644,
+            "support": 63.0
+          },
+          "accuracy": 0.8250728862973761,
+          "macro avg": {
+            "precision": 0.794485597688821,
+            "recall": 0.8226783828701869,
+            "f1-score": 0.8027501223798753,
+            "support": 686.0
+          },
+          "weighted avg": {
+            "precision": 0.8294072879132629,
+            "recall": 0.8250728862973761,
+            "f1-score": 0.8228605605856071,
+            "support": 686.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            84,
+            3,
+            18,
+            26,
+            11
+          ],
+          [
+            6,
+            177,
+            6,
+            1,
+            9
+          ],
+          [
+            12,
+            1,
+            63,
+            6,
+            2
+          ],
+          [
+            12,
+            0,
+            5,
+            181,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2,
+            61
+          ]
+        ]
+      },
+      "delta_macro_f1": -0.0009052707215957412
+    }
+  ],
+  "mean_teacher_macro_f1": 0.7876746823260952,
+  "mean_candidate_macro_f1": 0.7924697868461625,
+  "mean_delta_macro_f1": 0.00479510452006741,
+  "limitations": [
+    "No plant/farm/session IDs; pHash group isolation only.",
+    "Folder labels not independently expert-confirmed.",
+    "No Syrian coastal validation.",
+    "Historical test set deliberately excluded."
+  ]
+}

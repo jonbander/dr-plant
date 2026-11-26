@@ -1,0 +1,14 @@
+{
+  "model_id":"grape-leaf-continual-finetune-candidate-2026-11-26",
+  "model_file":"grape-leaf-continual-finetune-candidate-160.onnx",
+  "labels_file":"labels.json",
+  "input_size":[160,160],
+  "runtime":"ONNX Runtime",
+  "opset":17,
+  "lifecycle":"research_only",
+  "enabled":false,
+  "production_eligible":false,
+  "requires_expert_label_review":true,
+  "requires_syrian_field_validation":true,
+  "requires_unknown_rejection_validation":true
+}

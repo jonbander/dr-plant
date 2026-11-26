@@ -1,0 +1,507 @@
+{
+  "task": "research-only French grape leaf morphology-aware disease feature-fusion pilot",
+  "status": "research_only_not_expert_confirmed_not_syria_validated",
+  "dataset": {
+    "source": "Mendeley Data 10.17632/378c69nwk5.1",
+    "license": "CC BY 4.0",
+    "raw_unique_images": 2574,
+    "used_train": 1647,
+    "used_validation": 412,
+    "test_images_loaded": 0,
+    "classes": [
+      "Black_Rot",
+      "Brown_Spot",
+      "Downy_Mildew",
+      "Healthy",
+      "Mites"
+    ],
+    "split": "existing pHash connected-component grouped split; no site/plant/session IDs"
+  },
+  "teacher": {
+    "checkpoint": "/workspace/dr-plant-coastal-sources/data/grape-leaf-health-mendeley-v1/results/mobilenetv3-small-balanced/best.pt",
+    "epoch": 8,
+    "class_order": [
+      "Black_Rot",
+      "Brown_Spot",
+      "Downy_Mildew",
+      "Healthy",
+      "Mites"
+    ],
+    "sha256": "6978cb89963ca243e617c3545376387d18d8a198f42c70413f33c0a15d94d05d"
+  },
+  "french_morphology_expert": {
+    "task": "cultivar similarity only; not disease diagnosis",
+    "classes": [
+      "Cabernet Sauvignon",
+      "Carignane",
+      "Chardonnay",
+      "Chasselas Napoleon",
+      "Cinsaut",
+      "Durif",
+      "Folle Blanche",
+      "Muscat St. Laurent",
+      "Olivette Blanche",
+      "Pinot Noir",
+      "Poet Matabon",
+      "Sauvignon Vert",
+      "Semillon",
+      "Terret Blanc"
+    ],
+    "source_status": "experimental_controlled_image_domain_not_field_validated",
+    "weights_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f"
+  },
+  "validation_only_comparison": {
+    "existing_finetuned_grape_model": {
+      "accuracy": 0.6966019417475728,
+      "balanced_accuracy": 0.6502687601356332,
+      "macro_f1": 0.6373123861495955,
+      "per_class": {
+        "Black_Rot": {
+          "precision": 0.6222222222222222,
+          "recall": 0.32941176470588235,
+          "f1-score": 0.4307692307692308,
+          "support": 85.0
+        },
+        "Brown_Spot": {
+          "precision": 0.9099099099099099,
+          "recall": 0.8416666666666667,
+          "f1-score": 0.8744588744588745,
+          "support": 120.0
+        },
+        "Downy_Mildew": {
+          "precision": 0.4,
+          "recall": 0.68,
+          "f1-score": 0.5037037037037037,
+          "support": 50.0
+        },
+        "Healthy": {
+          "precision": 0.7482014388489209,
+          "recall": 0.8739495798319328,
+          "f1-score": 0.8062015503875969,
+          "support": 119.0
+        },
+        "Mites": {
+          "precision": 0.625,
+          "recall": 0.5263157894736842,
+          "f1-score": 0.5714285714285714,
+          "support": 38.0
+        },
+        "accuracy": 0.6966019417475728,
+        "macro avg": {
+          "precision": 0.6610667141962105,
+          "recall": 0.6502687601356332,
+          "f1-score": 0.6373123861495955,
+          "support": 412.0
+        },
+        "weighted avg": {
+          "precision": 0.7156894400512128,
+          "recall": 0.6966019417475728,
+          "f1-score": 0.6902619052088459,
+          "support": 412.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          28,
+          2,
+          30,
+          23,
+          2
+        ],
+        [
+          2,
+          101,
+          8,
+          1,
+          8
+        ],
+        [
+          6,
+          3,
+          34,
+          6,
+          1
+        ],
+        [
+          5,
+          0,
+          9,
+          104,
+          1
+        ],
+        [
+          4,
+          5,
+          4,
+          5,
+          20
+        ]
+      ]
+    },
+    "deep_embedding_linear_probe": {
+      "accuracy": 0.6601941747572816,
+      "balanced_accuracy": 0.6048567005749668,
+      "macro_f1": 0.6045557349756919,
+      "per_class": {
+        "Black_Rot": {
+          "precision": 0.47560975609756095,
+          "recall": 0.4588235294117647,
+          "f1-score": 0.46706586826347307,
+          "support": 85.0
+        },
+        "Brown_Spot": {
+          "precision": 0.8389830508474576,
+          "recall": 0.825,
+          "f1-score": 0.8319327731092437,
+          "support": 120.0
+        },
+        "Downy_Mildew": {
+          "precision": 0.37254901960784315,
+          "recall": 0.38,
+          "f1-score": 0.37623762376237624,
+          "support": 50.0
+        },
+        "Healthy": {
+          "precision": 0.7560975609756098,
+          "recall": 0.7815126050420168,
+          "f1-score": 0.768595041322314,
+          "support": 119.0
+        },
+        "Mites": {
+          "precision": 0.5789473684210527,
+          "recall": 0.5789473684210527,
+          "f1-score": 0.5789473684210527,
+          "support": 38.0
+        },
+        "accuracy": 0.6601941747572816,
+        "macro avg": {
+          "precision": 0.6044373511899048,
+          "recall": 0.6048567005749668,
+          "f1-score": 0.6045557349756919,
+          "support": 412.0
+        },
+        "weighted avg": {
+          "precision": 0.6594850876370807,
+          "recall": 0.6601941747572816,
+          "f1-score": 0.659726268643152,
+          "support": 412.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          39,
+          5,
+          20,
+          19,
+          2
+        ],
+        [
+          3,
+          99,
+          5,
+          0,
+          13
+        ],
+        [
+          17,
+          7,
+          19,
+          6,
+          1
+        ],
+        [
+          17,
+          2,
+          7,
+          93,
+          0
+        ],
+        [
+          6,
+          5,
+          0,
+          5,
+          22
+        ]
+      ]
+    },
+    "deep_plus_hog_edges_lbp_texture_shape": {
+      "accuracy": 0.6650485436893204,
+      "balanced_accuracy": 0.6113887660327288,
+      "macro_f1": 0.6156213157504675,
+      "per_class": {
+        "Black_Rot": {
+          "precision": 0.4375,
+          "recall": 0.4117647058823529,
+          "f1-score": 0.42424242424242425,
+          "support": 85.0
+        },
+        "Brown_Spot": {
+          "precision": 0.8429752066115702,
+          "recall": 0.85,
+          "f1-score": 0.8464730290456431,
+          "support": 120.0
+        },
+        "Downy_Mildew": {
+          "precision": 0.38461538461538464,
+          "recall": 0.4,
+          "f1-score": 0.39215686274509803,
+          "support": 50.0
+        },
+        "Healthy": {
+          "precision": 0.746031746031746,
+          "recall": 0.7899159663865546,
+          "f1-score": 0.7673469387755102,
+          "support": 119.0
+        },
+        "Mites": {
+          "precision": 0.696969696969697,
+          "recall": 0.6052631578947368,
+          "f1-score": 0.647887323943662,
+          "support": 38.0
+        },
+        "accuracy": 0.6650485436893204,
+        "macro avg": {
+          "precision": 0.6216184068456796,
+          "recall": 0.6113887660327288,
+          "f1-score": 0.6156213157504675,
+          "support": 412.0
+        },
+        "weighted avg": {
+          "precision": 0.662227961861126,
+          "recall": 0.6650485436893204,
+          "f1-score": 0.6630563512317549,
+          "support": 412.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          35,
+          4,
+          23,
+          21,
+          2
+        ],
+        [
+          7,
+          102,
+          3,
+          1,
+          7
+        ],
+        [
+          17,
+          7,
+          20,
+          5,
+          1
+        ],
+        [
+          18,
+          3,
+          4,
+          94,
+          0
+        ],
+        [
+          3,
+          5,
+          2,
+          5,
+          23
+        ]
+      ]
+    },
+    "deep_plus_morphology_expert_probabilities": {
+      "accuracy": 0.6699029126213593,
+      "balanced_accuracy": 0.6196771340114993,
+      "macro_f1": 0.6240776112949471,
+      "per_class": {
+        "Black_Rot": {
+          "precision": 0.44047619047619047,
+          "recall": 0.43529411764705883,
+          "f1-score": 0.4378698224852071,
+          "support": 85.0
+        },
+        "Brown_Spot": {
+          "precision": 0.8571428571428571,
+          "recall": 0.85,
+          "f1-score": 0.8535564853556485,
+          "support": 120.0
+        },
+        "Downy_Mildew": {
+          "precision": 0.4,
+          "recall": 0.4,
+          "f1-score": 0.4,
+          "support": 50.0
+        },
+        "Healthy": {
+          "precision": 0.744,
+          "recall": 0.7815126050420168,
+          "f1-score": 0.7622950819672131,
+          "support": 119.0
+        },
+        "Mites": {
+          "precision": 0.7058823529411765,
+          "recall": 0.631578947368421,
+          "f1-score": 0.6666666666666666,
+          "support": 38.0
+        },
+        "accuracy": 0.6699029126213593,
+        "macro avg": {
+          "precision": 0.6295002801120448,
+          "recall": 0.6196771340114993,
+          "f1-score": 0.6240776112949471,
+          "support": 412.0
+        },
+        "weighted avg": {
+          "precision": 0.6690707486878246,
+          "recall": 0.6699029126213593,
+          "f1-score": 0.6691557311683304,
+          "support": 412.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          37,
+          4,
+          20,
+          22,
+          2
+        ],
+        [
+          7,
+          102,
+          4,
+          0,
+          7
+        ],
+        [
+          18,
+          6,
+          20,
+          5,
+          1
+        ],
+        [
+          19,
+          3,
+          4,
+          93,
+          0
+        ],
+        [
+          3,
+          4,
+          2,
+          5,
+          24
+        ]
+      ]
+    },
+    "deep_plus_morphology_and_color_ablation": {
+      "accuracy": 0.662621359223301,
+      "balanced_accuracy": 0.6126183104820875,
+      "macro_f1": 0.6149477965876118,
+      "per_class": {
+        "Black_Rot": {
+          "precision": 0.43037974683544306,
+          "recall": 0.4,
+          "f1-score": 0.4146341463414634,
+          "support": 85.0
+        },
+        "Brown_Spot": {
+          "precision": 0.8429752066115702,
+          "recall": 0.85,
+          "f1-score": 0.8464730290456431,
+          "support": 120.0
+        },
+        "Downy_Mildew": {
+          "precision": 0.4,
+          "recall": 0.4,
+          "f1-score": 0.4,
+          "support": 50.0
+        },
+        "Healthy": {
+          "precision": 0.7322834645669292,
+          "recall": 0.7815126050420168,
+          "f1-score": 0.7560975609756098,
+          "support": 119.0
+        },
+        "Mites": {
+          "precision": 0.6857142857142857,
+          "recall": 0.631578947368421,
+          "f1-score": 0.6575342465753424,
+          "support": 38.0
+        },
+        "accuracy": 0.662621359223301,
+        "macro avg": {
+          "precision": 0.6182705407456457,
+          "recall": 0.6126183104820875,
+          "f1-score": 0.6149477965876118,
+          "support": 412.0
+        },
+        "weighted avg": {
+          "precision": 0.6576169379005062,
+          "recall": 0.662621359223301,
+          "f1-score": 0.6596664491516071,
+          "support": 412.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          34,
+          5,
+          21,
+          23,
+          2
+        ],
+        [
+          6,
+          102,
+          4,
+          0,
+          8
+        ],
+        [
+          17,
+          7,
+          20,
+          5,
+          1
+        ],
+        [
+          20,
+          3,
+          3,
+          93,
+          0
+        ],
+        [
+          2,
+          4,
+          2,
+          6,
+          24
+        ]
+      ]
+    }
+  },
+  "selected_by_validation_macro_f1": "deep_plus_morphology_expert_probabilities",
+  "feature_dimensions": {
+    "deep": 576,
+    "hog": 1764,
+    "lbp": 256,
+    "shape": 14,
+    "vitis_morphology_probabilities": 14,
+    "color": 28
+  },
+  "interpretation_limits": [
+    "Validation split is grouped only by perceptual near-duplicate components, not by plant/farm/session.",
+    "The source labels are inherited from folders and have not been independently confirmed by a plant pathologist.",
+    "The French Vitis morphology expert was trained on controlled light-box cultivar images; its probabilities are exploratory features under strong domain shift.",
+    "Shape masks are weak unsupervised estimates, not human-annotated leaf segmentation.",
+    "The historical test split was deliberately not loaded or evaluated in this run.",
+    "No model is promoted to production and no pesticide/treatment advice may be generated from this model."
+  ]
+}

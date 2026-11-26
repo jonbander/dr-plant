@@ -1,0 +1,19 @@
+{
+  "source": "Mendeley Data 378c69nwk5 v1",
+  "license": "CC BY 4.0",
+  "archive_size_bytes": 3011970459,
+  "raw_inventory_entries": 3001,
+  "source_folder_counts": {
+    "Black Rot": 590,
+    "Brown Spot": 782,
+    "Downy Mildew": 392,
+    "Mites": 400,
+    "Healthy": 837
+  },
+  "unique_sha256_images": 2574,
+  "exact_duplicate_copies": 427,
+  "bad_or_corrupt_images": [],
+  "compressed_raw_range_bytes": 2085941662,
+  "downloaded_only_raw_folder": true,
+  "augmented_images_downloaded": false
+}

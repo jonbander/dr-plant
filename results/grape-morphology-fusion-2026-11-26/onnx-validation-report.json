@@ -1,0 +1,30 @@
+{
+  "status": "ONNX_export_and_validation_passed",
+  "task": "research-only grape leaf five-class candidate",
+  "input_shape": "NCHW RGB 160x160",
+  "opset": 17,
+  "onnx_bytes": 6101549,
+  "onnx_sha256": "1729113a71ffb167522cc2c603072f936cfdefc7c90ce16a22fd8973671ed8ba",
+  "checkpoint_sha256": "8c4ee41d5cb6f333a3a6e79bde116b39f0f3b8ff25060554a8258f42dc2b32e6",
+  "validation_images": 412,
+  "historical_test_loaded": false,
+  "onnxruntime": "1.32.0",
+  "pytorch_onnx_prediction_agreement": 1.0,
+  "max_absolute_logit_difference": 5.233287811279297e-05,
+  "pytorch_validation": {
+    "accuracy": 0.7063106796116505,
+    "balanced_accuracy": 0.6633884711779449,
+    "macro_f1": 0.6532041735351958
+  },
+  "onnx_validation": {
+    "accuracy": 0.7063106796116505,
+    "balanced_accuracy": 0.6633884711779449,
+    "macro_f1": 0.6532041735351958
+  },
+  "limitations": [
+    "Validation only; not Syrian field validated.",
+    "Labels inherited from dataset folders; no expert review.",
+    "No farm/plant/session identifiers.",
+    "Not approved for app diagnosis or pesticide advice."
+  ]
+}
