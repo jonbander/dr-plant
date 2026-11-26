@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { chooseCropScopedClass, getInputDrawRect, stableSoftmax, validateOnnxModelManifest, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
+import { chooseCropScopedClass, classifyPlantDiseaseWithOnnx, getInputDrawRect, stableSoftmax, validateOnnxModelManifest, type OnnxClassLabel, type OnnxModelManifest } from './onnxDiseaseClassifier';
+import { MODEL_ROUTES } from './modelRouter';
 
 const baseManifest: OnnxModelManifest = {
   schemaVersion: 1,
@@ -88,4 +89,20 @@ test('manifest contract rejects invalid dimensions and unknown resize modes', ()
   assert.equal(validateOnnxModelManifest({ ...baseManifest, inputSize: 0 }), false);
   assert.equal(validateOnnxModelManifest({ ...baseManifest, resizeMode: 'letterbox' }), false);
   assert.equal(validateOnnxModelManifest({ ...baseManifest, modelPath: 'relative.onnx' }), false);
+});
+
+test('explicit research routes do not fall back to the disabled production manifest', async () => {
+  const route = MODEL_ROUTES.find(candidate => candidate.id === 'lemon-v3');
+  const result = await classifyPlantDiseaseWithOnnx({} as HTMLImageElement, 'citrus_syrian', route);
+  assert.equal(result.status, 'model_unavailable');
+  assert.match(result.message, /Lemon V3/);
+  assert.match(result.message, /results\/lemon-v3/);
+});
+
+test('each candidate route remains independently blocked when app label mapping is absent', async () => {
+  for (const route of MODEL_ROUTES) {
+    const result = await classifyPlantDiseaseWithOnnx({} as HTMLImageElement, 'citrus_syrian', route);
+    assert.equal(result.status, 'model_unavailable');
+    assert.match(result.message, /ربط تسميات متحقق/);
+  }
 });

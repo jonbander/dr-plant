@@ -13,10 +13,16 @@ export interface ModelRoute {
   inputSize: number;
   resizeMode: 'stretch' | 'center_crop';
   artifactPath: string;
+  labelsPath: string;
+  externalDataPath?: string;
+  /** Browser-served paths are intentionally absent until a compatible app bundle exists. */
+  runtimeModelPath?: string;
+  runtimeLabelsPath?: string;
+  runtimeManifestPath?: string;
+  labelMappingStatus: 'missing' | 'verified';
   lifecycle: ModelLifecycle;
   evidenceStatus: EvidenceStatus;
   supportsBrowserOnnx: boolean;
-  externalDataPath?: string;
   limitations: readonly string[];
 }
 
@@ -33,6 +39,17 @@ export interface RouteDecision {
   reason: string;
 }
 
+export interface ModelAssetContract {
+  modelId: string;
+  artifactPath: string;
+  labelsPath: string;
+  externalDataPath?: string;
+  inputSize: number;
+  resizeMode: ModelRoute['resizeMode'];
+  runtimeRunnable: boolean;
+  blockers: readonly string[];
+}
+
 /**
  * Registry of immutable specialists. It is intentionally data-only: the router
  * never averages logits, weights, or metrics from different label spaces.
@@ -46,7 +63,9 @@ export const MODEL_ROUTES: readonly ModelRoute[] = [
     classCount: 38,
     inputSize: 128,
     resizeMode: 'stretch',
-    artifactPath: '/models/plant-disease/plantvillage-full-multicrop-v2.onnx',
+    artifactPath: 'results/multicrop-plantvillage-v2/model-output-refined/plantvillage-full-multicrop-mobilenetv3-small.onnx',
+    labelsPath: 'results/multicrop-plantvillage-v2/model-output-refined/labels.json',
+    labelMappingStatus: 'missing',
     lifecycle: 'research_only',
     evidenceStatus: 'reference_only',
     supportsBrowserOnnx: true,
@@ -60,7 +79,10 @@ export const MODEL_ROUTES: readonly ModelRoute[] = [
     classCount: 18,
     inputSize: 128,
     resizeMode: 'stretch',
-    artifactPath: '/models/plant-disease/lemon-v3.onnx',
+    artifactPath: 'results/lemon-v3/lemon-v3-mobilenetv3-small-embedded.onnx',
+    labelsPath: 'results/lemon-v3/labels.json',
+    externalDataPath: 'results/lemon-v3/lemon-v3-mobilenetv3-small.onnx.data',
+    labelMappingStatus: 'missing',
     lifecycle: 'research_only',
     evidenceStatus: 'reference_only',
     supportsBrowserOnnx: true,
@@ -74,13 +96,39 @@ export const MODEL_ROUTES: readonly ModelRoute[] = [
     classCount: 4,
     inputSize: 160,
     resizeMode: 'stretch',
-    artifactPath: '/models/plant-disease/citrus-field-v3.onnx',
+    artifactPath: 'results/citrus-field-v3/citrus-field-v3-mobilenetv3-small-embedded.onnx',
+    labelsPath: 'results/citrus-field-v3/labels.json',
+    externalDataPath: 'results/citrus-field-v3/citrus-field-v3-mobilenetv3-small.onnx.data',
+    labelMappingStatus: 'missing',
     lifecycle: 'research_only',
     evidenceStatus: 'reference_only',
     supportsBrowserOnnx: true,
     limitations: ['One Moroccan orchard/campaign; labels include symptom-like categories.']
   }
 ];
+
+export function getModelAssetContract(route: ModelRoute): ModelAssetContract {
+  const blockers: string[] = [];
+  if (!route.runtimeManifestPath || !route.runtimeModelPath || !route.runtimeLabelsPath) {
+    blockers.push('browser-served model manifest, ONNX path, or labels path is missing');
+  }
+  if (route.labelMappingStatus !== 'verified') {
+    blockers.push('research labels are not mapped to verified application disease IDs');
+  }
+  if (route.lifecycle !== 'production_candidate') {
+    blockers.push(`lifecycle is ${route.lifecycle}`);
+  }
+  return {
+    modelId: route.id,
+    artifactPath: route.artifactPath,
+    labelsPath: route.labelsPath,
+    externalDataPath: route.externalDataPath,
+    inputSize: route.inputSize,
+    resizeMode: route.resizeMode,
+    runtimeRunnable: blockers.length === 0,
+    blockers
+  };
+}
 
 export function selectModelRoute(request: RouteRequest): RouteDecision {
   if (!request.crop || request.crop.id === 'unknown_crop') {

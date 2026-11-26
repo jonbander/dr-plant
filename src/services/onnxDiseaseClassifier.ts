@@ -1,5 +1,6 @@
 import { CROPS_DATABASE, DISEASES_DATABASE } from '../data/cropsAndDiseases';
 import { evaluateImageQuality, analyzeLeafPixels } from './leafScreening';
+import type { ModelRoute } from './modelRouter';
 
 export type ModelReviewStatus = 'candidate' | 'validated';
 
@@ -61,9 +62,9 @@ export type OnnxClassificationResult =
   | { status: 'possible_match'; message: string; label: string; diseaseId?: string; cropId: string };
 
 let runtimePromise: Promise<OrtRuntime> | null = null;
-let sessionPromise: Promise<OrtSession> | null = null;
-let manifestPromise: Promise<OnnxModelManifest> | null = null;
-let labelsPromise: Promise<OnnxClassLabel[]> | null = null;
+const sessionPromises = new Map<string, Promise<OrtSession>>();
+const manifestPromises = new Map<string, Promise<OnnxModelManifest>>();
+const labelsPromises = new Map<string, Promise<OnnxClassLabel[]>>();
 
 export function validateOnnxModelManifest(value: unknown): value is OnnxModelManifest {
   if (!value || typeof value !== 'object') return false;
@@ -149,19 +150,22 @@ export function chooseCropScopedClass(
   };
 }
 
-async function loadManifest(): Promise<OnnxModelManifest> {
-  if (!manifestPromise) {
-    manifestPromise = fetch('/models/plant-disease/manifest.json').then(async response => {
+async function loadManifest(modelId: string, path: string): Promise<OnnxModelManifest> {
+  let pending = manifestPromises.get(modelId);
+  if (!pending) {
+    pending = fetch(path).then(async response => {
       if (!response.ok) throw new Error('تعذر تحميل إعدادات نموذج ONNX.');
       return response.json() as Promise<OnnxModelManifest>;
     });
+    manifestPromises.set(modelId, pending);
   }
-  return manifestPromise;
+  return pending;
 }
 
-async function loadLabels(path: string): Promise<OnnxClassLabel[]> {
-  if (!labelsPromise) {
-    labelsPromise = fetch(path).then(async response => {
+async function loadLabels(modelId: string, path: string): Promise<OnnxClassLabel[]> {
+  let pending = labelsPromises.get(modelId);
+  if (!pending) {
+    pending = fetch(path).then(async response => {
       if (!response.ok) throw new Error('تعذر تحميل تسميات النموذج.');
       const data = await response.json() as OnnxClassLabel[];
       if (!Array.isArray(data) || data.some(item => !item.id || !item.labelAr || !item.cropId)) {
@@ -169,8 +173,9 @@ async function loadLabels(path: string): Promise<OnnxClassLabel[]> {
       }
       return data;
     });
+    labelsPromises.set(modelId, pending);
   }
-  return labelsPromise;
+  return pending;
 }
 
 async function loadRuntime(): Promise<OrtRuntime> {
@@ -190,9 +195,10 @@ async function loadRuntime(): Promise<OrtRuntime> {
   return runtimePromise;
 }
 
-async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
-  if (!sessionPromise) {
-    sessionPromise = loadRuntime().then(async ort => {
+async function loadSession(modelId: string, manifest: OnnxModelManifest): Promise<OrtSession> {
+  let pending = sessionPromises.get(modelId);
+  if (!pending) {
+    pending = loadRuntime().then(async ort => {
       ort.env.wasm.wasmPaths = '/vendor/onnxruntime/';
       ort.env.wasm.numThreads = 1;
       return ort.InferenceSession.create(manifest.modelPath, {
@@ -200,8 +206,9 @@ async function loadSession(manifest: OnnxModelManifest): Promise<OrtSession> {
         graphOptimizationLevel: 'all'
       });
     });
+    sessionPromises.set(modelId, pending);
   }
-  return sessionPromise;
+  return pending;
 }
 
 export function getInputDrawRect(sourceWidth: number, sourceHeight: number, size: number, resizeMode: OnnxModelManifest['resizeMode']) {
@@ -262,15 +269,23 @@ function prepareInput(image: HTMLImageElement, manifest: OnnxModelManifest, ort:
 
 export async function classifyPlantDiseaseWithOnnx(
   image: HTMLImageElement,
-  cropId?: string
+  cropId?: string,
+  route?: ModelRoute
 ): Promise<OnnxClassificationResult> {
   try {
-    const manifest = await loadManifest();
+    const modelId = route?.id ?? 'production';
+    if (route && (!route.runtimeManifestPath || !route.runtimeModelPath || !route.runtimeLabelsPath || route.labelMappingStatus !== 'verified')) {
+      return {
+        status: 'model_unavailable',
+        message: `النموذج ${route.displayName} محجوب: لا توجد حزمة متصفح منشورة مع ربط تسميات متحقق إلى معرّفات التطبيق. الأصل البحثي محفوظ في ${route.artifactPath}.`
+      };
+    }
+    const manifest = await loadManifest(modelId, route?.runtimeManifestPath ?? '/models/plant-disease/manifest.json');
     if (!manifest.enabled) return { status: 'disabled', message: 'نموذج الكشف العصبي غير مفعّل بعد.' };
     if (!validateOnnxModelManifest(manifest)) {
       return { status: 'model_error', message: 'إعدادات النموذج لا تطابق إصدار محرك الفحص.' };
     }
-    const classes = await loadLabels(manifest.labelsPath);
+    const classes = await loadLabels(modelId, route?.runtimeLabelsPath ?? manifest.labelsPath);
     if (!cropId || cropId === 'auto') return chooseCropScopedClass([], classes, cropId, manifest);
 
     const crop = CROPS_DATABASE.find(item => item.id === cropId);
@@ -293,7 +308,7 @@ export async function classifyPlantDiseaseWithOnnx(
     const quality = evaluateImageQuality(probe.width, probe.height, metrics, width, height);
     if (!quality.isUsable) return { status: 'bad_image', message: quality.warnings.join(' ') };
 
-    const [ort, session] = await Promise.all([loadRuntime(), loadSession(manifest)]);
+    const [ort, session] = await Promise.all([loadRuntime(), loadSession(modelId, manifest)]);
     if (classes.length === 0) {
       return { status: 'model_error', message: 'ملف تسميات النموذج فارغ.' };
     }
@@ -323,7 +338,7 @@ export async function classifyPlantDiseaseWithOnnx(
 /** Clears cached runtime/session state after a model bundle is replaced. */
 export function resetOnnxDiseaseClassifier(): void {
   runtimePromise = null;
-  sessionPromise = null;
-  manifestPromise = null;
-  labelsPromise = null;
+  sessionPromises.clear();
+  manifestPromises.clear();
+  labelsPromises.clear();
 }

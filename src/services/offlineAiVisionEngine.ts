@@ -66,7 +66,7 @@ export async function analyzePlantOffline(input: AnalysisInput): Promise<ScanRes
     notes.push(routeDecision.reason);
   }
   if (quality.isUsable && routeDecision.status === 'selected' && input.allowResearchModels === true) {
-    const modelResult = await classifyPlantDiseaseWithOnnx(img, selectedCrop?.id);
+    const modelResult = await classifyPlantDiseaseWithOnnx(img, selectedCrop?.id, routeDecision.primary);
     notes.push(`مسار النموذج: ${routeDecision.primary?.id || 'غير محدد'}. ${modelResult.message}`);
     if (modelResult.status === 'possible_match' || modelResult.status === 'unsure' || modelResult.status === 'candidate_only') {
       notes.push('هذه نتيجة بحثية/احتمالية ضمن فئات النموذج فقط، وليست تشخيصاً مؤكداً ولا توصية علاجية.');
