@@ -1,0 +1,611 @@
+path,label,tree_id,split,image_id,leaf_id
+California red scale (Aonidiella aurantii)/T01/img_001.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0001,L_001
+California red scale (Aonidiella aurantii)/T01/img_002.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0002,L_002
+California red scale (Aonidiella aurantii)/T01/img_003.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0003,L_003
+California red scale (Aonidiella aurantii)/T01/img_004.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0004,L_001
+California red scale (Aonidiella aurantii)/T01/img_005.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0005,L_002
+California red scale (Aonidiella aurantii)/T01/img_006.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0006,L_001
+California red scale (Aonidiella aurantii)/T01/img_007.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0007,L_003
+California red scale (Aonidiella aurantii)/T01/img_009.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0008,L_004
+California red scale (Aonidiella aurantii)/T01/img_010.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0009,L_005
+California red scale (Aonidiella aurantii)/T01/img_011.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0010,L_006
+California red scale (Aonidiella aurantii)/T01/img_014.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0011,L_007
+California red scale (Aonidiella aurantii)/T01/img_024.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0012,L_006
+California red scale (Aonidiella aurantii)/T01/img_031.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0013,L_002
+California red scale (Aonidiella aurantii)/T01/img_035.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0014,L_003
+California red scale (Aonidiella aurantii)/T01/img_042.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0015,L_003
+California red scale (Aonidiella aurantii)/T01/img_043.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0016,L_002
+California red scale (Aonidiella aurantii)/T01/img_045.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0017,L_002
+California red scale (Aonidiella aurantii)/T01/img_046.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0018,L_006
+California red scale (Aonidiella aurantii)/T01/img_051.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0019,L_005
+California red scale (Aonidiella aurantii)/T01/img_055.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0020,L_003
+California red scale (Aonidiella aurantii)/T01/img_056.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0021,L_002
+California red scale (Aonidiella aurantii)/T01/img_059.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0022,L_002
+California red scale (Aonidiella aurantii)/T01/img_061.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0023,L_006
+California red scale (Aonidiella aurantii)/T01/img_065.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0024,L_005
+California red scale (Aonidiella aurantii)/T01/img_074.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0025,L_004
+California red scale (Aonidiella aurantii)/T01/img_078.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0026,L_005
+California red scale (Aonidiella aurantii)/T01/img_082.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0027,L_006
+California red scale (Aonidiella aurantii)/T01/img_085.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0028,L_006
+California red scale (Aonidiella aurantii)/T01/img_087.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0029,L_004
+California red scale (Aonidiella aurantii)/T01/img_088.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0030,L_008
+California red scale (Aonidiella aurantii)/T01/img_090.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0031,L_005
+California red scale (Aonidiella aurantii)/T01/img_095.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0032,L_005
+California red scale (Aonidiella aurantii)/T01/img_098.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0033,L_006
+California red scale (Aonidiella aurantii)/T01/img_103.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0034,L_004
+California red scale (Aonidiella aurantii)/T01/img_107.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0035,L_006
+California red scale (Aonidiella aurantii)/T01/img_108.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0036,L_002
+California red scale (Aonidiella aurantii)/T01/img_110.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0037,L_006
+California red scale (Aonidiella aurantii)/T01/img_117.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0038,L_002
+California red scale (Aonidiella aurantii)/T01/img_124.png,California red scale-like (Aonidiella aurantii),T01,train,IMG_0039,L_005
+California red scale (Aonidiella aurantii)/T01/img_126.png,California red scale-like (Aonidiella aurantii),T01,train,IMG_0040,L_004
+California red scale (Aonidiella aurantii)/T01/img_133.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0041,L_008
+California red scale (Aonidiella aurantii)/T01/img_139.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0042,L_009
+California red scale (Aonidiella aurantii)/T01/img_141.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0043,L_002
+California red scale (Aonidiella aurantii)/T01/img_142.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0044,L_009
+California red scale (Aonidiella aurantii)/T01/img_146.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0045,L_002
+California red scale (Aonidiella aurantii)/T01/img_149.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0046,L_005
+California red scale (Aonidiella aurantii)/T01/img_155.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0047,L_005
+California red scale (Aonidiella aurantii)/T01/img_156.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0048,L_002
+California red scale (Aonidiella aurantii)/T01/img_158.jpg,California red scale-like (Aonidiella aurantii),T01,train,IMG_0049,L_005
+California red scale (Aonidiella aurantii)/T02/img_012.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0050,L_012
+California red scale (Aonidiella aurantii)/T02/img_013.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0051,L_010
+California red scale (Aonidiella aurantii)/T02/img_015.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0052,L_010
+California red scale (Aonidiella aurantii)/T02/img_016.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0053,L_013
+California red scale (Aonidiella aurantii)/T02/img_017.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0054,L_014
+California red scale (Aonidiella aurantii)/T02/img_018.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0055,L_018
+California red scale (Aonidiella aurantii)/T02/img_019.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0056,L_016
+California red scale (Aonidiella aurantii)/T02/img_020.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0057,L_016
+California red scale (Aonidiella aurantii)/T02/img_022.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0058,L_018
+California red scale (Aonidiella aurantii)/T02/img_027.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0059,L_010
+California red scale (Aonidiella aurantii)/T02/img_028.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0060,L_017
+California red scale (Aonidiella aurantii)/T02/img_029.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0061,L_013
+California red scale (Aonidiella aurantii)/T02/img_030.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0062,L_011
+California red scale (Aonidiella aurantii)/T02/img_037.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0063,L_011
+California red scale (Aonidiella aurantii)/T02/img_039.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0064,L_017
+California red scale (Aonidiella aurantii)/T02/img_040.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0065,L_011
+California red scale (Aonidiella aurantii)/T02/img_047.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0066,L_012
+California red scale (Aonidiella aurantii)/T02/img_048.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0067,L_014
+California red scale (Aonidiella aurantii)/T02/img_049.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0068,L_013
+California red scale (Aonidiella aurantii)/T02/img_050.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0069,L_018
+California red scale (Aonidiella aurantii)/T02/img_066.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0070,L_020
+California red scale (Aonidiella aurantii)/T02/img_070.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0071,L_014
+California red scale (Aonidiella aurantii)/T02/img_071.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0072,L_013
+California red scale (Aonidiella aurantii)/T02/img_072.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0073,L_012
+California red scale (Aonidiella aurantii)/T02/img_073.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0074,L_017
+California red scale (Aonidiella aurantii)/T02/img_075.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0075,L_019
+California red scale (Aonidiella aurantii)/T02/img_079.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0076,L_010
+California red scale (Aonidiella aurantii)/T02/img_092.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0077,L_021
+California red scale (Aonidiella aurantii)/T02/img_094.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0078,L_018
+California red scale (Aonidiella aurantii)/T02/img_097.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0079,L_015
+California red scale (Aonidiella aurantii)/T02/img_099.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0080,L_019
+California red scale (Aonidiella aurantii)/T02/img_100.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0081,L_019
+California red scale (Aonidiella aurantii)/T02/img_104.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0082,L_015
+California red scale (Aonidiella aurantii)/T02/img_109.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0083,L_021
+California red scale (Aonidiella aurantii)/T02/img_111.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0084,L_019
+California red scale (Aonidiella aurantii)/T02/img_112.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0085,L_022
+California red scale (Aonidiella aurantii)/T02/img_114.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0086,L_012
+California red scale (Aonidiella aurantii)/T02/img_116.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0087,L_023
+California red scale (Aonidiella aurantii)/T02/img_122.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0088,L_018
+California red scale (Aonidiella aurantii)/T02/img_124.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0089,L_010
+California red scale (Aonidiella aurantii)/T02/img_129.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0090,L_012
+California red scale (Aonidiella aurantii)/T02/img_132.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0091,L_022
+California red scale (Aonidiella aurantii)/T02/img_152.jpg,California red scale-like (Aonidiella aurantii),T02,train,IMG_0092,L_021
+California red scale (Aonidiella aurantii)/T03/img_008.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0093,L_024
+California red scale (Aonidiella aurantii)/T03/img_021.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0094,L_025
+California red scale (Aonidiella aurantii)/T03/img_023.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0095,L_026
+California red scale (Aonidiella aurantii)/T03/img_025.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0096,L_027
+California red scale (Aonidiella aurantii)/T03/img_026.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0097,L_028
+California red scale (Aonidiella aurantii)/T03/img_032.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0098,L_028
+California red scale (Aonidiella aurantii)/T03/img_033.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0099,L_029
+California red scale (Aonidiella aurantii)/T03/img_034.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0100,L_030
+California red scale (Aonidiella aurantii)/T03/img_036.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0101,L_032
+California red scale (Aonidiella aurantii)/T03/img_038.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0102,L_035
+California red scale (Aonidiella aurantii)/T03/img_041.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0103,L_036
+California red scale (Aonidiella aurantii)/T03/img_044.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0104,L_034
+California red scale (Aonidiella aurantii)/T03/img_053.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0105,L_031
+California red scale (Aonidiella aurantii)/T03/img_054.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0106,L_030
+California red scale (Aonidiella aurantii)/T03/img_057.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0107,L_026
+California red scale (Aonidiella aurantii)/T03/img_058.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0108,L_039
+California red scale (Aonidiella aurantii)/T03/img_060.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0109,L_026
+California red scale (Aonidiella aurantii)/T03/img_062.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0110,L_036
+California red scale (Aonidiella aurantii)/T03/img_063.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0111,L_030
+California red scale (Aonidiella aurantii)/T03/img_067.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0112,L_031
+California red scale (Aonidiella aurantii)/T03/img_069.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0113,L_040
+California red scale (Aonidiella aurantii)/T03/img_076.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0114,L_033
+California red scale (Aonidiella aurantii)/T03/img_077.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0115,L_029
+California red scale (Aonidiella aurantii)/T03/img_080.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0116,L_033
+California red scale (Aonidiella aurantii)/T03/img_081.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0117,L_027
+California red scale (Aonidiella aurantii)/T03/img_083.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0118,L_034
+California red scale (Aonidiella aurantii)/T03/img_084.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0119,L_036
+California red scale (Aonidiella aurantii)/T03/img_086.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0120,L_041
+California red scale (Aonidiella aurantii)/T03/img_093.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0121,L_042
+California red scale (Aonidiella aurantii)/T03/img_096.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0122,L_033
+California red scale (Aonidiella aurantii)/T03/img_101.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0123,L_036
+California red scale (Aonidiella aurantii)/T03/img_102.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0124,L_043
+California red scale (Aonidiella aurantii)/T03/img_105.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0125,L_029
+California red scale (Aonidiella aurantii)/T03/img_106.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0126,L_026
+California red scale (Aonidiella aurantii)/T03/img_113.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0127,L_026
+California red scale (Aonidiella aurantii)/T03/img_115.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0128,L_038
+California red scale (Aonidiella aurantii)/T03/img_118.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0129,L_037
+California red scale (Aonidiella aurantii)/T03/img_123.png,California red scale-like (Aonidiella aurantii),T03,val,IMG_0130,L_029
+California red scale (Aonidiella aurantii)/T03/img_130.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0131,L_026
+California red scale (Aonidiella aurantii)/T03/img_135.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0132,L_029
+California red scale (Aonidiella aurantii)/T03/img_136.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0133,L_029
+California red scale (Aonidiella aurantii)/T03/img_138.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0134,L_037
+California red scale (Aonidiella aurantii)/T03/img_140.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0135,L_034
+California red scale (Aonidiella aurantii)/T03/img_148.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0136,L_033
+California red scale (Aonidiella aurantii)/T03/img_153.jpg,California red scale-like (Aonidiella aurantii),T03,val,IMG_0137,L_033
+California red scale (Aonidiella aurantii)/T04/img_052.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0138,L_038
+California red scale (Aonidiella aurantii)/T04/img_064.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0139,L_039
+California red scale (Aonidiella aurantii)/T04/img_089.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0140,L_040
+California red scale (Aonidiella aurantii)/T04/img_091.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0141,L_041
+California red scale (Aonidiella aurantii)/T04/img_119.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0142,L_040
+California red scale (Aonidiella aurantii)/T04/img_120.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0143,L_041
+California red scale (Aonidiella aurantii)/T04/img_121.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0144,L_040
+California red scale (Aonidiella aurantii)/T04/img_125.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0145,L_040
+California red scale (Aonidiella aurantii)/T04/img_127.png,California red scale-like (Aonidiella aurantii),T04,test,IMG_0146,L_043
+California red scale (Aonidiella aurantii)/T04/img_128.png,California red scale-like (Aonidiella aurantii),T04,test,IMG_0147,L_042
+California red scale (Aonidiella aurantii)/T04/img_131.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0148,L_038
+California red scale (Aonidiella aurantii)/T04/img_134.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0149,L_039
+California red scale (Aonidiella aurantii)/T04/img_137.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0150,L_039
+California red scale (Aonidiella aurantii)/T04/img_143.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0151,L_044
+California red scale (Aonidiella aurantii)/T04/img_144.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0152,L_043
+California red scale (Aonidiella aurantii)/T04/img_145.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0153,L_043
+California red scale (Aonidiella aurantii)/T04/img_147.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0154,L_045
+California red scale (Aonidiella aurantii)/T04/img_150.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0155,L_039
+California red scale (Aonidiella aurantii)/T04/img_151.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0156,L_043
+California red scale (Aonidiella aurantii)/T04/img_154.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0157,L_039
+California red scale (Aonidiella aurantii)/T04/img_157.jpg,California red scale-like (Aonidiella aurantii),T04,test,IMG_0158,L_039
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_004.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0159,L_046
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_006.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0160,L_046
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_009.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0161,L_048
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_010.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0162,L_048
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_014.png,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0163,L_050
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_015.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0164,L_051
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_025.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0165,L_053
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_027.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0166,L_053
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_031.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0167,L_055
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_032.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0168,L_053
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_033.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0169,L_055
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_042.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0170,L_056
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_043.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0171,L_056
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_050.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0172,L_049
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_053.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0173,L_055
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_054.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0174,L_058
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_060.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0175,L_049
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_061.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0176,L_059
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_064.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0177,L_057
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_067.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0178,L_051
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_068.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0179,L_057
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_069.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0180,L_054
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_086.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0181,L_054
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_087.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0182,L_060
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_089.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0183,L_058
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_090.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0184,L_058
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_099.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0185,L_061
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_100.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0186,L_061
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_101.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0187,L_061
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_109.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0188,L_062
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_110.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0189,L_062
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_115.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0190,L_063
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_145.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0191,L_064
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_147.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0192,L_047
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_151.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0193,L_047
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_153.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0194,L_065
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_156.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0195,L_065
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_159.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0196,L_064
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_16.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0197,L_052
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_160.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0198,L_052
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_163.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0199,L_064
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_164.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0200,L_066
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T010/img_165.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T010,train,IMG_0201,L_066
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_002.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0202,L_067
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_005.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0203,L_073
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_013.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0204,L_076
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_019.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0205,L_075
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_020.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0206,L_072
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_024.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0207,L_072
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_028.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0208,L_075
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_029.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0209,L_068
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_030.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0210,L_068
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_035.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0211,L_079
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_036.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0212,L_073
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_037.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0213,L_080
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_038.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0214,L_073
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_040.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0215,L_078
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_041.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0216,L_080
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_066.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0217,L_077
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_070.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0218,L_081
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_071.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0219,L_077
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_072.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0220,L_082
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_073.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0221,L_081
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_075.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0222,L_069
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_081.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0223,L_070
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_082.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0224,L_070
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_120.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0225,L_078
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_126.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0226,L_071
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_131.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0227,L_071
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_133.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0228,L_072
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_134.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0229,L_072
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_137.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0230,L_074
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_138.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0231,L_074
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_139.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0232,L_083
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_141.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0233,L_084
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T06/img_142.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T06,val,IMG_0234,L_084
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_001.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0235,L_085
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_016.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0236,L_087
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_017.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0237,L_089
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_022.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0238,L_090
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_023.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0239,L_089
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_046.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0240,L_086
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_047.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0241,L_086
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_048.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0242,L_086
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_049.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0243,L_086
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_052.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0244,L_088
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_055.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0245,L_091
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_056.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0246,L_090
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_057.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0247,L_087
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_059.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0248,L_092
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_062.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0249,L_093
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_063.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0250,L_096
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_065.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0251,L_097
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_074.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0252,L_100
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_079.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0253,L_101
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_083.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0254,L_089
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_084.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0255,L_089
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_085.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0256,L_097
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_095.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0257,L_100
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_096.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0258,L_103
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_104.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0259,L_088
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_105.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0260,L_093
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_107.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0261,L_104
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_111.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0262,L_101
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_112.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0263,L_101
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_113.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0264,L_102
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_114.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0265,L_102
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_117.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0266,L_101
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_121.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0267,L_105
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_127.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0268,L_094
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_128.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0269,L_095
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_129.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0270,L_094
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_130.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0271,L_094
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_132.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0272,L_105
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_140.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0273,L_099
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_143.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0274,L_098
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_148.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0275,L_098
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_149.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0276,L_099
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_161.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0277,L_106
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_162.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0278,L_107
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T08/img_166.png,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T08,test,IMG_0279,L_108
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_003.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0280,L_109
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_007.png,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0281,L_111
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_008.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0282,L_112
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_011.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0283,L_113
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_012.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0284,L_113
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_018.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0285,L_114
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_021.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0286,L_114
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_026.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0287,L_116
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_034.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0288,L_117
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_039.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0289,L_115
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_044.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0290,L_118
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_045.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0291,L_118
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_051.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0292,L_120
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_058.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0293,L_114
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_076.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0294,L_117
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_078.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0295,L_119
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_080.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0296,L_121
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_088.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0297,L_124
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_091.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0298,L_123
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_092.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0299,L_123
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_093.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0300,L_118
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_094.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0301,L_125
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_097.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0302,L_126
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_098.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0303,L_126
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_102.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0304,L_118
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_103.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0305,L_118
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_106.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0306,L_125
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_108.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0307,L_127
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_116.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0308,L_121
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_118.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0309,L_117
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_119.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0310,L_114
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_122.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0311,L_128
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_123.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0312,L_115
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_124.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0313,L_128
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_125.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0314,L_128
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_135.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0315,L_122
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_136.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0316,L_122
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_144.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0317,L_110
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_146.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0318,L_109
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_150.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0319,L_109
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_152.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0320,L_110
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_154.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0321,L_109
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_155.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0322,L_109
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_157.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0323,L_110
+Greasy spot - Zasmidium citri-griseum (anciennement Mycosphaerella citri)/T09/img_158.jpg,Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri),T09,train,IMG_0324,L_110
+Greening/T04/img_002.jpg,greening-like,T04,test,IMG_0325,L_129
+Greening/T04/img_004.jpg,greening-like,T04,test,IMG_0326,L_130
+Greening/T04/img_005.jpg,greening-like,T04,test,IMG_0327,L_130
+Greening/T04/img_009.jpg,greening-like,T04,test,IMG_0328,L_131
+Greening/T04/img_012.jpg,greening-like,T04,test,IMG_0329,L_132
+Greening/T04/img_016.jpg,greening-like,T04,test,IMG_0330,L_133
+Greening/T04/img_017.jpg,greening-like,T04,test,IMG_0331,L_134
+Greening/T04/img_018.jpg,greening-like,T04,test,IMG_0332,L_133
+Greening/T04/img_020.jpg,greening-like,T04,test,IMG_0333,L_135
+Greening/T04/img_021.jpg,greening-like,T04,test,IMG_0334,L_130
+Greening/T04/img_023.jpg,greening-like,T04,test,IMG_0335,L_136
+Greening/T04/img_028.png,greening-like,T04,test,IMG_0336,L_137
+Greening/T04/img_031.jpg,greening-like,T04,test,IMG_0337,L_131
+Greening/T04/img_034.jpg,greening-like,T04,test,IMG_0338,L_138
+Greening/T04/img_035.jpg,greening-like,T04,test,IMG_0339,L_139
+Greening/T04/img_036.jpg,greening-like,T04,test,IMG_0340,L_139
+Greening/T04/img_038.jpg,greening-like,T04,test,IMG_0341,L_138
+Greening/T04/img_045.jpg,greening-like,T04,test,IMG_0342,L_142
+Greening/T04/img_048.jpg,greening-like,T04,test,IMG_0343,L_140
+Greening/T04/img_049.jpg,greening-like,T04,test,IMG_0344,L_140
+Greening/T04/img_052.jpg,greening-like,T04,test,IMG_0345,L_139
+Greening/T04/img_058.jpg,greening-like,T04,test,IMG_0346,L_143
+Greening/T04/img_060.jpg,greening-like,T04,test,IMG_0347,L_135
+Greening/T04/img_066.jpg,greening-like,T04,test,IMG_0348,L_143
+Greening/T04/img_075.jpg,greening-like,T04,test,IMG_0349,L_141
+Greening/T04/img_084.jpg,greening-like,T04,test,IMG_0350,L_130
+Greening/T04/img_086.jpg,greening-like,T04,test,IMG_0351,L_144
+Greening/T04/img_112.png,greening-like,T04,test,IMG_0352,L_134
+Greening/T04/img_118.jpg,greening-like,T04,test,IMG_0353,L_141
+Greening/T05/img_001.jpg,greening-like,T05,val,IMG_0354,L_145
+Greening/T05/img_003.jpg,greening-like,T05,val,IMG_0355,L_146
+Greening/T05/img_014.jpg,greening-like,T05,val,IMG_0356,L_147
+Greening/T05/img_032.jpg,greening-like,T05,val,IMG_0357,L_148
+Greening/T05/img_043.jpg,greening-like,T05,val,IMG_0358,L_149
+Greening/T05/img_050.jpg,greening-like,T05,val,IMG_0359,L_150
+Greening/T05/img_069.jpg,greening-like,T05,val,IMG_0360,L_151
+Greening/T05/img_071.jpg,greening-like,T05,val,IMG_0361,L_145
+Greening/T05/img_074.jpg,greening-like,T05,val,IMG_0362,L_152
+Greening/T05/img_082.jpg,greening-like,T05,val,IMG_0363,L_153
+Greening/T05/img_088.jpg,greening-like,T05,val,IMG_0364,L_154
+Greening/T05/img_092.jpg,greening-like,T05,val,IMG_0365,L_155
+Greening/T05/img_093.jpg,greening-like,T05,val,IMG_0366,L_156
+Greening/T05/img_097.jpg,greening-like,T05,val,IMG_0367,L_157
+Greening/T05/img_098.jpg,greening-like,T05,val,IMG_0368,L_157
+Greening/T05/img_099.jpg,greening-like,T05,val,IMG_0369,L_158
+Greening/T05/img_100.jpg,greening-like,T05,val,IMG_0370,L_151
+Greening/T05/img_101.jpg,greening-like,T05,val,IMG_0371,L_159
+Greening/T05/img_102.jpg,greening-like,T05,val,IMG_0372,L_160
+Greening/T05/img_103.jpg,greening-like,T05,val,IMG_0373,L_161
+Greening/T05/img_104.jpg,greening-like,T05,val,IMG_0374,L_162
+Greening/T05/img_105.jpg,greening-like,T05,val,IMG_0375,L_163
+Greening/T05/img_106.jpg,greening-like,T05,val,IMG_0376,L_164
+Greening/T05/img_107.jpg,greening-like,T05,val,IMG_0377,L_165
+Greening/T05/img_109.jpg,greening-like,T05,val,IMG_0378,L_159
+Greening/T05/img_110.jpg,greening-like,T05,val,IMG_0379,L_166
+Greening/T05/img_111.jpg,greening-like,T05,val,IMG_0380,L_167
+Greening/T05/img_114.jpg,greening-like,T05,val,IMG_0381,L_168
+Greening/T05/img_115.jpg,greening-like,T05,val,IMG_0382,L_168
+Greening/T05/img_117.jpg,greening-like,T05,val,IMG_0383,L_169
+Greening/T05/img_123.png,greening-like,T05,val,IMG_0384,L_170
+Greening/T05/img_124.png,greening-like,T05,val,IMG_0385,L_171
+Greening/T05/img_125.png,greening-like,T05,val,IMG_0386,L_172
+Greening/T07/img_007.jpg,greening-like,T07,train,IMG_0387,L_173
+Greening/T07/img_013.jpg,greening-like,T07,train,IMG_0388,L_174
+Greening/T07/img_019.jpg,greening-like,T07,train,IMG_0389,L_175
+Greening/T07/img_022.jpg,greening-like,T07,train,IMG_0390,L_176
+Greening/T07/img_024.jpg,greening-like,T07,train,IMG_0391,L_177
+Greening/T07/img_025.png,greening-like,T07,train,IMG_0392,L_178
+Greening/T07/img_026.jpg,greening-like,T07,train,IMG_0393,L_179
+Greening/T07/img_027.png,greening-like,T07,train,IMG_0394,L_180
+Greening/T07/img_030.jpg,greening-like,T07,train,IMG_0395,L_173
+Greening/T07/img_033.jpg,greening-like,T07,train,IMG_0396,L_181
+Greening/T07/img_037.jpg,greening-like,T07,train,IMG_0397,L_182
+Greening/T07/img_039.jpg,greening-like,T07,train,IMG_0398,L_183
+Greening/T07/img_040.jpg,greening-like,T07,train,IMG_0399,L_182
+Greening/T07/img_041.jpg,greening-like,T07,train,IMG_0400,L_182
+Greening/T07/img_042.jpg,greening-like,T07,train,IMG_0401,L_182
+Greening/T07/img_046.jpg,greening-like,T07,train,IMG_0402,L_183
+Greening/T07/img_047.jpg,greening-like,T07,train,IMG_0403,L_183
+Greening/T07/img_051.jpg,greening-like,T07,train,IMG_0404,L_184
+Greening/T07/img_054.jpg,greening-like,T07,train,IMG_0406,L_184
+Greening/T07/img_064.jpg,greening-like,T07,train,IMG_0407,L_186
+Greening/T07/img_065.jpg,greening-like,T07,train,IMG_0408,L_187
+Greening/T07/img_067.jpg,greening-like,T07,train,IMG_0409,L_182
+Greening/T07/img_068.jpg,greening-like,T07,train,IMG_0410,L_182
+Greening/T07/img_070.jpg,greening-like,T07,train,IMG_0411,L_188
+Greening/T07/img_072.jpg,greening-like,T07,train,IMG_0412,L_189
+Greening/T07/img_073.jpg,greening-like,T07,train,IMG_0413,L_190
+Greening/T07/img_078.jpg,greening-like,T07,train,IMG_0414,L_176
+Greening/T07/img_079.jpg,greening-like,T07,train,IMG_0415,L_179
+Greening/T07/img_080.jpg,greening-like,T07,train,IMG_0416,L_186
+Greening/T07/img_081.jpg,greening-like,T07,train,IMG_0417,L_191
+Greening/T07/img_085.jpg,greening-like,T07,train,IMG_0418,L_192
+Greening/T07/img_087.jpg,greening-like,T07,train,IMG_0419,L_181
+Greening/T07/img_089.jpg,greening-like,T07,train,IMG_0420,L_188
+Greening/T07/img_090.jpg,greening-like,T07,train,IMG_0421,L_193
+Greening/T07/img_091.jpg,greening-like,T07,train,IMG_0422,L_194
+Greening/T07/img_094.png,greening-like,T07,train,IMG_0423,L_189
+Greening/T07/img_095.jpg,greening-like,T07,train,IMG_0424,L_175
+Greening/T07/img_096.png,greening-like,T07,train,IMG_0425,L_195
+Greening/T07/img_108.jpg,greening-like,T07,train,IMG_0426,L_175
+Greening/T07/img_120.jpg,greening-like,T07,train,IMG_0427,L_196
+Greening/T07/img_122.jpg,greening-like,T07,train,IMG_0428,L_197
+Greening/T08/img_006.jpg,greening-like,T08,test,IMG_0429,L_198
+Greening/T08/img_008.jpg,greening-like,T08,test,IMG_0430,L_200
+Greening/T08/img_010.jpg,greening-like,T08,test,IMG_0431,L_201
+Greening/T08/img_011.png,greening-like,T08,test,IMG_0432,L_202
+Greening/T08/img_015.jpg,greening-like,T08,test,IMG_0433,L_201
+Greening/T08/img_029.png,greening-like,T08,test,IMG_0434,L_203
+Greening/T08/img_044.jpg,greening-like,T08,test,IMG_0435,L_204
+Greening/T08/img_055.jpg,greening-like,T08,test,IMG_0436,L_205
+Greening/T08/img_056.jpg,greening-like,T08,test,IMG_0437,L_205
+Greening/T08/img_057.jpg,greening-like,T08,test,IMG_0438,L_204
+Greening/T08/img_059.jpg,greening-like,T08,test,IMG_0439,L_199
+Greening/T08/img_061.jpg,greening-like,T08,test,IMG_0440,L_206
+Greening/T08/img_062.jpg,greening-like,T08,test,IMG_0441,L_207
+Greening/T08/img_063.jpg,greening-like,T08,test,IMG_0442,L_208
+Greening/T08/img_076.jpg,greening-like,T08,test,IMG_0443,L_202
+Greening/T08/img_077.jpg,greening-like,T08,test,IMG_0444,L_201
+Greening/T08/img_083.jpg,greening-like,T08,test,IMG_0445,L_207
+Greening/T08/img_113.jpg,greening-like,T08,test,IMG_0446,L_209
+Greening/T08/img_116.jpg,greening-like,T08,test,IMG_0447,L_199
+Greening/T08/img_119.jpg,greening-like,T08,test,IMG_0448,L_199
+Greening/T08/img_121.jpg,greening-like,T08,test,IMG_0449,L_199
+Greening/T08/img_126.jpg,greening-like,T08,test,IMG_0450,L_210
+Healthy/T01/img_011.jpg,apparently healthy,T01,train,IMG_0451,L_211
+Healthy/T01/img_056.png,apparently healthy,T01,train,IMG_0452,L_212
+Healthy/T01/img_080.png,apparently healthy,T01,train,IMG_0453,L_212
+Healthy/T01/img_105.jpg,apparently healthy,T01,train,IMG_0454,L_213
+Healthy/T01/img_106.jpg,apparently healthy,T01,train,IMG_0455,L_214
+Healthy/T01/img_113.jpg,apparently healthy,T01,train,IMG_0456,L_215
+Healthy/T01/img_114.png,apparently healthy,T01,train,IMG_0457,L_216
+Healthy/T01/img_129.png,apparently healthy,T01,train,IMG_0458,L_217
+Healthy/T01/img_139.jpg,apparently healthy,T01,train,IMG_0459,L_218
+Healthy/T01/img_146.jpg,apparently healthy,T01,train,IMG_0460,L_219
+Healthy/T01/img_148.jpg,apparently healthy,T01,train,IMG_0461,L_218
+Healthy/T01/img_158.jpg,apparently healthy,T01,train,IMG_0462,L_220
+Healthy/T02/img_013.png,apparently healthy,T02,train,IMG_0463,L_221
+Healthy/T02/img_014.jpg,apparently healthy,T02,train,IMG_0464,L_222
+Healthy/T02/img_099.jpg,apparently healthy,T02,train,IMG_0465,L_223
+Healthy/T02/img_100.jpg,apparently healthy,T02,train,IMG_0466,L_222
+Healthy/T02/img_107.jpg,apparently healthy,T02,train,IMG_0467,L_224
+Healthy/T02/img_110.jpg,apparently healthy,T02,train,IMG_0468,L_225
+Healthy/T02/img_121.jpg,apparently healthy,T02,train,IMG_0469,L_224
+Healthy/T02/img_122.jpg,apparently healthy,T02,train,IMG_0470,L_226
+Healthy/T02/img_123.png,apparently healthy,T02,train,IMG_0471,L_227
+Healthy/T02/img_131.jpg,apparently healthy,T02,train,IMG_0472,L_228
+Healthy/T02/img_145.jpg,apparently healthy,T02,train,IMG_0473,L_229
+Healthy/T02/img_150.jpg,apparently healthy,T02,train,IMG_0474,L_229
+Healthy/T02/img_151.jpg,apparently healthy,T02,train,IMG_0475,L_228
+Healthy/T02/img_153.jpg,apparently healthy,T02,train,IMG_0476,L_230
+Healthy/T03/img_055.jpg,apparently healthy,T03,val,IMG_0477,L_231
+Healthy/T03/img_057.png,apparently healthy,T03,val,IMG_0478,L_232
+Healthy/T03/img_061.jpg,apparently healthy,T03,val,IMG_0479,L_233
+Healthy/T03/img_069.jpg,apparently healthy,T03,val,IMG_0480,L_234
+Healthy/T03/img_071.jpg,apparently healthy,T03,val,IMG_0481,L_235
+Healthy/T03/img_102.jpg,apparently healthy,T03,val,IMG_0482,L_236
+Healthy/T03/img_104.jpg,apparently healthy,T03,val,IMG_0483,L_236
+Healthy/T03/img_132.jpg,apparently healthy,T03,val,IMG_0484,L_237
+Healthy/T03/img_149.jpg,apparently healthy,T03,val,IMG_0485,L_237
+Healthy/T03/img_156.jpg,apparently healthy,T03,val,IMG_0486,L_237
+Healthy/T04/img_024.jpg,apparently healthy,T04,test,IMG_0487,L_238
+Healthy/T04/img_054.jpg,apparently healthy,T04,test,IMG_0488,L_239
+Healthy/T04/img_067.jpg,apparently healthy,T04,test,IMG_0489,L_240
+Healthy/T04/img_081.jpg,apparently healthy,T04,test,IMG_0490,L_241
+Healthy/T04/img_083.jpg,apparently healthy,T04,test,IMG_0491,L_242
+Healthy/T04/img_084.jpg,apparently healthy,T04,test,IMG_0492,L_243
+Healthy/T04/img_087.jpg,apparently healthy,T04,test,IMG_0493,L_244
+Healthy/T04/img_126.jpg,apparently healthy,T04,test,IMG_0494,L_245
+Healthy/T04/img_137.jpg,apparently healthy,T04,test,IMG_0495,L_246
+Healthy/T04/img_138.jpg,apparently healthy,T04,test,IMG_0496,L_246
+Healthy/T04/img_141.jpg,apparently healthy,T04,test,IMG_0497,L_246
+Healthy/T05/img_021.jpg,apparently healthy,T05,val,IMG_0498,L_247
+Healthy/T05/img_022.jpg,apparently healthy,T05,val,IMG_0499,L_248
+Healthy/T05/img_025.jpg,apparently healthy,T05,val,IMG_0500,L_248
+Healthy/T05/img_068.jpg,apparently healthy,T05,val,IMG_0501,L_249
+Healthy/T05/img_070.jpg,apparently healthy,T05,val,IMG_0502,L_250
+Healthy/T05/img_108.jpg,apparently healthy,T05,val,IMG_0503,L_251
+Healthy/T05/img_120.jpg,apparently healthy,T05,val,IMG_0504,L_252
+Healthy/T05/img_130.jpg,apparently healthy,T05,val,IMG_0505,L_253
+Healthy/T05/img_133.jpg,apparently healthy,T05,val,IMG_0506,L_254
+Healthy/T05/img_136.jpg,apparently healthy,T05,val,IMG_0507,L_255
+Healthy/T05/img_147.jpg,apparently healthy,T05,val,IMG_0508,L_254
+Healthy/T05/img_154.jpg,apparently healthy,T05,val,IMG_0509,L_255
+Healthy/T05/img_155.jpg,apparently healthy,T05,val,IMG_0510,L_253
+Healthy/T05/img_161.jpg,apparently healthy,T05,val,IMG_0511,L_256
+Healthy/T05/img_162.jpg,apparently healthy,T05,val,IMG_0512,L_256
+Healthy/T06/img_019.png,apparently healthy,T06,val,IMG_0513,L_257
+Healthy/T06/img_062.jpg,apparently healthy,T06,val,IMG_0514,L_258
+Healthy/T06/img_075.jpg,apparently healthy,T06,val,IMG_0515,L_259
+Healthy/T06/img_076.jpg,apparently healthy,T06,val,IMG_0516,L_260
+Healthy/T06/img_086.jpg,apparently healthy,T06,val,IMG_0517,L_257
+Healthy/T06/img_103.jpg,apparently healthy,T06,val,IMG_0518,L_261
+Healthy/T06/img_127.jpg,apparently healthy,T06,val,IMG_0519,L_262
+Healthy/T06/img_135.jpg,apparently healthy,T06,val,IMG_0520,L_263
+Healthy/T07/img_016.jpg,apparently healthy,T07,train,IMG_0521,L_267
+Healthy/T07/img_017.jpg,apparently healthy,T07,train,IMG_0522,L_268
+Healthy/T07/img_063.png,apparently healthy,T07,train,IMG_0523,L_269
+Healthy/T07/img_078.jpg,apparently healthy,T07,train,IMG_0524,L_270
+Healthy/T07/img_088.jpg,apparently healthy,T07,train,IMG_0525,L_271
+Healthy/T07/img_089.jpg,apparently healthy,T07,train,IMG_0526,L_272
+Healthy/T07/img_115.jpg,apparently healthy,T07,train,IMG_0527,L_266
+Healthy/T07/img_134.jpg,apparently healthy,T07,train,IMG_0528,L_264
+Healthy/T07/img_140.jpg,apparently healthy,T07,train,IMG_0529,L_264
+Healthy/T07/img_142.jpg,apparently healthy,T07,train,IMG_0530,L_264
+Healthy/T07/img_143.jpg,apparently healthy,T07,train,IMG_0531,L_265
+Healthy/T07/img_144.jpg,apparently healthy,T07,train,IMG_0532,L_265
+Healthy/T08/img_007.jpg,apparently healthy,T08,test,IMG_0533,L_273
+Healthy/T08/img_029.png,apparently healthy,T08,test,IMG_0534,L_273
+Healthy/T08/img_058.jpg,apparently healthy,T08,test,IMG_0535,L_274
+Healthy/T08/img_059.jpg,apparently healthy,T08,test,IMG_0536,L_275
+Healthy/T08/img_064.jpg,apparently healthy,T08,test,IMG_0537,L_276
+Healthy/T08/img_160.jpg,apparently healthy,T08,test,IMG_0538,L_277
+Healthy/T09/img_005.jpg,apparently healthy,T09,train,IMG_0539,L_278
+Healthy/T09/img_020.jpg,apparently healthy,T09,train,IMG_0540,L_279
+Healthy/T09/img_026.jpg,apparently healthy,T09,train,IMG_0541,L_280
+Healthy/T09/img_027.jpg,apparently healthy,T09,train,IMG_0542,L_281
+Healthy/T09/img_039.jpg,apparently healthy,T09,train,IMG_0543,L_282
+Healthy/T09/img_049.jpg,apparently healthy,T09,train,IMG_0544,L_278
+Healthy/T09/img_052.jpg,apparently healthy,T09,train,IMG_0545,L_283
+Healthy/T09/img_053.jpg,apparently healthy,T09,train,IMG_0546,L_284
+Healthy/T09/img_119.jpg,apparently healthy,T09,train,IMG_0547,L_285
+Healthy/T10/img_004.jpg,apparently healthy,T10,train,IMG_0548,L_286
+Healthy/T10/img_008.jpg,apparently healthy,T10,train,IMG_0549,L_286
+Healthy/T10/img_050.jpg,apparently healthy,T10,train,IMG_0550,L_289
+Healthy/T10/img_051.jpg,apparently healthy,T10,train,IMG_0551,L_290
+Healthy/T10/img_082.png,apparently healthy,T10,train,IMG_0552,L_291
+Healthy/T10/img_128.png,apparently healthy,T10,train,IMG_0553,L_292
+Healthy/T10/img_152.png,apparently healthy,T10,train,IMG_0554,L_287
+Healthy/T10/img_157.png,apparently healthy,T10,train,IMG_0555,L_287
+Healthy/T10/img_159.png,apparently healthy,T10,train,IMG_0556,L_288
+Healthy/T11/img_002.jpg,apparently healthy,T11,train,IMG_0557,L_293
+Healthy/T11/img_009.jpg,apparently healthy,T11,train,IMG_0558,L_294
+Healthy/T11/img_012.jpg,apparently healthy,T11,train,IMG_0559,L_295
+Healthy/T11/img_028.jpg,apparently healthy,T11,train,IMG_0560,L_296
+Healthy/T11/img_033.png,apparently healthy,T11,train,IMG_0561,L_297
+Healthy/T11/img_036.jpg,apparently healthy,T11,train,IMG_0562,L_299
+Healthy/T11/img_041.jpg,apparently healthy,T11,train,IMG_0563,L_298
+Healthy/T11/img_048.jpg,apparently healthy,T11,train,IMG_0564,L_295
+Healthy/T11/img_066.jpg,apparently healthy,T11,train,IMG_0565,L_301
+Healthy/T11/img_077.jpg,apparently healthy,T11,train,IMG_0566,L_300
+Healthy/T11/img_079.jpg,apparently healthy,T11,train,IMG_0567,L_302
+Healthy/T11/img_090.jpg,apparently healthy,T11,train,IMG_0568,L_298
+Healthy/T11/img_093.jpg,apparently healthy,T11,train,IMG_0569,L_303
+Healthy/T11/img_094.jpg,apparently healthy,T11,train,IMG_0570,L_304
+Healthy/T11/img_095.jpg,apparently healthy,T11,train,IMG_0571,L_305
+Healthy/T11/img_098.jpg,apparently healthy,T11,train,IMG_0572,L_305
+Healthy/T11/img_101.jpg,apparently healthy,T11,train,IMG_0573,L_299
+Healthy/T11/img_118.jpg,apparently healthy,T11,train,IMG_0574,L_303
+Healthy/T11/img_124.jpg,apparently healthy,T11,train,IMG_0575,L_304
+Healthy/T12/img_003.jpg,apparently healthy,T12,train,IMG_0576,L_306
+Healthy/T12/img_010.jpg,apparently healthy,T12,train,IMG_0577,L_307
+Healthy/T12/img_018.jpg,apparently healthy,T12,train,IMG_0578,L_308
+Healthy/T12/img_023.jpg,apparently healthy,T12,train,IMG_0579,L_310
+Healthy/T12/img_030.jpg,apparently healthy,T12,train,IMG_0580,L_311
+Healthy/T12/img_032.jpg,apparently healthy,T12,train,IMG_0581,L_312
+Healthy/T12/img_037.jpg,apparently healthy,T12,train,IMG_0582,L_313
+Healthy/T12/img_044.jpg,apparently healthy,T12,train,IMG_0583,L_314
+Healthy/T12/img_045.jpg,apparently healthy,T12,train,IMG_0584,L_315
+Healthy/T12/img_046.jpg,apparently healthy,T12,train,IMG_0585,L_309
+Healthy/T12/img_047.jpg,apparently healthy,T12,train,IMG_0586,L_309
+Healthy/T12/img_065.jpg,apparently healthy,T12,train,IMG_0587,L_316
+Healthy/T12/img_085.jpg,apparently healthy,T12,train,IMG_0588,L_317
+Healthy/T12/img_091.jpg,apparently healthy,T12,train,IMG_0589,L_318
+Healthy/T12/img_117.jpg,apparently healthy,T12,train,IMG_0590,L_307
+Healthy/T12/img_125.jpg,apparently healthy,T12,train,IMG_0591,L_307
+Healthy/T13/img_001.jpg,apparently healthy,T13,train,IMG_0592,L_321
+Healthy/T13/img_006.jpg,apparently healthy,T13,train,IMG_0593,L_322
+Healthy/T13/img_015.png,apparently healthy,T13,train,IMG_0594,L_319
+Healthy/T13/img_031.jpg,apparently healthy,T13,train,IMG_0595,L_323
+Healthy/T13/img_034.jpg,apparently healthy,T13,train,IMG_0596,L_324
+Healthy/T13/img_035.png,apparently healthy,T13,train,IMG_0597,L_325
+Healthy/T13/img_038.jpg,apparently healthy,T13,train,IMG_0598,L_326
+Healthy/T13/img_040.jpg,apparently healthy,T13,train,IMG_0599,L_327
+Healthy/T13/img_042.jpg,apparently healthy,T13,train,IMG_0600,L_320
+Healthy/T13/img_043.jpg,apparently healthy,T13,train,IMG_0601,L_328
+Healthy/T13/img_060.jpg,apparently healthy,T13,train,IMG_0602,L_319
+Healthy/T13/img_072.jpg,apparently healthy,T13,train,IMG_0603,L_329
+Healthy/T13/img_073.jpg,apparently healthy,T13,train,IMG_0604,L_330
+Healthy/T13/img_074.jpg,apparently healthy,T13,train,IMG_0605,L_331
+Healthy/T13/img_092.jpg,apparently healthy,T13,train,IMG_0606,L_320
+Healthy/T13/img_096.jpg,apparently healthy,T13,train,IMG_0607,L_320
+Healthy/T13/img_097.jpg,apparently healthy,T13,train,IMG_0608,L_332
+Healthy/T13/img_111.jpg,apparently healthy,T13,train,IMG_0609,L_333
+Healthy/T13/img_112.jpg,apparently healthy,T13,train,IMG_0610,L_334
+Healthy/T13/img_116.jpg,apparently healthy,T13,train,IMG_0611,L_335

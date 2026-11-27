@@ -1,0 +1,31 @@
+{
+  "onnx_checker": "passed",
+  "onnxruntime": "loaded",
+  "test_images": 2638,
+  "torch_accuracy": 0.7126611068991661,
+  "onnx_accuracy": 0.7126611068991661,
+  "torch_macro_f1": 0.6634271558581838,
+  "onnx_macro_f1": 0.6634271558581838,
+  "prediction_agreement": 1.0,
+  "max_abs_logit_difference": 0.00033664703369140625,
+  "classes": [
+    "Algal_Leaf_Spot",
+    "Anthracnose",
+    "Bacterial Blight",
+    "Black Spot",
+    "Citrus Canker",
+    "Citrus Hindu Mite",
+    "Citrus Leafminer",
+    "Citrus_Pest",
+    "Citrus_Scab",
+    "Curl Leaf",
+    "Dry Leaf",
+    "Greening",
+    "Healthy",
+    "Lemon_Sooty_Mold",
+    "Melanose",
+    "Spider Mites",
+    "Swallowtail Larval Herbivory (Deficiency)",
+    "Yellow_Spot"
+  ]
+}
