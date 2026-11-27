@@ -4,6 +4,8 @@ import argparse, csv, hashlib, json, shutil, subprocess, sys
 from collections import defaultdict
 from pathlib import Path
 
+GROUP_IDENTITY_SOURCES={'source_metadata','field_log','acquisition_manifest','expert_annotation'}
+
 class GateFailure(Exception):
     pass
 
@@ -93,12 +95,59 @@ def verify_dataset_profile(profile):
     if h['decision'] != 'approved_for_declared_scope': raise GateFailure('human_license_review_not_approved_for_scope')
     return {'license_expression':d['license_expression'],'research_training_use':d['research_training_use'],'commercial_use':d['commercial_use'],'redistribution':d['redistribution'],'model_weight_distribution':d['model_weight_distribution'],'reviewer_role':h['reviewer_role']}
 
-def verify_splits(path, near_path, image_root):
+def verify_group_identity_evidence(row, image_root, grouping_unit, row_number):
+    source=str(row.get('group_identity_source','')).strip()
+    evidence_ref=str(row.get('group_identity_evidence_ref','')).strip()
+    evidence_sha=str(row.get('group_identity_evidence_sha256','')).strip().lower()
+    verifier=str(row.get('group_identity_verified_by','')).strip()
+    if source not in GROUP_IDENTITY_SOURCES: raise GateFailure(f'group_identity_source_invalid_row_{row_number}')
+    if not evidence_ref or not verifier or str(row.get('group_identity_status','')).strip().lower()!='verified':
+        raise GateFailure(f'group_identity_provenance_incomplete_row_{row_number}')
+    if len(evidence_sha)!=64 or any(c not in '0123456789abcdef' for c in evidence_sha):
+        raise GateFailure(f'group_identity_evidence_sha256_invalid_row_{row_number}')
+    ref=Path(evidence_ref)
+    if ref.is_absolute() or '..' in ref.parts: raise GateFailure(f'group_identity_evidence_path_invalid_row_{row_number}')
+    evidence_path=(image_root/ref).resolve()
+    try: evidence_path.relative_to(image_root.resolve())
+    except ValueError: raise GateFailure(f'group_identity_evidence_path_escapes_root_row_{row_number}')
+    if not evidence_path.is_file(): raise GateFailure(f'group_identity_evidence_missing_row_{row_number}')
+    if hashlib.sha256(evidence_path.read_bytes()).hexdigest()!=evidence_sha:
+        raise GateFailure(f'group_identity_evidence_sha256_mismatch_row_{row_number}')
+    evidence=read_json(evidence_path)
+    required=('group_id','grouping_unit','identity_source','source_record_ref','source_record_sha256','verified_by','verified_at','status')
+    if any(not str(evidence.get(k,'')).strip() for k in required):
+        raise GateFailure(f'group_identity_evidence_record_incomplete_row_{row_number}')
+    if str(evidence['group_id']).strip()!=str(row['group_id']).strip():
+        raise GateFailure(f'group_identity_evidence_group_mismatch_row_{row_number}')
+    if str(evidence['grouping_unit']).strip()!=grouping_unit:
+        raise GateFailure(f'group_identity_evidence_unit_mismatch_row_{row_number}')
+    if str(evidence['identity_source']).strip()!=source or str(evidence['verified_by']).strip()!=verifier:
+        raise GateFailure(f'group_identity_evidence_attestation_mismatch_row_{row_number}')
+    if str(evidence['status']).strip().lower()!='verified':
+        raise GateFailure(f'group_identity_evidence_not_verified_row_{row_number}')
+    source_ref=Path(str(evidence['source_record_ref']).strip())
+    source_sha=str(evidence['source_record_sha256']).strip().lower()
+    if source_ref.is_absolute() or '..' in source_ref.parts:
+        raise GateFailure(f'group_identity_source_record_path_invalid_row_{row_number}')
+    source_path=(image_root/source_ref).resolve()
+    try: source_path.relative_to(image_root.resolve())
+    except ValueError: raise GateFailure(f'group_identity_source_record_path_escapes_root_row_{row_number}')
+    if not source_path.is_file(): raise GateFailure(f'group_identity_source_record_missing_row_{row_number}')
+    if len(source_sha)!=64 or any(c not in '0123456789abcdef' for c in source_sha):
+        raise GateFailure(f'group_identity_source_record_sha256_invalid_row_{row_number}')
+    if hashlib.sha256(source_path.read_bytes()).hexdigest()!=source_sha:
+        raise GateFailure(f'group_identity_source_record_sha256_mismatch_row_{row_number}')
+
+
+def verify_splits(path, near_path, image_root, grouping_unit):
     with path.open(newline='',encoding='utf-8-sig') as f:
         reader=csv.DictReader(f); rows=list(reader); cols=reader.fieldnames or []
-    req={'image_path','group_id','split','sha256','phash','near_duplicate_group_id','source_class'}
+    req={'image_path','group_id','split','sha256','phash','near_duplicate_group_id','source_class',
+         'group_identity_source','group_identity_evidence_ref','group_identity_evidence_sha256',
+         'group_identity_verified_by','group_identity_status'}
     if not rows or not req.issubset(cols): raise GateFailure('split_manifest_empty_or_missing_columns:'+','.join(sorted(req-set(cols))))
     groups=defaultdict(set); hashes=defaultdict(set); hash_counts=defaultdict(int); dup_groups=defaultdict(set)
+    identity_evidence_rows=[]
     for i,r in enumerate(rows,2):
         split=r['split'].strip().lower(); group=r['group_id'].strip(); sha=r['sha256'].strip().lower(); near=r['near_duplicate_group_id'].strip()
         if split not in ('train','val','validation','calibration','test'): raise GateFailure(f'invalid_split_row_{i}')
@@ -107,6 +156,9 @@ def verify_splits(path, near_path, image_root):
         ph=r['phash'].strip().lower()
         if len(ph)!=16 or any(c not in '0123456789abcdef' for c in ph): raise GateFailure(f'invalid_64bit_dct_phash_row_{i}')
         if not r['near_duplicate_group_id'].strip(): raise GateFailure(f'missing_near_duplicate_group_row_{i}')
+        if group==ph or group==near or group==sha or group==r['image_path'].strip() or group.lower().startswith(('phash:','sha256:')):
+            raise GateFailure(f'biological_group_id_matches_duplicate_or_source_identifier_row_{i}')
+        identity_evidence_rows.append((i,r))
         if not r['source_class'].strip(): raise GateFailure(f'missing_source_class_row_{i}')
         image=(image_root/r['image_path']).resolve()
         try: image.relative_to(image_root.resolve())
@@ -119,6 +171,8 @@ def verify_splits(path, near_path, image_root):
     if any(len(v)>1 for v in hashes.values()): raise GateFailure('exact_sha256_cross_split')
     if any(n>1 for n in hash_counts.values()): raise GateFailure('exact_duplicate_images_must_be_deduplicated')
     if any(len(v)>1 for v in dup_groups.values()): raise GateFailure('near_duplicate_group_cross_split')
+    for row_number,row in identity_evidence_rows:
+        verify_group_identity_evidence(row,image_root,grouping_unit,row_number)
     near=read_json(near_path)
     split_hash=hashlib.sha256(path.read_bytes()).hexdigest()
     if near.get('audited_manifest_sha256') != split_hash: raise GateFailure('near_duplicate_audit_manifest_hash_mismatch')
@@ -126,7 +180,7 @@ def verify_splits(path, near_path, image_root):
     if pairs and (near.get('reviewed_pairs')!=pairs or not str(near.get('review_resolution_ref','')).strip()): raise GateFailure('near_duplicate_pairs_not_fully_reviewed')
     if near.get('status') != 'PASS' or near.get('cross_split_pairs') != 0 or near.get('unresolved_pairs',0) != 0 or not near.get('algorithm') or not near.get('implementation') or not isinstance(near.get('threshold_hamming'),int):
         raise GateFailure('near_duplicate_audit_not_pass_or_incomplete')
-    return {'rows':len(rows),'unique_groups':len(groups),'splits':sorted({r['split'].strip().lower() for r in rows}),'near_duplicate_algorithm':near['algorithm']}
+    return {'rows':len(rows),'unique_groups':len(groups),'group_identity_evidence_verified':len(identity_evidence_rows),'grouping_unit':grouping_unit,'splits':sorted({r['split'].strip().lower() for r in rows}),'near_duplicate_algorithm':near['algorithm']}
 
 def verify_taxonomy(path):
     t=read_json(path); classes=t.get('classes')
@@ -215,7 +269,7 @@ def main():
         if dm.get('dataset_id') != dp_data.get('dataset_id'): raise GateFailure('dataset_id_mismatch_between_delivery_and_spdx_profile')
         if dm.get('dataset_version') != dp_data.get('dataset_version'): raise GateFailure('dataset_version_mismatch_between_delivery_and_spdx_profile')
         result['gates']['license']=license_result
-        result['gates']['split']=verify_splits(split_path,near_path,root)
+        result['gates']['split']=verify_splits(split_path,near_path,root,grouping)
         near_data=read_json(near_path)
         if int(near_data.get('near_duplicate_pairs',0))>0:
             review_ref=resolve(near_path.parent,near_data.get('review_resolution_ref',''))
