@@ -1,5 +1,5 @@
 {
-  "status": "EXTRACTED_UNVERIFIED",
+  "status": "EXTRACTED_IMAGES_VERIFIED",
   "input": "research/manifests/staging/gvlid-v5-source-split.csv",
   "output": "research/manifests/staging/grape-gvlid-v5-reconstructed.csv",
   "rows": 1323,
@@ -11,8 +11,10 @@
     "group": "vineyard",
     "split": "split"
   },
-  "group_evidence": "Vineyard values are from the archived per-image metadata; per-image split is a deterministic reconstruction from the documented 4 test and 4 validation vineyards, not the original training-time split file (see archived split-reconstruction.json).",
-  "path_map": null,
+  "group_evidence": "Vineyard values are from archived per-image metadata; all 1,323 selected image filenames matched source-metadata.json and their folder labels matched Disease_Type. Per-image split is a deterministic reconstruction from documented 4 test and 4 validation vineyards, not the original training-time split file.",
+  "path_map": "research/manifests/path_map.gvlid.json",
+  "image_root": "/tmp/gvlid-selected",
+  "verify_images": true,
   "split_counts": {
     "train": 953,
     "test": 175,
@@ -20,7 +22,7 @@
   },
   "missing_group_ids": 0,
   "missing_image_paths": 0,
-  "hashes_recomputed_from_files": 0,
+  "hashes_recomputed_from_files": 1323,
   "errors": [],
   "warning": "Extraction is not scientific approval. Confirm group semantics, source lineage, licensing, and split suitability separately."
 }

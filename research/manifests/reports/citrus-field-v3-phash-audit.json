@@ -1,0 +1,22 @@
+{
+  "status": "FAIL",
+  "algorithm": "drplant-dct-phash-v1",
+  "implementation": "Version: ImageMagick 6.9.12-98 Q16 x86_64 18038 https://legacy.imagemagick.org",
+  "image_size": 32,
+  "hash_size": 8,
+  "threshold_hamming": 6,
+  "rows": 610,
+  "unique_phashes": 609,
+  "near_duplicate_pairs": 5,
+  "cross_split_pairs": 1,
+  "cross_label_pairs": 1,
+  "distance_counts": {
+    "0": 1,
+    "2": 2,
+    "4": 1,
+    "6": 1
+  },
+  "output_manifest": "research/manifests/staging/citrus-field-v3-phash.csv",
+  "pairs_report": "research/manifests/reports/citrus-field-v3-phash-near-duplicates.csv",
+  "scope_note": "Every near-duplicate pair requires review. Cross-split pairs fail split isolation; same-split pairs still require deduplication/review, and cross-label pairs require label review. This audit does not prove vineyard IDs are biologically correct."
+}

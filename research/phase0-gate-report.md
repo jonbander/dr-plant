@@ -32,7 +32,7 @@
 ## 4. التقسيم المستقل
 
 - `scripts/research/verify-splits.py` أُنشئ كمدقق fail-closed.
-- Citrus Field V3: PASS على 610 سجلات، 14 tree IDs، صفر تداخل بين train/val/test.
+- Citrus Field V3: tree/SHA/image checks PASS على 610 سجلات و14 tree IDs، لكن pHash audit كشف 5 أزواج قرب (منها cross-split/cross-label)، لذلك split gate النهائي FAIL حتى المراجعة.
 - Vitis morphology OOF: PASS على 127 سجلاً و63 مجموعة كرمة، لا تتوزع المجموعة على أكثر من fold.
 - بقية مجموعات المرض لا تملك دليلاً بيولوجياً كافياً لاجتياز البروتوكول المحدد؛ بعضها لا يتوفر له tree/vine/site/source IDs. NGLD V5 يستخدم pHash-cluster grouping لا holdout حسب vineyard/plant/site؛ لا تعتبر pHash-only استقلالاً بيولوجياً.
 
@@ -49,11 +49,11 @@
 
 أُضيفت قوالب CSV فارغة للعنب والحمضيات والبندورة في `research/manifests/templates/` مع تعريف موحد للأعمدة وقواعد ملء موثقة في `research/manifests/README.md`. هذه قوالب فقط وليست manifests بيانات معتمدة ولا تغيّر حالة أي صف في `data-audit.csv`.
 
-- الحمضيات: يوجد manifest فعلي سابق لـ Citrus Field V3 في `results/citrus-field-v3/manifest.csv` (610 صورة، 14 معرف شجرة، تقسيم 332/144/134). بقي هو المصدر المرجعي؛ لم تُنسخ مسارات الصور أو تُخترع SHA-256 جديدة لأن ملفات الصور الأصلية غير موجودة في مساحة العمل الحالية للتحقق من البايتات.
+- الحمضيات: يوجد manifest فعلي سابق لـ Citrus Field V3 في `results/citrus-field-v3/manifest.csv` (610 صورة، 14 معرف شجرة، تقسيم 332/144/134). عُثر لاحقاً على الصور في نسخة الاستعادة الأخرى، وأُعيد حساب SHA-256 والتحقق من قابلية قراءة الملفات. بقي manifest النموذج المرجع؛ لا نستخدم `recommended_partition.csv` المختلف الذي يفشل tree-disjoint.
 - العنب: يوجد `data/vitis-morphology/image-manifest.csv` يحوي مجموعات كروم وبصمات SHA-256، لكنه يصف صور تصنيف الأصناف ولا يمثل تقسيم تدريب مرضي. لا يُحوّل إلى manifest أمراض.
 - البندورة: لم يُعثر على manifest صور مصدر قابل لإعادة التحقق في مساحة العمل الحالية؛ القالب ينتظر الأصول والوسوم الأصلية.
 
-عُزّز `verify-splits.py` ليفشل عند manifest فارغ، ويدعم فحص وجود الملفات عبر `--image-root`، ويفرض train/val/test اختيارياً عبر `--require-all-splits`. SHA-256 موثق على أنه exact-duplicate hash فقط، وليس perceptual hash. اختبارات المدقق السبعة ناجحة.
+عُزّز `verify-splits.py` ليفشل عند manifest فارغ، ويدعم فحص وجود الملفات عبر `--image-root`، ويفرض train/val/test اختيارياً عبر `--require-all-splits`. SHA-256 موثق على أنه exact-duplicate hash فقط، وليس perceptual hash. اختبارات أدوات الاستخراج والتقسيم وpHash: 15/15 ناجحة.
 
 **الحالة:** القوالب جاهزة للتعبئة؛ لم يُعلن PASS جديد ولم تتغير بوابة Phase 0 إلى GO.
 
@@ -62,12 +62,13 @@
 
 - أضيف `scripts/research/extract-manifest.py` لتوحيد CSV/JSON مع الاحتفاظ الحرفي بـgroup IDs والوسوم والتقسيمات، ودعم `path_map.json` (مسارات exact أو prefixes). لا يخترع معرفات أو بصمات. مع `--verify-images` يشترط وجود كل صورة ويعيد حساب SHA-256 من bytes الفعلية.
 - أضيفت اختبارات مستقلة للأداة وملف `research/manifests/path_map.example.json`.
-- استُخرج Citrus Field V3 إلى `research/manifests/staging/citrus-field-v3.csv`: 610 سجلات، 14 `tree_id`، وتوزيع 332/144/134. هذا استخراج metadata فقط.
-- إعادة فحص الملفات الفعلية في مساحة العمل الحالية أعطت **FAIL**: لا يوجد أي من مسارات الصور الـ610 محلياً (0/610)، كما أن manifest المصدر لا يحتوي SHA-256. لا يجوز اعتباره اجتيازاً لبوابة الملفات حتى توفير الأصول وخريطة مسارات صحيحة ثم إعادة حساب hashes.
+- استُخرج Citrus Field V3 إلى `research/manifests/staging/citrus-field-v3.csv`: 610 سجلات، 14 `tree_id`، وتوزيع 332/144/134. بعد العثور على الأصول في نسخة الاستعادة الأخرى أُعيد حساب 610 SHA-256 من الملفات، واجتاز فحص الصور والمجموعات والبصمات الحرفية. فحص pHash المستقل نُفّذ بعد ذلك: ظهر 5 أزواج متقاربة (4 داخل split وواحد train/val)؛ لذلك فحص SHA/group PASS لا يعني اكتمال منع التسرب.
+- عُثر على الصور الـ610 في نسخة الاستعادة `/workspace/dr-plant/data/external/2026-11/citrus-field-v3/Field-Based Citrus Leaf Disease Image Dataset/Moroccan Citrus Leaf Dataset`. أُعيد حساب SHA-256 من كل ملف، وفحص الصور + tree IDs + exact hashes أعطى **PASS**. تقسيم manifest النموذج tree-held-out: 9 أشجار train و3 val و2 test.
+- **تمييز ضروري:** `recommended_partition.csv` الأصلي منفصل عن manifest التدريب؛ يستخدم `Group_ID` على مستوى الورقة ويضع الأشجار نفسها عبر splits. فحصه باستخدام `Tree_ID` أعطى FAIL؛ لذلك لم نستخدمه. manifest النموذج المنقح هو الذي اجتاز tree-disjoint. الصف المتعارض `IMG_0405` (metadata T07 مقابل path T08) معزول مسبقاً. لا يزال هذا benchmark من بستان مغربي واحد وليس تحققاً سورياً. جميع الصور الـ610 نجحت في ImageMagick decode check؛ pHash/near-duplicate audit أظهر 5 أزواج تتطلب مراجعة، منها زوج train/val متعارض الوسم؛ بوابة الحمضيات FAIL مؤقتاً.
 - عُثر على الأرشيفات كفروع Git: `archive/gvlid-v5-vineyard-holdout-2026-11-27` و`archive/ngld-v5-training-log-2026-11-27` و`archive/source-specific-models-and-coastal-evidence-2026-11-27`.
-- GVLiD V5: استُخرجت 1,323 صورة إلى `research/manifests/staging/grape-gvlid-v5-reconstructed.csv` مع 28 vineyard IDs، وتقسيم 953/195/175، وفئتي Esca/Healthy. فحص `verify-splits.py` للـmetadata اجتاز: صفر group leakage وصفر exact SHA leakage. لكن المصدر نفسه يوضح أن per-image split أُعيد بناؤه deterministic من 4 test و4 validation vineyards، ولم يكن الملف الأصلي موجوداً في ZIP. كما أن 0/1,323 صورة متاحة محلياً لإعادة حساب SHA؛ لذلك هذه نتيجة metadata-only وليست file-verified ولا manifest نهائياً.
+- GVLiD V5: استُخرجت مؤقتاً 1,323 صورة فعلية (Esca/Healthy) من `GVLiD.rar` في Drive، ثم حُققت كل صورة: 1,323/1,323 SHA-256 تطابق manifest الأرشيف، و1,323/1,323 أسماء/فئات تطابق source metadata. فحص المجموعة والبصمات والملفات أعطى PASS، وpHash DCT عند Hamming ≤5 أعطى صفر near-duplicate pairs أو cross-split pairs. النسبة الفعلية 72.0%/14.7%/13.2% بالصور، مع 20/4/4 بساتين؛ لم نفرض 70/15/15. لكن per-image split أُعيد بناؤه deterministic من 4 test و4 validation vineyards، ولم يكن الملف الأصلي موجوداً في ZIP؛ لذلك يبقى reconstruction موثقاً لا original split. كما أن SHA للأرشيف المضغوط نفسه يختلف عن archive-level SHA في تقرير التدقيق السابق، مع تطابق hashes لكل الصور الـ1,323 المختارة؛ وثّق ذلك في `gvlid-drive-archive-check.json`.
 - NGLD V5: split groups من نوع `ngld-phash-audit-*`/pHash clusters. توثيق التدريب يصرّح بعدم وجود vineyard/plant/session IDs، ولذلك لا يُستخدم هذا الملف لإثبات vineyard-disjoint للعنب أو source/site-disjoint للبندورة. بقي baseline استكشافياً فقط.
-- البندورة: لم نجد PlantTom أو FieldPlant source manifests في فروع الأرشيف المفحوصة. يوجد PlantVillage tomato manifest، لكنه مصدر lab-image ولا يُستبدل به PlantTom/FieldPlant field data. لم ننشئ tomato manifest.
-- خريطة المسارات الحالية نموذج فارغ `research/manifests/path_map.example.json`؛ لم نخترع وجهة محلية للصور غير الموجودة. عند توفير الصور، تُملأ خريطة exact/prefix ثم يعاد الاستخراج مع `--verify-images` لإعادة حساب SHA-256 من الملفات.
+- البندورة: لم نجد PlantTom أو FieldPlant source manifests في فروع الأرشيف المفحوصة، كما لم تُظهر عملية البحث بالاسمين في Google Drive أي نتائج. يوجد PlantVillage tomato manifest، لكنه مصدر lab-image ولا يُستبدل به PlantTom/FieldPlant field data. لم ننشئ tomato manifest.
+- خريطة `research/manifests/path_map.gvlid.json` تسجل تحويل `esca/` و`healthy/` إلى `DATASET/...` داخل أرشيف Drive؛ استُخدمت فعلياً لاستخراج subset العنب والتحقق منه. بقي `path_map.example.json` نموذجاً عاماً فقط. أُزيلت نسخة RAR والصور المستخرجة المؤقتة بعد اكتمال الفحص لتوفير مساحة السحابة؛ الأصل ما زال في Drive.
 - التسميات: `public/models/plant-disease/labels.json` ما زال `[]` (صفر app disease IDs). `research/label-map.json` يحتوي source classes، لكنه لا يستطيع تعيين app IDs؛ لا يجوز إنشاء `extract-labels.py` ليخترع IDs أو تفعيل أي mapping. الحالة `BLOCKED_NO_APP_DISEASE_IDS` كما هي.
-- لا تزال قوالب العنب والبندورة دون manifests نهائية، وملف الحمضيات في staging فقط. ولا تغيير في قرار Phase 0: **NO-GO**.
+- لا تزال قوالب العنب والحمضيات والبندورة دون manifests نهائية مجمدة: العنب اجتاز فحوص الصور/المجموعات/pHash لكنه يستخدم split معاد البناء؛ الحمضيات فشلت في pHash cross-split review؛ والبندورة تنتظر PlantTom/FieldPlant. ولا تغيير في قرار Phase 0: **NO-GO**.

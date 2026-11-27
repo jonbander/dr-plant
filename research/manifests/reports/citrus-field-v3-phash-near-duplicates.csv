@@ -1,0 +1,6 @@
+image_a,image_b,label_a,label_b,split_a,split_b,hamming_distance,cross_split,cross_label
+Greening/T05/img_102.jpg,Greening/T05/img_104.jpg,greening-like,greening-like,val,val,6,False,False
+Greening/T07/img_095.jpg,Greening/T07/img_108.jpg,greening-like,greening-like,train,train,0,False,False
+Greening/T07/img_120.jpg,Healthy/T05/img_162.jpg,greening-like,apparently healthy,train,val,4,True,True
+Healthy/T05/img_133.jpg,Healthy/T05/img_147.jpg,apparently healthy,apparently healthy,val,val,2,False,False
+Healthy/T07/img_134.jpg,Healthy/T07/img_142.jpg,apparently healthy,apparently healthy,train,train,2,False,False

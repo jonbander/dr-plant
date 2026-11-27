@@ -176,6 +176,8 @@ def main():
         'source_columns': {'image': a.image_col, 'label': a.label_col, 'group': a.group_col, 'split': a.split_col},
         'group_evidence': a.group_evidence,
         'path_map': str(a.path_map) if a.path_map else None,
+        'image_root': str(a.image_root) if a.image_root else None,
+        'verify_images': bool(a.verify_images),
         'split_counts': split_counts, 'missing_group_ids': missing_group,
         'missing_image_paths': missing_image, 'hashes_recomputed_from_files': hashes_recomputed,
         'errors': errors,
@@ -191,7 +193,7 @@ def main():
 
     a.output.parent.mkdir(parents=True, exist_ok=True)
     with a.output.open('w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=COLUMNS)
+        writer = csv.DictWriter(f, fieldnames=COLUMNS, lineterminator='\n')
         writer.writeheader()
         writer.writerows(out_rows)
     if a.report:

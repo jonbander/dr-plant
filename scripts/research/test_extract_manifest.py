@@ -57,6 +57,8 @@ class ExtractManifestTests(unittest.TestCase):
             with output.open(newline='', encoding='utf-8') as f:
                 row = next(csv.DictReader(f))
             self.assertEqual(row['sha256'], hashlib.sha256(b'actual image bytes').hexdigest())
+            self.assertTrue(json.loads(result.stdout)['verify_images'])
+            self.assertNotIn(b'\r\n', output.read_bytes())
 
     def test_fails_missing_group_id(self):
         r, content, report = self.run_extract('img,label,vineyard,split\na.jpg,Esca,,train\n')

@@ -1,0 +1,15 @@
+{
+  "drive_file": "GVLiD.rar",
+  "downloaded_size_bytes": 902251054,
+  "downloaded_sha256": "3c867ee21e799fc6a695917a1281e3e7190ed49ac7c74f8fcb98308091eaa76f",
+  "archived_audit_expected_archive_sha256": "7a83cd28a8342683e8715d9295edbd5eaca46939cbb65eae4ce02d87c548e16b",
+  "archive_sha256_match": false,
+  "note": "Archive packaging hash differs from the archived audit reference. However, all 1,323 curated image files extracted from this RAR matched their per-image SHA-256 values in the archived image/split manifests. Treat the file as content-verified for the curated subset, not byte-identical to the earlier archive package.",
+  "extracted_subset": "1,323 Esca/Healthy images only",
+  "extracted_image_bytes": 326925934,
+  "per_image_sha256_matches": 1323,
+  "per_image_sha256_mismatches": 0,
+  "metadata_filename_matches": 1323,
+  "metadata_folder_label_matches": 1323,
+  "drive_reported_size_display": "860.5 MB"
+}

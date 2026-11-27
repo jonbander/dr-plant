@@ -1,5 +1,5 @@
 {
-  "status": "EXTRACTED_UNVERIFIED",
+  "status": "EXTRACTED_IMAGES_VERIFIED",
   "input": "results/citrus-field-v3/manifest.csv",
   "output": "research/manifests/staging/citrus-field-v3.csv",
   "rows": 610,
@@ -11,8 +11,10 @@
     "group": "tree_id",
     "split": "split"
   },
-  "group_evidence": "Preserved verbatim from results/citrus-field-v3/manifest.csv tree_id column; 14 distinct tree IDs. Biological identity is inherited from the source manifest and still requires source-record audit.",
+  "group_evidence": "Curated tree-held-out model manifest; 610 rows map to source metadata and actual files. The source recommended_partition.csv is a separate leaf-group split and is not the split used here; one conflicting metadata/path row IMG_0405 was quarantined.",
   "path_map": null,
+  "image_root": "/workspace/dr-plant/data/external/2026-11/citrus-field-v3/Field-Based Citrus Leaf Disease Image Dataset/Moroccan Citrus Leaf Dataset",
+  "verify_images": true,
   "split_counts": {
     "train": 332,
     "val": 144,
@@ -20,7 +22,7 @@
   },
   "missing_group_ids": 0,
   "missing_image_paths": 0,
-  "hashes_recomputed_from_files": 0,
+  "hashes_recomputed_from_files": 610,
   "errors": [],
   "warning": "Extraction is not scientific approval. Confirm group semantics, source lineage, licensing, and split suitability separately."
 }

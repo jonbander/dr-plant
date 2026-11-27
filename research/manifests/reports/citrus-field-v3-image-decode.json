@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "tool": "ImageMagick identify",
+  "files_checked": 610,
+  "exit_code": 0,
+  "stderr": ""
+}
