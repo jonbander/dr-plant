@@ -124,7 +124,7 @@ class TrainingGateTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             base=Path(td); payload=base/'payload'; payload.mkdir(); (payload/'extra.jpg').write_bytes(b'extra')
             profile=base/'profile.json'; profile.write_text(json.dumps({'schema_version':1,'task_scope':['classification'],'grouping_unit':'tree'}),encoding='utf-8')
-            out=subprocess.run(['python3',str(SCRIPT),'--profile',str(profile),'--profile-signature',str(base/'missing-profile.sig'),'--data-root',str(payload),'--trusted-public-key',str(base/'missing-public.pem')],capture_output=True,text=True)
+            out=subprocess.run(['python3',str(SCRIPT),'--profile',str(profile),'--profile-signature',str(base/'missing-profile.sig'),'--data-root',str(payload),'--trusted-public-key',str(base/'missing-public.pem'),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(out.returncode,2)
             self.assertFalse(json.loads(out.stdout)['research_training_allowed'])
 
