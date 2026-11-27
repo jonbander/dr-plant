@@ -43,7 +43,6 @@ class TrainingGateTests(unittest.TestCase):
             dataset={'spdx_version':'SPDX-3.0','dataset_id':'unit-test','dataset_version':'1.0','source_url':'https://example.org/dataset','provider':'Example','license_expression':'CC-BY-4.0','license_status':'verified','research_training_use':'allowed','commercial_use':'allowed','redistribution':'allowed','model_weight_distribution':'allowed','attribution':'Required','collection_method':'documented','processing_method':'documented','human_review':{'reviewer_id':'reviewer-1','reviewer_role':'data-license-reviewer','review_date':'2026-11-27','decision':'approved_for_declared_scope'}}
             dp=base/'dataset-profile.json'; dp.write_text(json.dumps(dataset),encoding='utf-8'); dps=base/'dataset-profile.sig'; sign(priv,dp,dps)
             split=base/'split.csv'
-            split=base/'split.csv'
             split_fields=['image_path','group_id','split','sha256','phash','near_duplicate_group_id','source_class',
                           'group_identity_source','group_identity_evidence_ref','group_identity_evidence_sha256',
                           'group_identity_verified_by','group_identity_status']
