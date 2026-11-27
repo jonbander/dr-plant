@@ -151,7 +151,7 @@ def verify_splits(path, near_path, image_root, grouping_unit):
     identity_evidence_rows=[]
     for i,r in enumerate(rows,2):
         split=r['split'].strip().lower(); group=r['group_id'].strip(); sha=r['sha256'].strip().lower(); near=r['near_duplicate_group_id'].strip()
-        if split not in ('train','val','validation','calibration','test'): raise GateFailure(f'invalid_split_row_{i}')
+        if split not in ('train','validation','calibration','test'): raise GateFailure(f'invalid_split_row_{i}')
         if not group: raise GateFailure(f'missing_biological_group_row_{i}')
         if len(sha)!=64 or any(c not in '0123456789abcdef' for c in sha): raise GateFailure(f'invalid_sha256_row_{i}')
         ph=r['phash'].strip().lower()
@@ -161,7 +161,18 @@ def verify_splits(path, near_path, image_root, grouping_unit):
             raise GateFailure(f'biological_group_id_matches_duplicate_or_source_identifier_row_{i}')
         identity_evidence_rows.append((i,r))
         if not r['source_class'].strip(): raise GateFailure(f'missing_source_class_row_{i}')
-        image=(image_root/r['image_path']).resolve()
+        image_rel=Path(r['image_path'].strip())
+        if image_rel.is_absolute() or '..' in image_rel.parts: raise GateFailure(f'unsafe_split_image_path_row_{i}')
+        for path_column in ('relative_path','processed_path'):
+            if path_column in cols:
+                candidate=Path(r[path_column].strip())
+                if candidate.is_absolute() or '..' in candidate.parts or candidate.as_posix()!=image_rel.as_posix():
+                    raise GateFailure(f'training_path_column_mismatch_row_{i}:{path_column}')
+        if 'class_label' in cols and r['class_label'].strip()!=r['source_class'].strip():
+            raise GateFailure(f'training_class_label_mismatch_row_{i}')
+        if 'group_id_for_split' in cols and r['group_id_for_split'].strip()!=group:
+            raise GateFailure(f'training_group_id_mismatch_row_{i}')
+        image=(image_root/image_rel).resolve()
         try: image.relative_to(image_root.resolve())
         except ValueError: raise GateFailure(f'split_image_path_escapes_root_row_{i}')
         if not image.is_file(): raise GateFailure(f'split_image_missing_row_{i}:{r["image_path"]}')
