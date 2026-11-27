@@ -1,0 +1,69 @@
+{"epoch": 1, "train_loss": 1.053866176001997, "val_accuracy": 0.4236111111111111, "val_macro_f1": 0.3790299534980386}
+{"epoch": 2, "train_loss": 0.6880461943436817, "val_accuracy": 0.6319444444444444, "val_macro_f1": 0.6114412050893594}
+{"epoch": 3, "train_loss": 0.47429633715066566, "val_accuracy": 0.6805555555555556, "val_macro_f1": 0.6774581265508686}
+{"epoch": 4, "train_loss": 0.3897763199834938, "val_accuracy": 0.7847222222222222, "val_macro_f1": 0.7838494838494838}
+{"epoch": 5, "train_loss": 0.2794560653617583, "val_accuracy": 0.7222222222222222, "val_macro_f1": 0.7269483308787432}
+{"epoch": 6, "train_loss": 0.19660847266036344, "val_accuracy": 0.7708333333333334, "val_macro_f1": 0.7755015424665335}
+{"epoch": 7, "train_loss": 0.1775746656110488, "val_accuracy": 0.7916666666666666, "val_macro_f1": 0.7908359740832231}
+{"epoch": 8, "train_loss": 0.15759493100894503, "val_accuracy": 0.7777777777777778, "val_macro_f1": 0.7738935522472108}
+{"epoch": 9, "train_loss": 0.1458571546049003, "val_accuracy": 0.8055555555555556, "val_macro_f1": 0.8078590764074635}
+{"epoch": 10, "train_loss": 0.14783147498067603, "val_accuracy": 0.7708333333333334, "val_macro_f1": 0.7738635945886332}
+{"epoch": 11, "train_loss": 0.10766480082129858, "val_accuracy": 0.8472222222222222, "val_macro_f1": 0.8454034500284014}
+{"epoch": 12, "train_loss": 0.11358625046819089, "val_accuracy": 0.7638888888888888, "val_macro_f1": 0.7656080886417965}
+{"epoch": 13, "train_loss": 0.09853223667491272, "val_accuracy": 0.7847222222222222, "val_macro_f1": 0.7850295804678818}
+Resuming at epoch 14
+{"epoch": 14, "train_loss": 0.0459711196641606, "val_accuracy": 0.8055555555555556, "val_macro_f1": 0.8064776224252813}
+{"epoch": 15, "train_loss": 0.06147625194077032, "val_accuracy": 0.8541666666666666, "val_macro_f1": 0.8542955388543624}
+{"epoch": 16, "train_loss": 0.057099231344883344, "val_accuracy": 0.7986111111111112, "val_macro_f1": 0.8003903990746096}
+{"epoch": 17, "train_loss": 0.07986832773649549, "val_accuracy": 0.8611111111111112, "val_macro_f1": 0.8611701556629092}
+{"epoch": 18, "train_loss": 0.043065432840621615, "val_accuracy": 0.8125, "val_macro_f1": 0.8131234323047308}
+{
+  "status": "field_dataset_tree_held_out_exploratory_benchmark",
+  "test_accuracy": 0.8656716417910447,
+  "test_macro_f1": 0.8575668071962986,
+  "best_validation_accuracy": 0.8611111111111112,
+  "class_counts_by_split": {
+    "train": {
+      "California red scale-like (Aonidiella aurantii)": 92,
+      "Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri)": 88,
+      "greening-like": 41,
+      "apparently healthy": 111
+    },
+    "val": {
+      "California red scale-like (Aonidiella aurantii)": 45,
+      "Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri)": 33,
+      "greening-like": 33,
+      "apparently healthy": 33
+    },
+    "test": {
+      "California red scale-like (Aonidiella aurantii)": 21,
+      "Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri)": 45,
+      "greening-like": 51,
+      "apparently healthy": 17
+    }
+  },
+  "trees_by_split": {
+    "train": [
+      "T01",
+      "T010",
+      "T02",
+      "T07",
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13"
+    ],
+    "val": [
+      "T03",
+      "T05",
+      "T06"
+    ],
+    "test": [
+      "T04",
+      "T08"
+    ]
+  },
+  "onnx_export": "failed: ModuleNotFoundError(\"No module named 'onnxscript'\")",
+  "elapsed_seconds": 113.3
+}

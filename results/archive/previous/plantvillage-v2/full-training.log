@@ -1,0 +1,130 @@
+Device: cpu; train=34683 validation=8673 test=10948; classes=38
+WARNING: No GPU detected. Training will be slow; switch Colab runtime to GPU before continuing.
+Frozen feature extractor; training final classifier layer only.
+Epoch 1/1 batch 10/1084 loss=3.3946
+Epoch 1/1 batch 20/1084 loss=3.2852
+Epoch 1/1 batch 30/1084 loss=3.3092
+Epoch 1/1 batch 40/1084 loss=3.1321
+Epoch 1/1 batch 50/1084 loss=3.1739
+Epoch 1/1 batch 60/1084 loss=3.1998
+Epoch 1/1 batch 70/1084 loss=3.6169
+Epoch 1/1 batch 80/1084 loss=2.9928
+Epoch 1/1 batch 90/1084 loss=3.3255
+Epoch 1/1 batch 100/1084 loss=2.9875
+Epoch 1/1 batch 110/1084 loss=3.2755
+Epoch 1/1 batch 120/1084 loss=3.0183
+Epoch 1/1 batch 130/1084 loss=3.3333
+Epoch 1/1 batch 140/1084 loss=3.3431
+Epoch 1/1 batch 150/1084 loss=3.0055
+Epoch 1/1 batch 160/1084 loss=3.5135
+Epoch 1/1 batch 170/1084 loss=2.9614
+Epoch 1/1 batch 180/1084 loss=3.5407
+Epoch 1/1 batch 190/1084 loss=2.9562
+Epoch 1/1 batch 200/1084 loss=3.1184
+Epoch 1/1 batch 210/1084 loss=2.9138
+Epoch 1/1 batch 220/1084 loss=2.9053
+Epoch 1/1 batch 230/1084 loss=3.1281
+Epoch 1/1 batch 240/1084 loss=2.8186
+Epoch 1/1 batch 250/1084 loss=3.0249
+Epoch 1/1 batch 260/1084 loss=2.8508
+Epoch 1/1 batch 270/1084 loss=2.9056
+Epoch 1/1 batch 280/1084 loss=3.2772
+Epoch 1/1 batch 290/1084 loss=2.9055
+Epoch 1/1 batch 300/1084 loss=3.0435
+Epoch 1/1 batch 310/1084 loss=2.9458
+Epoch 1/1 batch 320/1084 loss=2.9832
+Epoch 1/1 batch 330/1084 loss=2.9238
+Epoch 1/1 batch 340/1084 loss=2.7783
+Epoch 1/1 batch 350/1084 loss=2.8717
+Epoch 1/1 batch 360/1084 loss=3.0604
+Epoch 1/1 batch 370/1084 loss=3.0983
+Epoch 1/1 batch 380/1084 loss=2.9261
+Epoch 1/1 batch 390/1084 loss=2.8467
+Epoch 1/1 batch 400/1084 loss=2.8064
+Epoch 1/1 batch 410/1084 loss=3.0358
+Epoch 1/1 batch 420/1084 loss=2.8736
+Epoch 1/1 batch 430/1084 loss=2.8224
+Epoch 1/1 batch 440/1084 loss=3.2208
+Epoch 1/1 batch 450/1084 loss=2.7753
+Epoch 1/1 batch 460/1084 loss=2.8711
+Epoch 1/1 batch 470/1084 loss=3.0567
+Epoch 1/1 batch 480/1084 loss=3.1808
+Epoch 1/1 batch 490/1084 loss=3.0517
+Epoch 1/1 batch 500/1084 loss=3.2176
+Epoch 1/1 batch 510/1084 loss=2.9889
+Epoch 1/1 batch 520/1084 loss=2.7988
+Epoch 1/1 batch 530/1084 loss=3.1032
+Epoch 1/1 batch 540/1084 loss=2.9502
+Epoch 1/1 batch 550/1084 loss=2.9576
+Epoch 1/1 batch 560/1084 loss=3.3073
+Epoch 1/1 batch 570/1084 loss=3.0132
+Epoch 1/1 batch 580/1084 loss=2.8354
+Epoch 1/1 batch 590/1084 loss=2.9041
+Epoch 1/1 batch 600/1084 loss=2.9051
+Epoch 1/1 batch 610/1084 loss=2.6083
+Epoch 1/1 batch 620/1084 loss=2.5378
+Epoch 1/1 batch 630/1084 loss=3.1000
+Epoch 1/1 batch 640/1084 loss=2.9972
+Epoch 1/1 batch 650/1084 loss=2.9325
+Epoch 1/1 batch 660/1084 loss=3.1290
+Epoch 1/1 batch 670/1084 loss=3.0922
+Epoch 1/1 batch 680/1084 loss=3.1831
+Epoch 1/1 batch 690/1084 loss=2.8399
+Epoch 1/1 batch 700/1084 loss=2.7867
+Epoch 1/1 batch 710/1084 loss=2.9176
+Epoch 1/1 batch 720/1084 loss=2.7858
+Epoch 1/1 batch 730/1084 loss=2.4343
+Epoch 1/1 batch 740/1084 loss=2.9039
+Epoch 1/1 batch 750/1084 loss=2.7452
+Epoch 1/1 batch 760/1084 loss=2.8404
+Epoch 1/1 batch 770/1084 loss=2.9122
+Epoch 1/1 batch 780/1084 loss=2.7541
+Epoch 1/1 batch 790/1084 loss=2.7071
+Epoch 1/1 batch 800/1084 loss=2.8138
+Epoch 1/1 batch 810/1084 loss=2.6235
+Epoch 1/1 batch 820/1084 loss=2.8378
+Epoch 1/1 batch 830/1084 loss=3.0853
+Epoch 1/1 batch 840/1084 loss=3.0370
+Epoch 1/1 batch 850/1084 loss=2.8916
+Epoch 1/1 batch 860/1084 loss=2.6952
+Epoch 1/1 batch 870/1084 loss=3.0547
+Epoch 1/1 batch 880/1084 loss=2.6736
+Epoch 1/1 batch 890/1084 loss=2.9161
+Epoch 1/1 batch 900/1084 loss=2.5197
+Epoch 1/1 batch 910/1084 loss=2.9751
+Epoch 1/1 batch 920/1084 loss=2.6071
+Epoch 1/1 batch 930/1084 loss=3.3514
+Epoch 1/1 batch 940/1084 loss=2.7416
+Epoch 1/1 batch 950/1084 loss=2.8016
+Epoch 1/1 batch 960/1084 loss=2.7833
+Epoch 1/1 batch 970/1084 loss=3.0985
+Epoch 1/1 batch 980/1084 loss=2.4936
+Epoch 1/1 batch 990/1084 loss=3.1594
+Epoch 1/1 batch 1000/1084 loss=2.6576
+Epoch 1/1 batch 1010/1084 loss=3.0606
+Epoch 1/1 batch 1020/1084 loss=2.8682
+Epoch 1/1 batch 1030/1084 loss=2.8391
+Epoch 1/1 batch 1040/1084 loss=2.5809
+Epoch 1/1 batch 1050/1084 loss=3.0123
+Epoch 1/1 batch 1060/1084 loss=2.9948
+Epoch 1/1 batch 1070/1084 loss=2.7011
+Epoch 1/1 batch 1080/1084 loss=2.8071
+Epoch 1/1 batch 1084/1084 loss=2.5051
+Epoch 1/1 complete | train_loss=2.9504 | val_accuracy=0.2359 | val_macro_f1=0.0929 | best=0.2359 | checkpoint saved
+{
+  "status": "exploratory_non_independent_baseline",
+  "architecture": "MobileNetV3-Small",
+  "best_validation_accuracy": 0.23590453130404704,
+  "test_accuracy": 0.23529411764705882,
+  "test_macro_f1": 0.09060006103135654,
+  "images_per_split": {
+    "train": 34683,
+    "validation": 8673,
+    "test": 10948
+  },
+  "groups_per_split": {
+    "train": 15606,
+    "validation": 3902,
+    "test": 4877
+  }
+}
