@@ -22,6 +22,14 @@ class VerifySplitTests(unittest.TestCase):
         r=self.run_check('tree,split,sha\nT1,train,abc\nT2,test,abc\n',['--group-col','tree','--hash-col','sha'])
         self.assertEqual(r.returncode,2)
         self.assertIn('exact_hash_leakage:1',r.stdout)
+    def test_empty_template_fails_closed(self):
+        r=self.run_check('dataset_id,image_path,group_id,split,sha256\n', ['--group-col','group_id','--hash-col','sha256'])
+        self.assertEqual(r.returncode,2)
+        self.assertIn('empty_manifest',r.stdout)
+    def test_require_all_splits(self):
+        r=self.run_check('tree,split\nT1,train\nT2,test\n',['--group-col','tree','--require-all-splits'])
+        self.assertEqual(r.returncode,2)
+        self.assertIn('empty_required_splits:val',r.stdout)
     def test_cv_group_has_single_fold(self):
         r=self.run_check('tree,fold\nT1,1\nT2,2\nT1,2\n',['--group-col','tree','--split-col','fold','--cv-fold-col','fold','--allow-splits=1,2'])
         self.assertEqual(r.returncode,2)
