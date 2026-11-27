@@ -26,3 +26,18 @@ These three CSVs are **empty schema templates**, not evidence that any dataset h
 The templates intentionally contain only headers and must fail closed as empty manifests. Populate them from source manifests, then run `scripts/research/verify-splits.py` with the correct group column and `--hash-col sha256`. Use `--source-col source_id` only when the evaluation protocol requires source-disjointness. Exact SHA-256 checks do not detect resized/cropped near-duplicates; run the separately versioned perceptual-hash audit and record its report before marking `leakage_check=PASS`.
 
 A tool PASS certifies only the supplied columns and rows. It does not certify that the identifiers are true, complete, or scientifically appropriate. Do not claim 70/15/15 ratios where group counts make that split infeasible; keep the test groups independent and report actual group/image counts.
+
+## Safe extraction utility
+
+Use `scripts/research/extract-manifest.py` to normalize an existing CSV/JSON manifest. It requires explicit source-column mappings and a written `--group-evidence` explanation. It preserves IDs/splits/labels; it does not synthesize group IDs or hashes. A `--path-map` JSON can map exact paths or path prefixes (see `path_map.example.json`).
+
+For byte-level verification, pass both `--verify-images --image-root ROOT`; the extractor then requires every mapped file to exist and recomputes SHA-256 from the actual bytes. Without that flag, the result is metadata extraction only and must remain in `staging/`, not be treated as a verified production manifest. A report is written separately for provenance.
+
+The currently available Citrus Field V3 source manifest was normalized to `staging/citrus-field-v3.csv` (610 rows, 14 source `tree_id` values; split counts 332/144/134). Its image paths do not resolve in this workspace (0/610 present), and the source manifest contains no SHA-256 column. The local file/hash gate therefore fails; this is an extraction artifact only, not a Phase 0 PASS.
+
+## Archived GVLiD / NGLD evidence (2026-11-27)
+
+- GVLiD V5 archive branch: `archive/gvlid-v5-vineyard-holdout-2026-11-27`, source file `research/2026-11/gvlid-v5/split-manifest.csv`. A normalized 1,323-row copy is staged at `staging/grape-gvlid-v5-reconstructed.csv`. It preserves 28 vineyard IDs and 953/195/175 train/validation/test rows. Metadata-only `verify-splits.py` reports PASS (no vineyard overlap, no exact SHA overlap). **Important:** the archived README and `split-reconstruction.json` say this per-image split was deterministically reconstructed from documented vineyard assignments; it was not the original per-image training-time split. The image files are not present in the current workspace (0/1,323), so hashes have not been recomputed from files and the manifest is not file-verified or approved for final training.
+- NGLD V5 archive branch: `archive/ngld-v5-training-log-2026-11-27`. Its `group_id_for_split` values are pHash audit clusters, not vineyard/plant/site identities. The archived training note explicitly says the split is not independent by vineyard/site/plant. Do not use it as a vineyard-disjoint split.
+- No PlantTom or FieldPlant manifests were found in the inspected archive branches. PlantVillage tomato rows exist but are lab-source and are not a substitute for field datasets.
+- `public/models/plant-disease/labels.json` remains empty (`[]`), so no app disease IDs exist. The source-class inventory in `research/label-map.json` cannot be converted into app IDs without a separately approved taxonomy.

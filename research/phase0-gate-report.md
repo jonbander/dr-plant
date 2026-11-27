@@ -15,7 +15,7 @@
 - **تصحيح جوهري:** BPLD هو Blackgram (Vigna mungo)، وليس مجموعة عنب/حمضيات؛ Leaf Crinkle فيها لا ينقل إلى محصول آخر.
 - PlantTom: 4,819 صورة أصلية؛ 7,836 بعد augmentation؛ 9,352 object instances، لا 9,352 صورة أصلية.
 - FieldPlant: 5,170 صورة و8,629 leaf annotations وفق الورقة؛ هذا لا يثبت lesion pixel masks.
-- GVLiD V5: المصدر 3,477 صورة/4 فئات؛ النموذج الموجود استخدم subset من 1,323 صورة/فئتين فقط. رُفض أي تدريب جديد حالياً لأن manifest الصور/الكروم غير موجود في هذا الفرع لإعادة تشغيل فحص التقسيم؛ يبقى النموذج السابق baseline تاريخياً فقط.
+- GVLiD V5: المصدر 3,477 صورة/4 فئات؛ النموذج الموجود استخدم subset من 1,323 صورة/فئتين فقط. عُثر لاحقاً على `split-manifest.csv` في فرع أرشيف GVLiD؛ لكنه إعادة بناء deterministic من vineyard assignments الموثقة، وليس ملف التقسيم الأصلي من وقت التدريب. اجتاز فحص metadata group/hash، بينما ملفات الصور الأصلية غير موجودة في مساحة العمل الحالية؛ لذلك لا يُعد اجتيازاً لبوابة الملفات.
 
 ## 2. Gold Masks
 
@@ -34,7 +34,7 @@
 - `scripts/research/verify-splits.py` أُنشئ كمدقق fail-closed.
 - Citrus Field V3: PASS على 610 سجلات، 14 tree IDs، صفر تداخل بين train/val/test.
 - Vitis morphology OOF: PASS على 127 سجلاً و63 مجموعة كرمة، لا تتوزع المجموعة على أكثر من fold.
-- بقية مجموعات المرض لا تملك دليلاً بيولوجياً كافياً لاجتياز البروتوكول المحدد؛ بعضها لا يتوفر له tree/vine/site/source IDs. لا تعتبر pHash-only استقلالاً بيولوجياً.
+- بقية مجموعات المرض لا تملك دليلاً بيولوجياً كافياً لاجتياز البروتوكول المحدد؛ بعضها لا يتوفر له tree/vine/site/source IDs. NGLD V5 يستخدم pHash-cluster grouping لا holdout حسب vineyard/plant/site؛ لا تعتبر pHash-only استقلالاً بيولوجياً.
 
 ## قرار البوابة
 
@@ -56,3 +56,18 @@
 عُزّز `verify-splits.py` ليفشل عند manifest فارغ، ويدعم فحص وجود الملفات عبر `--image-root`، ويفرض train/val/test اختيارياً عبر `--require-all-splits`. SHA-256 موثق على أنه exact-duplicate hash فقط، وليس perceptual hash. اختبارات المدقق السبعة ناجحة.
 
 **الحالة:** القوالب جاهزة للتعبئة؛ لم يُعلن PASS جديد ولم تتغير بوابة Phase 0 إلى GO.
+
+
+## تحديث أداة الاستخراج وفحص الأصول — 2026-11-27
+
+- أضيف `scripts/research/extract-manifest.py` لتوحيد CSV/JSON مع الاحتفاظ الحرفي بـgroup IDs والوسوم والتقسيمات، ودعم `path_map.json` (مسارات exact أو prefixes). لا يخترع معرفات أو بصمات. مع `--verify-images` يشترط وجود كل صورة ويعيد حساب SHA-256 من bytes الفعلية.
+- أضيفت اختبارات مستقلة للأداة وملف `research/manifests/path_map.example.json`.
+- استُخرج Citrus Field V3 إلى `research/manifests/staging/citrus-field-v3.csv`: 610 سجلات، 14 `tree_id`، وتوزيع 332/144/134. هذا استخراج metadata فقط.
+- إعادة فحص الملفات الفعلية في مساحة العمل الحالية أعطت **FAIL**: لا يوجد أي من مسارات الصور الـ610 محلياً (0/610)، كما أن manifest المصدر لا يحتوي SHA-256. لا يجوز اعتباره اجتيازاً لبوابة الملفات حتى توفير الأصول وخريطة مسارات صحيحة ثم إعادة حساب hashes.
+- عُثر على الأرشيفات كفروع Git: `archive/gvlid-v5-vineyard-holdout-2026-11-27` و`archive/ngld-v5-training-log-2026-11-27` و`archive/source-specific-models-and-coastal-evidence-2026-11-27`.
+- GVLiD V5: استُخرجت 1,323 صورة إلى `research/manifests/staging/grape-gvlid-v5-reconstructed.csv` مع 28 vineyard IDs، وتقسيم 953/195/175، وفئتي Esca/Healthy. فحص `verify-splits.py` للـmetadata اجتاز: صفر group leakage وصفر exact SHA leakage. لكن المصدر نفسه يوضح أن per-image split أُعيد بناؤه deterministic من 4 test و4 validation vineyards، ولم يكن الملف الأصلي موجوداً في ZIP. كما أن 0/1,323 صورة متاحة محلياً لإعادة حساب SHA؛ لذلك هذه نتيجة metadata-only وليست file-verified ولا manifest نهائياً.
+- NGLD V5: split groups من نوع `ngld-phash-audit-*`/pHash clusters. توثيق التدريب يصرّح بعدم وجود vineyard/plant/session IDs، ولذلك لا يُستخدم هذا الملف لإثبات vineyard-disjoint للعنب أو source/site-disjoint للبندورة. بقي baseline استكشافياً فقط.
+- البندورة: لم نجد PlantTom أو FieldPlant source manifests في فروع الأرشيف المفحوصة. يوجد PlantVillage tomato manifest، لكنه مصدر lab-image ولا يُستبدل به PlantTom/FieldPlant field data. لم ننشئ tomato manifest.
+- خريطة المسارات الحالية نموذج فارغ `research/manifests/path_map.example.json`؛ لم نخترع وجهة محلية للصور غير الموجودة. عند توفير الصور، تُملأ خريطة exact/prefix ثم يعاد الاستخراج مع `--verify-images` لإعادة حساب SHA-256 من الملفات.
+- التسميات: `public/models/plant-disease/labels.json` ما زال `[]` (صفر app disease IDs). `research/label-map.json` يحتوي source classes، لكنه لا يستطيع تعيين app IDs؛ لا يجوز إنشاء `extract-labels.py` ليخترع IDs أو تفعيل أي mapping. الحالة `BLOCKED_NO_APP_DISEASE_IDS` كما هي.
+- لا تزال قوالب العنب والبندورة دون manifests نهائية، وملف الحمضيات في staging فقط. ولا تغيير في قرار Phase 0: **NO-GO**.

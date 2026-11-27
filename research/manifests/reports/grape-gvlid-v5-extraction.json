@@ -1,0 +1,26 @@
+{
+  "status": "EXTRACTED_UNVERIFIED",
+  "input": "research/manifests/staging/gvlid-v5-source-split.csv",
+  "output": "research/manifests/staging/grape-gvlid-v5-reconstructed.csv",
+  "rows": 1323,
+  "crop": "grape",
+  "dataset_id": "gvlid_v5",
+  "source_columns": {
+    "image": "relative_path",
+    "label": "class_label",
+    "group": "vineyard",
+    "split": "split"
+  },
+  "group_evidence": "Vineyard values are from the archived per-image metadata; per-image split is a deterministic reconstruction from the documented 4 test and 4 validation vineyards, not the original training-time split file (see archived split-reconstruction.json).",
+  "path_map": null,
+  "split_counts": {
+    "train": 953,
+    "test": 175,
+    "validation": 195
+  },
+  "missing_group_ids": 0,
+  "missing_image_paths": 0,
+  "hashes_recomputed_from_files": 0,
+  "errors": [],
+  "warning": "Extraction is not scientific approval. Confirm group semantics, source lineage, licensing, and split suitability separately."
+}

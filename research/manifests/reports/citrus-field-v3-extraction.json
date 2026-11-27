@@ -1,0 +1,26 @@
+{
+  "status": "EXTRACTED_UNVERIFIED",
+  "input": "results/citrus-field-v3/manifest.csv",
+  "output": "research/manifests/staging/citrus-field-v3.csv",
+  "rows": 610,
+  "crop": "citrus",
+  "dataset_id": "citrus_field_v3",
+  "source_columns": {
+    "image": "path",
+    "label": "label",
+    "group": "tree_id",
+    "split": "split"
+  },
+  "group_evidence": "Preserved verbatim from results/citrus-field-v3/manifest.csv tree_id column; 14 distinct tree IDs. Biological identity is inherited from the source manifest and still requires source-record audit.",
+  "path_map": null,
+  "split_counts": {
+    "train": 332,
+    "val": 144,
+    "test": 134
+  },
+  "missing_group_ids": 0,
+  "missing_image_paths": 0,
+  "hashes_recomputed_from_files": 0,
+  "errors": [],
+  "warning": "Extraction is not scientific approval. Confirm group semantics, source lineage, licensing, and split suitability separately."
+}
