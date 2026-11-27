@@ -15,6 +15,15 @@ on:
         description: Extracted dataset directory available on the runner.
         required: true
         type: string
+      expected_task:
+        description: Training task to validate against the signed dataset profile.
+        required: true
+        type: choice
+        options:
+          - classification
+          - self_supervised
+          - segmentation
+          - mask_derived_shape
 
 permissions:
   contents: read
@@ -35,6 +44,7 @@ jobs:
           profile: ${{ inputs.profile }}
           profile-signature: ${{ inputs.profile_signature }}
           data-root: ${{ inputs.data_root }}
+          expected-task: ${{ inputs.expected_task }}
           trusted-public-key: ${{ vars.DRPLANT_TRAINING_GATE_PUBLIC_KEY_PATH }}
           report: artifacts/training-gate-report.json
       - name: Upload gate report
