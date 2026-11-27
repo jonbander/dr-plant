@@ -1,0 +1,6 @@
+afdea74d552a6ee4508ea76ae498ef75f2ba620cf9b2042134496fd8156f16da  results/citrus-field-v3/citrus-field-v3-mobilenetv3-small-embedded.onnx
+2c0d73778703bf479a0fb777f62e91c0cf4afe08da99e0c46e1651d6475c1697  results/lemon-v3/lemon-v3-mobilenetv3-small-embedded.onnx
+60294b8d5823941b06697ff3e5bc853756d42e94705cab81c1d632d75c708bd3  results/citrus-field-v3/best-model.pt
+1079681da44d0e3fa1f184783e973bc655221ea7fd378c5a24a2fa09268a04f9  results/lemon-v3/best-model.pt
+86b8a79f44f717bf4047a798c75c344c27cd685b31244b724835758aa02affd3  results/multicrop-plantvillage-v1/model-output/plantvillage-multicrop-mobilenetv3-small.onnx
+34747ca8157c8c1c69f2089739372114d581578c0884d0a8f6efccfae84d9209  results/multicrop-plantvillage-v2/model-output-refined/plantvillage-full-multicrop-mobilenetv3-small.onnx
