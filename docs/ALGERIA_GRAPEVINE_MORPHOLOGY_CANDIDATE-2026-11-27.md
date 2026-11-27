@@ -17,28 +17,28 @@ This is relevant to Dr.Plant's morphology objective because it may provide leaf 
 - Zenodo ALGERIA record: https://zenodo.org/records/16883367
   - Record description: 477 grapevine leaf images and eight named Algerian varieties.
   - Listed file: `ALGERIA.zip`, approximately 1.6 GB.
-  - The record's visible HTML exposes a generic Rights/License heading but does not display a specific license identifier. Do not infer a license from the article or from a related record.
+  - Zenodo API metadata explicitly declares `cc-by-4.0` for this exact image record. The full normalized API rights/file snapshot and the CC BY 4.0 legal code are archived under `research/licenses/algeria_grape_morphology_v1/` with SHA-256 checksums. This is the uploader's declared license; it does not independently audit the uploader's chain of title.
 - Zenodo FINAL_MASKS record: https://zenodo.org/records/16883403
   - Lists `master_mask_datasheet.csv` (about 3 MB), `master_masks.h5` (about 12.3 GB), and `png_masks.zip` (about 12.1 GB).
   - The datasheet columns include `image_id`, `component_id`, bounding-box coordinates, `dataset`, `original_path`, `file_name`, and four metadata fields.
   - The publicly opened datasheet shows Algeria records before the first California record (the first California row appears at CSV line 684). This means the Algeria section has 683 mask/component rows, **not** necessarily 683 distinct source images. Distinct `original_path` values and one-to-many mask relations must be counted directly before use.
-  - NLM's dataset catalog describes FINAL_MASKS as CC BY 4.0, but the rights statement must still be reconciled against the exact Zenodo record metadata and the underlying image archive. NLM record: https://datasetcatalog.nlm.nih.gov/dataset?q=0002015640
+  - Zenodo API metadata independently confirms `cc-by-4.0` for FINAL_MASKS, and for the follow-up DETECT LEAVES, LEAF_MASKS (one of two), and 10 CLASS PREDICTION AND ALIGNMENT records. Exact record IDs, license identifiers, file sizes, and MD5 checksums are archived in `research/licenses/algeria_grape_morphology_v1/zenodo-records-2026-11-27.json`.
 - Related open-access ampelographic study: Yahiaoui et al. (2024), *Novel insight into the identification of unexplored table grapes recovered from the Aures (Batna, Algeria): A first ampelographic and molecular characterization*, DOI 10.5073/vitis.2024.63.13. It reports 41 sampled vines, 14 distinct SSR genotypes, and OIV-based ampelographic measurements for novel Aures varieties. The paper is CC BY 4.0. This is contextual scientific evidence, **not** proof that the 477-image archive is the exact image collection used in that study, nor a license for the image archive.
   - Article: https://doi.org/10.5073/vitis.2024.63.13
 
 ## Blocking issues
 
-1. **Image license is unresolved.** The ALGERIA image record does not expose a specific license identifier in the visible record. The article's CC BY 4.0 license does not automatically license the separate image archive. Do not download for training, redistribute, or copy into Dr.Plant until the record-level grant is verified.
-2. **Image-to-mask join is not yet validated.** The mask datasheet has 683 Algeria component rows before the California section, while the image record advertises 477 images. These are different units and may be compatible, but the exact number of unique source paths, missing images, duplicate paths, and multi-component masks must be computed from the full CSV.
-3. **Mask provenance and quality are unknown.** The public description calls them segmented masks but does not establish whether each mask is manually annotated, machine-generated, or manually corrected. They are not Gold Masks for Dr.Plant until provenance and quality are independently audited.
-4. **Biological independence is not established.** Variety labels are not vine/tree IDs. Front/back or repeated views of the same leaf may occur. Filename suffixes, batch folders, and variety names cannot be promoted to verified vine identity without source evidence.
+1. **Declared license is now verified.** The exact ALGERIA image record and companion mask/metadata records declare CC BY 4.0 in the Zenodo API. This removes the missing-license blocker, but does not prove the uploader owns every underlying image right; retain attribution and source provenance, and do not overstate the legal review.
+2. **Image-to-mask join is partially validated from checksum-verified metadata CSVs.** `LEAF_DATA_METADATA.csv` contains 477 Algeria source-image rows and 477 unique paths. The current `master_mask_datasheet.csv` contains 481 Algeria component rows across 477 unique source paths; four images have a second, very small component that needs visual review. The earlier 683-row count came from a stale indexed copy of the CSV and is superseded by the downloaded file whose MD5 matches the current Zenodo API. The DETECT LEAVES summary says 476 images were processed and 477 leaf crops were found. Its `LEAF_MASK_METADATA.csv` has 478 rows: 477 crop records plus one `NONE_DETECTED` blank-path record; there are 476 nonblank unique source paths. One input path, `AHMEUR_BOU_AHMEUR_ab_27.jpg`, is absent from predicted outputs. Another image, `ICHMOUL_ad_29.jpg`, has two near-identical crops with bounding-box IoU 0.9826, a duplicate-detection candidate.
+3. **Mask provenance and quality are not Gold.** DETECT LEAVES explicitly describes its Algeria outputs as model-predicted leaf masks. The four extra components in the legacy mask datasheet are tiny fragments by bounding-box dimensions, and one duplicate crop pair has IoU 0.9826. These masks are pseudo-labels/candidates only until visually reviewed against source images; they are not Gold Masks.
+4. **Biological independence is not established.** The metadata provides cultivar and adaxial/abaxial side labels but no vine/tree IDs. Filename parsing identifies 103 possible adaxial/abaxial paired leaf specimens among 287 side-index keys; 184 keys are unpaired. These are candidate leaf-specimen pairs, not verified vine groups. A suspected repeated Louali image appears under two different paths with identical mask bounding boxes; image SHA-256 is needed to confirm or reject the duplicate.
 5. **Domain mismatch remains.** The collection is a morphology/germplasm source, not field disease imagery from the Syrian coast. It may help leaf-shape segmentation or representation learning only; it cannot validate disease recognition, curling, mite damage, or lesion detection.
 
 ## Safe proposed workflow
 
-1. Verify the exact license for the ALGERIA image archive and the matching mask files from Zenodo metadata/API or written source confirmation. Keep the source records and checksums in the license archive.
-2. Retrieve only the small master datasheet first. Do not download the 1.6 GB image archive or 24 GB mask archive until the rights check passes.
-3. Parse the datasheet to produce an Algeria-only inventory with:
+1. The declared CC BY 4.0 licenses and source-file MD5 values are now archived. Keep the original source attribution and exact record snapshots with every copy.
+2. The small metadata CSVs have been checksum-verified and audited. The next data operation is a small, representative image sample from the 1.6 GB ALGERIA archive, not the 9.6 GB segmentation code archive or the 12+ GB mask archive.
+3. Before any training, parse and quarantine:
    - distinct `original_path` count;
    - mask rows and component counts per source image;
    - missing image references;
@@ -48,6 +48,35 @@ This is relevant to Dr.Plant's morphology objective because it may provide leaf 
 4. If the join is complete and rights are verified, download a small, representative sample first. Verify archive MD5, file decode, image SHA-256, mask dimensions, mask/image alignment, and mask provenance. Review a stratified human sample before expanding.
 5. Build biological/leaf-specimen grouping only from source records that support it. Keep all views/components from the same specimen together. Never use cultivar name, filename similarity, pHash, or image hash as a substitute for vine identity.
 6. Register this source as a separate morphology-only dataset. Keep its split separate from disease datasets. It may later support leaf segmentation or shape pretraining, but no disease labels should be fabricated.
+
+## Checksum-verified metadata audit — 2026-11-27
+
+The exact small CSV files were downloaded only after the Zenodo API rights check. Every MD5 matched the checksum published by Zenodo:
+
+| File | Size | Verified MD5 |
+|---|---:|---|
+| `LEAF_DATA_METADATA.csv` | 2,228,272 B | `ccef9350792840d2c87c4f3b20b8c577` |
+| `LEAF_MASK_METADATA.csv` | 6,433,657 B | `f52fa4b908bf6ddb1ebaed36ff8acdaf` |
+| `MASTER_LEAF_METADATA.csv` | 6,281,908 B | `eaffe8e3c7068b8cde98a2b671430cdd` |
+| `LEAF_DETECTION_SUMMARY.csv` | 290 B | `1908419c1ed31db610debf0156aefe3c` |
+| `master_mask_datasheet.csv` | 2,995,071 B | `2e9ed5ceb72ff4cf53412965bca73b26` |
+
+### Counts and integrity findings
+
+- Input inventory: 477 Algeria images, 477 distinct source paths.
+- DETECT LEAVES summary: 476 images processed; 477 predicted leaf crops.
+- `LEAF_MASK_METADATA.csv`: 478 rows including one `NONE_DETECTED` row with an empty source path; 477 crop records, 476 distinct nonblank source paths. The missing input path is `ALGERIA/SECOND_BATCH/AHMEUR_BOU_AHMEUR_ab/AHMEUR_BOU_AHMEUR_ab_27.jpg`.
+- `MASTER_LEAF_METADATA.csv`: 477 rows, 476 distinct source paths. `ICHMOUL_ad_29.jpg` has two crop records whose boxes overlap at IoU 0.9826; quarantine one until visual review.
+- `master_mask_datasheet.csv`: 481 Algeria component rows across all 477 unique source paths. Four paths have a second component; each second component is tiny relative to the primary leaf bounding box and should be treated as a possible segmentation artifact, not a second leaf.
+- Variety labels in the leaf metadata: Ichmoul 70 crop rows, Babari 61, Amer Bouamar 63, Ichmoul Bacha 29, Louali 64, Bouabane des Aures 64, Tizi Ouinine 65, Ahmeur Bou Ahmeur 60, and one NA. The Ichmoul count includes the duplicate crop noted above.
+- Side metadata: 109 adaxial, 282 abaxial, and 86 NA. Filename parsing yields 103 possible matched adaxial/abaxial pairs among 287 specimen-like keys; 184 keys are unpaired. These are not verified vine identities.
+- No vine/tree/plot IDs are present in these metadata CSVs. The source therefore cannot support a verified vine-disjoint split.
+
+A separate suspicious duplicate candidate appears in the legacy mask datasheet: `376_LOUALI_ID77.jpg` and `LOULI_ab_1.jpg` have identical component bounding boxes. This is not proof of duplicate image content; verify by downloading the two source images and comparing SHA-256/pHash before grouping.
+
+### Google Drive inventory
+
+The connected Drive was searched before downloading these assets. It already contains the earlier French morphology model archive `DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip`, but no matching Algeria source archive, `LEAF_DATA_METADATA.csv`, `LEAF_MASK_METADATA.csv`, `MASTER_LEAF_METADATA.csv`, or master mask datasheet. The new metadata CSVs are kept separately from that earlier model archive to avoid confusing the two sources.
 
 ## Additional pipeline discovered after the first audit
 
@@ -75,6 +104,6 @@ Links:
 
 ## Decision
 
-**BLOCKED — no download, no training, no Gold Mask designation, no production integration.**
+**BLOCKED — metadata retrieval is complete, but no image archive has been added to Drive yet, no predicted mask is Gold, no vine-disjoint split exists, and no disease labels are present. No training or production integration.**
 
 The source is promising enough to investigate further because of its North-African grape varieties and the companion mask datasheet. The next safe operation is rights verification and a small-datasheet audit, not model training.
