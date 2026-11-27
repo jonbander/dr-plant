@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "group_id": "REPLACE_WITH_BIOLOGICAL_GROUP_ID",
+  "grouping_unit": "vineyard_or_block",
+  "identity_source": "field_log",
+  "source_record_ref": "source-records/REPLACE_WITH_ORIGINAL_RECORD.json",
+  "source_record_sha256": "REPLACE_WITH_64_HEX_SHA256",
+  "verified_by": "REPLACE_WITH_REVIEWER_ID",
+  "verified_at": "YYYY-MM-DD",
+  "status": "verified"
+}
