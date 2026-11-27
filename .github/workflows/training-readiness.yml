@@ -1,0 +1,46 @@
+name: Dr.Plant training readiness
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Dataset-specific gate profile path in the checked-out repository.
+        required: true
+        type: string
+      profile_signature:
+        description: Detached signature file for the selected profile.
+        required: true
+        type: string
+      data_root:
+        description: Extracted dataset directory available on the runner.
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  training-readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify training data gate
+        uses: ./.github/actions/verify-training-gate
+        with:
+          profile: ${{ inputs.profile }}
+          profile-signature: ${{ inputs.profile_signature }}
+          data-root: ${{ inputs.data_root }}
+          trusted-public-key: ${{ vars.DRPLANT_TRAINING_GATE_PUBLIC_KEY_PATH }}
+          report: artifacts/training-gate-report.json
+      - name: Upload gate report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: training-gate-report
+          path: artifacts/training-gate-report.json
+          if-no-files-found: ignore
