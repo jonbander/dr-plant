@@ -1,0 +1,12 @@
+Resuming from epoch 4 with best val=0.6315
+{"epoch": 4, "train_loss": 0.8436585047802367, "val_accuracy": 0.6766489764973465}
+{"epoch": 5, "train_loss": 0.7164374140949993, "val_accuracy": 0.6834723275208491}
+{"epoch": 6, "train_loss": 0.6507934465036764, "val_accuracy": 0.7016679302501896}
+Traceback (most recent call last):
+  File "scripts/train_lemon_v3_exploratory.py", line 74, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "scripts/train_lemon_v3_exploratory.py", line 68, in main
+    report={"status":"exploratory_image_level_split_non_independent","dataset":"Large-Scale Lemon Leaf Disease and Pest Image Dataset V3","doi":"10.17632/8d9fv6kpt3.3","license":"CC BY 4.0","images":len(rows),"classes":classes,"images_per_split":{s:len(sets[s]) for s in sets},"epochs_completed":len(hist),"best_validation_accuracy":best,"fine_tuned_last_blocks":a.unfreeze_last_blocks,"test_accuracy":float(accuracy_score(yt,yp)),"test_macro_f1":float(f1_score(yt,yp,average="macro",zero_division=0)),"classification_report":classification_report(yt,yp,target_names=classes,output_dict=True,zero_division=0),"confusion_matrix":confusion_matrix(yt,yp).tolist(),"history":hist,"elapsed_seconds":round(time.time()-start,1),"limitations":["No per-image farm/tree/plant IDs were supplied for grouped splitting.","Image-level holdout can share acquisition conditions and source context; not independent external validation.","Images photographed against a plain white background; not orchard-scene field images.","Expert label review is reported by dataset authors but not independently repeated by Dr Plant team.","Not validated on Syrian cultivars or conditions; do not deploy as a diagnostic model."]}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^^^^^
+NameError: name 'start' is not defined
