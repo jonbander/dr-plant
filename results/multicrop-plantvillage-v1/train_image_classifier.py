@@ -55,7 +55,13 @@ def atomic_save(payload, path):
     torch.save(payload, tmp)
     os.replace(tmp, path)
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
+    gate_args=extract_training_gate_args()
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("image_root",type=Path); p.add_argument("split_manifest",type=Path)
     p.add_argument("--out",required=True,type=Path); p.add_argument("--epochs",type=int,default=8)
@@ -67,6 +73,7 @@ def main():
     p.add_argument("--image-size",type=int,default=224)
     p.add_argument("--workers",type=int,default=0)
     a=p.parse_args()
+    enforce_training_gate(gate_args)
     if a.epochs<1 or a.batch_size<1: p.error("epochs and batch size must be positive")
     random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed)
     if torch.cuda.is_available(): torch.cuda.manual_seed_all(a.seed)

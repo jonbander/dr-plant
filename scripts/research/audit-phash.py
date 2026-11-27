@@ -11,6 +11,7 @@ This is a project-defined versioned procedure, not a universal pHash standard.
 """
 import argparse
 import csv
+import hashlib
 import json
 import shutil
 import subprocess
@@ -156,7 +157,10 @@ def main():
         'status': status, 'algorithm': ALGORITHM, 'implementation': version,
         'image_size': IMAGE_SIZE, 'hash_size': HASH_SIZE, 'threshold_hamming': a.threshold,
         'rows': len(rows), 'unique_phashes': len(set(hashes)),
-        'near_duplicate_pairs': len(pairs), 'cross_split_pairs': len(cross_split),
+        'source_manifest_sha256': hashlib.sha256(a.manifest.read_bytes()).hexdigest(),
+        'audited_manifest_sha256': hashlib.sha256(a.output.read_bytes()).hexdigest(),
+        'near_duplicate_pairs': len(pairs), 'reviewed_pairs': 0, 'unresolved_pairs': len(pairs),
+        'cross_split_pairs': len(cross_split),
         'cross_label_pairs': len(cross_label), 'distance_counts': dict(sorted(distance_counts.items())),
         'output_manifest': str(a.output), 'pairs_report': str(a.pairs_report),
         'scope_note': 'Every near-duplicate pair requires review. Cross-split pairs fail split isolation; same-split pairs still require deduplication/review, and cross-label pairs require label review. This audit does not prove vineyard IDs are biologically correct.'

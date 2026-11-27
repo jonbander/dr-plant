@@ -17,8 +17,11 @@ class DS(Dataset):
   r=self.rows[i]
   with Image.open(r["path"]) as im:x=self.tf(im.convert("RGB"))
   return x,self.classes.index(r["label"])
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
- p=argparse.ArgumentParser();p.add_argument("--data",type=Path,required=True);p.add_argument("--out",type=Path,required=True);p.add_argument("--epochs",type=int,default=3);p.add_argument("--batch-size",type=int,default=32);p.add_argument("--image-size",type=int,default=128);p.add_argument("--workers",type=int,default=0);p.add_argument("--seed",type=int,default=42);p.add_argument("--resume",action="store_true");p.add_argument("--unfreeze-last-blocks",type=int,default=2);a=p.parse_args()
+ gate_args=extract_training_gate_args()
+ p=argparse.ArgumentParser();p.add_argument("--data",type=Path,required=True);p.add_argument("--out",type=Path,required=True);p.add_argument("--epochs",type=int,default=3);p.add_argument("--batch-size",type=int,default=32);p.add_argument("--image-size",type=int,default=128);p.add_argument("--workers",type=int,default=0);p.add_argument("--seed",type=int,default=42);p.add_argument("--resume",action="store_true");p.add_argument("--unfreeze-last-blocks",type=int,default=2);a=p.parse_args();enforce_training_gate(gate_args)
  random.seed(a.seed);np.random.seed(a.seed);torch.manual_seed(a.seed)
  rows=[]
  for f in a.data.rglob("*"):

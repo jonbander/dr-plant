@@ -13,10 +13,14 @@ from sklearn.preprocessing import StandardScaler,LabelEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score,balanced_accuracy_score,f1_score,top_k_accuracy_score,confusion_matrix
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+gate_args=extract_training_gate_args()
 p=argparse.ArgumentParser()
 p.add_argument('--manifest',required=True);p.add_argument('--images-root',required=True);p.add_argument('--weights',required=True);p.add_argument('--out-dir',required=True)
 p.add_argument('--batch-size',type=int,default=16);p.add_argument('--threads',type=int,default=2)
-a=p.parse_args();out=Path(a.out_dir);out.mkdir(parents=True,exist_ok=True)
+a=p.parse_args();enforce_training_gate(gate_args);out=Path(a.out_dir);out.mkdir(parents=True,exist_ok=True)
 torch.set_num_threads(a.threads);torch.manual_seed(42);np.random.seed(42);random.seed(42)
 df_all=pd.read_csv(a.manifest)
 df_all=df_all[df_all.country=='FRANCE'].copy().reset_index(drop=True)
