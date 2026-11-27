@@ -33,6 +33,7 @@ python scripts/research/validate-training-gate.py \
   --profile-signature research/training-gates/profiles/<dataset>.json.sig \
   --data-root /path/to/dataset \
   --trusted-public-key /path/to/protected/maintainer-ed25519.pem \
+  --expected-task classification \
   --report artifacts/training-gate-report.json
 ```
 
@@ -77,3 +78,7 @@ python scripts/research/validate-training-gate.py \
 يشير `group_identity_evidence_ref` إلى ملف JSON داخل جذر البيانات، ويجب أن تطابق بصمته SHA-256 القيمة المسجلة. يضم سجل الإثبات `group_id` و`grouping_unit` ومصدر الهوية ومرجع السجل الأصلي وبصمته ومراجع التحقق وتاريخه وحالة `verified`. يتحقق الفاحص من وجود السجل وبصماته وتطابقه مع صف الصورة ووحدة التجميع المحددة في profile. كما يرفض استعمال pHash أو SHA-256 أو معرف مجموعة النسخ القريبة كبديل عن الهوية البيولوجية.
 
 يجب إدراج ملفات سجل الهوية والسجلات الأصلية المشار إليها ضمن delivery manifest وتوقيعها. هذا يرفع قابلية التدقيق ولا يثبت صدق المضمون وحده؛ تبقى مراجعة مصدر السجل وهوية الكرمة/الشجرة/الموقع مسؤولية بشرية موثقة.
+
+## ربط ملف الاعتماد بنوع التدريب الفعلي
+
+لا يكفي أن يعلن profile عن `task_scope`. يمرر كل مدخل تدريب قيمة `--expected-task` يحددها سجل مركزي داخل `scripts/training_gate_guard.py` ولا يستطيع مشغّل الأمر استبدالها. يجب أن يحتوي `task_scope` الموقّع على هذه المهمة بالضبط، وإلا تعيد البوابة `NO-GO`. المهام المقبولة حصراً: `classification`, `self_supervised`, `segmentation`, `mask_derived_shape`. تدريب `train_grape_morphology_fusion.py` مربوط بـ`mask_derived_shape` ولذلك يتطلب مراجعة Gold Leaf Masks؛ لا يمكن تمرير ملف تصنيف عادي له. كما أن workflow اليدوي يطلب نوع المهمة صراحةً، لكنه لا يتجاوز الربط الثابت داخل مدخل التدريب نفسه.

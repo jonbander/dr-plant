@@ -5,6 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 
 GROUP_IDENTITY_SOURCES={'source_metadata','field_log','acquisition_manifest','expert_annotation'}
+ALLOWED_TASKS={'classification','self_supervised','segmentation','mask_derived_shape'}
 
 class GateFailure(Exception):
     pass
@@ -234,6 +235,7 @@ def main():
     ap.add_argument('--report',type=Path)
     ap.add_argument('--trusted-public-key',required=True,type=Path,help='Trusted Ed25519 public key supplied by protected CI configuration, never by the dataset package.')
     ap.add_argument('--profile-signature',required=True,type=Path,help='Detached Ed25519 signature for the profile itself.')
+    ap.add_argument('--expected-task',required=True,choices=sorted(ALLOWED_TASKS),help='Task required by the invoking training entry point; must be declared in the signed profile.')
     a=ap.parse_args(); result={'status':'NO-GO','research_training_allowed':False,'hybrid_adoption_allowed':False,'gates':{},'errors':[]}
     try:
         profile=a.profile.resolve(); base=profile.parent; root=a.data_root.resolve()
@@ -242,7 +244,12 @@ def main():
         result['gates']['profile_signature']='PASS'
         if cfg.get('schema_version')!=1: raise GateFailure('unsupported_profile_schema_version')
         tasks=cfg.get('task_scope') or []
-        if not tasks: raise GateFailure('task_scope_empty')
+        if not isinstance(tasks,list) or not tasks: raise GateFailure('task_scope_empty_or_not_a_list')
+        unknown_tasks=sorted(set(tasks)-ALLOWED_TASKS)
+        if unknown_tasks: raise GateFailure('task_scope_contains_unsupported_tasks:'+','.join(unknown_tasks))
+        if a.expected_task not in tasks:
+            raise GateFailure(f'expected_task_not_in_signed_profile:expected={a.expected_task}:declared={",".join(tasks)}')
+        result['gates']['task_binding']={'expected_task':a.expected_task,'declared_tasks':tasks,'status':'PASS'}
         grouping=cfg.get('grouping_unit')
         if grouping not in ('vineyard_or_block','tree','source_site_acquisition','source'):
             raise GateFailure('grouping_unit_must_be_biologically_or_operationally_justified')

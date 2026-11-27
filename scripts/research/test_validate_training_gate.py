@@ -70,14 +70,18 @@ class TrainingGateTests(unittest.TestCase):
             tax_sig=base/'taxonomy.sig'; sign(priv,taxonomy,tax_sig)
             profile={'schema_version':1,'dataset_id':'unit-test','task_scope':['classification'],'grouping_unit':'vineyard_or_block','delivery_manifest':'delivery.json','delivery_signature':'delivery.sig','dataset_profile':'dataset-profile.json','dataset_profile_signature':'dataset-profile.sig','split_manifest':'split.csv','split_manifest_signature':'split.sig','near_duplicate_audit':'near.json','near_duplicate_audit_signature':'near.sig','taxonomy_map':'taxonomy.json','taxonomy_map_signature':'taxonomy.sig','gold_mask_audit':None}
             pf=base/'profile.json'; pf.write_text(json.dumps(profile),encoding='utf-8'); pfs=base/'profile.sig'; sign(priv,pf,pfs)
-            out=run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub)])
+            out=run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'])
             result=json.loads(out.stdout)
             self.assertEqual(result['status'],'RESEARCH-GO')
             self.assertTrue(result['research_training_allowed'])
             self.assertFalse(result['hybrid_adoption_allowed'])
+            # A signed classification profile must not authorize a mask-derived morphology trainer.
+            mismatch=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','mask_derived_shape'],capture_output=True,text=True)
+            self.assertEqual(mismatch.returncode,2)
+            self.assertIn('expected_task_not_in_signed_profile',mismatch.stdout)
             # Any unlisted file in the delivery root is rejected.
             rogue=payload/'rogue.jpg'; rogue.write_bytes(b'unlisted')
-            rogue_result=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub)],capture_output=True,text=True)
+            rogue_result=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(rogue_result.returncode,2)
             self.assertIn('unlisted_assets:rogue.jpg',rogue_result.stdout)
             rogue.unlink()
@@ -85,7 +89,7 @@ class TrainingGateTests(unittest.TestCase):
             split_rows=[dict(row) for row in valid_rows]
             split_rows[1]['group_id']=split_rows[0]['group_id']
             resign_split_and_near(split_rows)
-            blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub)],capture_output=True,text=True)
+            blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(blocked.returncode,2)
             self.assertIn('biological_group_cross_split',blocked.stdout)
 
@@ -93,7 +97,7 @@ class TrainingGateTests(unittest.TestCase):
             split_rows=[dict(row) for row in valid_rows]
             split_rows[0]['group_id']=split_rows[0]['phash']
             resign_split_and_near(split_rows)
-            blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub)],capture_output=True,text=True)
+            blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(blocked.returncode,2)
             self.assertIn('biological_group_id_matches_duplicate_or_source_identifier',blocked.stdout)
 
@@ -101,7 +105,7 @@ class TrainingGateTests(unittest.TestCase):
             split_rows=[dict(row) for row in valid_rows]
             split_rows[0]['group_identity_evidence_sha256']='0'*64
             resign_split_and_near(split_rows)
-            blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub)],capture_output=True,text=True)
+            blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(blocked.returncode,2)
             self.assertIn('group_identity_evidence_sha256_mismatch',blocked.stdout)
 
@@ -120,7 +124,7 @@ class TrainingGateTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             base=Path(td); payload=base/'payload'; payload.mkdir(); (payload/'extra.jpg').write_bytes(b'extra')
             profile=base/'profile.json'; profile.write_text(json.dumps({'schema_version':1,'task_scope':['classification'],'grouping_unit':'tree'}),encoding='utf-8')
-            out=subprocess.run(['python3',str(SCRIPT),'--profile',str(profile),'--profile-signature',str(base/'missing-profile.sig'),'--data-root',str(payload),'--trusted-public-key',str(base/'missing-public.pem')],capture_output=True,text=True)
+            out=subprocess.run(['python3',str(SCRIPT),'--profile',str(profile),'--profile-signature',str(base/'missing-profile.sig'),'--data-root',str(payload),'--trusted-public-key',str(base/'missing-public.pem'),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(out.returncode,2)
             self.assertFalse(json.loads(out.stdout)['research_training_allowed'])
 
