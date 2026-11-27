@@ -47,3 +47,10 @@ The Citrus Field V3 model manifest was normalized to `staging/citrus-field-v3.cs
 
 - GVLiD V5 curated subset: `staging/grape-gvlid-v5-phash.csv`, 1,323 actual images, threshold Hamming ≤5 (matching the archived GVLiD audit threshold), zero near-duplicate pairs, zero cross-split pairs, zero cross-label pairs. The split itself remains reconstructed from documented vineyard assignments, not the original training-time per-image file. The split is 72.0%/14.7%/13.2% by image count and 20/4/4 vineyards; this follows the archived assignment rather than forcing a 70/15/15 ratio.
 - Citrus Field V3: `staging/citrus-field-v3-phash.csv`, threshold Hamming ≤6, five near-duplicate pairs, all requiring review. One pair crosses train/validation and has conflicting labels (`greening-like` vs `apparently healthy`) at distance 4; four additional same-split pairs also need duplicate review. The tree/SHA/image verifier passes, but the pHash leakage gate remains FAIL; see `reports/citrus-field-v3-phash-near-duplicates.csv`. This makes the Citrus split gate FAIL pending review/quarantine and re-verification.
+
+
+## إثبات هوية مجموعة التقسيم البيولوجية
+
+قوالب العنب والحمضيات والبندورة تتضمن الآن حقول إثبات هوية المجموعة. لا يكفي ملء `group_id` أو استعمال pHash؛ يجب ربط كل صف بسجل هوية JSON موثق، وتسجيل مصدره ومرجعه وبصمته SHA-256 والمراجع وحالة `verified`.
+
+صيغة السجل موضحة في `group-identity-evidence.example.json`. يجب أن يتضمن السجل `group_id` و`grouping_unit` و`identity_source` و`source_record_ref` و`source_record_sha256` و`verified_by` و`verified_at` و`status`. يجب أن يكون سجل الهوية والسجل الأصلي المشار إليه ضمن جذر التسليم ومذكوراً في delivery manifest الموقّع. لا تُملأ هذه الحقول تخميناً؛ يجب أن تكون مراجع المصدر قابلة للمراجعة البشرية.
