@@ -74,9 +74,20 @@ The exact small CSV files were downloaded only after the Zenodo API rights check
 
 A separate suspicious duplicate candidate appears in the legacy mask datasheet: `376_LOUALI_ID77.jpg` and `LOULI_ab_1.jpg` have identical component bounding boxes. This is not proof of duplicate image content; verify by downloading the two source images and comparing SHA-256/pHash before grouping.
 
+### Verified Drive backup
+
+The following seven small audit assets were uploaded to the user's Google Drive folder `DrPlant-ALGERIA-Morphology-2026-11-27`:
+
+- five source metadata CSVs (`LEAF_DATA_METADATA.csv`, `LEAF_DETECTION_SUMMARY.csv`, `LEAF_MASK_METADATA.csv`, `MASTER_LEAF_METADATA.csv`, `master_mask_datasheet.csv`);
+- the CC BY 4.0 legal code;
+- the normalized Zenodo API rights/file snapshot;
+- the SHA-256 manifest (the manifest is the seventh asset; there are five CSVs plus two provenance files and one checksum file = eight files total).
+
+Each upload was opened/downloaded again from Drive and compared byte-for-byte using MD5 for the five CSVs and SHA-256 for the legal code, API snapshot, and checksum manifest. All comparisons matched. The corresponding SHA-256 list is archived at `research/licenses/algeria_grape_morphology_v1/SHA256SUMS.txt`. No original image archive or multi-GB model/mask archive was uploaded.
+
 ### Google Drive inventory
 
-The connected Drive was searched before downloading these assets. It already contains the earlier French morphology model archive `DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip`, but no matching Algeria source archive, `LEAF_DATA_METADATA.csv`, `LEAF_MASK_METADATA.csv`, `MASTER_LEAF_METADATA.csv`, or master mask datasheet. The new metadata CSVs are kept separately from that earlier model archive to avoid confusing the two sources.
+The connected Drive was searched before downloading these assets. It already contains the earlier French morphology model archive `DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip`, but no matching Algeria source archive or metadata CSVs. The seven audit assets listed above are now stored in a separate folder from that earlier model archive. The 1.6 GB ALGERIA image archive is still not downloaded.
 
 ## Additional pipeline discovered after the first audit
 
