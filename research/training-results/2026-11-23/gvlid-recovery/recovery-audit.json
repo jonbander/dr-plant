@@ -1,0 +1,57 @@
+{
+  "source_rows": 3477,
+  "current_curated_images": 1323,
+  "curation_status_counts": {
+    "excluded_or_quarantined": 2154,
+    "retained_curated": 1323
+  },
+  "curation_reason_counts": {
+    "exact_duplicate_sha256_group": 810,
+    "folder_label_vs_metadata_label_conflict": 1344,
+    "accepted_in_prior_curated_subset; source checksum, label metadata, and exact-duplicate checks passed": 1323
+  },
+  "source_metadata_missing": 0,
+  "source_checksums_matched_for_curated": 1323,
+  "folder_metadata_label_conflicts": 1344,
+  "exact_duplicate_groups_source": 446,
+  "exact_duplicate_rows_in_groups": 1514,
+  "exact_duplicate_extra_copies": 1068,
+  "cross_label_duplicate_groups": 3,
+  "source_quality_blurry_flag_counts": {
+    "1": 3477
+  },
+  "source_quality_flag_note": "All source image_quality_metrics rows have blurry_flag=1; treat this as a non-discriminating source flag, not a reason to reject all images.",
+  "recovered_split_counts": {
+    "train": 953,
+    "test": 175,
+    "validation": 195
+  },
+  "recovered_class_split_counts": {
+    "esca": {
+      "train": 622,
+      "test": 127,
+      "validation": 136
+    },
+    "healthy": {
+      "train": 331,
+      "test": 48,
+      "validation": 59
+    }
+  },
+  "split_method": "Reconstructed from original metadata vineyard IDs using the prior model run summary: test Vineyard_1,8,15,22; validation Vineyard_4,11,18,25; remaining vineyards train. Counts exactly match prior summary 953/195/175 and class counts Esca 622/136/127, Healthy 331/59/48.",
+  "retained_near_duplicate_groups_h6": 1323,
+  "retained_near_duplicate_groups_multiple_files": 0,
+  "cross_dataset_gvlid_vs_grape_leaf_health_h6_pairs": 0,
+  "cross_dataset_gvlid_images_with_any_h6_match": 0,
+  "cross_dataset_nearest_hamming_min": 10,
+  "metadata_source": "Companion repository MilindGayakwad/DNN (metadata.json, checksums.csv, image_quality_metrics.csv); source file checksums matched for all retained images.",
+  "dataset_license": "Mendeley Data V5 record declares CC BY 4.0; attribute Shikalgar et al. (2026). The companion repo is used as metadata/checksum source, not as image license.",
+  "limitations": [
+    "The full source images for 2,154 non-retained rows are not present locally; no pHash can be computed for those rows.",
+    "Prior per-row exclusion reason is not fully recoverable for rows without direct metadata conflict or duplicate evidence.",
+    "Source quality file flags every image as blurry; this flag is non-discriminating and must not be used as blanket exclusion.",
+    "28 vineyards appear in this curated 1,323-image subset, while the paper describes 34 vineyards in the full source."
+  ],
+  "training_status": "No new training performed during this recovery audit. All 1,323 curated images were part of the prior model experiment; per-image roles reconstructed by vineyard and exact counts match.",
+  "public_location_handling": "Exact farm GPS coordinates are intentionally omitted from the public manifests. The source region (Maharashtra, India), anonymized vineyard IDs, and capture-season metadata are retained."
+}

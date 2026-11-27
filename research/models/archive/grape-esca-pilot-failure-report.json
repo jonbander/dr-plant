@@ -1,0 +1,45 @@
+{
+  "modelVersion": "grape-esca-pilot-v0.1.0",
+  "purpose": "Record representative correct, rejected, and false-positive behaviors observed through the actual browser ONNX pipeline. No source images are copied into this report.",
+  "externalDataset": "Grape Leaf Health Mendeley V1, DOI 10.17632/378c69nwk5.1, CC BY 4.0",
+  "examples": [
+    {
+      "sourcePath": "GVLiD/esca/esca007.jpg",
+      "sha256": "b9793b6d060fa8ba9557a2995c13b9a2d7be7f41b9dc3b8534ac0c600cf223e6",
+      "sourceLabel": "Esca",
+      "appStatus": "model_screening",
+      "appDisplayedLabel": "النمط البصري أقرب إلى فئة Esca (لا يؤكد المرض)",
+      "rawTopClassScorePercent": 100,
+      "interpretation": "Representative positive example from the GVLiD held-out test split; this is an India-source image, not a Syrian field validation example."
+    },
+    {
+      "sourcePath": "images/Healthy/Healthy_Leaves_0039.jpg",
+      "sha256": "2fc4fc7e885bf363e4f20ec933857b60053d96471be7607e0e12830fc15ae145",
+      "sourceLabel": "Healthy",
+      "appStatus": "model_screening",
+      "appDisplayedLabel": "لم يرصد النموذج نمطاً واضحاً متوافقاً مع Esca",
+      "rawTopClassScorePercent": 99,
+      "interpretation": "Correctly avoided an Esca-like alert on this healthy reference image. This does not prove the vine is free of other diseases."
+    },
+    {
+      "sourcePath": "images/Brown_Spot/Brown_Spot_0030.jpg",
+      "sha256": "20fee1f897882989591b4b2885e1b867bf4644b59a0d10532ded8af2ebff96b7",
+      "sourceLabel": "Brown Spot",
+      "appStatus": "model_screening",
+      "appDisplayedLabel": "النمط البصري أقرب إلى فئة Esca (لا يؤكد المرض)",
+      "rawTopClassScorePercent": 92,
+      "interpretation": "False Esca-like alert on a different disease. This is a real open-set failure and is why the UI must show the narrow-class warning and must not recommend treatment."
+    },
+    {
+      "sourcePath": "images/Black_Rot/Black_Rot_0036.jpg",
+      "sha256": "331c46009183575a92e3a29ec0c4a93f8b49559499dc1169570b3ae860195a91",
+      "sourceLabel": "Black Rot",
+      "appStatus": "model_screening",
+      "appDisplayedLabel": "نتيجة النموذج غير حاسمة",
+      "rawTopClassScorePercent": 76,
+      "interpretation": "The app rejected the score because it was below the 0.85 gate rather than forcing a class."
+    }
+  ],
+  "sourceImagesCopiedToRepository": false,
+  "note": "Examples are from an external non-Syrian dataset and do not establish field accuracy."
+}
