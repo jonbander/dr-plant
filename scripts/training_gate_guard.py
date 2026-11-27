@@ -1,5 +1,5 @@
 """Mandatory preflight guard shared by every Python training entry point."""
-import subprocess, sys
+import json, subprocess, sys
 from pathlib import Path
 
 REQUIRED = {
