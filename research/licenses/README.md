@@ -9,3 +9,5 @@
 - PlantDoc: ملف الترخيص العام لا يحل مشكلة حقوق الصور الخارجية الملتقطة من الويب.
 - PlantVillage: نسخة CC BY-SA 3.0 مرفقة كمرجع لنص الترخيص؛ إعلان بطاقة المصدر يحتاج مطابقة إصدار المصدر واشتراطات ShareAlike قبل أي توزيع تجاري/تطبيق مغلق.
 - FieldPlant وPlantTom: لم يتم العثور على منحة بيانات محددة قابلة للأرشفة للإصدار المستخدم؛ لذلك رُفضا حالياً.
+
+- Algeria grape morphology: exact Zenodo API rights snapshots for ALGERIA, FINAL_MASKS, DETECT LEAVES, LEAF_MASKS and 10 CLASS PREDICTION are archived under `algeria_grape_morphology_v1/`; all five records declare CC BY 4.0. This records the uploader's declared license, not independent proof of underlying ownership.
