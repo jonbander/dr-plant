@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
 """Prevent accidental ungated Python training entry points."""
 from pathlib import Path
+import sys
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'scripts'))
+from training_gate_guard import ENTRYPOINT_TASKS, BLOCKED_ENTRYPOINTS
 
 def main():
     candidates=list((ROOT/'scripts').glob('train_*.py'))
     candidates += [p for p in (ROOT/'scripts'/'research').glob('*.py') if p.name.startswith(('train_','cv_grape_finetune','finetune_grape_existing_teacher'))]
     candidates += list((ROOT/'results').glob('*/train_*.py'))
+    candidate_names={p.relative_to(ROOT).as_posix() for p in candidates}
+    registry_names=set(ENTRYPOINT_TASKS)|set(BLOCKED_ENTRYPOINTS)
+    unclassified=sorted(candidate_names-registry_names)
+    stale=sorted(registry_names-candidate_names)
+    if unclassified or stale:
+        raise SystemExit(f'Training entry-point registry mismatch; unclassified={unclassified}; stale={stale}')
     missing=[]
     for path in candidates:
         text=path.read_text(encoding='utf-8')
@@ -22,6 +31,6 @@ def main():
     import subprocess
     probe=subprocess.run(['python3','-c',code],capture_output=True,text=True)
     if probe.returncode: raise SystemExit('Morphology trainer task binding failed: '+probe.stderr+probe.stdout)
-    print(f'PASS: {len(candidates)} Python training entry points require the signed Phase 0 gate and fixed task binding.')
+    print(f'PASS: {len(candidates)} Python training entry points are accounted for: {len(ENTRYPOINT_TASKS)} task-bound and {len(BLOCKED_ENTRYPOINTS)} explicitly blocked pending signed-split integration.')
 
 if __name__=='__main__': main()
