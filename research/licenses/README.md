@@ -12,3 +12,4 @@
 
 - Algeria grape morphology: exact Zenodo API rights snapshots for ALGERIA, FINAL_MASKS, DETECT LEAVES, LEAF_MASKS and 10 CLASS PREDICTION are archived under `algeria_grape_morphology_v1/`; all five records declare CC BY 4.0. This records the uploader's declared license, not independent proof of underlying ownership.
 - The Algeria morphology audit package has a separate SHA-256 manifest at `algeria_grape_morphology_v1/SHA256SUMS.txt`; the five raw metadata CSVs and two provenance files were separately uploaded to Google Drive and re-downloaded to verify exact hashes. The original image archive remains outside the project until a sample-level visual and duplicate audit is justified.
+- The updated Drive package manifest `algeria_grape_morphology_v1/SHA256SUMS-v2.txt` includes the 24-image/24-mask sample archive and its SHA-256; the sample is a controlled graph-paper morphology set, not field disease imagery.
