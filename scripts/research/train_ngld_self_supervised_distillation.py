@@ -207,7 +207,7 @@ def main():
     p.add_argument("--image-size", type=int, default=160)
     p.add_argument("--seed", type=int, default=42)
     a = p.parse_args()
-    enforce_training_gate(gate_args)
+    enforce_training_gate(gate_args, data_root=a.image_root, split_manifest=a.manifest)
     if a.epochs < 1 or a.batch_size < 2 or a.unfreeze_last_blocks < 1:
         p.error("epochs >= 1, batch-size >= 2 and unfreeze-last-blocks >= 1 are required")
     if a.temperature <= 0 or a.learning_rate <= 0:
