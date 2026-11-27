@@ -31,5 +31,26 @@
   "perceptual_hash_threshold_hamming": 5,
   "near_duplicate_pairs_among_sha256_unique_images": 2,
   "training_decision": "BLOCKED: archive folder labels and metadata disagree for many images; exact duplicates are extensive; request clarification/corrected archive from authors before training.",
-  "note": "Metadata labels are not substituted for the folder labels or vice versa. No images from this archive were used for training."
+  "note": "Metadata labels are not substituted for the folder labels or vice versa. No images from this archive were used for training.",
+  "curated_model": {
+    "task": "Esca vs Healthy only",
+    "source_doi": "10.17632/wkymf8bhcg.5",
+    "license": "CC BY 4.0",
+    "curated_images": 1323,
+    "split": "vineyard-disjoint within source; train 953, validation 195, test 175",
+    "test_vineyards": [
+      "Vineyard_1",
+      "Vineyard_8",
+      "Vineyard_15",
+      "Vineyard_22"
+    ],
+    "validation_vineyards": [
+      "Vineyard_4",
+      "Vineyard_11",
+      "Vineyard_18",
+      "Vineyard_25"
+    ],
+    "split_manifest": "split-manifest.csv",
+    "split_manifest_note": "Reconstructed from the training summary; original per-image split file was not included in the ZIP."
+  }
 }

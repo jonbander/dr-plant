@@ -1,0 +1,7 @@
+split,class_label,0
+test,Esca,127
+test,Healthy,48
+train,Esca,622
+train,Healthy,331
+val,Esca,136
+val,Healthy,59

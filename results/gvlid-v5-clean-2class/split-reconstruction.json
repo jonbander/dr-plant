@@ -1,0 +1,60 @@
+{
+  "method": "derived from the archived training-summary vineyard assignments; test vineyards Vineyard_1, Vineyard_8, Vineyard_15, Vineyard_22; validation vineyards Vineyard_4, Vineyard_11, Vineyard_18, Vineyard_25; all remaining vineyards train",
+  "vineyards_by_split": {
+    "train": [
+      "Vineyard_10",
+      "Vineyard_12",
+      "Vineyard_13",
+      "Vineyard_14",
+      "Vineyard_16",
+      "Vineyard_17",
+      "Vineyard_19",
+      "Vineyard_2",
+      "Vineyard_20",
+      "Vineyard_21",
+      "Vineyard_23",
+      "Vineyard_24",
+      "Vineyard_26",
+      "Vineyard_27",
+      "Vineyard_28",
+      "Vineyard_3",
+      "Vineyard_5",
+      "Vineyard_6",
+      "Vineyard_7",
+      "Vineyard_9"
+    ],
+    "test": [
+      "Vineyard_1",
+      "Vineyard_15",
+      "Vineyard_22",
+      "Vineyard_8"
+    ],
+    "validation": [
+      "Vineyard_11",
+      "Vineyard_18",
+      "Vineyard_25",
+      "Vineyard_4"
+    ]
+  },
+  "images_by_split": {
+    "train": 953,
+    "validation": 195,
+    "test": 175
+  },
+  "classes_by_split": {
+    "train": {
+      "Esca": 622,
+      "Healthy": 331
+    },
+    "validation": {
+      "Esca": 136,
+      "Healthy": 59
+    },
+    "test": {
+      "Esca": 127,
+      "Healthy": 48
+    }
+  },
+  "source_rows": 1323,
+  "note": "The split assignment is reconstructed deterministically from the documented vineyard IDs; it was not present as a per-image split file in the training ZIP."
+}
