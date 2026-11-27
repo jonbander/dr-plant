@@ -1,0 +1,3 @@
+032c0a54175b28c2d462888e5307ceba161654b4546d3eb10144357df129a096  research/models/archive/grape-esca-pilot-v0.1.0.onnx
+beffe48f5ead672ea4d82720f64b9fd1d1a6e2023e2329d7b7c8f9ea6c73a509  research/training-results/2026-11-23/gvlid-recovery/recovered-image-manifest.csv
+fd616f3a9740d13685e877b3bc75bc87f412f5f20aeefd46e510619f9144c5f6  research/training-results/2026-11-23/gvlid-recovery/source-image-inventory.csv

@@ -1,0 +1,768 @@
+{
+  "gvlid_validation": {
+    "n": 195,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "balanced_accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        136,
+        0
+      ],
+      [
+        0,
+        59
+      ]
+    ],
+    "classification_report": {
+      "Esca": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 136.0
+      },
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 59.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 195.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 195.0
+      }
+    },
+    "thresholds": {
+      "0.5": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.6": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.65": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.7": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.75": {
+        "esca_sensitivity": 0.9926470588235294,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 135
+      },
+      "0.8": {
+        "esca_sensitivity": 0.9926470588235294,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 135
+      },
+      "0.85": {
+        "esca_sensitivity": 0.9852941176470589,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 134
+      },
+      "0.9": {
+        "esca_sensitivity": 0.9852941176470589,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 134
+      },
+      "0.95": {
+        "esca_sensitivity": 0.9558823529411765,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 130
+      },
+      "0.98": {
+        "esca_sensitivity": 0.9117647058823529,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 124
+      }
+    },
+    "logits": null
+  },
+  "gvlid_test": {
+    "n": 175,
+    "accuracy": 0.9942857142857143,
+    "macro_f1": 0.9928690762397621,
+    "balanced_accuracy": 0.9960629921259843,
+    "confusion_matrix": [
+      [
+        126,
+        1
+      ],
+      [
+        0,
+        48
+      ]
+    ],
+    "classification_report": {
+      "Esca": {
+        "precision": 1.0,
+        "recall": 0.9921259842519685,
+        "f1-score": 0.9960474308300395,
+        "support": 127.0
+      },
+      "Healthy": {
+        "precision": 0.9795918367346939,
+        "recall": 1.0,
+        "f1-score": 0.9896907216494846,
+        "support": 48.0
+      },
+      "accuracy": 0.9942857142857143,
+      "macro avg": {
+        "precision": 0.9897959183673469,
+        "recall": 0.9960629921259843,
+        "f1-score": 0.9928690762397621,
+        "support": 175.0
+      },
+      "weighted avg": {
+        "precision": 0.994402332361516,
+        "recall": 0.9942857142857143,
+        "f1-score": 0.9943038763119444,
+        "support": 175.0
+      }
+    },
+    "thresholds": {
+      "0.5": {
+        "esca_sensitivity": 0.9921259842519685,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 126
+      },
+      "0.6": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.65": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.7": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.75": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.8": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.85": {
+        "esca_sensitivity": 0.9763779527559056,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 124
+      },
+      "0.9": {
+        "esca_sensitivity": 0.9606299212598425,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 122
+      },
+      "0.95": {
+        "esca_sensitivity": 0.9291338582677166,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 118
+      },
+      "0.98": {
+        "esca_sensitivity": 0.8976377952755905,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 114
+      }
+    },
+    "logits": null
+  },
+  "gvlid_validation_temperature_scaled": {
+    "n": 195,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "balanced_accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        136,
+        0
+      ],
+      [
+        0,
+        59
+      ]
+    ],
+    "classification_report": {
+      "Esca": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 136.0
+      },
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 59.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 195.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 195.0
+      }
+    },
+    "thresholds": {
+      "0.5": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.6": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.65": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.7": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.75": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.8": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.85": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.9": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.95": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      },
+      "0.98": {
+        "esca_sensitivity": 1.0,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 136
+      }
+    },
+    "logits": null
+  },
+  "gvlid_test_temperature_scaled": {
+    "n": 175,
+    "accuracy": 0.9942857142857143,
+    "macro_f1": 0.9928690762397621,
+    "balanced_accuracy": 0.9960629921259843,
+    "confusion_matrix": [
+      [
+        126,
+        1
+      ],
+      [
+        0,
+        48
+      ]
+    ],
+    "classification_report": {
+      "Esca": {
+        "precision": 1.0,
+        "recall": 0.9921259842519685,
+        "f1-score": 0.9960474308300395,
+        "support": 127.0
+      },
+      "Healthy": {
+        "precision": 0.9795918367346939,
+        "recall": 1.0,
+        "f1-score": 0.9896907216494846,
+        "support": 48.0
+      },
+      "accuracy": 0.9942857142857143,
+      "macro avg": {
+        "precision": 0.9897959183673469,
+        "recall": 0.9960629921259843,
+        "f1-score": 0.9928690762397621,
+        "support": 175.0
+      },
+      "weighted avg": {
+        "precision": 0.994402332361516,
+        "recall": 0.9942857142857143,
+        "f1-score": 0.9943038763119444,
+        "support": 175.0
+      }
+    },
+    "thresholds": {
+      "0.5": {
+        "esca_sensitivity": 0.9921259842519685,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 126
+      },
+      "0.6": {
+        "esca_sensitivity": 0.9921259842519685,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 126
+      },
+      "0.65": {
+        "esca_sensitivity": 0.9921259842519685,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 126
+      },
+      "0.7": {
+        "esca_sensitivity": 0.9921259842519685,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 126
+      },
+      "0.75": {
+        "esca_sensitivity": 0.9921259842519685,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 126
+      },
+      "0.8": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.85": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.9": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.95": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      },
+      "0.98": {
+        "esca_sensitivity": 0.984251968503937,
+        "healthy_specificity": 1.0,
+        "false_esca_on_healthy": 0.0,
+        "esca_precision": 1.0,
+        "alert_count": 125
+      }
+    },
+    "logits": null
+  },
+  "external_val": {
+    "n": 412,
+    "classes": {
+      "Black_Rot": 85,
+      "Brown_Spot": 120,
+      "Downy_Mildew": 50,
+      "Mites": 38,
+      "Healthy": 119
+    },
+    "thresholds": {
+      "0.5": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.2832764505119454,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.20631067961165048
+      },
+      "0.6": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.27986348122866894,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.20388349514563106
+      },
+      "0.65": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.27986348122866894,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.20388349514563106
+      },
+      "0.7": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.2764505119453925,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.20145631067961164
+      },
+      "0.75": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.26621160409556316,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.1941747572815534
+      },
+      "0.8": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.2627986348122867,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.19174757281553398
+      },
+      "0.85": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.2525597269624573,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.18446601941747573
+      },
+      "0.9": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.23890784982935154,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.17475728155339806
+      },
+      "0.95": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.22525597269624573,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.1650485436893204
+      },
+      "0.98": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.20819112627986347,
+        "healthy_n": 119,
+        "unseen_disease_n": 293,
+        "alert_rate_all": 0.1529126213592233
+      }
+    }
+  },
+  "external_test": {
+    "n": 515,
+    "classes": {
+      "Black_Rot": 107,
+      "Brown_Spot": 150,
+      "Downy_Mildew": 62,
+      "Mites": 47,
+      "Healthy": 149
+    },
+    "thresholds": {
+      "0.5": {
+        "healthy_false_esca": 0.087248322147651,
+        "unseen_disease_false_esca": 0.2677595628415301,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.21553398058252426
+      },
+      "0.6": {
+        "healthy_false_esca": 0.08053691275167785,
+        "unseen_disease_false_esca": 0.2650273224043716,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.21165048543689322
+      },
+      "0.65": {
+        "healthy_false_esca": 0.08053691275167785,
+        "unseen_disease_false_esca": 0.25956284153005466,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.20776699029126214
+      },
+      "0.7": {
+        "healthy_false_esca": 0.08053691275167785,
+        "unseen_disease_false_esca": 0.2568306010928962,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.2058252427184466
+      },
+      "0.75": {
+        "healthy_false_esca": 0.08053691275167785,
+        "unseen_disease_false_esca": 0.24863387978142076,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.2
+      },
+      "0.8": {
+        "healthy_false_esca": 0.06711409395973154,
+        "unseen_disease_false_esca": 0.2459016393442623,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.1941747572815534
+      },
+      "0.85": {
+        "healthy_false_esca": 0.06711409395973154,
+        "unseen_disease_false_esca": 0.23770491803278687,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.1883495145631068
+      },
+      "0.9": {
+        "healthy_false_esca": 0.06711409395973154,
+        "unseen_disease_false_esca": 0.23224043715846995,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.18446601941747573
+      },
+      "0.95": {
+        "healthy_false_esca": 0.06040268456375839,
+        "unseen_disease_false_esca": 0.21311475409836064,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.16893203883495145
+      },
+      "0.98": {
+        "healthy_false_esca": 0.06040268456375839,
+        "unseen_disease_false_esca": 0.1885245901639344,
+        "healthy_n": 149,
+        "unseen_disease_n": 366,
+        "alert_rate_all": 0.15145631067961166
+      }
+    }
+  },
+  "model": {
+    "path": "/workspace/dr-plant-coastal-sources/data/gvlid-v5-clean-2class/results/mobilenetv3-small/gvlid-esca-healthy-mobilenetv3-small.onnx",
+    "class_order": [
+      "Esca",
+      "Healthy"
+    ],
+    "temperature_fit_on": "GVLiD vineyard-disjoint validation only",
+    "temperature": 0.13533603664286087,
+    "input_size": 160,
+    "preprocessing": "PIL RGB Resize(160,160) bilinear; /255; ImageNet mean/std; NCHW",
+    "onnxruntime": "1.32.0"
+  },
+  "limitations": [
+    "GVLiD data from Maharashtra, India; not Syrian field validation.",
+    "External Grape Leaf Health set contains no Esca class; it measures false Esca alerts on Healthy and other-disease proxy classes, not Esca sensitivity.",
+    "Softmax scores are not calibrated probabilities for unknown diseases.",
+    "No new training performed."
+  ],
+  "external_val_raw": {
+    "n": 412,
+    "healthy_n": 119,
+    "unseen_disease_n": 293,
+    "thresholds": {
+      "0.5": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.2832764505119454,
+        "alert_rate_all": 0.20631067961165048
+      },
+      "0.6": {
+        "healthy_false_esca": 0.01680672268907563,
+        "unseen_disease_false_esca": 0.22525597269624573,
+        "alert_rate_all": 0.1650485436893204
+      },
+      "0.65": {
+        "healthy_false_esca": 0.008403361344537815,
+        "unseen_disease_false_esca": 0.19795221843003413,
+        "alert_rate_all": 0.14320388349514562
+      },
+      "0.7": {
+        "healthy_false_esca": 0.008403361344537815,
+        "unseen_disease_false_esca": 0.18430034129692832,
+        "alert_rate_all": 0.13349514563106796
+      },
+      "0.75": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.15017064846416384,
+        "alert_rate_all": 0.10679611650485436
+      },
+      "0.8": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.1296928327645051,
+        "alert_rate_all": 0.09223300970873786
+      },
+      "0.85": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.10238907849829351,
+        "alert_rate_all": 0.07281553398058252
+      },
+      "0.9": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.08191126279863481,
+        "alert_rate_all": 0.05825242718446602
+      },
+      "0.95": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.05460750853242321,
+        "alert_rate_all": 0.038834951456310676
+      },
+      "0.98": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.030716723549488054,
+        "alert_rate_all": 0.021844660194174758
+      }
+    }
+  },
+  "external_test_raw": {
+    "n": 515,
+    "healthy_n": 149,
+    "unseen_disease_n": 366,
+    "thresholds": {
+      "0.5": {
+        "healthy_false_esca": 0.087248322147651,
+        "unseen_disease_false_esca": 0.2677595628415301,
+        "alert_rate_all": 0.21553398058252426
+      },
+      "0.6": {
+        "healthy_false_esca": 0.06040268456375839,
+        "unseen_disease_false_esca": 0.20765027322404372,
+        "alert_rate_all": 0.1650485436893204
+      },
+      "0.65": {
+        "healthy_false_esca": 0.053691275167785234,
+        "unseen_disease_false_esca": 0.17759562841530055,
+        "alert_rate_all": 0.141747572815534
+      },
+      "0.7": {
+        "healthy_false_esca": 0.026845637583892617,
+        "unseen_disease_false_esca": 0.16666666666666666,
+        "alert_rate_all": 0.1262135922330097
+      },
+      "0.75": {
+        "healthy_false_esca": 0.026845637583892617,
+        "unseen_disease_false_esca": 0.15027322404371585,
+        "alert_rate_all": 0.1145631067961165
+      },
+      "0.8": {
+        "healthy_false_esca": 0.006711409395973154,
+        "unseen_disease_false_esca": 0.1366120218579235,
+        "alert_rate_all": 0.09902912621359224
+      },
+      "0.85": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.10109289617486339,
+        "alert_rate_all": 0.07184466019417475
+      },
+      "0.9": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.07103825136612021,
+        "alert_rate_all": 0.05048543689320388
+      },
+      "0.95": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.03825136612021858,
+        "alert_rate_all": 0.027184466019417475
+      },
+      "0.98": {
+        "healthy_false_esca": 0.0,
+        "unseen_disease_false_esca": 0.01639344262295082,
+        "alert_rate_all": 0.011650485436893204
+      }
+    }
+  },
+  "checkpoint_onnx_agreement_test": {
+    "n": 175,
+    "argmax_agreement": 1.0,
+    "max_abs_logit_difference": 3.3855438232421875e-05
+  },
+  "calibration_decision": "Do not apply temperature scaling in the pilot. Temperature fit on in-domain GVLiD validation (T=0.135) increased false Esca alerts on external unseen-disease images; retain raw softmax scores and clearly call them model scores, not calibrated probabilities."
+}
