@@ -100,7 +100,7 @@
     {
       "id": "plasmopara-v2",
       "task": "grape downy mildew-like disease vs healthy exploratory classification",
-      "status": "research_only_high_source_confounding",
+      "status": "research_only_license_unverified_source_confounding",
       "datasetImages": 280,
       "classes": [
         "Disease",
@@ -110,12 +110,12 @@
       "testAccuracy": 0.7380952380952381,
       "testMacroF1": 0.7379466817923993,
       "split": "random image-level 196/42/42; not plant/site/session independent",
-      "artifacts": "results/plasmopara-v2-exploratory-2026-11-25/",
+      "artifacts": "aggregate metrics only; model weights and ONNX withheld pending Zenodo Rights confirmation",
       "limitations": [
         "strong EXIF/source confounding",
         "source reports 281 while 280 originals extracted",
         "not expert-reviewed",
-        "Source Zenodo Rights field could not be independently confirmed; no model weights or ONNX are redistributed in main."
+        "Zenodo Rights field unverified; no source images, model weights or ONNX redistributed"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "split": "1,305/277/281 image-level train/validation/test; no plant/site/session holdout",
       "artifacts": "results/citrus-leaf-disease-zenodo-v1/metrics.json (aggregate metrics only; weights/ONNX withheld)",
       "limitations": [
-        "Zenodo CC BY 4.0 source; filename-derived labels not independently expert-reviewed",
+        "Zenodo Rights field unverified; filename-derived labels not independently expert-reviewed",
         "No healthy class; cannot assess healthy leaves or unrepresented disorders",
         "Image-level split is not independent by plant/site/session",
         "Not validated in Syrian citrus orchards; not an app route",
@@ -284,7 +284,7 @@
       "split": "196/42/42 image-level/near-duplicate-cluster split; not independent by vineyard/plant/session",
       "artifacts": "results/plasmopara-zenodo-v2/metrics.json (aggregate metrics only; weights/ONNX withheld)",
       "limitations": [
-        "Zenodo CC BY 4.0 source; original archive has 280 images versus 281 claimed",
+        "Zenodo Rights field unverified; original archive has 280 images versus 281 claimed",
         "EXIF GPS coverage is strongly class-imbalanced (14/129 Disease vs 134/151 Healthy)",
         "Only 42 test images; no independent plant-pathologist review",
         "Separate run from the earlier 73.81% baseline; reconcile split and training protocol before using either metric",
