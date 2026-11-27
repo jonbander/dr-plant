@@ -27,7 +27,7 @@
 ## ما الذي أصبح مثبتاً؟
 
 - سجل الأصول يحتوي 10 سجلات بحثية، وتبقى القيم غير المتحققة غير معبأة.
-- سبعة ملفات أوزان محلية تمت مطابقة SHA-256 لها مع القيم المسجلة.
+- ستة ملفات أوزان محلية تمت مطابقة SHA-256 لها مع القيم المسجلة؛ كما طابقت بصمة ملف metrics الخاص بـGrape Leaf Health قبل تصحيح مساره.
 - `manifest.json` الإنتاجي ما زال `enabled=false` و`reviewStatus=candidate`، ولم يُعدّل.
 - تم فحص توفر المكتبات: PyTorch وTorchVision وONNX وONNX Runtime وPillow وNumPy وPandas وPyArrow متاحة في بيئة Box؛ OpenCV وUltralytics وSAM وDuckDB غير متاحة. توفر المكتبات ليس دليلاً على جاهزية البيانات.
 
