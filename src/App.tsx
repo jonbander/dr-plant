@@ -12,7 +12,7 @@ import { ScanHistoryView } from './components/ScanHistoryView';
 import { OfflineIndicator } from './components/OfflineIndicator';
 import { PWAInstallButton } from './components/PWAInstallButton';
 import { ScanResult } from './types/crop';
-import { GrapeWeatherEarlyWarning } from './components/GrapeWeatherEarlyWarning';
+import { MultiDiseaseWeatherEarlyWarning } from './components/MultiDiseaseWeatherEarlyWarning';
 import { analyzePlantOffline } from './services/offlineAiVisionEngine';
 import { getOfflineScans, saveOfflineScan, updateScanNotes } from './services/historyStorage';
 
@@ -127,7 +127,7 @@ export default function App() {
             { id: 'calculator', label: '🧮 حاسبة جرعات الرش', icon: Calculator },
             { id: 'wizard', label: '🧙 المساعد التشخيصي', icon: HelpCircle },
             { id: 'history', label: `📂 سجل الفحوصات (${scansHistory.length})`, icon: History },
-            { id: 'weather', label: '🌦️ الإنذار المبكر', icon: CloudRain },
+            { id: 'weather', label: '🌦️ إنذار الأمراض', icon: CloudRain },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -190,7 +190,7 @@ export default function App() {
 
         {activeTab === 'encyclopedia' && <CropPestEncyclopedia />}
 
-        {activeTab === 'weather' && <GrapeWeatherEarlyWarning />}
+        {activeTab === 'weather' && <MultiDiseaseWeatherEarlyWarning />}
 
         {activeTab === 'calculator' && (
           <TreatmentDoseCalculator
