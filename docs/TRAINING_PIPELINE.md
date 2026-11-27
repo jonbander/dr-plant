@@ -155,3 +155,28 @@ A batch is not considered finished until both workstreams are recorded, or any b
 ### Capture-source confounding gate (mandatory)
 
 Before any image-level or group-aware split, audit EXIF and all available acquisition metadata by class: capture date/time, camera/device, GPS/site, resolution, background, and source/archive. Quantify class–metadata association and inspect whether a class is represented by a unique device, date, source, background, or preprocessing pipeline. A high association blocks diagnostic training until independent source/site/plant groups or a defensible cross-source evaluation are available. Missing EXIF is not evidence of independent acquisition. For compiled datasets, map every image to its upstream source and retain original-source attribution; otherwise treat source identity as unresolved and do not claim an independent test.
+
+## Safe incremental training and checkpoint recovery
+
+`scripts/train_image_classifier.py` supports resumable MobileNetV3-Small training without replacing the original teacher checkpoint:
+
+- `--init-from /path/to/best-model.pt` initializes a new experiment from an existing checkpoint only when its architecture and exact class order match the current manifest. The source checkpoint SHA-256 is recorded in the run metrics.
+- `--freeze-backbone` trains the classifier head while keeping the visual feature extractor fixed; `--unfreeze-last-blocks N` fine-tunes only the last N feature blocks plus the classifier. Use these as controlled experiments, not automatic defaults for every dataset.
+- `--resume` continues from `training-checkpoint.pt`, preserving optimizer state, best validation weights, history, and random-number-generator states. Increase `--epochs` to extend a run.
+- A resume is rejected if the split-manifest SHA-256, image root, class order, or training configuration (batch size, learning rate, seed, image size, worker count, freeze/unfreeze policy, or exploratory mode) differs. Do not edit the manifest in place and resume; create a new run instead.
+- `--resume` must not be combined with `--init-from` or `--pretrained`; the checkpoint already contains the initialized weights. If the checkpoint is absent, the command fails rather than silently starting a fresh run.
+- Checkpoints are written atomically after each completed epoch. The default worker count is zero for a simpler recovery path; changing worker count invalidates the saved run configuration.
+
+Example: start from a preserved teacher, freeze its feature extractor for one epoch, then extend the same run to three total epochs:
+
+```sh
+python scripts/train_image_classifier.py /data/images /data/splits.csv \
+  --out /data/runs/grape-finetune --epochs 1 --batch-size 16 \
+  --init-from /models/grape-teacher/best-model.pt --freeze-backbone
+
+python scripts/train_image_classifier.py /data/images /data/splits.csv \
+  --out /data/runs/grape-finetune --epochs 3 --batch-size 16 \
+  --freeze-backbone --resume
+```
+
+The original teacher file remains untouched. Each run directory is an independent candidate; retain its manifest, checkpoint, metrics, and source audit. A successful resume or higher validation score is not evidence of field accuracy or production readiness.
