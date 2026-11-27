@@ -13,6 +13,9 @@ inputs:
   trusted-public-key:
     description: Trusted Ed25519 public key path supplied by protected CI configuration.
     required: true
+  expected-task:
+    description: Task required by the selected training entry point.
+    required: true
   report:
     description: Optional JSON report output path.
     required: false
@@ -22,10 +25,18 @@ runs:
   steps:
     - name: Verify signed delivery, license, taxonomy, masks and split
       shell: bash
+      env:
+        PROFILE: ${{ inputs.profile }}
+        PROFILE_SIGNATURE: ${{ inputs.profile-signature }}
+        DATA_ROOT: ${{ inputs.data-root }}
+        TRUSTED_PUBLIC_KEY: ${{ inputs.trusted-public-key }}
+        EXPECTED_TASK: ${{ inputs.expected-task }}
+        REPORT: ${{ inputs.report }}
       run: >-
         python3 scripts/research/validate-training-gate.py
-        --profile "${{ inputs.profile }}"
-        --profile-signature "${{ inputs.profile-signature }}"
-        --data-root "${{ inputs.data-root }}"
-        --trusted-public-key "${{ inputs.trusted-public-key }}"
-        --report "${{ inputs.report }}"
+        --profile "$PROFILE"
+        --profile-signature "$PROFILE_SIGNATURE"
+        --data-root "$DATA_ROOT"
+        --trusted-public-key "$TRUSTED_PUBLIC_KEY"
+        --expected-task "$EXPECTED_TASK"
+        --report "$REPORT"
