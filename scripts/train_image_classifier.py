@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Train/evaluate MobileNetV3-Small from an audited manifest, with visible progress and resumable checkpoints."""
-import argparse, csv, json, random, os
+import argparse, csv, json, random, os, hashlib
 from collections import Counter
 from pathlib import Path
 import numpy as np
@@ -55,6 +55,28 @@ def atomic_save(payload, path):
     torch.save(payload, tmp)
     os.replace(tmp, path)
 
+def file_sha256(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+def capture_rng_state():
+    return {
+        "python": random.getstate(),
+        "numpy": np.random.get_state(),
+        "torch": torch.get_rng_state(),
+        "cuda": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None,
+    }
+
+def restore_rng_state(state):
+    random.setstate(state["python"])
+    np.random.set_state(state["numpy"])
+    torch.set_rng_state(state["torch"])
+    if torch.cuda.is_available() and state.get("cuda") is not None:
+        torch.cuda.set_rng_state_all(state["cuda"])
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("image_root",type=Path); p.add_argument("split_manifest",type=Path)
@@ -70,9 +92,20 @@ def main():
     p.add_argument("--unfreeze-last-blocks",type=int,default=0,help="Unfreeze the final N MobileNet feature blocks for fine-tuning")
     a=p.parse_args()
     if a.epochs<1 or a.batch_size<1: p.error("epochs and batch size must be positive")
+    if a.image_size<16 or a.workers<0 or a.unfreeze_last_blocks<0: p.error("image size must be >=16; workers and unfreeze count must be non-negative")
+    if a.resume and a.init_from: p.error("--resume cannot be combined with --init-from; the checkpoint already contains initialized weights")
+    if a.resume and a.pretrained: p.error("Do not pass --pretrained when resuming; the checkpoint already contains initialized weights")
     random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed)
     if torch.cuda.is_available(): torch.cuda.manual_seed_all(a.seed)
     rows,classes=load_manifest(a.split_manifest,a.image_root,a.exploratory_non_independent)
+    manifest_sha256=file_sha256(a.split_manifest)
+    training_config={
+        "image_root":str(a.image_root.resolve()), "manifest_sha256":manifest_sha256,
+        "batch_size":a.batch_size, "learning_rate":a.learning_rate, "seed":a.seed,
+        "image_size":a.image_size, "workers":a.workers,
+        "freeze_backbone":bool(a.freeze_backbone), "unfreeze_last_blocks":a.unfreeze_last_blocks,
+        "exploratory_non_independent":bool(a.exploratory_non_independent),
+    }
     a.out.mkdir(parents=True,exist_ok=True); indexes={c:i for i,c in enumerate(classes)}
     train_tf=transforms.Compose([transforms.Resize((a.image_size+8,a.image_size+8)),transforms.RandomResizedCrop(a.image_size,scale=(.82,1)),transforms.RandomHorizontalFlip(),transforms.RandomRotation(8),transforms.ToTensor(),transforms.Normalize((.485,.456,.406),(.229,.224,.225))])
     eval_tf=transforms.Compose([transforms.Resize((a.image_size,a.image_size)),transforms.ToTensor(),transforms.Normalize((.485,.456,.406),(.229,.224,.225))])
@@ -88,10 +121,13 @@ def main():
     weights=models.MobileNet_V3_Small_Weights.DEFAULT if a.pretrained else None
     model=models.mobilenet_v3_small(weights=weights)
     model.classifier[3]=nn.Linear(model.classifier[3].in_features,len(classes))
+    initialization={"pretrained_imagenet":bool(a.pretrained),"init_from":None,"init_from_sha256":None}
     if a.init_from:
         init=torch.load(a.init_from,map_location="cpu",weights_only=False)
         if init.get("classes") != classes: raise ValueError("Initial model class order differs from manifest")
+        if init.get("architecture", "mobilenet_v3_small") != "mobilenet_v3_small": raise ValueError("Initial checkpoint architecture is not MobileNetV3-Small")
         model.load_state_dict(init["state_dict"])
+        initialization={"pretrained_imagenet":False,"init_from":str(a.init_from.resolve()),"init_from_sha256":file_sha256(a.init_from)}
         print(f"Initialized weights from {a.init_from}",flush=True)
     if a.freeze_backbone or a.unfreeze_last_blocks:
         for param in model.parameters(): param.requires_grad=False
@@ -105,12 +141,17 @@ def main():
     model.to(device); opt=torch.optim.AdamW((p for p in model.parameters() if p.requires_grad),lr=a.learning_rate); loss_fn=nn.CrossEntropyLoss()
     best=-1.; best_state=None; history=[]; start_epoch=1
     checkpoint_path=a.out/"training-checkpoint.pt"
-    if a.resume and checkpoint_path.is_file():
+    if a.resume:
+        if not checkpoint_path.is_file(): raise FileNotFoundError(f"--resume requested but checkpoint is missing: {checkpoint_path}")
         ck=torch.load(checkpoint_path,map_location=device,weights_only=False)
         if ck.get("classes") != classes: raise ValueError("Checkpoint class order differs from current dataset; refusing unsafe resume.")
+        if ck.get("training_config") != training_config:
+            raise ValueError("Training manifest or configuration changed since checkpoint; refusing unsafe resume.")
         model.load_state_dict(ck["state_dict"]); opt.load_state_dict(ck["optimizer"])
         best=float(ck["best_validation_accuracy"]); best_state=ck["best_state"]
         history=ck["history"]; start_epoch=int(ck["epoch"])+1
+        initialization=ck.get("initialization", initialization)
+        if ck.get("rng_state"): restore_rng_state(ck["rng_state"])
         print(f"Resuming at epoch {start_epoch} (best validation accuracy={best:.4f})",flush=True)
     for epoch in range(start_epoch,a.epochs+1):
         model.train(); total=0.; seen=0
@@ -125,12 +166,12 @@ def main():
         history.append({"epoch":epoch,"train_loss":total/max(seen,1),"validation_accuracy":acc,"validation_macro_f1":macro})
         if acc>best:
             best=acc; best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
-        atomic_save({"epoch":epoch,"state_dict":model.state_dict(),"optimizer":opt.state_dict(),"best_validation_accuracy":best,"best_state":best_state,"classes":classes,"history":history},checkpoint_path)
+        atomic_save({"epoch":epoch,"state_dict":model.state_dict(),"optimizer":opt.state_dict(),"best_validation_accuracy":best,"best_state":best_state,"classes":classes,"history":history,"training_config":training_config,"initialization":initialization,"rng_state":capture_rng_state()},checkpoint_path)
         atomic_save({"state_dict":best_state,"classes":classes,"architecture":"mobilenet_v3_small"},a.out/"best-model.pt")
         print(f"Epoch {epoch}/{a.epochs} complete | train_loss={total/max(seen,1):.4f} | val_accuracy={acc:.4f} | val_macro_f1={macro:.4f} | best={best:.4f} | checkpoint saved",flush=True)
     if best_state is None: raise RuntimeError("No best checkpoint")
     model.load_state_dict(best_state); yt,yp=predict(model,loaders["test"],device)
-    metrics={"status":"exploratory_non_independent_baseline" if a.exploratory_non_independent else "trained_and_tested","evaluation_scope":"within-source image-level exploratory holdout; not independent by site/plant/session" if a.exploratory_non_independent else "group-isolated held-out test","architecture":"MobileNetV3-Small","pretrained_imagenet":bool(a.pretrained),"freeze_backbone":bool(a.freeze_backbone),"unfreeze_last_blocks":a.unfreeze_last_blocks,"initialized_from":str(a.init_from) if a.init_from else None,"image_size":a.image_size,"seed":a.seed,"epochs_requested":a.epochs,"epochs_completed":len(history),"best_validation_accuracy":best,"test_accuracy":float(accuracy_score(yt,yp)),"test_macro_f1":float(f1_score(yt,yp,average="macro",zero_division=0)),"classes":classes,"test_classification_report":classification_report(yt,yp,target_names=classes,output_dict=True,zero_division=0),"test_confusion_matrix":confusion_matrix(yt,yp).tolist(),"history":history,"images_per_split":dict(Counter(r["split"] for r in rows)),"groups_per_split":{s:len({r["group_id_for_split"] for r in rows if r["split"]==s}) for s in ("train","validation","test")},"limitations":["Metrics apply only to these source datasets and this split, not Syrian coastal orchards.","Dataset class labels may not be laboratory-confirmed pathogens.","This is a baseline, not a production-validated model."] + (["Exploratory mode bypasses expert-label and near-duplicate review gates; image-level split may leak plant/session/background information and is not independent validation. Do not advertise these metrics as accuracy on unseen farms."] if a.exploratory_non_independent else [])}
+    metrics={"status":"exploratory_non_independent_baseline" if a.exploratory_non_independent else "trained_and_tested","evaluation_scope":"within-source image-level exploratory holdout; not independent by site/plant/session" if a.exploratory_non_independent else "group-isolated held-out test","architecture":"MobileNetV3-Small","pretrained_imagenet":bool(a.pretrained),"freeze_backbone":bool(a.freeze_backbone),"unfreeze_last_blocks":a.unfreeze_last_blocks,"initialized_from":str(a.init_from) if a.init_from else None,"image_size":a.image_size,"seed":a.seed,"epochs_requested":a.epochs,"epochs_completed":len(history),"manifest_sha256":manifest_sha256,"training_config":training_config,"initialization":initialization,"best_validation_accuracy":best,"test_accuracy":float(accuracy_score(yt,yp)),"test_macro_f1":float(f1_score(yt,yp,average="macro",zero_division=0)),"classes":classes,"test_classification_report":classification_report(yt,yp,target_names=classes,output_dict=True,zero_division=0),"test_confusion_matrix":confusion_matrix(yt,yp).tolist(),"history":history,"images_per_split":dict(Counter(r["split"] for r in rows)),"groups_per_split":{s:len({r["group_id_for_split"] for r in rows if r["split"]==s}) for s in ("train","validation","test")},"limitations":["Metrics apply only to these source datasets and this split, not Syrian coastal orchards.","Dataset class labels may not be laboratory-confirmed pathogens.","This is a baseline, not a production-validated model."] + (["Exploratory mode bypasses expert-label and near-duplicate review gates; image-level split may leak plant/session/background information and is not independent validation. Do not advertise these metrics as accuracy on unseen farms."] if a.exploratory_non_independent else [])}
     atomic_save({"state_dict":model.state_dict(),"classes":classes,"architecture":"mobilenet_v3_small"},a.out/"best-model.pt")
     (a.out/"metrics.json").write_text(json.dumps(metrics,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({k:metrics[k] for k in ("status","architecture","best_validation_accuracy","test_accuracy","test_macro_f1","images_per_split","groups_per_split")},ensure_ascii=False,indent=2),flush=True)
