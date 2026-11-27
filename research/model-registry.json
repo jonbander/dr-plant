@@ -127,7 +127,8 @@
       "artifacts": "prior GVLiD V5 curated two-class experiment; preserve source package and audit separately",
       "limitations": [
         "very high score is source-specific and requires independent replication",
-        "not a production diagnostic claim"
+        "not a production diagnostic claim",
+        "No local artifact path is asserted from this branch; recovery copy is preserved separately."
       ],
       "source": "GVLiD V5",
       "license": null,
@@ -139,7 +140,8 @@
       "metrics": {
         "testAccuracy": 0.9943,
         "testMacroF1": 0.9929
-      }
+      },
+      "artifactStatus": "weights_preserved_in_separate_recovery_branch_not_present_here"
     },
     {
       "id": "plasmopara-v2",
@@ -158,19 +160,22 @@
       "limitations": [
         "strong EXIF/source confounding",
         "source reports 281 while 280 originals extracted",
-        "not expert-reviewed"
+        "not expert-reviewed",
+        "2026-11-27 registry correction: metrics and audit files exist, but best-model.pt is absent from this branch; Drive backup is recorded separately and must be restored/verified before reuse."
       ],
       "source": "Plasmopara Zenodo V2",
       "license": null,
       "artifactSha256": null,
       "appDiseaseIdMapping": "unmapped_app_labels_empty",
       "sourceEvidenceStatus": "see_existing_audit_and_model_card",
-      "artifactPath": "results/plasmopara-v2-exploratory-2026-11-25/model-output/best-model.pt",
+      "artifactPath": null,
       "splitProtocol": "random image-level 196/42/42; not plant/site/session independent",
       "metrics": {
         "testAccuracy": 0.7380952380952381,
         "testMacroF1": 0.7379466817923993
-      }
+      },
+      "metricsPath": "results/plasmopara-v2-exploratory-2026-11-25/model-output/metrics.json",
+      "artifactStatus": "checkpoint_not_present_locally_drive_backup_registered"
     },
     {
       "id": "citrus-field-v3",
@@ -278,7 +283,8 @@
       "metrics": {
         "testAccuracy": null,
         "testMacroF1": null
-      }
+      },
+      "artifactStatus": "research_metrics_only_no_reusable_checkpoint_registered"
     },
     {
       "id": "grape-leaf-health-mendeley-v1",
@@ -296,8 +302,8 @@
       "source": "Mendeley DOI 10.17632/378c69nwk5.1",
       "license": "CC BY 4.0",
       "sourceArchiveSha256": null,
-      "artifactPath": "research/training-results/2026-11-23/grape-leaf-health/metrics.json",
-      "artifactSha256": "dd00aa1be18f9135dd8de5bea184d24f05b839a76273df2982f13d4273a058db",
+      "artifactPath": null,
+      "artifactSha256": null,
       "splitProtocol": "StratifiedGroupKFold after grouping pHash Hamming distance <=6; no group crosses splits; no farm/site metadata.",
       "metrics": {
         "testAccuracy": 0.6116504854368932,
@@ -309,9 +315,12 @@
         "No orchard/site/plant/session metadata; only known exact and perceptual duplicates were grouped.",
         "Archive has 3,001 raw entries although the source description claims 3,000.",
         "The source reports 18,000 images including 15,000 augmented derivatives; only raw Process_Images entries were used.",
-        "No Syrian coastal field validation; exploratory research model only."
+        "No Syrian coastal field validation; exploratory research model only.",
+        "2026-11-27 registry correction: previous artifactPath pointed to metrics.json, not model weights; no checkpoint was found in this branch."
       ],
-      "appDiseaseIdMapping": "unmapped_app_labels_empty"
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "metricsPath": "research/training-results/2026-11-23/grape-leaf-health/metrics.json",
+      "artifactStatus": "metrics_only_no_checkpoint_in_this_branch"
     }
   ],
   "blockedDatasets": [
