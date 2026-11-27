@@ -90,11 +90,14 @@
       ],
       "testAccuracy": 0.9943,
       "testMacroF1": 0.9929,
-      "split": "vineyard-disjoint within source",
-      "artifacts": "prior GVLiD V5 curated two-class experiment; preserve source package and audit separately",
+      "split": "vineyard-disjoint within one Indian source dataset; train 20 vineyards/953 images, validation 4/195, test 4 held-out vineyards/175; per-image split reconstructed from the training summary",
+      "artifacts": "results/gvlid-v5-clean-2class/ (best-model.pt, ONNX + external .onnx.data, metrics, test report); per-image split reconstruction: research/2026-11/gvlid-v5/split-manifest.csv",
       "limitations": [
-        "very high score is source-specific and requires independent replication",
-        "not a production diagnostic claim"
+        "source is an Indian field dataset, not Syrian coastal field validation",
+        "only Esca vs Healthy; Black Rot and Leaf Blight excluded after strict metadata/duplicate audit",
+        "very high score requires independent replication and local expert review",
+        "the original ZIP lacked per-image split assignments; the committed split manifest is reconstructed from documented vineyard IDs and reproduces reported counts",
+        "not a production diagnostic claim; not enabled in the app router"
       ]
     },
     {

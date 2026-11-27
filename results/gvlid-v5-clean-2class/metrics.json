@@ -1,0 +1,100 @@
+{
+  "dataset": "GVLiD V5 curated safe subset",
+  "doi": "10.17632/wkymf8bhcg.5",
+  "license": "CC BY 4.0",
+  "source_total_images": 3477,
+  "curated_training_images": 1323,
+  "excluded_or_quarantined_images": 2154,
+  "curated_classes": [
+    "Esca",
+    "Healthy"
+  ],
+  "split_counts": {
+    "train": 953,
+    "validation": 195,
+    "test": 175
+  },
+  "split_method": "vineyard-disjoint; test vineyards 1,8,15,22; validation vineyards 4,11,18,25; remaining 20 vineyards train",
+  "best_epoch": 6,
+  "best_validation_accuracy": 1.0,
+  "test_accuracy": 0.9942857142857143,
+  "macro_f1": 0.9928690762397621,
+  "balanced_accuracy": 0.9960629921259843,
+  "confusion_matrix": [
+    [
+      126,
+      1
+    ],
+    [
+      0,
+      48
+    ]
+  ],
+  "class_order": [
+    "Esca",
+    "Healthy"
+  ],
+  "per_class": {
+    "Esca": {
+      "precision": 1.0,
+      "recall": 0.9921259842519685,
+      "f1-score": 0.9960474308300395,
+      "support": 127.0
+    },
+    "Healthy": {
+      "precision": 0.9795918367346939,
+      "recall": 1.0,
+      "f1-score": 0.9896907216494846,
+      "support": 48.0
+    },
+    "accuracy": 0.9942857142857143,
+    "macro avg": {
+      "precision": 0.9897959183673469,
+      "recall": 0.9960629921259843,
+      "f1-score": 0.9928690762397621,
+      "support": 175.0
+    },
+    "weighted avg": {
+      "precision": 0.994402332361516,
+      "recall": 0.9942857142857143,
+      "f1-score": 0.9943038763119444,
+      "support": 175.0
+    }
+  },
+  "device": "CPU",
+  "image_size": 160,
+  "epochs_run": 8,
+  "limitations": [
+    "Only Esca vs Healthy classes survived the strict archive/metadata and duplicate audit; Black Rot and Leaf Blight were excluded.",
+    "Dataset source is from India; no Syrian field validation.",
+    "Exploratory two-class model only; not integrated into the multi-disease app classifier.",
+    "Very high scores require independent replication and broader field validation."
+  ],
+  "onnx_validation": {
+    "status": "ONNX Runtime CPU inference evaluated on all 175 held-out test images",
+    "runtime": "1.32.0",
+    "input_shape": [
+      1,
+      3,
+      160,
+      160
+    ],
+    "output_shape": [
+      1,
+      2
+    ]
+  },
+  "test_accuracy_onnx": 0.9942857142857143,
+  "test_macro_f1_onnx": 0.9928690762397621,
+  "test_confusion_matrix_onnx": [
+    [
+      126,
+      1
+    ],
+    [
+      0,
+      48
+    ]
+  ],
+  "test_count": 175
+}

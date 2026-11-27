@@ -1,0 +1,25 @@
+{
+  "test_accuracy": 0.9942857142857143,
+  "test_count": 175,
+  "class_metrics": {
+    "Esca": {
+      "n": 127,
+      "correct": 126
+    },
+    "Healthy": {
+      "n": 48,
+      "correct": 48
+    }
+  },
+  "class_order": [
+    "Esca",
+    "Healthy"
+  ],
+  "split_counts": {
+    "train": 953,
+    "val": 195,
+    "test": 175
+  },
+  "device": "cpu",
+  "warning": "Exploratory benchmark only; not validated for Syrian coastal deployment."
+}

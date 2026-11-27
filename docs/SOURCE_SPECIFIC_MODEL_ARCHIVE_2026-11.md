@@ -38,3 +38,8 @@ A published southern-France model by Roubal et al. (2013) relates rain-event tem
 ## Promotion gate
 
 Do not add any of these five models to `public/models/`, the app router, or the user-facing diagnosis flow without: verified class mapping, image/source review, expert label assessment, plant/site/season-independent testing, calibration, unknown rejection, Android end-to-end testing, and a documented rollback path.
+
+
+## Additional curated GVLiD V5 vineyard-holdout model
+
+A separate curated two-class Esca/Healthy model is archived at `results/gvlid-v5-clean-2class/`. It uses 1,323 verified images and a vineyard-disjoint split across 28 Indian source vineyards (953 train / 195 validation / 175 test); the reported test accuracy is 99.43% and macro-F1 99.29%. Its per-image split file is reconstructed from the training summary because the original ZIP contained only the vineyard IDs and split counts. This is distinct from the older failed Esca pilot archive. Despite the stronger within-source split, it remains a two-class India-source research model, not Syrian validation and not an app route. See `docs/GVLID_V5_CLEAN_2CLASS_TRAINING.md`.
