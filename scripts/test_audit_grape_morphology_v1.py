@@ -25,6 +25,18 @@ def make_rows():
     return rows
 
 
+def add_verified_field_evidence(rows):
+    for index, row in enumerate(rows):
+        row.update({
+            "field_identity_source": "acquisition_manifest",
+            "field_identity_evidence_ref": f"evidence/acquisition-{index}.json",
+            "field_identity_evidence_sha256": f"{index + 1:064x}",
+            "field_identity_verified_by": "reviewer-01",
+            "field_identity_status": "verified",
+        })
+    return rows
+
+
 class MorphologyManifestAuditTests(unittest.TestCase):
     def test_near_duplicate_only_is_not_field_independent(self):
         report = MODULE.audit_rows(make_rows())
@@ -54,18 +66,48 @@ class MorphologyManifestAuditTests(unittest.TestCase):
         self.assertIn("farm_id", report["identity_cross_split_leakage"])
         self.assertEqual(report["status"], "blocked")
 
-    def test_accepts_complete_field_group_id(self):
+    def test_accepts_complete_field_group_id_only_with_evidence(self):
         rows = make_rows()
         for index, row in enumerate(rows):
-            row["field_group_id"] = f"field-group-{index}"
+            row["field_group_id"] = f"verified-field-group-{index}"
+        add_verified_field_evidence(rows)
         report = MODULE.audit_rows(rows, require_field_independent=True)
         self.assertEqual(report["status"], "field_grouped_manifest_audited")
         self.assertTrue(report["claims_allowed"]["field_independent_evaluation"])
 
+    def test_rejects_opaque_field_group_id_without_provenance(self):
+        rows = make_rows()
+        for index, row in enumerate(rows):
+            row["field_group_id"] = f"field-group-{index}"
+        report = MODULE.audit_rows(rows, require_field_independent=True)
+        self.assertEqual(report["status"], "blocked")
+        self.assertFalse(report["field_identity_provenance_ready"])
+
+    def test_rejects_phash_or_group_id_reused_as_field_group_id(self):
+        rows = make_rows()
+        for row in rows:
+            row["field_group_id"] = row["group_id"]
+        add_verified_field_evidence(rows)
+        report = MODULE.audit_rows(rows, require_field_independent=True)
+        self.assertTrue(any("field_group_id_reuses" in error for error in report["errors"]))
+        self.assertEqual(report["status"], "blocked")
+
+    def test_requires_complete_provenance_for_composite_identity(self):
+        rows = make_rows()
+        for row in rows:
+            row.update({"plant_id": "plant-" + row["relative_path"],
+                        "farm_id": "farm-" + row["relative_path"],
+                        "session_id": "session-" + row["relative_path"]})
+        add_verified_field_evidence(rows)
+        rows[0]["field_identity_evidence_sha256"] = "not-a-sha256"
+        report = MODULE.audit_rows(rows, require_field_independent=True)
+        self.assertEqual(report["status"], "blocked")
+        self.assertFalse(report["field_identity_provenance_ready"])
+
     def test_strict_mode_blocks_missing_field_ids(self):
         report = MODULE.audit_rows(make_rows(), require_field_independent=True)
         self.assertEqual(report["status"], "blocked")
-        self.assertIn("field_independent_split_required_but_field_identity_incomplete", report["errors"])
+        self.assertIn("field_independent_split_requires_complete_identity_and_provenance_evidence", report["errors"])
 
     def test_expert_labels_and_manual_masks_are_explicit_gates(self):
         rows = make_rows()
