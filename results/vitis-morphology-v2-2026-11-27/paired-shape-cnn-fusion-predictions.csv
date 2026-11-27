@@ -1,0 +1,501 @@
+model,fold,relative_path,group_id,cultivar,predicted,correct
+shape_only,1,Vitis vinifera I/K0117A.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+shape_only,1,Vitis vinifera I/K0117B.jpg,K0117,Muscat St. Laurent,Olivette Blanche,False
+shape_only,1,Vitis vinifera I/K0159A.jpg,K0159,Poet Matabon,Poet Matabon,True
+shape_only,1,Vitis vinifera I/K0159B.jpg,K0159,Poet Matabon,Cabernet Sauvignon,False
+shape_only,1,Vitis vinifera I/K0628A.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+shape_only,1,Vitis vinifera I/K0628B.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+shape_only,1,Vitis vinifera II/K1143A.jpg,K1143,Chasselas Napoleon,Chardonnay,False
+shape_only,1,Vitis vinifera II/K1143B.jpg,K1143,Chasselas Napoleon,Cabernet Sauvignon,False
+shape_only,1,Vitis vinifera III/L0423A.jpg,L0423,Cabernet Sauvignon,Folle Blanche,False
+shape_only,1,Vitis vinifera III/L0423B.jpg,L0423,Cabernet Sauvignon,Chardonnay,False
+shape_only,1,Vitis vinifera III/L0429A.jpg,L0429,Carignane,Cabernet Sauvignon,False
+shape_only,1,Vitis vinifera III/L0429B.jpg,L0429,Carignane,Terret Blanc,False
+shape_only,1,Vitis vinifera III/L0434A.jpg,L0434,Chardonnay,Chardonnay,True
+shape_only,1,Vitis vinifera III/L0434B.jpg,L0434,Chardonnay,Pinot Noir,False
+shape_only,1,Vitis vinifera III/L0511B.jpg,L0511,Folle Blanche,Cabernet Sauvignon,False
+shape_only,1,Vitis vinifera IV/L0847A.jpg,L0847,Durif,Pinot Noir,False
+shape_only,1,Vitis vinifera IV/L0879A.jpg,L0879,Pinot Noir,Chardonnay,False
+shape_only,1,Vitis vinifera IV/L0879B.jpg,L0879,Pinot Noir,Chardonnay,False
+shape_only,1,Vitis vinifera IV/L0880A.jpg,L0880,Pinot Noir,Folle Blanche,False
+shape_only,1,Vitis vinifera IV/L0880B.jpg,L0880,Pinot Noir,Chardonnay,False
+shape_only,1,Vitis vinifera IV/L0908A.jpg,L0908,Folle Blanche,Folle Blanche,True
+shape_only,1,Vitis vinifera IV/L0961A.jpg,L0961,Sauvignon Vert,Chardonnay,False
+shape_only,1,Vitis vinifera IV/L0962A.jpg,L0962,Sauvignon Vert,Pinot Noir,False
+shape_only,1,Vitis vinifera V/L1262A.jpg,L1262,Chardonnay,Semillon,False
+shape_only,1,Vitis vinifera V/L1262B.jpg,L1262,Chardonnay,Cabernet Sauvignon,False
+shape_only,1,Vitis vinifera V/L1265A.jpg,L1265,Semillon,Chardonnay,False
+shape_only,1,Vitis vinifera V/L1265B.jpg,L1265,Semillon,Folle Blanche,False
+shape_only,1,Vitis vinifera V/L1272A.jpg,L1272,Cabernet Sauvignon,Terret Blanc,False
+shape_only,1,Vitis vinifera V/L1272B.jpg,L1272,Cabernet Sauvignon,Cinsaut,False
+shape_only,1,Vitis vinifera V/L1424A.jpg,L1424,Terret Blanc,Durif,False
+shape_only,1,Vitis vinifera V/L1424B.jpg,L1424,Terret Blanc,Terret Blanc,True
+shape_only,1,Vitis vinifera V/L1428A.jpg,L1428,Cinsaut,Sauvignon Vert,False
+shape_only,1,Vitis vinifera V/L1428B.jpg,L1428,Cinsaut,Olivette Blanche,False
+shape_only,2,Vitis vinifera I/K0160A.jpg,K0160,Poet Matabon,Poet Matabon,True
+shape_only,2,Vitis vinifera I/K0455A.jpg,K0455,Chasselas Napoleon,Chasselas Napoleon,True
+shape_only,2,Vitis vinifera I/K0455B.jpg,K0455,Chasselas Napoleon,Cinsaut,False
+shape_only,2,Vitis vinifera I/K0627A.jpg,K0627,Olivette Blanche,Olivette Blanche,True
+shape_only,2,Vitis vinifera I/K0627B.jpg,K0627,Olivette Blanche,Sauvignon Vert,False
+shape_only,2,Vitis vinifera I/K0629A.jpg,K0629,Olivette Blanche,Cabernet Sauvignon,False
+shape_only,2,Vitis vinifera I/K0629B.jpg,K0629,Olivette Blanche,Carignane,False
+shape_only,2,Vitis vinifera II/K0913A.jpg,K0913,Muscat St. Laurent,Chasselas Napoleon,False
+shape_only,2,Vitis vinifera II/K0914A.jpg,K0914,Muscat St. Laurent,Muscat St. Laurent,True
+shape_only,2,Vitis vinifera II/K0944A.jpg,K0944,Poet Matabon,Olivette Blanche,False
+shape_only,2,Vitis vinifera II/K0944B.jpg,K0944,Poet Matabon,Poet Matabon,True
+shape_only,2,Vitis vinifera III/L0435A.jpg,L0435,Chardonnay,Chardonnay,True
+shape_only,2,Vitis vinifera III/L0435B.jpg,L0435,Chardonnay,Chasselas Napoleon,False
+shape_only,2,Vitis vinifera III/L0436A.jpg,L0436,Chardonnay,Sauvignon Vert,False
+shape_only,2,Vitis vinifera III/L0436B.jpg,L0436,Chardonnay,Chardonnay,True
+shape_only,2,Vitis vinifera III/L0510A.jpg,L0510,Folle Blanche,Cinsaut,False
+shape_only,2,Vitis vinifera IV/L0751A.jpg,L0751,Carignane,Cabernet Sauvignon,False
+shape_only,2,Vitis vinifera IV/L0848A.jpg,L0848,Durif,Cabernet Sauvignon,False
+shape_only,2,Vitis vinifera IV/L0848B.jpg,L0848,Durif,Folle Blanche,False
+shape_only,2,Vitis vinifera IV/L0867A.jpg,L0867,Pinot Noir,Folle Blanche,False
+shape_only,2,Vitis vinifera IV/L0867B.jpg,L0867,Pinot Noir,Sauvignon Vert,False
+shape_only,2,Vitis vinifera IV/L0868A.jpg,L0868,Pinot Noir,Olivette Blanche,False
+shape_only,2,Vitis vinifera IV/L0868B.jpg,L0868,Pinot Noir,Chardonnay,False
+shape_only,2,Vitis vinifera IV/L0907A.jpg,L0907,Folle Blanche,Durif,False
+shape_only,2,Vitis vinifera IV/L0964A.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+shape_only,2,Vitis vinifera IV/L0964B.jpg,L0964,Sauvignon Vert,Olivette Blanche,False
+shape_only,2,Vitis vinifera IV/L0972A.jpg,L0972,Semillon,Durif,False
+shape_only,2,Vitis vinifera IV/L0972B.jpg,L0972,Semillon,Pinot Noir,False
+shape_only,2,Vitis vinifera V/L1271A.jpg,L1271,Cabernet Sauvignon,Carignane,False
+shape_only,2,Vitis vinifera V/L1271B.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+shape_only,2,Vitis vinifera V/L1423A.jpg,L1423,Terret Blanc,Chardonnay,False
+shape_only,2,Vitis vinifera V/L1423B.jpg,L1423,Terret Blanc,Pinot Noir,False
+shape_only,2,Vitis vinifera V/L1425A.jpg,L1425,Cinsaut,Terret Blanc,False
+shape_only,2,Vitis vinifera V/L1431A.jpg,L1431,Carignane,Chardonnay,False
+shape_only,3,Vitis vinifera I/K0118B.jpg,K0118,Muscat St. Laurent,Muscat St. Laurent,True
+shape_only,3,Vitis vinifera I/K0630A.jpg,K0630,Olivette Blanche,Carignane,False
+shape_only,3,Vitis vinifera I/K0630B.jpg,K0630,Olivette Blanche,Pinot Noir,False
+shape_only,3,Vitis vinifera II/K0943A.jpg,K0943,Poet Matabon,Poet Matabon,True
+shape_only,3,Vitis vinifera II/K0943B.jpg,K0943,Poet Matabon,Poet Matabon,True
+shape_only,3,Vitis vinifera II/K1144A.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+shape_only,3,Vitis vinifera II/K1144B.jpg,K1144,Chasselas Napoleon,Chardonnay,False
+shape_only,3,Vitis vinifera III/L0424A.jpg,L0424,Cabernet Sauvignon,Chardonnay,False
+shape_only,3,Vitis vinifera III/L0424B.jpg,L0424,Cabernet Sauvignon,Durif,False
+shape_only,3,Vitis vinifera III/L0430A.jpg,L0430,Carignane,Folle Blanche,False
+shape_only,3,Vitis vinifera III/L0430B.jpg,L0430,Carignane,Muscat St. Laurent,False
+shape_only,3,Vitis vinifera III/L0433A.jpg,L0433,Chardonnay,Terret Blanc,False
+shape_only,3,Vitis vinifera III/L0433B.jpg,L0433,Chardonnay,Chardonnay,True
+shape_only,3,Vitis vinifera III/L0463A.jpg,L0463,Durif,Cinsaut,False
+shape_only,3,Vitis vinifera III/L0464A.jpg,L0464,Durif,Semillon,False
+shape_only,3,Vitis vinifera III/L0509A.jpg,L0509,Folle Blanche,Folle Blanche,True
+shape_only,3,Vitis vinifera III/L0509B.jpg,L0509,Folle Blanche,Durif,False
+shape_only,3,Vitis vinifera IV/L0574A.jpg,L0574,Terret Blanc,Carignane,False
+shape_only,3,Vitis vinifera IV/L0574B.jpg,L0574,Terret Blanc,Cinsaut,False
+shape_only,3,Vitis vinifera IV/L0877A.jpg,L0877,Pinot Noir,Semillon,False
+shape_only,3,Vitis vinifera IV/L0877B.jpg,L0877,Pinot Noir,Chardonnay,False
+shape_only,3,Vitis vinifera IV/L0878A.jpg,L0878,Pinot Noir,Sauvignon Vert,False
+shape_only,3,Vitis vinifera IV/L0878B.jpg,L0878,Pinot Noir,Durif,False
+shape_only,3,Vitis vinifera IV/L0963A.jpg,L0963,Sauvignon Vert,Olivette Blanche,False
+shape_only,3,Vitis vinifera IV/L0963B.jpg,L0963,Sauvignon Vert,Terret Blanc,False
+shape_only,3,Vitis vinifera IV/L0971A.jpg,L0971,Semillon,Poet Matabon,False
+shape_only,3,Vitis vinifera V/L1261A.jpg,L1261,Chardonnay,Terret Blanc,False
+shape_only,3,Vitis vinifera V/L1261B.jpg,L1261,Chardonnay,Chardonnay,True
+shape_only,3,Vitis vinifera V/L1266A.jpg,L1266,Semillon,Poet Matabon,False
+shape_only,3,Vitis vinifera V/L1266B.jpg,L1266,Semillon,Cabernet Sauvignon,False
+shape_only,3,Vitis vinifera V/L1427A.jpg,L1427,Cinsaut,Chasselas Napoleon,False
+shape_only,3,Vitis vinifera V/L1427B.jpg,L1427,Cinsaut,Poet Matabon,False
+shape_only,3,Vitis vinifera V/L1568A.jpg,L1568,Pinot Noir,Muscat St. Laurent,False
+cnn_only,1,Vitis vinifera I/K0117A.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+cnn_only,1,Vitis vinifera I/K0117B.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+cnn_only,1,Vitis vinifera I/K0159A.jpg,K0159,Poet Matabon,Poet Matabon,True
+cnn_only,1,Vitis vinifera I/K0159B.jpg,K0159,Poet Matabon,Carignane,False
+cnn_only,1,Vitis vinifera I/K0628A.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+cnn_only,1,Vitis vinifera I/K0628B.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+cnn_only,1,Vitis vinifera II/K1143A.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_only,1,Vitis vinifera II/K1143B.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_only,1,Vitis vinifera III/L0423A.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_only,1,Vitis vinifera III/L0423B.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_only,1,Vitis vinifera III/L0429A.jpg,L0429,Carignane,Carignane,True
+cnn_only,1,Vitis vinifera III/L0429B.jpg,L0429,Carignane,Carignane,True
+cnn_only,1,Vitis vinifera III/L0434A.jpg,L0434,Chardonnay,Chardonnay,True
+cnn_only,1,Vitis vinifera III/L0434B.jpg,L0434,Chardonnay,Chardonnay,True
+cnn_only,1,Vitis vinifera III/L0511B.jpg,L0511,Folle Blanche,Folle Blanche,True
+cnn_only,1,Vitis vinifera IV/L0847A.jpg,L0847,Durif,Muscat St. Laurent,False
+cnn_only,1,Vitis vinifera IV/L0879A.jpg,L0879,Pinot Noir,Chardonnay,False
+cnn_only,1,Vitis vinifera IV/L0879B.jpg,L0879,Pinot Noir,Pinot Noir,True
+cnn_only,1,Vitis vinifera IV/L0880A.jpg,L0880,Pinot Noir,Pinot Noir,True
+cnn_only,1,Vitis vinifera IV/L0880B.jpg,L0880,Pinot Noir,Chardonnay,False
+cnn_only,1,Vitis vinifera IV/L0908A.jpg,L0908,Folle Blanche,Chasselas Napoleon,False
+cnn_only,1,Vitis vinifera IV/L0961A.jpg,L0961,Sauvignon Vert,Sauvignon Vert,True
+cnn_only,1,Vitis vinifera IV/L0962A.jpg,L0962,Sauvignon Vert,Durif,False
+cnn_only,1,Vitis vinifera V/L1262A.jpg,L1262,Chardonnay,Chardonnay,True
+cnn_only,1,Vitis vinifera V/L1262B.jpg,L1262,Chardonnay,Chardonnay,True
+cnn_only,1,Vitis vinifera V/L1265A.jpg,L1265,Semillon,Durif,False
+cnn_only,1,Vitis vinifera V/L1265B.jpg,L1265,Semillon,Semillon,True
+cnn_only,1,Vitis vinifera V/L1272A.jpg,L1272,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_only,1,Vitis vinifera V/L1272B.jpg,L1272,Cabernet Sauvignon,Semillon,False
+cnn_only,1,Vitis vinifera V/L1424A.jpg,L1424,Terret Blanc,Cinsaut,False
+cnn_only,1,Vitis vinifera V/L1424B.jpg,L1424,Terret Blanc,Terret Blanc,True
+cnn_only,1,Vitis vinifera V/L1428A.jpg,L1428,Cinsaut,Olivette Blanche,False
+cnn_only,1,Vitis vinifera V/L1428B.jpg,L1428,Cinsaut,Olivette Blanche,False
+cnn_only,2,Vitis vinifera I/K0160A.jpg,K0160,Poet Matabon,Poet Matabon,True
+cnn_only,2,Vitis vinifera I/K0455A.jpg,K0455,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_only,2,Vitis vinifera I/K0455B.jpg,K0455,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_only,2,Vitis vinifera I/K0627A.jpg,K0627,Olivette Blanche,Olivette Blanche,True
+cnn_only,2,Vitis vinifera I/K0627B.jpg,K0627,Olivette Blanche,Muscat St. Laurent,False
+cnn_only,2,Vitis vinifera I/K0629A.jpg,K0629,Olivette Blanche,Olivette Blanche,True
+cnn_only,2,Vitis vinifera I/K0629B.jpg,K0629,Olivette Blanche,Olivette Blanche,True
+cnn_only,2,Vitis vinifera II/K0913A.jpg,K0913,Muscat St. Laurent,Durif,False
+cnn_only,2,Vitis vinifera II/K0914A.jpg,K0914,Muscat St. Laurent,Durif,False
+cnn_only,2,Vitis vinifera II/K0944A.jpg,K0944,Poet Matabon,Poet Matabon,True
+cnn_only,2,Vitis vinifera II/K0944B.jpg,K0944,Poet Matabon,Poet Matabon,True
+cnn_only,2,Vitis vinifera III/L0435A.jpg,L0435,Chardonnay,Pinot Noir,False
+cnn_only,2,Vitis vinifera III/L0435B.jpg,L0435,Chardonnay,Chardonnay,True
+cnn_only,2,Vitis vinifera III/L0436A.jpg,L0436,Chardonnay,Chardonnay,True
+cnn_only,2,Vitis vinifera III/L0436B.jpg,L0436,Chardonnay,Pinot Noir,False
+cnn_only,2,Vitis vinifera III/L0510A.jpg,L0510,Folle Blanche,Folle Blanche,True
+cnn_only,2,Vitis vinifera IV/L0751A.jpg,L0751,Carignane,Poet Matabon,False
+cnn_only,2,Vitis vinifera IV/L0848A.jpg,L0848,Durif,Pinot Noir,False
+cnn_only,2,Vitis vinifera IV/L0848B.jpg,L0848,Durif,Chardonnay,False
+cnn_only,2,Vitis vinifera IV/L0867A.jpg,L0867,Pinot Noir,Semillon,False
+cnn_only,2,Vitis vinifera IV/L0867B.jpg,L0867,Pinot Noir,Pinot Noir,True
+cnn_only,2,Vitis vinifera IV/L0868A.jpg,L0868,Pinot Noir,Pinot Noir,True
+cnn_only,2,Vitis vinifera IV/L0868B.jpg,L0868,Pinot Noir,Pinot Noir,True
+cnn_only,2,Vitis vinifera IV/L0907A.jpg,L0907,Folle Blanche,Durif,False
+cnn_only,2,Vitis vinifera IV/L0964A.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+cnn_only,2,Vitis vinifera IV/L0964B.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+cnn_only,2,Vitis vinifera IV/L0972A.jpg,L0972,Semillon,Semillon,True
+cnn_only,2,Vitis vinifera IV/L0972B.jpg,L0972,Semillon,Chardonnay,False
+cnn_only,2,Vitis vinifera V/L1271A.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_only,2,Vitis vinifera V/L1271B.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_only,2,Vitis vinifera V/L1423A.jpg,L1423,Terret Blanc,Terret Blanc,True
+cnn_only,2,Vitis vinifera V/L1423B.jpg,L1423,Terret Blanc,Terret Blanc,True
+cnn_only,2,Vitis vinifera V/L1425A.jpg,L1425,Cinsaut,Semillon,False
+cnn_only,2,Vitis vinifera V/L1431A.jpg,L1431,Carignane,Cinsaut,False
+cnn_only,3,Vitis vinifera I/K0118B.jpg,K0118,Muscat St. Laurent,Muscat St. Laurent,True
+cnn_only,3,Vitis vinifera I/K0630A.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+cnn_only,3,Vitis vinifera I/K0630B.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+cnn_only,3,Vitis vinifera II/K0943A.jpg,K0943,Poet Matabon,Poet Matabon,True
+cnn_only,3,Vitis vinifera II/K0943B.jpg,K0943,Poet Matabon,Poet Matabon,True
+cnn_only,3,Vitis vinifera II/K1144A.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_only,3,Vitis vinifera II/K1144B.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_only,3,Vitis vinifera III/L0424A.jpg,L0424,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_only,3,Vitis vinifera III/L0424B.jpg,L0424,Cabernet Sauvignon,Muscat St. Laurent,False
+cnn_only,3,Vitis vinifera III/L0430A.jpg,L0430,Carignane,Carignane,True
+cnn_only,3,Vitis vinifera III/L0430B.jpg,L0430,Carignane,Carignane,True
+cnn_only,3,Vitis vinifera III/L0433A.jpg,L0433,Chardonnay,Chardonnay,True
+cnn_only,3,Vitis vinifera III/L0433B.jpg,L0433,Chardonnay,Chardonnay,True
+cnn_only,3,Vitis vinifera III/L0463A.jpg,L0463,Durif,Pinot Noir,False
+cnn_only,3,Vitis vinifera III/L0464A.jpg,L0464,Durif,Pinot Noir,False
+cnn_only,3,Vitis vinifera III/L0509A.jpg,L0509,Folle Blanche,Folle Blanche,True
+cnn_only,3,Vitis vinifera III/L0509B.jpg,L0509,Folle Blanche,Folle Blanche,True
+cnn_only,3,Vitis vinifera IV/L0574A.jpg,L0574,Terret Blanc,Sauvignon Vert,False
+cnn_only,3,Vitis vinifera IV/L0574B.jpg,L0574,Terret Blanc,Carignane,False
+cnn_only,3,Vitis vinifera IV/L0877A.jpg,L0877,Pinot Noir,Pinot Noir,True
+cnn_only,3,Vitis vinifera IV/L0877B.jpg,L0877,Pinot Noir,Pinot Noir,True
+cnn_only,3,Vitis vinifera IV/L0878A.jpg,L0878,Pinot Noir,Pinot Noir,True
+cnn_only,3,Vitis vinifera IV/L0878B.jpg,L0878,Pinot Noir,Chardonnay,False
+cnn_only,3,Vitis vinifera IV/L0963A.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+cnn_only,3,Vitis vinifera IV/L0963B.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+cnn_only,3,Vitis vinifera IV/L0971A.jpg,L0971,Semillon,Durif,False
+cnn_only,3,Vitis vinifera V/L1261A.jpg,L1261,Chardonnay,Semillon,False
+cnn_only,3,Vitis vinifera V/L1261B.jpg,L1261,Chardonnay,Chardonnay,True
+cnn_only,3,Vitis vinifera V/L1266A.jpg,L1266,Semillon,Poet Matabon,False
+cnn_only,3,Vitis vinifera V/L1266B.jpg,L1266,Semillon,Sauvignon Vert,False
+cnn_only,3,Vitis vinifera V/L1427A.jpg,L1427,Cinsaut,Terret Blanc,False
+cnn_only,3,Vitis vinifera V/L1427B.jpg,L1427,Cinsaut,Cinsaut,True
+cnn_only,3,Vitis vinifera V/L1568A.jpg,L1568,Pinot Noir,Sauvignon Vert,False
+cnn_plus_shape,1,Vitis vinifera I/K0117A.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+cnn_plus_shape,1,Vitis vinifera I/K0117B.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+cnn_plus_shape,1,Vitis vinifera I/K0159A.jpg,K0159,Poet Matabon,Poet Matabon,True
+cnn_plus_shape,1,Vitis vinifera I/K0159B.jpg,K0159,Poet Matabon,Carignane,False
+cnn_plus_shape,1,Vitis vinifera I/K0628A.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,1,Vitis vinifera I/K0628B.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,1,Vitis vinifera II/K1143A.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_plus_shape,1,Vitis vinifera II/K1143B.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_plus_shape,1,Vitis vinifera III/L0423A.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_plus_shape,1,Vitis vinifera III/L0423B.jpg,L0423,Cabernet Sauvignon,Pinot Noir,False
+cnn_plus_shape,1,Vitis vinifera III/L0429A.jpg,L0429,Carignane,Carignane,True
+cnn_plus_shape,1,Vitis vinifera III/L0429B.jpg,L0429,Carignane,Carignane,True
+cnn_plus_shape,1,Vitis vinifera III/L0434A.jpg,L0434,Chardonnay,Chardonnay,True
+cnn_plus_shape,1,Vitis vinifera III/L0434B.jpg,L0434,Chardonnay,Chardonnay,True
+cnn_plus_shape,1,Vitis vinifera III/L0511B.jpg,L0511,Folle Blanche,Folle Blanche,True
+cnn_plus_shape,1,Vitis vinifera IV/L0847A.jpg,L0847,Durif,Muscat St. Laurent,False
+cnn_plus_shape,1,Vitis vinifera IV/L0879A.jpg,L0879,Pinot Noir,Chardonnay,False
+cnn_plus_shape,1,Vitis vinifera IV/L0879B.jpg,L0879,Pinot Noir,Chardonnay,False
+cnn_plus_shape,1,Vitis vinifera IV/L0880A.jpg,L0880,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,1,Vitis vinifera IV/L0880B.jpg,L0880,Pinot Noir,Chardonnay,False
+cnn_plus_shape,1,Vitis vinifera IV/L0908A.jpg,L0908,Folle Blanche,Chasselas Napoleon,False
+cnn_plus_shape,1,Vitis vinifera IV/L0961A.jpg,L0961,Sauvignon Vert,Sauvignon Vert,True
+cnn_plus_shape,1,Vitis vinifera IV/L0962A.jpg,L0962,Sauvignon Vert,Durif,False
+cnn_plus_shape,1,Vitis vinifera V/L1262A.jpg,L1262,Chardonnay,Chardonnay,True
+cnn_plus_shape,1,Vitis vinifera V/L1262B.jpg,L1262,Chardonnay,Chardonnay,True
+cnn_plus_shape,1,Vitis vinifera V/L1265A.jpg,L1265,Semillon,Pinot Noir,False
+cnn_plus_shape,1,Vitis vinifera V/L1265B.jpg,L1265,Semillon,Folle Blanche,False
+cnn_plus_shape,1,Vitis vinifera V/L1272A.jpg,L1272,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_plus_shape,1,Vitis vinifera V/L1272B.jpg,L1272,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_plus_shape,1,Vitis vinifera V/L1424A.jpg,L1424,Terret Blanc,Cinsaut,False
+cnn_plus_shape,1,Vitis vinifera V/L1424B.jpg,L1424,Terret Blanc,Terret Blanc,True
+cnn_plus_shape,1,Vitis vinifera V/L1428A.jpg,L1428,Cinsaut,Olivette Blanche,False
+cnn_plus_shape,1,Vitis vinifera V/L1428B.jpg,L1428,Cinsaut,Olivette Blanche,False
+cnn_plus_shape,2,Vitis vinifera I/K0160A.jpg,K0160,Poet Matabon,Poet Matabon,True
+cnn_plus_shape,2,Vitis vinifera I/K0455A.jpg,K0455,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_plus_shape,2,Vitis vinifera I/K0455B.jpg,K0455,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_plus_shape,2,Vitis vinifera I/K0627A.jpg,K0627,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,2,Vitis vinifera I/K0627B.jpg,K0627,Olivette Blanche,Muscat St. Laurent,False
+cnn_plus_shape,2,Vitis vinifera I/K0629A.jpg,K0629,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,2,Vitis vinifera I/K0629B.jpg,K0629,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,2,Vitis vinifera II/K0913A.jpg,K0913,Muscat St. Laurent,Durif,False
+cnn_plus_shape,2,Vitis vinifera II/K0914A.jpg,K0914,Muscat St. Laurent,Durif,False
+cnn_plus_shape,2,Vitis vinifera II/K0944A.jpg,K0944,Poet Matabon,Poet Matabon,True
+cnn_plus_shape,2,Vitis vinifera II/K0944B.jpg,K0944,Poet Matabon,Poet Matabon,True
+cnn_plus_shape,2,Vitis vinifera III/L0435A.jpg,L0435,Chardonnay,Pinot Noir,False
+cnn_plus_shape,2,Vitis vinifera III/L0435B.jpg,L0435,Chardonnay,Chardonnay,True
+cnn_plus_shape,2,Vitis vinifera III/L0436A.jpg,L0436,Chardonnay,Pinot Noir,False
+cnn_plus_shape,2,Vitis vinifera III/L0436B.jpg,L0436,Chardonnay,Pinot Noir,False
+cnn_plus_shape,2,Vitis vinifera III/L0510A.jpg,L0510,Folle Blanche,Folle Blanche,True
+cnn_plus_shape,2,Vitis vinifera IV/L0751A.jpg,L0751,Carignane,Poet Matabon,False
+cnn_plus_shape,2,Vitis vinifera IV/L0848A.jpg,L0848,Durif,Pinot Noir,False
+cnn_plus_shape,2,Vitis vinifera IV/L0848B.jpg,L0848,Durif,Chardonnay,False
+cnn_plus_shape,2,Vitis vinifera IV/L0867A.jpg,L0867,Pinot Noir,Semillon,False
+cnn_plus_shape,2,Vitis vinifera IV/L0867B.jpg,L0867,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,2,Vitis vinifera IV/L0868A.jpg,L0868,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,2,Vitis vinifera IV/L0868B.jpg,L0868,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,2,Vitis vinifera IV/L0907A.jpg,L0907,Folle Blanche,Durif,False
+cnn_plus_shape,2,Vitis vinifera IV/L0964A.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+cnn_plus_shape,2,Vitis vinifera IV/L0964B.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+cnn_plus_shape,2,Vitis vinifera IV/L0972A.jpg,L0972,Semillon,Semillon,True
+cnn_plus_shape,2,Vitis vinifera IV/L0972B.jpg,L0972,Semillon,Chardonnay,False
+cnn_plus_shape,2,Vitis vinifera V/L1271A.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_plus_shape,2,Vitis vinifera V/L1271B.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_plus_shape,2,Vitis vinifera V/L1423A.jpg,L1423,Terret Blanc,Terret Blanc,True
+cnn_plus_shape,2,Vitis vinifera V/L1423B.jpg,L1423,Terret Blanc,Terret Blanc,True
+cnn_plus_shape,2,Vitis vinifera V/L1425A.jpg,L1425,Cinsaut,Semillon,False
+cnn_plus_shape,2,Vitis vinifera V/L1431A.jpg,L1431,Carignane,Cinsaut,False
+cnn_plus_shape,3,Vitis vinifera I/K0118B.jpg,K0118,Muscat St. Laurent,Muscat St. Laurent,True
+cnn_plus_shape,3,Vitis vinifera I/K0630A.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,3,Vitis vinifera I/K0630B.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+cnn_plus_shape,3,Vitis vinifera II/K0943A.jpg,K0943,Poet Matabon,Poet Matabon,True
+cnn_plus_shape,3,Vitis vinifera II/K0943B.jpg,K0943,Poet Matabon,Poet Matabon,True
+cnn_plus_shape,3,Vitis vinifera II/K1144A.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_plus_shape,3,Vitis vinifera II/K1144B.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+cnn_plus_shape,3,Vitis vinifera III/L0424A.jpg,L0424,Cabernet Sauvignon,Cabernet Sauvignon,True
+cnn_plus_shape,3,Vitis vinifera III/L0424B.jpg,L0424,Cabernet Sauvignon,Muscat St. Laurent,False
+cnn_plus_shape,3,Vitis vinifera III/L0430A.jpg,L0430,Carignane,Carignane,True
+cnn_plus_shape,3,Vitis vinifera III/L0430B.jpg,L0430,Carignane,Carignane,True
+cnn_plus_shape,3,Vitis vinifera III/L0433A.jpg,L0433,Chardonnay,Chardonnay,True
+cnn_plus_shape,3,Vitis vinifera III/L0433B.jpg,L0433,Chardonnay,Chardonnay,True
+cnn_plus_shape,3,Vitis vinifera III/L0463A.jpg,L0463,Durif,Pinot Noir,False
+cnn_plus_shape,3,Vitis vinifera III/L0464A.jpg,L0464,Durif,Pinot Noir,False
+cnn_plus_shape,3,Vitis vinifera III/L0509A.jpg,L0509,Folle Blanche,Folle Blanche,True
+cnn_plus_shape,3,Vitis vinifera III/L0509B.jpg,L0509,Folle Blanche,Folle Blanche,True
+cnn_plus_shape,3,Vitis vinifera IV/L0574A.jpg,L0574,Terret Blanc,Sauvignon Vert,False
+cnn_plus_shape,3,Vitis vinifera IV/L0574B.jpg,L0574,Terret Blanc,Carignane,False
+cnn_plus_shape,3,Vitis vinifera IV/L0877A.jpg,L0877,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,3,Vitis vinifera IV/L0877B.jpg,L0877,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,3,Vitis vinifera IV/L0878A.jpg,L0878,Pinot Noir,Pinot Noir,True
+cnn_plus_shape,3,Vitis vinifera IV/L0878B.jpg,L0878,Pinot Noir,Chardonnay,False
+cnn_plus_shape,3,Vitis vinifera IV/L0963A.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+cnn_plus_shape,3,Vitis vinifera IV/L0963B.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+cnn_plus_shape,3,Vitis vinifera IV/L0971A.jpg,L0971,Semillon,Folle Blanche,False
+cnn_plus_shape,3,Vitis vinifera V/L1261A.jpg,L1261,Chardonnay,Semillon,False
+cnn_plus_shape,3,Vitis vinifera V/L1261B.jpg,L1261,Chardonnay,Chardonnay,True
+cnn_plus_shape,3,Vitis vinifera V/L1266A.jpg,L1266,Semillon,Poet Matabon,False
+cnn_plus_shape,3,Vitis vinifera V/L1266B.jpg,L1266,Semillon,Sauvignon Vert,False
+cnn_plus_shape,3,Vitis vinifera V/L1427A.jpg,L1427,Cinsaut,Terret Blanc,False
+cnn_plus_shape,3,Vitis vinifera V/L1427B.jpg,L1427,Cinsaut,Cinsaut,True
+cnn_plus_shape,3,Vitis vinifera V/L1568A.jpg,L1568,Pinot Noir,Sauvignon Vert,False
+leaf_crop_cnn_only,1,Vitis vinifera I/K0117A.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_only,1,Vitis vinifera I/K0117B.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_only,1,Vitis vinifera I/K0159A.jpg,K0159,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,1,Vitis vinifera I/K0159B.jpg,K0159,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,1,Vitis vinifera I/K0628A.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_only,1,Vitis vinifera I/K0628B.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_only,1,Vitis vinifera II/K1143A.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_only,1,Vitis vinifera II/K1143B.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0423A.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0423B.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0429A.jpg,L0429,Carignane,Carignane,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0429B.jpg,L0429,Carignane,Carignane,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0434A.jpg,L0434,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0434B.jpg,L0434,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,1,Vitis vinifera III/L0511B.jpg,L0511,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0847A.jpg,L0847,Durif,Durif,True
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0879A.jpg,L0879,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0879B.jpg,L0879,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0880A.jpg,L0880,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0880B.jpg,L0880,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0908A.jpg,L0908,Folle Blanche,Semillon,False
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0961A.jpg,L0961,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_only,1,Vitis vinifera IV/L0962A.jpg,L0962,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_only,1,Vitis vinifera V/L1262A.jpg,L1262,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,1,Vitis vinifera V/L1262B.jpg,L1262,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,1,Vitis vinifera V/L1265A.jpg,L1265,Semillon,Cinsaut,False
+leaf_crop_cnn_only,1,Vitis vinifera V/L1265B.jpg,L1265,Semillon,Pinot Noir,False
+leaf_crop_cnn_only,1,Vitis vinifera V/L1272A.jpg,L1272,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_only,1,Vitis vinifera V/L1272B.jpg,L1272,Cabernet Sauvignon,Pinot Noir,False
+leaf_crop_cnn_only,1,Vitis vinifera V/L1424A.jpg,L1424,Terret Blanc,Pinot Noir,False
+leaf_crop_cnn_only,1,Vitis vinifera V/L1424B.jpg,L1424,Terret Blanc,Terret Blanc,True
+leaf_crop_cnn_only,1,Vitis vinifera V/L1428A.jpg,L1428,Cinsaut,Poet Matabon,False
+leaf_crop_cnn_only,1,Vitis vinifera V/L1428B.jpg,L1428,Cinsaut,Cinsaut,True
+leaf_crop_cnn_only,2,Vitis vinifera I/K0160A.jpg,K0160,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,2,Vitis vinifera I/K0455A.jpg,K0455,Chasselas Napoleon,Pinot Noir,False
+leaf_crop_cnn_only,2,Vitis vinifera I/K0455B.jpg,K0455,Chasselas Napoleon,Cinsaut,False
+leaf_crop_cnn_only,2,Vitis vinifera I/K0627A.jpg,K0627,Olivette Blanche,Semillon,False
+leaf_crop_cnn_only,2,Vitis vinifera I/K0627B.jpg,K0627,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_only,2,Vitis vinifera I/K0629A.jpg,K0629,Olivette Blanche,Carignane,False
+leaf_crop_cnn_only,2,Vitis vinifera I/K0629B.jpg,K0629,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_only,2,Vitis vinifera II/K0913A.jpg,K0913,Muscat St. Laurent,Chasselas Napoleon,False
+leaf_crop_cnn_only,2,Vitis vinifera II/K0914A.jpg,K0914,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_only,2,Vitis vinifera II/K0944A.jpg,K0944,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,2,Vitis vinifera II/K0944B.jpg,K0944,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,2,Vitis vinifera III/L0435A.jpg,L0435,Chardonnay,Pinot Noir,False
+leaf_crop_cnn_only,2,Vitis vinifera III/L0435B.jpg,L0435,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,2,Vitis vinifera III/L0436A.jpg,L0436,Chardonnay,Pinot Noir,False
+leaf_crop_cnn_only,2,Vitis vinifera III/L0436B.jpg,L0436,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,2,Vitis vinifera III/L0510A.jpg,L0510,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0751A.jpg,L0751,Carignane,Carignane,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0848A.jpg,L0848,Durif,Pinot Noir,False
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0848B.jpg,L0848,Durif,Pinot Noir,False
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0867A.jpg,L0867,Pinot Noir,Durif,False
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0867B.jpg,L0867,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0868A.jpg,L0868,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0868B.jpg,L0868,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0907A.jpg,L0907,Folle Blanche,Durif,False
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0964A.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0964B.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0972A.jpg,L0972,Semillon,Semillon,True
+leaf_crop_cnn_only,2,Vitis vinifera IV/L0972B.jpg,L0972,Semillon,Semillon,True
+leaf_crop_cnn_only,2,Vitis vinifera V/L1271A.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_only,2,Vitis vinifera V/L1271B.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_only,2,Vitis vinifera V/L1423A.jpg,L1423,Terret Blanc,Terret Blanc,True
+leaf_crop_cnn_only,2,Vitis vinifera V/L1423B.jpg,L1423,Terret Blanc,Terret Blanc,True
+leaf_crop_cnn_only,2,Vitis vinifera V/L1425A.jpg,L1425,Cinsaut,Pinot Noir,False
+leaf_crop_cnn_only,2,Vitis vinifera V/L1431A.jpg,L1431,Carignane,Sauvignon Vert,False
+leaf_crop_cnn_only,3,Vitis vinifera I/K0118B.jpg,K0118,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_only,3,Vitis vinifera I/K0630A.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_only,3,Vitis vinifera I/K0630B.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_only,3,Vitis vinifera II/K0943A.jpg,K0943,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,3,Vitis vinifera II/K0943B.jpg,K0943,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_only,3,Vitis vinifera II/K1144A.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_only,3,Vitis vinifera II/K1144B.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0424A.jpg,L0424,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0424B.jpg,L0424,Cabernet Sauvignon,Poet Matabon,False
+leaf_crop_cnn_only,3,Vitis vinifera III/L0430A.jpg,L0430,Carignane,Carignane,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0430B.jpg,L0430,Carignane,Carignane,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0433A.jpg,L0433,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0433B.jpg,L0433,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0463A.jpg,L0463,Durif,Pinot Noir,False
+leaf_crop_cnn_only,3,Vitis vinifera III/L0464A.jpg,L0464,Durif,Pinot Noir,False
+leaf_crop_cnn_only,3,Vitis vinifera III/L0509A.jpg,L0509,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_only,3,Vitis vinifera III/L0509B.jpg,L0509,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0574A.jpg,L0574,Terret Blanc,Sauvignon Vert,False
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0574B.jpg,L0574,Terret Blanc,Carignane,False
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0877A.jpg,L0877,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0877B.jpg,L0877,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0878A.jpg,L0878,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0878B.jpg,L0878,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0963A.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0963B.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_only,3,Vitis vinifera IV/L0971A.jpg,L0971,Semillon,Folle Blanche,False
+leaf_crop_cnn_only,3,Vitis vinifera V/L1261A.jpg,L1261,Chardonnay,Pinot Noir,False
+leaf_crop_cnn_only,3,Vitis vinifera V/L1261B.jpg,L1261,Chardonnay,Chardonnay,True
+leaf_crop_cnn_only,3,Vitis vinifera V/L1266A.jpg,L1266,Semillon,Terret Blanc,False
+leaf_crop_cnn_only,3,Vitis vinifera V/L1266B.jpg,L1266,Semillon,Cinsaut,False
+leaf_crop_cnn_only,3,Vitis vinifera V/L1427A.jpg,L1427,Cinsaut,Olivette Blanche,False
+leaf_crop_cnn_only,3,Vitis vinifera V/L1427B.jpg,L1427,Cinsaut,Cinsaut,True
+leaf_crop_cnn_only,3,Vitis vinifera V/L1568A.jpg,L1568,Pinot Noir,Carignane,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera I/K0117A.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera I/K0117B.jpg,K0117,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera I/K0159A.jpg,K0159,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera I/K0159B.jpg,K0159,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera I/K0628A.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera I/K0628B.jpg,K0628,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera II/K1143A.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera II/K1143B.jpg,K1143,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0423A.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0423B.jpg,L0423,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0429A.jpg,L0429,Carignane,Carignane,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0429B.jpg,L0429,Carignane,Carignane,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0434A.jpg,L0434,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0434B.jpg,L0434,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera III/L0511B.jpg,L0511,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0847A.jpg,L0847,Durif,Durif,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0879A.jpg,L0879,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0879B.jpg,L0879,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0880A.jpg,L0880,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0880B.jpg,L0880,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0908A.jpg,L0908,Folle Blanche,Pinot Noir,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0961A.jpg,L0961,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera IV/L0962A.jpg,L0962,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1262A.jpg,L1262,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1262B.jpg,L1262,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1265A.jpg,L1265,Semillon,Cinsaut,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1265B.jpg,L1265,Semillon,Pinot Noir,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1272A.jpg,L1272,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1272B.jpg,L1272,Cabernet Sauvignon,Pinot Noir,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1424A.jpg,L1424,Terret Blanc,Pinot Noir,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1424B.jpg,L1424,Terret Blanc,Terret Blanc,True
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1428A.jpg,L1428,Cinsaut,Poet Matabon,False
+leaf_crop_cnn_plus_shape,1,Vitis vinifera V/L1428B.jpg,L1428,Cinsaut,Cinsaut,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0160A.jpg,K0160,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0455A.jpg,K0455,Chasselas Napoleon,Pinot Noir,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0455B.jpg,K0455,Chasselas Napoleon,Cinsaut,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0627A.jpg,K0627,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0627B.jpg,K0627,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0629A.jpg,K0629,Olivette Blanche,Carignane,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera I/K0629B.jpg,K0629,Olivette Blanche,Carignane,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera II/K0913A.jpg,K0913,Muscat St. Laurent,Chasselas Napoleon,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera II/K0914A.jpg,K0914,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera II/K0944A.jpg,K0944,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera II/K0944B.jpg,K0944,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera III/L0435A.jpg,L0435,Chardonnay,Pinot Noir,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera III/L0435B.jpg,L0435,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera III/L0436A.jpg,L0436,Chardonnay,Pinot Noir,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera III/L0436B.jpg,L0436,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera III/L0510A.jpg,L0510,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0751A.jpg,L0751,Carignane,Carignane,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0848A.jpg,L0848,Durif,Durif,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0848B.jpg,L0848,Durif,Pinot Noir,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0867A.jpg,L0867,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0867B.jpg,L0867,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0868A.jpg,L0868,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0868B.jpg,L0868,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0907A.jpg,L0907,Folle Blanche,Durif,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0964A.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0964B.jpg,L0964,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0972A.jpg,L0972,Semillon,Semillon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera IV/L0972B.jpg,L0972,Semillon,Semillon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera V/L1271A.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera V/L1271B.jpg,L1271,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera V/L1423A.jpg,L1423,Terret Blanc,Terret Blanc,True
+leaf_crop_cnn_plus_shape,2,Vitis vinifera V/L1423B.jpg,L1423,Terret Blanc,Semillon,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera V/L1425A.jpg,L1425,Cinsaut,Pinot Noir,False
+leaf_crop_cnn_plus_shape,2,Vitis vinifera V/L1431A.jpg,L1431,Carignane,Sauvignon Vert,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera I/K0118B.jpg,K0118,Muscat St. Laurent,Muscat St. Laurent,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera I/K0630A.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera I/K0630B.jpg,K0630,Olivette Blanche,Olivette Blanche,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera II/K0943A.jpg,K0943,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera II/K0943B.jpg,K0943,Poet Matabon,Poet Matabon,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera II/K1144A.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera II/K1144B.jpg,K1144,Chasselas Napoleon,Chasselas Napoleon,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0424A.jpg,L0424,Cabernet Sauvignon,Cabernet Sauvignon,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0424B.jpg,L0424,Cabernet Sauvignon,Poet Matabon,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0430A.jpg,L0430,Carignane,Carignane,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0430B.jpg,L0430,Carignane,Carignane,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0433A.jpg,L0433,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0433B.jpg,L0433,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0463A.jpg,L0463,Durif,Pinot Noir,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0464A.jpg,L0464,Durif,Pinot Noir,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0509A.jpg,L0509,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera III/L0509B.jpg,L0509,Folle Blanche,Folle Blanche,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0574A.jpg,L0574,Terret Blanc,Sauvignon Vert,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0574B.jpg,L0574,Terret Blanc,Carignane,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0877A.jpg,L0877,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0877B.jpg,L0877,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0878A.jpg,L0878,Pinot Noir,Chardonnay,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0878B.jpg,L0878,Pinot Noir,Pinot Noir,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0963A.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0963B.jpg,L0963,Sauvignon Vert,Sauvignon Vert,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera IV/L0971A.jpg,L0971,Semillon,Folle Blanche,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1261A.jpg,L1261,Chardonnay,Pinot Noir,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1261B.jpg,L1261,Chardonnay,Chardonnay,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1266A.jpg,L1266,Semillon,Terret Blanc,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1266B.jpg,L1266,Semillon,Cabernet Sauvignon,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1427A.jpg,L1427,Cinsaut,Carignane,False
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1427B.jpg,L1427,Cinsaut,Cinsaut,True
+leaf_crop_cnn_plus_shape,3,Vitis vinifera V/L1568A.jpg,L1568,Pinot Noir,Carignane,False

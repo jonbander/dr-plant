@@ -1,0 +1,33 @@
+{
+  "status": "automatic_mask_candidates_only",
+  "images": 504,
+  "mask_status_counts": {
+    "auto_candidate_two_leaves": 444,
+    "review_required_component_count_1": 59,
+    "review_required_component_count_0": 1
+  },
+  "features_per_leaf": 19,
+  "feature_columns": [
+    "area_fraction",
+    "perimeter_norm",
+    "aspect_ratio",
+    "extent",
+    "solidity",
+    "eccentricity",
+    "compactness",
+    "convexity_deficit",
+    "radial_cv",
+    "radial_q10",
+    "radial_q50",
+    "radial_q90",
+    "hu1",
+    "hu2",
+    "hu3",
+    "hu4",
+    "hu5",
+    "hu6",
+    "hu7"
+  ],
+  "segmentation": "PIL HSV saturation>=35 and value<=205; scipy closing/opening/fill holes; two largest plausible interior components",
+  "important_limit": "No manual ground-truth masks; overlays must be reviewed before treating these as leaf masks. No disease or production claim."
+}
