@@ -95,7 +95,7 @@ class TrainingGateTests(unittest.TestCase):
             rogue.unlink()
             # A biological group moved across train/test must block the same signed profile.
             split_rows=[dict(row) for row in valid_rows]
-            split_rows[1]['group_id']=split_rows[0]['group_id']
+            split_rows[1]['group_id']=split_rows[0]['group_id']; split_rows[1]['group_id_for_split']=split_rows[0]['group_id_for_split']
             resign_split_and_near(split_rows)
             blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
             self.assertEqual(blocked.returncode,2)
