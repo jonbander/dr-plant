@@ -1,0 +1,266 @@
+{
+  "retrieved_at_utc": "2026-11-27T15:30:00Z",
+  "source": "Zenodo public Records API",
+  "records": [
+    {
+      "record_id": 16883367,
+      "doi": "10.5281/zenodo.16883367",
+      "title": "ALGERIA",
+      "publication_date": "2025-08-15",
+      "access_right": "open",
+      "license_id": "cc-by-4.0",
+      "creators": [
+        {
+          "name": "Chitwood, Daniel",
+          "affiliation": "Michigan State University",
+          "orcid": "0000-0003-4875-1447"
+        }
+      ],
+      "files": [
+        {
+          "key": "ALGERIA.zip",
+          "size_bytes": 1604868626,
+          "checksum": "md5:c37cdd4954aa6d7f3abd47bd06d139a7",
+          "download_url": "https://zenodo.org/api/records/16883367/files/ALGERIA.zip/content"
+        }
+      ]
+    },
+    {
+      "record_id": 16883403,
+      "doi": "10.5281/zenodo.16883403",
+      "title": "FINAL_MASKS",
+      "publication_date": "2025-08-15",
+      "access_right": "open",
+      "license_id": "cc-by-4.0",
+      "creators": [
+        {
+          "name": "Chitwood, Daniel",
+          "affiliation": "Michigan State University",
+          "orcid": "0000-0003-4875-1447"
+        }
+      ],
+      "files": [
+        {
+          "key": "png_masks.zip",
+          "size_bytes": 12062919550,
+          "checksum": "md5:ecb45e0722f2196525a8663888a170a4",
+          "download_url": "https://zenodo.org/api/records/16883403/files/png_masks.zip/content"
+        },
+        {
+          "key": "master_masks.h5",
+          "size_bytes": 12281726789,
+          "checksum": "md5:a9cc2abb54f4f011ba838fcc7766844b",
+          "download_url": "https://zenodo.org/api/records/16883403/files/master_masks.h5/content"
+        },
+        {
+          "key": "master_mask_datasheet.csv",
+          "size_bytes": 2995071,
+          "checksum": "md5:2e9ed5ceb72ff4cf53412965bca73b26",
+          "download_url": "https://zenodo.org/api/records/16883403/files/master_mask_datasheet.csv/content"
+        }
+      ]
+    },
+    {
+      "record_id": 20090333,
+      "doi": "10.5281/zenodo.20090333",
+      "title": "DETECT LEAVES",
+      "publication_date": "2026-05-08",
+      "access_right": "open",
+      "license_id": "cc-by-4.0",
+      "creators": [
+        {
+          "name": "Chitwood, Daniel",
+          "affiliation": "Michigan State University",
+          "orcid": "0000-0003-4875-1447"
+        }
+      ],
+      "files": [
+        {
+          "key": "REDUCED_LEAF_DATA.zip",
+          "size_bytes": 1859782315,
+          "checksum": "md5:1d506b4d030f8f2657ab0e4b42889439",
+          "download_url": "https://zenodo.org/api/records/20090333/files/REDUCED_LEAF_DATA.zip/content"
+        },
+        {
+          "key": "DETECT_LEAVES.zip",
+          "size_bytes": 9559749617,
+          "checksum": "md5:1fbfa0d4554ff494384d680017b7488f",
+          "download_url": "https://zenodo.org/api/records/20090333/files/DETECT_LEAVES.zip/content"
+        },
+        {
+          "key": "LEAF_DETECTION_SUMMARY.csv",
+          "size_bytes": 290,
+          "checksum": "md5:1908419c1ed31db610debf0156aefe3c",
+          "download_url": "https://zenodo.org/api/records/20090333/files/LEAF_DETECTION_SUMMARY.csv/content"
+        },
+        {
+          "key": "LEAF_MASK_METADATA.csv",
+          "size_bytes": 6433657,
+          "checksum": "md5:f52fa4b908bf6ddb1ebaed36ff8acdaf",
+          "download_url": "https://zenodo.org/api/records/20090333/files/LEAF_MASK_METADATA.csv/content"
+        },
+        {
+          "key": "preview_figure.png",
+          "size_bytes": 5504701,
+          "checksum": "md5:54fd66fb69f87cb71c47d0a325d252ec",
+          "download_url": "https://zenodo.org/api/records/20090333/files/preview_figure.png/content"
+        },
+        {
+          "key": "LEAF_DATA_METADATA.csv",
+          "size_bytes": 2228272,
+          "checksum": "md5:ccef9350792840d2c87c4f3b20b8c577",
+          "download_url": "https://zenodo.org/api/records/20090333/files/LEAF_DATA_METADATA.csv/content"
+        },
+        {
+          "key": "MASTER_LEAF_METADATA.csv",
+          "size_bytes": 6281908,
+          "checksum": "md5:eaffe8e3c7068b8cde98a2b671430cdd",
+          "download_url": "https://zenodo.org/api/records/20090333/files/MASTER_LEAF_METADATA.csv/content"
+        }
+      ]
+    },
+    {
+      "record_id": 20091083,
+      "doi": "10.5281/zenodo.20091083",
+      "title": "LEAF_MASKS (one of two)",
+      "publication_date": "2026-05-09",
+      "access_right": "open",
+      "license_id": "cc-by-4.0",
+      "creators": [
+        {
+          "name": "Chitwood, Daniel",
+          "affiliation": "Michigan State University",
+          "orcid": "0000-0003-4875-1447"
+        }
+      ],
+      "files": [
+        {
+          "key": "ALGERIA.zip",
+          "size_bytes": 1281299742,
+          "checksum": "md5:99e827b782b16d7ac03e995f0cf793b5",
+          "download_url": "https://zenodo.org/api/records/20091083/files/ALGERIA.zip/content"
+        },
+        {
+          "key": "CHAMBOURCIN.zip",
+          "size_bytes": 3477804505,
+          "checksum": "md5:5c46083b751f064485009149dee7c88a",
+          "download_url": "https://zenodo.org/api/records/20091083/files/CHAMBOURCIN.zip/content"
+        },
+        {
+          "key": "ACADIA.zip",
+          "size_bytes": 1573982081,
+          "checksum": "md5:a01dd2da5ad093152ca3fe5864c4e074",
+          "download_url": "https://zenodo.org/api/records/20091083/files/ACADIA.zip/content"
+        },
+        {
+          "key": "BALEARIC_ISLANDS.zip",
+          "size_bytes": 1602410414,
+          "checksum": "md5:e6448924abbc5b94e623b0644fb9fe58",
+          "download_url": "https://zenodo.org/api/records/20091083/files/BALEARIC_ISLANDS.zip/content"
+        },
+        {
+          "key": "COTTON.zip",
+          "size_bytes": 5662042242,
+          "checksum": "md5:e883df9831ebe31958fcf69a0dc6d121",
+          "download_url": "https://zenodo.org/api/records/20091083/files/COTTON.zip/content"
+        },
+        {
+          "key": "HORIZONxILLINOIS.zip",
+          "size_bytes": 3112961288,
+          "checksum": "md5:7efe835567f9c4ae249eb05f2f3ebd9d",
+          "download_url": "https://zenodo.org/api/records/20091083/files/HORIZONxILLINOIS.zip/content"
+        },
+        {
+          "key": "TAMU.zip",
+          "size_bytes": 1816899676,
+          "checksum": "md5:6461cd400608fb28bb4336a92ea75032",
+          "download_url": "https://zenodo.org/api/records/20091083/files/TAMU.zip/content"
+        },
+        {
+          "key": "MISION.zip",
+          "size_bytes": 19164907,
+          "checksum": "md5:48a9ad44949fc65d30a774bb4632dc55",
+          "download_url": "https://zenodo.org/api/records/20091083/files/MISION.zip/content"
+        },
+        {
+          "key": "VITIS_CROSSES.zip",
+          "size_bytes": 4412643840,
+          "checksum": "md5:74ea8d2762d488fbc1d7e89b00763c85",
+          "download_url": "https://zenodo.org/api/records/20091083/files/VITIS_CROSSES.zip/content"
+        },
+        {
+          "key": "CALIFORNIA.zip",
+          "size_bytes": 3146416156,
+          "checksum": "md5:c53bb1a1981a21b1efc12d34b6d13cec",
+          "download_url": "https://zenodo.org/api/records/20091083/files/CALIFORNIA.zip/content"
+        },
+        {
+          "key": "UCDAVIS.zip",
+          "size_bytes": 175696946,
+          "checksum": "md5:a18a024abbaa96f37163876c7c4264f2",
+          "download_url": "https://zenodo.org/api/records/20091083/files/UCDAVIS.zip/content"
+        }
+      ]
+    },
+    {
+      "record_id": 20241355,
+      "doi": "10.5281/zenodo.20241355",
+      "title": "10 CLASS PREDICTION AND ALIGNMENT",
+      "publication_date": "2026-05-16",
+      "access_right": "open",
+      "license_id": "cc-by-4.0",
+      "creators": [
+        {
+          "name": "Chitwood, Daniel",
+          "affiliation": "Michigan State University",
+          "orcid": "0000-0003-4875-1447"
+        }
+      ],
+      "files": [
+        {
+          "key": "10_class_prediction.zip",
+          "size_bytes": 4717602823,
+          "checksum": "md5:f2d13597db69fdd997f8bd703f9b81eb",
+          "download_url": "https://zenodo.org/api/records/20241355/files/10_class_prediction.zip/content"
+        },
+        {
+          "key": "ALIGNED_LEAF_ECT.zip",
+          "size_bytes": 16847349771,
+          "checksum": "md5:b9cda2a0a4cc30ef72ec58f0a965361c",
+          "download_url": "https://zenodo.org/api/records/20241355/files/ALIGNED_LEAF_ECT.zip/content"
+        },
+        {
+          "key": "ALIGNED_10_class_predictions.zip",
+          "size_bytes": 3142107482,
+          "checksum": "md5:f9997ec11f05478ce437935f46212ef2",
+          "download_url": "https://zenodo.org/api/records/20241355/files/ALIGNED_10_class_predictions.zip/content"
+        },
+        {
+          "key": "LEAF_LOBES.zip",
+          "size_bytes": 1107931704,
+          "checksum": "md5:45319836d08e611bd337786a18c5f2ca",
+          "download_url": "https://zenodo.org/api/records/20241355/files/LEAF_LOBES.zip/content"
+        },
+        {
+          "key": "ALIGNED_LEAF_LOBES.zip",
+          "size_bytes": 998018964,
+          "checksum": "md5:21dd7058e752ef295d5e7c5156ee99d6",
+          "download_url": "https://zenodo.org/api/records/20241355/files/ALIGNED_LEAF_LOBES.zip/content"
+        },
+        {
+          "key": "MASTER_LEAF_METADATA.csv",
+          "size_bytes": 6281908,
+          "checksum": "md5:eaffe8e3c7068b8cde98a2b671430cdd",
+          "download_url": "https://zenodo.org/api/records/20241355/files/MASTER_LEAF_METADATA.csv/content"
+        },
+        {
+          "key": "transformed_ect.zip",
+          "size_bytes": 16116727486,
+          "checksum": "md5:c5d23b79ef2fbd3c7f10e7dc913b1983",
+          "download_url": "https://zenodo.org/api/records/20241355/files/transformed_ect.zip/content"
+        }
+      ]
+    }
+  ]
+}
+[exit status 0]
