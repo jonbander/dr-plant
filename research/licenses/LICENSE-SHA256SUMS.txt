@@ -12,3 +12,4 @@
 3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f  research/licenses/plantvillage_full_v2/LICENSE-CC-BY-SA-3.0.txt
 9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94  research/licenses/plasmopara_zenodo_v2/LICENSE-CC-BY-4.0.txt
 a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499  research/licenses/vitis_morphology/LICENSE-CC0-1.0.txt
+9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94  research/licenses/algeria_grape_morphology_v1/LICENSE-CC-BY-4.0.txt
