@@ -39,6 +39,10 @@ For each image or dataset:
 
 Do not promote a record to `expert_confirmed` merely because several websites repeat the same claim. Record uncertainty explicitly.
 
+## Mandatory training-data gate
+
+Every Python training entry point must invoke `scripts/training_gate_guard.py` and require `--training-profile` plus `--training-data-root` before loading training data or creating a model. The profile must pass `scripts/research/validate-training-gate.py`. New notebooks or workflows that train models must invoke `.github/actions/verify-training-gate` (or the same validator) immediately before training. Never bypass the gate for exploratory work; use a dataset/task-specific signed profile. A Phase 0 `RESEARCH-GO` permits only the declared research task and does not authorize hybrid adoption or production activation.
+
 ## Required checks
 
 Before proposing or committing a change, inspect the existing implementation and avoid duplicate records. Run:

@@ -1,0 +1,7 @@
+{
+  "paths": {},
+  "prefixes": {
+    "esca/": "DATASET/esca/",
+    "healthy/": "DATASET/healthy/"
+  }
+}

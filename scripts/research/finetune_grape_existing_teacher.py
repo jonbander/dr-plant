@@ -34,8 +34,14 @@ def evaluate(model,loader,device,classes):
          'per_class':classification_report(ys,ps,target_names=classes,output_dict=True,zero_division=0),
          'confusion_matrix':confusion_matrix(ys,ps).tolist()}
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('--dataset-root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--teacher',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--epochs',type=int,default=4);p.add_argument('--batch-size',type=int,default=16);p.add_argument('--threads',type=int,default=4);a=p.parse_args()
+ gate_args=extract_training_gate_args()
+ p=argparse.ArgumentParser();p.add_argument('--dataset-root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--teacher',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--epochs',type=int,default=4);p.add_argument('--batch-size',type=int,default=16);p.add_argument('--threads',type=int,default=4);a=p.parse_args();enforce_training_gate(gate_args)
  random.seed(43);np.random.seed(43);torch.manual_seed(43);torch.set_num_threads(a.threads);device=torch.device('cpu')
  ck=torch.load(a.teacher,map_location='cpu',weights_only=True);classes=ck['classes']
  with a.manifest.open(newline='',encoding='utf-8-sig') as f:allrows=list(csv.DictReader(f))

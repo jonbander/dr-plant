@@ -29,13 +29,17 @@ class CitrusImages(Dataset):
   r=self.rows[i]
   with Image.open(self.root/r["path"]) as im: x=self.tf(im.convert("RGB"))
   return x,self.classes.index(r["label"])
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
+ gate_args=extract_training_gate_args()
  p=argparse.ArgumentParser()
  p.add_argument("--data",type=Path,required=True);p.add_argument("--out",type=Path,required=True)
  p.add_argument("--epochs",type=int,default=18);p.add_argument("--batch-size",type=int,default=16)
  p.add_argument("--image-size",type=int,default=160);p.add_argument("--workers",type=int,default=0)
  p.add_argument("--seed",type=int,default=42);p.add_argument("--patience",type=int,default=5);p.add_argument("--resume",action="store_true")
  a=p.parse_args()
+ enforce_training_gate(gate_args)
  random.seed(a.seed);np.random.seed(a.seed);torch.manual_seed(a.seed)
  if torch.cuda.is_available(): torch.cuda.manual_seed_all(a.seed)
  meta=a.data/"metadata.csv"; root=a.data/"Moroccan Citrus Leaf Dataset"

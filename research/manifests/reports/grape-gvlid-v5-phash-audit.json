@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "algorithm": "drplant-dct-phash-v1",
+  "implementation": "Version: ImageMagick 6.9.12-98 Q16 x86_64 18038 https://legacy.imagemagick.org",
+  "image_size": 32,
+  "hash_size": 8,
+  "threshold_hamming": 5,
+  "rows": 1323,
+  "unique_phashes": 1323,
+  "near_duplicate_pairs": 0,
+  "cross_split_pairs": 0,
+  "cross_label_pairs": 0,
+  "distance_counts": {},
+  "output_manifest": "research/manifests/staging/grape-gvlid-v5-phash.csv",
+  "pairs_report": "research/manifests/reports/grape-gvlid-v5-phash-near-duplicates.csv",
+  "scope_note": "Every near-duplicate pair requires review. Cross-split pairs fail split isolation; same-split pairs still require deduplication/review, and cross-label pairs require label review. This audit does not prove vineyard IDs are biologically correct."
+}

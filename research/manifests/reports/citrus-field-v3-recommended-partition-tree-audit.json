@@ -1,0 +1,22 @@
+{
+  "status": "FAIL",
+  "manifest": "/workspace/dr-plant/data/external/2026-11/citrus-field-v3/Field-Based Citrus Leaf Disease Image Dataset/recommended_partition.csv",
+  "rows": 611,
+  "split_counts": {
+    "Test": 93,
+    "Training": 425,
+    "Validation": 93
+  },
+  "unique_groups": 14,
+  "unique_hashes": null,
+  "unique_sources": null,
+  "group_leakage_count": 13,
+  "exact_hash_leakage_count": 0,
+  "source_leakage_count": 0,
+  "cv_group_fold_conflicts": 0,
+  "errors": [
+    "group_leakage:13"
+  ],
+  "warnings": [],
+  "scope_note": "PASS covers only supplied manifest fields; it does not validate the biological truth/completeness of group IDs. SHA-256 detects exact-byte duplicates only, not perceptual near-duplicates."
+}

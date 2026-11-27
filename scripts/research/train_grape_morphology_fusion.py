@@ -150,7 +150,13 @@ def load_rows(manifest, image_root):
             raise RuntimeError(f"Class missing from {split}")
     return rows, classes
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
+    gate_args=extract_training_gate_args()
     p=argparse.ArgumentParser()
     p.add_argument("--dataset-root",type=Path,required=True)
     p.add_argument("--manifest",type=Path,required=True)
@@ -160,7 +166,7 @@ def main():
     p.add_argument("--out",type=Path,required=True)
     p.add_argument("--batch-size",type=int,default=16)
     p.add_argument("--threads",type=int,default=4)
-    a=p.parse_args()
+    a=p.parse_args();enforce_training_gate(gate_args)
     random.seed(42); np.random.seed(42); torch.manual_seed(42)
     torch.set_num_threads(a.threads)
     device=torch.device("cpu")  # box currently has no CUDA device

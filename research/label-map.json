@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.1",
+  "status": "BLOCKED_NO_APP_DISEASE_IDS",
+  "generated": "2026-11-27",
+  "source_of_truth": "public/models/plant-disease/labels.json",
+  "source_of_truth_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "app_disease_ids": [],
+  "activation_allowed": false,
+  "blocking_reason": "labels.json is an empty JSON array (0 disease IDs). No class can be assigned an app disease ID without an authoritative ID.",
+  "policy": {
+    "exact_match": "Only map if biological meaning matches exactly.",
+    "merge": "Requires a documented scientific decision; no automatic synonym merging.",
+    "drop": "Use only with documented reason and decision owner/date.",
+    "non_disease_classes": "Keep cultivar, phenology, pest, nutrient deficiency and generic symptom categories separate from pathogen disease IDs.",
+    "unmapped_policy": "Any unmapped model class blocks activation in manifest.json.",
+    "no_softmax_without_calibration": true,
+    "per_crop_rejection_threshold_required": true
+  },
+  "models": {
+    "gvlid_v5": {
+      "crop": "grape",
+      "source_classes": [
+        "Healthy",
+        "Black rot",
+        "Esca",
+        "Leaf blight"
+      ],
+      "trained_subset_classes": [
+        "Esca",
+        "Healthy"
+      ],
+      "class_list_ref": "Mendeley V5 DOI 10.17632/wkymf8bhcg.5; results/gvlid-v5/metrics.json",
+      "task": "disease_image_classification_research"
+    },
+    "ngld_v5": {
+      "crop": "grape",
+      "source_classes": [
+        "Downy Mildew",
+        "Bacterial Leaf Spot",
+        "Powdery Mildew",
+        "Healthy Leaves"
+      ],
+      "class_list_ref": "results/ngld-v5/MODEL-CARD-AR.md",
+      "task": "disease_image_classification_research"
+    },
+    "grape_health_mendeley_v1": {
+      "crop": "grape",
+      "source_classes": [
+        "Black Rot",
+        "Brown Spot",
+        "Downy Mildew",
+        "Mites",
+        "Healthy"
+      ],
+      "class_list_ref": "research/training-results/2026-11-23/grape-leaf-health/metrics.json",
+      "task": "disease_pest_image_classification_research"
+    },
+    "plasmopara_zenodo_v2": {
+      "crop": "grape",
+      "source_classes": [
+        "Disease",
+        "Healthy"
+      ],
+      "class_list_ref": "results/plasmopara-v2-exploratory-2026-11-25/MODEL-CARD-AR.md",
+      "task": "binary_image_classification_research"
+    },
+    "vitis_morphology": {
+      "crop": "grape",
+      "source_classes": [
+        "14 cultivar classes; exact set in data/vitis-morphology/training-metrics-2026-11-24.json"
+      ],
+      "class_list_ref": "data/vitis-morphology/training-metrics-2026-11-24.json",
+      "task": "cultivar_morphology_not_disease"
+    },
+    "citrus_field_v3": {
+      "crop": "citrus",
+      "source_classes": [
+        "California red scale-like (Aonidiella aurantii)",
+        "Greasy spot-like - Zasmidium citri-griseum (anciennement Mycosphaerella citri)",
+        "apparently healthy",
+        "greening-like"
+      ],
+      "class_list_ref": "results/citrus-field-v3/labels.json",
+      "task": "symptom_level_image_classification_research"
+    },
+    "lemon_v3": {
+      "crop": "citrus",
+      "source_classes": [
+        "Algal_Leaf_Spot",
+        "Anthracnose",
+        "Bacterial Blight",
+        "Black Spot",
+        "Citrus Canker",
+        "Citrus Hindu Mite",
+        "Citrus Leafminer",
+        "Citrus_Pest",
+        "Citrus_Scab",
+        "Curl Leaf",
+        "Dry Leaf",
+        "Greening",
+        "Healthy",
+        "Lemon_Sooty_Mold",
+        "Melanose",
+        "Spider Mites",
+        "Swallowtail Larval Herbivory (Deficiency)",
+        "Yellow_Spot"
+      ],
+      "class_list_ref": "results/lemon-v3/labels.json",
+      "task": "disease_pest_deficiency_image_classification_research"
+    },
+    "planttom_ref": {
+      "crop": "tomato",
+      "source_classes": null,
+      "class_list_ref": "PLOS ONE DOI 10.1371/journal.pone.0349501; exact class export not archived",
+      "task": "object_detection_research"
+    },
+    "plantvillage_full_v2": {
+      "crop": "multi_crop",
+      "source_classes": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Apple___Cedar_apple_rust",
+        "Apple___healthy",
+        "Blueberry___healthy",
+        "Cherry_(including_sour)___Powdery_mildew",
+        "Cherry_(including_sour)___healthy",
+        "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+        "Corn_(maize)___Common_rust_",
+        "Corn_(maize)___Northern_Leaf_Blight",
+        "Corn_(maize)___healthy",
+        "Grape___Black_rot",
+        "Grape___Esca_(Black_Measles)",
+        "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+        "Grape___healthy",
+        "Orange___Haunglongbing_(Citrus_greening)",
+        "Peach___Bacterial_spot",
+        "Peach___healthy",
+        "Pepper,_bell___Bacterial_spot",
+        "Pepper,_bell___healthy",
+        "Potato___Early_blight",
+        "Potato___Late_blight",
+        "Potato___healthy",
+        "Raspberry___healthy",
+        "Soybean___healthy",
+        "Squash___Powdery_mildew",
+        "Strawberry___Leaf_scorch",
+        "Strawberry___healthy",
+        "Tomato___Bacterial_spot",
+        "Tomato___Early_blight",
+        "Tomato___Late_blight",
+        "Tomato___Leaf_Mold",
+        "Tomato___Septoria_leaf_spot",
+        "Tomato___Spider_mites Two-spotted_spider_mite",
+        "Tomato___Target_Spot",
+        "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+        "Tomato___Tomato_mosaic_virus",
+        "Tomato___healthy"
+      ],
+      "class_list_ref": "results/multicrop-plantvillage-v2/package/labels.json",
+      "task": "lab_image_classification_baseline"
+    },
+    "multi_fruit_v1": {
+      "crop": "multi_crop",
+      "source_classes": [
+        "Guava _Defective",
+        "Guava _Healthy",
+        "Guava _Senescent",
+        "Jackfruit_Blight",
+        "Jackfruit_Dried",
+        "Jackfruit_Fungal_Spot",
+        "Jackfruit_Healthy",
+        "Jackfruit_Pest_Damage",
+        "Jackfruit_Senescent",
+        "Jackfruit_Young",
+        "Mango_Anthracnose",
+        "Mango_Healthy",
+        "Mango_Senescent",
+        "Olive_Healthy",
+        "Olive_Mild_Edge_Damage",
+        "Olive_Pest_Damage",
+        "Olive_Senescent_Spot",
+        "Olive_Young"
+      ],
+      "class_list_ref": "results/multi-fruit-v1/image-manifest.csv",
+      "task": "mixed_plant_health_state_classification_research"
+    }
+  },
+  "mapping_status": "NOT_MAPPED",
+  "next_required_action": "Populate labels.json with approved app IDs through a separate reviewed taxonomy decision, then map every source class. Do not change production labels or manifest as part of this audit."
+}
