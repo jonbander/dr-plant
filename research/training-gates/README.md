@@ -65,3 +65,15 @@ python scripts/research/validate-training-gate.py \
 ## Google Colab notebooks
 
 دفاتر التدريب الستة الحالية تقرأ القيم الثلاث من Colab Secrets قبل أي تنزيل/تدريب: `DRPLANT_TRAINING_PROFILE`, `DRPLANT_TRAINING_PROFILE_SIGNATURE`, `DRPLANT_TRAINING_TRUSTED_PUBLIC_KEY`. تمرر الدفاتر هذه القيم مع جذر البيانات إلى سكربت التدريب المحمي. لا يبدأ التدريب إذا كانت الأسرار ناقصة أو إذا لم يجتز التحقق.
+
+
+## تقوية إثبات هوية المجموعة البيولوجية
+
+لم يعد وجود `group_id` غير فارغ كافياً. يجب أن يحتوي split manifest على:
+`group_identity_source`, `group_identity_evidence_ref`,
+`group_identity_evidence_sha256`, `group_identity_verified_by`,
+`group_identity_status`.
+
+يشير `group_identity_evidence_ref` إلى ملف JSON داخل جذر البيانات، ويجب أن تطابق بصمته SHA-256 القيمة المسجلة. يضم سجل الإثبات `group_id` و`grouping_unit` ومصدر الهوية ومرجع السجل الأصلي وبصمته ومراجع التحقق وتاريخه وحالة `verified`. يتحقق الفاحص من وجود السجل وبصماته وتطابقه مع صف الصورة ووحدة التجميع المحددة في profile. كما يرفض استعمال pHash أو SHA-256 أو معرف مجموعة النسخ القريبة كبديل عن الهوية البيولوجية.
+
+يجب إدراج ملفات سجل الهوية والسجلات الأصلية المشار إليها ضمن delivery manifest وتوقيعها. هذا يرفع قابلية التدقيق ولا يثبت صدق المضمون وحده؛ تبقى مراجعة مصدر السجل وهوية الكرمة/الشجرة/الموقع مسؤولية بشرية موثقة.
