@@ -43,13 +43,13 @@ class TrainingGateTests(unittest.TestCase):
             dataset={'spdx_version':'SPDX-3.0','dataset_id':'unit-test','dataset_version':'1.0','source_url':'https://example.org/dataset','provider':'Example','license_expression':'CC-BY-4.0','license_status':'verified','research_training_use':'allowed','commercial_use':'allowed','redistribution':'allowed','model_weight_distribution':'allowed','attribution':'Required','collection_method':'documented','processing_method':'documented','human_review':{'reviewer_id':'reviewer-1','reviewer_role':'data-license-reviewer','review_date':'2026-11-27','decision':'approved_for_declared_scope'}}
             dp=base/'dataset-profile.json'; dp.write_text(json.dumps(dataset),encoding='utf-8'); dps=base/'dataset-profile.sig'; sign(priv,dp,dps)
             split=base/'split.csv'
-            split_fields=['image_path','group_id','split','sha256','phash','near_duplicate_group_id','source_class',
+            split_fields=['image_path','relative_path','processed_path','class_label','group_id_for_split','group_id','split','sha256','phash','near_duplicate_group_id','source_class',
                           'group_identity_source','group_identity_evidence_ref','group_identity_evidence_sha256',
                           'group_identity_verified_by','group_identity_status']
             valid_rows=[]
             for i,p in enumerate(images):
                 evidence_path=identity_records[p.name]
-                valid_rows.append({'image_path':p.name,'group_id':f'group-{i}','split':['train','val','test'][i],
+                valid_rows.append({'image_path':p.name,'relative_path':p.name,'processed_path':p.name,'class_label':'Disease A','group_id_for_split':f'group-{i}','group_id':f'group-{i}','split':['train','validation','test'][i],
                     'sha256':sha(p),'phash':f'{i:016x}','near_duplicate_group_id':f'near-{i}','source_class':'Disease A',
                     'group_identity_source':'acquisition_manifest','group_identity_evidence_ref':evidence_path.name,
                     'group_identity_evidence_sha256':sha(evidence_path),'group_identity_verified_by':'reviewer-1',
@@ -79,6 +79,14 @@ class TrainingGateTests(unittest.TestCase):
             mismatch=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','mask_derived_shape'],capture_output=True,text=True)
             self.assertEqual(mismatch.returncode,2)
             self.assertIn('expected_task_not_in_signed_profile',mismatch.stdout)
+            # Trainer-specific file paths, labels and biological group IDs must be the same signed row.
+            for field,value,error in (('processed_path','other.jpg','training_path_column_mismatch'),('class_label','Unreviewed label','training_class_label_mismatch'),('group_id_for_split','other-group','training_group_id_mismatch')):
+                split_rows=[dict(row) for row in valid_rows]
+                split_rows[0][field]=value
+                resign_split_and_near(split_rows)
+                blocked=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
+                self.assertEqual(blocked.returncode,2)
+                self.assertIn(error,blocked.stdout)
             # Any unlisted file in the delivery root is rejected.
             rogue=payload/'rogue.jpg'; rogue.write_bytes(b'unlisted')
             rogue_result=subprocess.run(['python3',str(SCRIPT),'--profile',str(pf),'--profile-signature',str(pfs),'--data-root',str(payload),'--trusted-public-key',str(pub),'--expected-task','classification'],capture_output=True,text=True)
