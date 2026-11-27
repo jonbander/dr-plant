@@ -30,6 +30,14 @@
         {
           "title": "FRAC 2026 CAA Working Group – 2025 grape downy mildew resistance monitoring",
           "url": "https://www.frac.info/media/gplfgmfu/minutes-of-the-2026-caa-meeting-recommendations-for-2026.pdf"
+        },
+        {
+          "title": "Coronelli et al. (2026) – Population structure of Plasmopara viticola in Italian vineyards",
+          "url": "https://doi.org/10.1094/PDIS-05-26-0915-RE"
+        },
+        {
+          "title": "Cattani et al. (2026) – Automated air-flow cytometry for vineyard Plasmopara sporangia monitoring",
+          "url": "https://doi.org/10.1128/aem.02152-25"
         }
       ]
     },
@@ -335,6 +343,70 @@
           "url": "https://extension.uga.edu/publications/detail.html?number=B1520"
         }
       ]
+    },
+    {
+      "id": "grape-black-rot",
+      "crop": "grape",
+      "commonNames": [
+        "العفن الأسود للعنب",
+        "Black rot"
+      ],
+      "scientificName": "Phyllosticta ampelicida (syn. Guignardia bidwellii)",
+      "evidenceStatus": "reference_only",
+      "notes": "Reference for grape-leaf differential diagnosis. French INRAE ePhytia and university extension references describe round to polygonal tan/brown necrotic leaf spots with darker margins; small black pycnidia may become visible in mature lesions. The pathogen can also affect canes and bunches, but cane and bunch symptoms must remain separate image-organ tasks from leaf classification. Leaf spots overlap with other grape disorders, so a photograph alone is not definitive. The French reference describes European occurrence but does not establish occurrence or prevalence on the Syrian coast. INRAE's linked field photographs are references only: no image was copied and image-reuse rights were not independently checked.",
+      "sources": [
+        {
+          "title": "EPPO Global Database – Phyllosticta ampelicida (preferred name; Guignardia bidwellii synonym)",
+          "url": "https://gd.eppo.int/taxon/GUIGBI"
+        },
+        {
+          "title": "INRAE ePhytia – Grapevine black rot diagnosis and field photographs",
+          "url": "https://ephytia.inrae.fr/en/D/1929"
+        },
+        {
+          "title": "University of Minnesota Extension – Grape leaf spots (Black Rot differential)",
+          "url": "https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html"
+        }
+      ]
+    },
+    {
+      "id": "grape-esca-complex",
+      "crop": "grape",
+      "commonNames": [
+        "إسكا العنب",
+        "Esca complex",
+        "Grapevine measles"
+      ],
+      "scientificName": "Multiple fungi (Phaeomoniella chlamydospora, Phaeoacremonium aleophilum, Fomitiporia mediterranea)",
+      "evidenceStatus": "reference_only",
+      "notes": "Esca is a multifactorial grapevine trunk-disease syndrome, not a single leaf pathogen. Foliar expression can include irregular interveinal discoloration and necrosis with a tiger-stripe appearance; an apoplectic form can cause sudden whole-vine wilting and leaf drying, often in summer after rain followed by heat. INRAE describes associated wood symptoms such as white soft rot and central or sectorial brown necrosis, and multiple associated fungi including Phaeomoniella chlamydospora, Phaeoacremonium spp. and Fomitiporia mediterranea. Do not infer Esca from a leaf photograph alone: inspect trunk/cordon context and seek expert or laboratory assessment. The linked French field reference is not evidence of local coastal-Syria prevalence.",
+      "sources": [
+        {
+          "title": "INRAE ePhytia – Grapevine Esca: main symptoms and wood signs",
+          "url": "https://ephytia.inrae.fr/en/C/6969/Grapevine-Main-symptoms"
+        },
+        {
+          "title": "SCRI Trunk Disease Project – Esca (Grape Measles)",
+          "url": "https://treeandvinetrunkdiseases.org/trunk-disease-pamplet/esca-grape-measles"
+        }
+      ]
+    },
+    {
+      "id": "grape-erineum-mite",
+      "crop": "grape",
+      "commonNames": [
+        "حلم إيرينيوم العنب",
+        "Grape erineum mite"
+      ],
+      "scientificName": "Colomerus vitis (Eriophyidae)",
+      "evidenceStatus": "reference_only",
+      "notes": "A grapevine eriophyid mite pest, not a fungal disease. The erineum strain produces roundish warty swellings on the upper leaf surface and corresponding discolored, felt-like patches (erinea) on the underside. The mites are minute (about 0.25 mm), and UC IPM notes that several strains occur and may represent different species; visible symptoms support a pest differential but do not always settle species identity. Keep this distinct from Tetranychid spider mites, thrips and fungal mildews. No Syrian coastal occurrence is asserted.",
+      "sources": [
+        {
+          "title": "UC IPM – Grape erineum mite (Colomerus vitis)",
+          "url": "https://ipm.ucanr.edu/home-and-landscape/grape-erineum-mite/"
+        }
+      ]
     }
   ],
   "datasets": [
@@ -355,7 +427,11 @@
       "intendedUse": "Candidate for future model development after downloading, auditing labels, checking image-level license and creating a held-out evaluation split.",
       "doi": "10.17632/wkymf8bhcg.5",
       "notes": "Field-acquired images from Maharashtra, India. The 2026 Scientific Data descriptor reports metadata and expert-verified annotations; audit package metadata and label consistency before use. Regional transfer to Syrian coastal vineyards must be tested.",
-      "licenseEvidence": "Mendeley Data record lists CC BY 4.0."
+      "licenseEvidence": "Mendeley Data record lists CC BY 4.0.",
+      "region": "34 vineyards in Tasgaon, Sangli district, Maharashtra, India",
+      "collectionPeriod": "July–November 2023",
+      "imageTask": "Grapevine leaf classification; both adaxial and abaxial sides were photographed. The paper describes both in-situ vineyard and ex-situ neutral-grey-board acquisition; separate these acquisition domains and keep paired sides of the same leaf in one split.",
+      "sourceAudit": "The 2026 Scientific Data descriptor reports 3,792 raw images and 3,477 final images after removal of 15 corrupt files, 200 blurred/overexposed images and 100 near-duplicates detected by perceptual hashing. It describes 34 vineyards, field collection in July–November 2023, smartphone capture and expert labeling with inter-/intra-rater agreement on a subset (κ=0.86–0.92). The article says healthy images are overrepresented by about 1.65×. A third-party Hugging Face reformat preview lists 28 vineyard IDs and shows capture_time examples dated 2023-06-15, which does not match the paper's 34 vineyards and July–November period; treat mirror metadata as unresolved and audit the original Mendeley V5 package before relying on GPS/date/site fields. This is Indian data, not Mediterranean or Syrian coastal evidence."
     },
     {
       "id": "hermos-grape",
@@ -763,6 +839,203 @@
       "intendedUse": "Visual reference and source audit only until camera-label confounding is resolved with independent data; not eligible for diagnostic training as-is.",
       "notes": "Restored 1,770 original images from Drive. Every SHA-256 matched the prior audited manifest exactly: Esca 888, Healthy 882. Camera is perfectly confounded with label: Esca cam1=389, cam2=499, cam3=0; Healthy cam1=0, cam2=0, cam3=882. No plant/leaf IDs or capture timestamps/GPS. Training blocked because a model can learn camera identity rather than disease symptoms. Source archive SHA-256 e5ee253955613bb5a862b861c2f52ad9da96bf92e01e80e97e14fb8126fb3fb9.",
       "licenseEvidence": "Mendeley Data V1 record lists CC BY 4.0."
+    },
+    {
+      "id": "plasmopara-spain-norway-2025",
+      "name": "A dataset for early detection and classification of Plasmopara disease",
+      "crop": "grape",
+      "imageCount": 281,
+      "classes": [
+        "healthy",
+        "Plasmopara-infected"
+      ],
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://zenodo.org/records/17368692",
+      "doi": "10.5281/zenodo.17368692",
+      "region": "Vineyards in Spain and Norway; record does not provide per-country or per-site image counts",
+      "collectionPeriod": "Not stated on the record page",
+      "license": "The Zenodo Rights section displays a License heading but no license value; repository-level and per-file/image reuse terms are unverified.",
+      "intendedUse": "Metadata-only candidate for a separate grape-leaf downy-mildew binary classification task. Do not download, mirror, redistribute or train until the record license, archive terms, provenance, label method and image-level rights are confirmed. If rights are later established, audit country/site grouping, duplicates and class balance before any split or training.",
+      "notes": "The record describes 281 high-resolution grapevine-leaf images in two classes (healthy and Plasmopara-infected), collected from vineyards in Spain and Norway. The archive is reported as 1.0 GB. No country-level counts, cultivar details, collection dates or expert/laboratory confirmation method are exposed on the landing page. Spain is geographically relevant to the Mediterranean search scope, but the mixed Spain/Norway dataset is not local Syrian evidence. No archive was downloaded.",
+      "licenseEvidence": "Unverified: the record's Rights section contains no displayed license value."
+    },
+    {
+      "id": "morocco-field-citrus-2026",
+      "name": "Field-Based Citrus Leaf Disease Image Dataset",
+      "crop": "citrus",
+      "imageCount": 611,
+      "classes": [
+        "healthy",
+        "greasy spot",
+        "greening",
+        "California red scale"
+      ],
+      "status": "candidate_dataset_metadata_only",
+      "source": "https://data.mendeley.com/datasets/szsms728jf/1",
+      "doi": "10.17632/szsms728jf.1",
+      "region": "Fes-Meknes region, Morocco",
+      "collectionPeriod": "Not stated on the landing page",
+      "license": "Mendeley Data Version 1 landing page lists CC BY 4.0; individual file/image rights, embedded third-party content and attribution details have not been independently checked.",
+      "intendedUse": "Metadata-only candidate until package and per-file rights are verified. If rights are confirmed, separate leaf photographs from fruit photographs before any model task; do not mix organs or assume class counts from the four class names. Audit the labels, annotation evidence, exact/near duplicates and class balance before creating group-aware splits.",
+      "notes": "The contributor reports 611 manually annotated images from Fes-Meknes, Morocco, covering healthy, greasy spot, greening and California red scale. The description explicitly says the collection contains both citrus fruits and leaves, despite the dataset title; no per-organ or per-class counts are provided on the landing page. Annotation is attributed to a named domain expert by the contributor, but the reviewer's credentials, method and laboratory confirmation are not independently documented here. Greening and scale labels should not be treated as confirmed causal diagnoses without checking the original annotation protocol. No images were downloaded or copied.",
+      "licenseEvidence": "Mendeley Data landing page lists CC BY 4.0; file-level review remains pending."
+    },
+    {
+      "id": "plantvillage-original-2016",
+      "name": "PlantVillage (unaugmented reference release)",
+      "crop": "multiple_crops",
+      "imageCount": 54303,
+      "classes": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Apple___Cedar_apple_rust",
+        "Apple___healthy",
+        "Blueberry___healthy",
+        "Cherry___healthy",
+        "Cherry___Powdery_mildew",
+        "Corn___Cercospora_leaf_spot Gray_leaf_spot",
+        "Corn___Common_rust",
+        "Corn___healthy",
+        "Corn___Northern_Leaf_Blight",
+        "Grape___Black_rot",
+        "Grape___Esca_(Black_Measles)",
+        "Grape___healthy",
+        "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+        "Orange___Haunglongbing_(Citrus_greening)",
+        "Peach___Bacterial_spot",
+        "Peach___healthy",
+        "Pepper,_bell___Bacterial_spot",
+        "Pepper,_bell___healthy",
+        "Potato___Early_blight",
+        "Potato___healthy",
+        "Potato___Late_blight",
+        "Raspberry___healthy",
+        "Soybean___healthy",
+        "Squash___Powdery_mildew",
+        "Strawberry___healthy",
+        "Strawberry___Leaf_scorch",
+        "Tomato___Bacterial_spot",
+        "Tomato___Early_blight",
+        "Tomato___healthy",
+        "Tomato___Late_blight",
+        "Tomato___Leaf_Mold",
+        "Tomato___Septoria_leaf_spot",
+        "Tomato___Spider_mites Two-spotted_spider_mite",
+        "Tomato___Target_Spot",
+        "Tomato___Tomato_mosaic_virus",
+        "Tomato___Tomato_Yellow_Leaf_Curl_Virus"
+      ],
+      "license": "Unresolved for the exact image package used here. The official GitHub repository has no visible LICENSE file; third-party mirrors report conflicting terms. Do not download/reuse until the original Mendeley record and exact package terms are verified.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://github.com/spMohanty/PlantVillage-Dataset",
+      "intendedUse": "Controlled-image classification baseline and label-map reference only; not a field-generalization benchmark.",
+      "region": "United States / source institution Penn State; precise image acquisition locations not fully represented in the supplied metadata",
+      "imageTask": "Leaf-level image classification; mostly controlled/simple backgrounds. Not fruit, bunch, or lesion segmentation.",
+      "sourceAudit": "GitHub README reports 54,306 images, 14 crop species and 26 diseases; TensorFlow Datasets catalog reports 54,303 examples in 38 classes and notes that its copy is republished from Mendeley with the Background_without_leaves class removed. The repository itself does not expose an image-data license. Secondary catalogues/mirrors report inconsistent terms; no image archive was downloaded. Do not treat the 2016 paper license as image-data permission.",
+      "classMapNote": "Exact 38-label order transcribed from TensorFlow Datasets 1.0.2 builder; do not assume this is the Kaggle derivative's folder enumeration without inspecting the archive."
+    },
+    {
+      "id": "new-plant-diseases-kaggle-augmented",
+      "name": "New Plant Diseases Dataset (Kaggle augmented PlantVillage derivative)",
+      "crop": "multiple_crops",
+      "imageCount": 87867,
+      "classes": [
+        "Apple___Apple_scab",
+        "Apple___Black_rot",
+        "Apple___Cedar_apple_rust",
+        "Apple___healthy",
+        "Blueberry___healthy",
+        "Cherry___healthy",
+        "Cherry___Powdery_mildew",
+        "Corn___Cercospora_leaf_spot Gray_leaf_spot",
+        "Corn___Common_rust",
+        "Corn___healthy",
+        "Corn___Northern_Leaf_Blight",
+        "Grape___Black_rot",
+        "Grape___Esca_(Black_Measles)",
+        "Grape___healthy",
+        "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+        "Orange___Haunglongbing_(Citrus_greening)",
+        "Peach___Bacterial_spot",
+        "Peach___healthy",
+        "Pepper,_bell___Bacterial_spot",
+        "Pepper,_bell___healthy",
+        "Potato___Early_blight",
+        "Potato___healthy",
+        "Potato___Late_blight",
+        "Raspberry___healthy",
+        "Soybean___healthy",
+        "Squash___Powdery_mildew",
+        "Strawberry___healthy",
+        "Strawberry___Leaf_scorch",
+        "Tomato___Bacterial_spot",
+        "Tomato___Early_blight",
+        "Tomato___healthy",
+        "Tomato___Late_blight",
+        "Tomato___Leaf_Mold",
+        "Tomato___Septoria_leaf_spot",
+        "Tomato___Spider_mites Two-spotted_spider_mite",
+        "Tomato___Target_Spot",
+        "Tomato___Tomato_mosaic_virus",
+        "Tomato___Tomato_Yellow_Leaf_Curl_Virus"
+      ],
+      "license": "Kaggle dataset license and per-file rights not verified. Underlying images substantially overlap PlantVillage and include offline augmentations; do not download/reuse until Kaggle terms and source rights are checked.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset",
+      "intendedUse": "Potential training-pipeline reproduction and class-map comparison only; not independent new field data.",
+      "region": "Primarily derived from PlantVillage; source image acquisition locations are not independently documented in the Kaggle listing reviewed.",
+      "imageTask": "Leaf classification; augmented derivative of PlantVillage, not a distinct independent field dataset.",
+      "sourceAudit": "Commonly reported as approximately 87,000 images across 38 classes with train/valid/test folders. Secondary analysis reports 54,305 source PlantVillage images plus 32,695 offline augmentations. These figures indicate substantial duplicate/near-duplicate leakage risk; deduplicate/group augmented variants with their source image. No archive downloaded.",
+      "classMapNote": "Candidate 38-class set aligned to PlantVillage/TFDS labels; inspect the Kaggle archive's actual directory names and order before using model indices."
+    },
+    {
+      "id": "plantdoc-cropped-2020",
+      "name": "PlantDoc Cropped Dataset",
+      "crop": "multiple_crops",
+      "imageCount": 2598,
+      "classes": [
+        "27 reported crop/disease/healthy categories; verify exact folder names in archive"
+      ],
+      "license": "Repository declares CC BY 4.0, but README states images were scraped from internet search engines. Underlying third-party image copyright/permissions are uncertain; metadata only until image-level provenance and reuse rights are established.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://github.com/pratikkayal/PlantDoc-Dataset",
+      "intendedUse": "Field-like external evaluation and possible classification research after image-level rights/provenance review; not a trusted ground-truth set by default.",
+      "region": "India-focused research; images were internet-scraped and exact capture locations are not consistently documented.",
+      "imageTask": "Cropped leaf-image classification; distinct object-detection variant exists and must not be mixed without task conversion.",
+      "sourceAudit": "Repository README reports 2,598 images, 13 plant species and up to 17 disease classes; a 2026 Roboflow summary reports 27 total classes including healthy categories. The repo exposes a CC BY 4.0 license, but the authors describe annotating internet-scraped images, so the repository license cannot necessarily clear underlying photo rights. Annotation quality and original-source attribution require audit. No images downloaded."
+    },
+    {
+      "id": "plantseg-field-segmentation-2024",
+      "name": "PlantSeg in-the-wild disease segmentation dataset",
+      "crop": "multiple_crops",
+      "imageCount": 11400,
+      "classes": [
+        "115 plant-disease cases with pixel-level lesion masks"
+      ],
+      "license": "Zenodo record Rights section has a License heading but no value; reuse license is unverified. Do not download, redistribute, or train until license and image-level source terms are confirmed.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://zenodo.org/records/13762907",
+      "doi": "10.5281/zenodo.13762907",
+      "intendedUse": "Separate lesion-localization/segmentation research and possible later evaluation of field symptom localization; not a drop-in image-classification dataset.",
+      "region": "Multiple environments; 34 host plants according to the associated Scientific Data paper; individual image sources/regions must be read from metadata.",
+      "imageTask": "Pixel-level lesion segmentation with masks; keep masks/task separate from image-level disease classification, severity grading, and object detection.",
+      "sourceAudit": "Zenodo v2 reports more than 11,400 images across 115 plant diseases and a 3.0 GB archive. The current Zenodo Rights field is blank. The Nature Scientific Data paper describes metadata fields including image URL and license; these per-image fields must be checked before any reuse. No archive downloaded."
+    },
+    {
+      "id": "leafnet-leafbench-2026",
+      "name": "LeafNet and LeafBench multimodal plant pathology resource",
+      "crop": "multiple_crops",
+      "imageCount": 186000,
+      "classes": [
+        "97 disease classes across 22 crop species (LeafNet); LeafBench has 2,910 images and 13,950 QA pairs"
+      ],
+      "license": "Hugging Face metadata labels LeafNet data CC BY 4.0 and LeafBench MIT, but LeafNet includes public-source and in-house images whose upstream licenses may differ; datasets are gated and require contact-sharing consent. Per-image source rights remain unresolved. Metadata only; no image download.",
+      "status": "candidate_dataset_license_unverified",
+      "source": "https://huggingface.co/datasets/enalis/LeafNet",
+      "intendedUse": "Future vision-language assistant evaluation and symptom-reasoning benchmark; not a replacement for the compact image classifier or local expert-labelled dataset.",
+      "region": "22 crop species; 7 countries reported in dataset metadata; source-level geography must be inspected.",
+      "imageTask": "Multimodal image-text classification and visual question answering; LeafBench QA labels are not simple classifier labels.",
+      "sourceAudit": "The arXiv paper reports 186,000 leaf images, 97 disease classes and 13,950 QA pairs. Hugging Face dataset access is gated and requires accepting conditions/contact sharing. Public metadata reports roughly 70% public content; some images originate from other public datasets and retain upstream terms. LeafBench's own card describes 2,910 images and six hierarchical VQA tasks. Do not treat the dataset-card license tag or code license as automatically licensing every embedded image."
     }
   ],
   "contributions": [],
@@ -861,6 +1134,11 @@
       "date": "2026-11-25",
       "change": "Restored ESCA V1 original image archive from Drive and verified all 1,770 image SHA-256 values against the prior audit manifest.",
       "limitation": "Training remains blocked: every Healthy image is from cam3 while Esca images are from cam1/cam2, fully confounding camera and label."
+    },
+    {
+      "date": "2026-11-27",
+      "change": "Integrated reviewed Mediterranean grape differential references and additional dataset/resource metadata for future audits.",
+      "limitation": "New disease entries remain reference_only. New dataset records are metadata-only candidates with explicit rights/provenance gates; no new images were downloaded or used for training. Existing FieldVitis and northern-Portugal records retain the newer main-branch archive/license audit status."
     }
   ]
 }
