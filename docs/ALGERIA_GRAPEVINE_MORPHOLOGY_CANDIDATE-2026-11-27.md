@@ -118,3 +118,8 @@ Links:
 **BLOCKED — metadata retrieval is complete, but no image archive has been added to Drive yet, no predicted mask is Gold, no vine-disjoint split exists, and no disease labels are present. No training or production integration.**
 
 The source is promising enough to investigate further because of its North-African grape varieties and the companion mask datasheet. The next safe operation is rights verification and a small-datasheet audit, not model training.
+
+
+## Sample-level visual audit update — 2026-11-27
+
+A targeted 24-image sample (three per each of eight varieties) and 24 associated predicted mask crops was extracted without downloading the full 1.6 GB archive. Visual inspection shows detached leaves photographed on graph paper, not field images. This makes the source useful only for controlled leaf outline/lobe/vein morphology, not field disease recognition. A cross-path exact duplicate was confirmed: `376_LOUALI_ID77.jpg` and `LOULI_ab_1.jpg` have identical SHA-256 and identical predicted mask bytes. `ICHMOUL_ad_29.jpg` has two near-identical predicted crops (bbox IoU 0.9826; alpha-mask IoU 0.9573). `AHMEUR_BOU_AHMEUR_ab_27.jpg` visibly contains a leaf but has no predicted mask. The sample ZIP is in the Drive audit folder; its SHA-256 is recorded in `research/licenses/algeria_grape_morphology_v1/SHA256SUMS-v2.txt`. Full findings are in `docs/ALGERIA_GRAPE_SAMPLE_VISUAL_AUDIT-2026-11-27.md`.
