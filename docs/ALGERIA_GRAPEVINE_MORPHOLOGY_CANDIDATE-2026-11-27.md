@@ -36,18 +36,12 @@ This is relevant to Dr.Plant's morphology objective because it may provide leaf 
 
 ## Safe proposed workflow
 
-1. The declared CC BY 4.0 licenses and source-file MD5 values are now archived. Keep the original source attribution and exact record snapshots with every copy.
-2. The small metadata CSVs have been checksum-verified and audited. The next data operation is a small, representative image sample from the 1.6 GB ALGERIA archive, not the 9.6 GB segmentation code archive or the 12+ GB mask archive.
-3. Before any training, parse and quarantine:
-   - distinct `original_path` count;
-   - mask rows and component counts per source image;
-   - missing image references;
-   - duplicate paths and repeated views;
-   - variety and side metadata;
-   - image-to-mask filename/path join status.
-4. If the join is complete and rights are verified, download a small, representative sample first. Verify archive MD5, file decode, image SHA-256, mask dimensions, mask/image alignment, and mask provenance. Review a stratified human sample before expanding.
-5. Build biological/leaf-specimen grouping only from source records that support it. Keep all views/components from the same specimen together. Never use cultivar name, filename similarity, pHash, or image hash as a substitute for vine identity.
-6. Register this source as a separate morphology-only dataset. Keep its split separate from disease datasets. It may later support leaf segmentation or shape pretraining, but no disease labels should be fabricated.
+1. Keep the source rights snapshots and CC BY 4.0 attribution with every copy.
+2. The five small metadata CSVs and 24-image sample have been checksum-verified and backed up to Drive.
+3. Use the sample to test the 10-class anatomical pipeline (lobes, primary/secondary veins, petiolar junction) as a morphology feature extractor. Treat all predicted masks as pseudo-labels.
+4. Confirm the exact duplicate image/mask groups and keep them in the same group if any controlled-domain split is later constructed.
+5. Do not promote candidate adaxial/abaxial pairs to vine IDs. Obtain source collection records before claiming biological independence.
+6. Keep this source separate from field disease datasets. It can support shape/vein morphology research, but not disease labels, field validation, or production integration.
 
 ## Checksum-verified metadata audit — 2026-11-27
 
@@ -76,18 +70,18 @@ A separate suspicious duplicate candidate appears in the legacy mask datasheet: 
 
 ### Verified Drive backup
 
-The following eight small audit assets were uploaded to the user's Google Drive folder `DrPlant-ALGERIA-Morphology-2026-11-27`:
+The original metadata package of eight audit assets was uploaded to the user's Google Drive folder `DrPlant-ALGERIA-Morphology-2026-11-27`:
 
 - five source metadata CSVs (`LEAF_DATA_METADATA.csv`, `LEAF_DETECTION_SUMMARY.csv`, `LEAF_MASK_METADATA.csv`, `MASTER_LEAF_METADATA.csv`, `master_mask_datasheet.csv`);
 - the CC BY 4.0 legal code;
 - the normalized Zenodo API rights/file snapshot;
 - the SHA-256 manifest (the manifest is the seventh asset; there are five CSVs plus two provenance files and one checksum file = eight files total).
 
-Each upload was opened/downloaded again from Drive and compared byte-for-byte using MD5 for the five CSVs and SHA-256 for the legal code, API snapshot, and checksum manifest. All comparisons matched. The corresponding SHA-256 list is archived at `research/licenses/algeria_grape_morphology_v1/SHA256SUMS.txt`. No original image archive or multi-GB model/mask archive was uploaded.
+After the metadata package, the 24-image/24-mask sample ZIP and an updated `SHA256SUMS-v2.txt` were added, for ten Drive files total. Each upload was downloaded again from Drive and compared byte-for-byte: MD5 for the five CSVs and SHA-256 for the legal code, API snapshot, checksum manifests, and sample ZIP. All comparisons matched. The current SHA-256 list is archived at `research/licenses/algeria_grape_morphology_v1/SHA256SUMS-v2.txt`. The full 1.6 GB image archive and multi-GB model/mask archives were not downloaded.
 
 ### Google Drive inventory
 
-The connected Drive was searched before downloading these assets. It already contains the earlier French morphology model archive `DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip`, but no matching Algeria source archive or metadata CSVs. The seven audit assets listed above are now stored in a separate folder from that earlier model archive. The 1.6 GB ALGERIA image archive is still not downloaded.
+The connected Drive was searched before downloading these assets. It already contains the earlier French morphology model archive `DrPlant-Vitis-French-Morphology-Model-2026-11-24-v1.zip`, but no full Algeria source archive or metadata CSVs. The ten audit files are now stored in a separate folder from that earlier model archive. The 1.6 GB ALGERIA image archive is still not downloaded in full; only 24 selected images and 24 predicted masks were extracted by byte-range reads.
 
 ## Additional pipeline discovered after the first audit
 
@@ -115,6 +109,11 @@ Links:
 
 ## Decision
 
-**BLOCKED — metadata retrieval is complete, but no image archive has been added to Drive yet, no predicted mask is Gold, no vine-disjoint split exists, and no disease labels are present. No training or production integration.**
+**BLOCKED for disease training and Gold Mask use.** A 24-image/24-mask audit sample is stored in Drive, but the full 1.6 GB source archive was not downloaded. The sample is detached-leaf imagery on graph paper, not field imagery; predicted masks are not Gold, no vine-disjoint split exists, and no disease labels are present. No training or production integration.
 
-The source is promising enough to investigate further because of its North-African grape varieties and the companion mask datasheet. The next safe operation is rights verification and a small-datasheet audit, not model training.
+The source is useful only as a controlled leaf-shape/vein morphology reference. The next safe operation is to evaluate the 10-class anatomical pipeline on the 24-image sample and compare its lobe/vein/petiole features with Dr.Plant's existing morphology path; do not use it for disease training.
+
+
+## Sample-level visual audit update — 2026-11-27
+
+A targeted 24-image sample (three per each of eight varieties) and 24 associated predicted mask crops was extracted without downloading the full 1.6 GB archive. Visual inspection shows detached leaves photographed on graph paper, not field images. This makes the source useful only for controlled leaf outline/lobe/vein morphology, not field disease recognition. A cross-path exact duplicate was confirmed: `376_LOUALI_ID77.jpg` and `LOULI_ab_1.jpg` have identical SHA-256 and identical predicted mask bytes. `ICHMOUL_ad_29.jpg` has two near-identical predicted crops (bbox IoU 0.9826; alpha-mask IoU 0.9573). `AHMEUR_BOU_AHMEUR_ab_27.jpg` visibly contains a leaf but has no predicted mask. The sample ZIP is in the Drive audit folder; its SHA-256 is recorded in `research/licenses/algeria_grape_morphology_v1/SHA256SUMS-v2.txt`. Full findings are in `docs/ALGERIA_GRAPE_SAMPLE_VISUAL_AUDIT-2026-11-27.md`.
