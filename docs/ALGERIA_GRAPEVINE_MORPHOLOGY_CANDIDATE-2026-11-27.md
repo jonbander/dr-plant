@@ -76,7 +76,7 @@ A separate suspicious duplicate candidate appears in the legacy mask datasheet: 
 
 ### Verified Drive backup
 
-The following seven small audit assets were uploaded to the user's Google Drive folder `DrPlant-ALGERIA-Morphology-2026-11-27`:
+The following eight small audit assets were uploaded to the user's Google Drive folder `DrPlant-ALGERIA-Morphology-2026-11-27`:
 
 - five source metadata CSVs (`LEAF_DATA_METADATA.csv`, `LEAF_DETECTION_SUMMARY.csv`, `LEAF_MASK_METADATA.csv`, `MASTER_LEAF_METADATA.csv`, `master_mask_datasheet.csv`);
 - the CC BY 4.0 legal code;
