@@ -166,7 +166,7 @@ def main():
     p.add_argument("--out",type=Path,required=True)
     p.add_argument("--batch-size",type=int,default=16)
     p.add_argument("--threads",type=int,default=4)
-    a=p.parse_args();enforce_training_gate(gate_args)
+    a=p.parse_args();enforce_training_gate(gate_args, data_root=a.dataset_root, split_manifest=a.manifest)
     random.seed(42); np.random.seed(42); torch.manual_seed(42)
     torch.set_num_threads(a.threads)
     device=torch.device("cpu")  # box currently has no CUDA device
