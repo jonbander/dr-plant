@@ -1,1 +1,1 @@
-dataset_id,image_path,sha256,phash,group_id,source_id,crop,label,split,annotation_type,annotation_ref,license_ref
+dataset_id,image_path,sha256,phash,group_id,source_id,crop,label,split,annotation_type,annotation_ref,license_ref,group_identity_source,group_identity_evidence_ref,group_identity_evidence_sha256,group_identity_verified_by,group_identity_status
