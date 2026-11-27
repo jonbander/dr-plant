@@ -1,0 +1,7 @@
+{
+  "paths": {},
+  "prefixes": {
+    "/archive/original/dataset/root/": "dataset-root/",
+    "old-drive-export/": "dataset-root/"
+  }
+}

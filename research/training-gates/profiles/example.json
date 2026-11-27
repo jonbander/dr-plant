@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "dataset_id": "REPLACE_WITH_APPROVED_DATASET_ID",
+  "task_scope": [
+    "classification"
+  ],
+  "grouping_unit": "vineyard_or_block",
+  "delivery_manifest": "delivery-manifest.json",
+  "delivery_signature": "delivery-manifest.json.sig",
+  "dataset_profile": "dataset-profile.spdx.json",
+  "dataset_profile_signature": "dataset-profile.spdx.json.sig",
+  "split_manifest": "split-manifest.csv",
+  "near_duplicate_audit": "near-duplicate-audit.json",
+  "taxonomy_map": "taxonomy-map.json",
+  "gold_mask_audit": null,
+  "ablation_report": null,
+  "split_manifest_signature": "split-manifest.csv.sig",
+  "near_duplicate_audit_signature": "near-duplicate-audit.json.sig",
+  "taxonomy_map_signature": "taxonomy-map.json.sig"
+}

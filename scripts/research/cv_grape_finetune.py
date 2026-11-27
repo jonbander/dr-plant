@@ -27,8 +27,14 @@ def ev(m,dl,dev,classes):
   for x,t in dl:p.extend(m(x.to(dev)).argmax(1).cpu().tolist());y.extend(t.tolist())
  return {'accuracy':float(accuracy_score(y,p)),'balanced_accuracy':float(balanced_accuracy_score(y,p)),'macro_f1':float(f1_score(y,p,average='macro',zero_division=0)),'per_class':classification_report(y,p,target_names=classes,output_dict=True,zero_division=0),'confusion_matrix':confusion_matrix(y,p).tolist()}
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('--dataset-root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--teacher',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--threads',type=int,default=4);a=p.parse_args()
+ gate_args=extract_training_gate_args()
+ p=argparse.ArgumentParser();p.add_argument('--dataset-root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--teacher',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--threads',type=int,default=4);a=p.parse_args();enforce_training_gate(gate_args)
  torch.set_num_threads(a.threads);dev=torch.device('cpu');ck=torch.load(a.teacher,map_location='cpu',weights_only=True);classes=ck['classes'];idx={c:i for i,c in enumerate(classes)}
  with a.manifest.open(newline='',encoding='utf-8-sig') as f:allrows=list(csv.DictReader(f))
  rows=[r for r in allrows if r['split'] in ('train','val','validation')]

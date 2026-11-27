@@ -1,0 +1,31 @@
+name: Verify Dr.Plant training data gate
+description: Fail closed unless the selected dataset profile passes Phase 0 checks.
+inputs:
+  profile:
+    description: Dataset-specific training gate profile JSON.
+    required: true
+  data-root:
+    description: Local directory containing the exact extracted dataset delivery.
+    required: true
+  profile-signature:
+    description: Detached Ed25519 signature for the profile itself.
+    required: true
+  trusted-public-key:
+    description: Trusted Ed25519 public key path supplied by protected CI configuration.
+    required: true
+  report:
+    description: Optional JSON report output path.
+    required: false
+    default: artifacts/training-gate-report.json
+runs:
+  using: composite
+  steps:
+    - name: Verify signed delivery, license, taxonomy, masks and split
+      shell: bash
+      run: >-
+        python3 scripts/research/validate-training-gate.py
+        --profile "${{ inputs.profile }}"
+        --profile-signature "${{ inputs.profile-signature }}"
+        --data-root "${{ inputs.data-root }}"
+        --trusted-public-key "${{ inputs.trusted-public-key }}"
+        --report "${{ inputs.report }}"

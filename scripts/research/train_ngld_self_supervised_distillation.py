@@ -185,7 +185,13 @@ def evaluate(model, loader, device, classes):
     }
 
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from training_gate_guard import extract_training_gate_args, enforce_training_gate
+
 def main():
+    gate_args=extract_training_gate_args()
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("image_root", type=Path)
     p.add_argument("manifest", type=Path)
@@ -201,6 +207,7 @@ def main():
     p.add_argument("--image-size", type=int, default=160)
     p.add_argument("--seed", type=int, default=42)
     a = p.parse_args()
+    enforce_training_gate(gate_args)
     if a.epochs < 1 or a.batch_size < 2 or a.unfreeze_last_blocks < 1:
         p.error("epochs >= 1, batch-size >= 2 and unfreeze-last-blocks >= 1 are required")
     if a.temperature <= 0 or a.learning_rate <= 0:

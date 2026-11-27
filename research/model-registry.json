@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-11-27",
+  "purpose": "Single audited index of Dr.Plant research models/assets. Not an ensemble and not production approval.",
+  "productionModel": {
+    "enabled": false,
+    "path": "/models/plant-disease/model.onnx",
+    "reason": "No candidate has completed independent Syrian coastal field validation, expert label review, calibration, rejection-threshold review and the app promotion gate."
+  },
+  "policy": {
+    "combineWeights": false,
+    "combineMetrics": false,
+    "combineIncompatibleTaxonomies": false,
+    "allowedIntegration": [
+      "source-linked evidence",
+      "task-specific research model registry",
+      "symptom morphology knowledge",
+      "explicit limitations and abstention"
+    ],
+    "prohibitedIntegration": [
+      "averaging accuracy across datasets",
+      "majority voting between unrelated classifiers",
+      "treating research softmax as calibrated confidence",
+      "promoting a blocked/confounded dataset into diagnosis"
+    ]
+  },
+  "models": [
+    {
+      "id": "plantvillage-full-v2",
+      "task": "multi-crop leaf disease classification",
+      "status": "research_only_source_domain",
+      "datasetImages": 54304,
+      "classes": 38,
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.8935878699305809,
+      "testMacroF1": 0.8668326487027204,
+      "split": "leaf_id grouped split; source-domain holdout only",
+      "artifacts": "results/multicrop-plantvillage-v2/model-output-refined/",
+      "limitations": [
+        "controlled-source domain; not Syrian coastal field validation",
+        "not a production model"
+      ],
+      "source": "PlantVillage",
+      "license": "CC BY 4.0 (dataset record; verify redistribution of derived artifacts separately)",
+      "artifactSha256": "e6ec3fc249ddf10730ab9166bf6f8328621c8158b7aed26c7f236b3aab98fd04",
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": "results/multicrop-plantvillage-v2/model-output-refined/best-model.pt",
+      "splitProtocol": "leaf_id grouped split; source-domain holdout only",
+      "metrics": {
+        "testAccuracy": 0.8935878699305809,
+        "testMacroF1": 0.8668326487027204
+      }
+    },
+    {
+      "id": "plantvillage-subset-v1",
+      "task": "multi-crop leaf disease classification",
+      "status": "research_only_superseded_baseline",
+      "datasetImages": 2660,
+      "classes": 38,
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.7907894736842105,
+      "testMacroF1": 0.7829833763046438,
+      "split": "leaf_id grouped split; source-domain holdout only",
+      "artifacts": "results/multicrop-plantvillage-v1/model-output/",
+      "limitations": [
+        "smaller subset superseded by full V2",
+        "not Syrian coastal field validation"
+      ],
+      "source": "PlantVillage",
+      "license": "CC BY 4.0 (dataset record)",
+      "artifactSha256": "d5b2576bbaa03d6e6c5ce446c09b26405f58f46899782132d7c276165b26dde3",
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": "results/multicrop-plantvillage-v1/model-output/best-model.pt",
+      "splitProtocol": "leaf_id grouped split; source-domain holdout only",
+      "metrics": {
+        "testAccuracy": 0.7907894736842105,
+        "testMacroF1": 0.7829833763046438
+      }
+    },
+    {
+      "id": "ngld-v5",
+      "task": "grape leaf disease classification",
+      "status": "research_only_grouped_visual_similarity_split",
+      "datasetImages": 2389,
+      "classes": [
+        "Bacterial Leaf Spot",
+        "Downy Mildew",
+        "Healthy Leaves",
+        "Powdery Mildew"
+      ],
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.7405857740585774,
+      "testMacroF1": 0.6693426445168639,
+      "split": "pHash-group disjoint; no biological plant/site/session identifiers",
+      "artifacts": "results/ngld-v5/",
+      "limitations": [
+        "Niphad, India source domain",
+        "not expert-reviewed",
+        "pHash groups do not establish biological independence"
+      ],
+      "source": "NGLD V5 / Niphad, India",
+      "license": null,
+      "artifactSha256": "47103964b7c3c501daee3a7a206334ccaf3e3225bf02f642cc54b845a60c5c94",
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": "results/ngld-v5/model-output/best-model.pt",
+      "splitProtocol": "pHash-group disjoint; no biological plant/site/session identifiers",
+      "metrics": {
+        "testAccuracy": 0.7405857740585774,
+        "testMacroF1": 0.6693426445168639
+      }
+    },
+    {
+      "id": "gvlid-v5-esca-healthy-curated",
+      "task": "grape Esca vs healthy research classification",
+      "status": "research_only_source_specific_requires_replication",
+      "datasetImages": 1323,
+      "classes": [
+        "Esca",
+        "Healthy"
+      ],
+      "testAccuracy": 0.9943,
+      "testMacroF1": 0.9929,
+      "split": "vineyard-disjoint within source",
+      "artifacts": "prior GVLiD V5 curated two-class experiment; preserve source package and audit separately",
+      "limitations": [
+        "very high score is source-specific and requires independent replication",
+        "not a production diagnostic claim",
+        "No local artifact path is asserted from this branch; recovery copy is preserved separately."
+      ],
+      "source": "GVLiD V5",
+      "license": null,
+      "artifactSha256": null,
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": null,
+      "splitProtocol": "vineyard-disjoint within source",
+      "metrics": {
+        "testAccuracy": 0.9943,
+        "testMacroF1": 0.9929
+      },
+      "artifactStatus": "weights_preserved_in_separate_recovery_branch_not_present_here"
+    },
+    {
+      "id": "plasmopara-v2",
+      "task": "grape downy mildew-like disease vs healthy exploratory classification",
+      "status": "research_only_high_source_confounding",
+      "datasetImages": 280,
+      "classes": [
+        "Disease",
+        "Healthy"
+      ],
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.7380952380952381,
+      "testMacroF1": 0.7379466817923993,
+      "split": "random image-level 196/42/42; not plant/site/session independent",
+      "artifacts": "results/plasmopara-v2-exploratory-2026-11-25/",
+      "limitations": [
+        "strong EXIF/source confounding",
+        "source reports 281 while 280 originals extracted",
+        "not expert-reviewed",
+        "2026-11-27 registry correction: metrics and audit files exist, but best-model.pt is absent from this branch; Drive backup is recorded separately and must be restored/verified before reuse."
+      ],
+      "source": "Plasmopara Zenodo V2",
+      "license": null,
+      "artifactSha256": null,
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": null,
+      "splitProtocol": "random image-level 196/42/42; not plant/site/session independent",
+      "metrics": {
+        "testAccuracy": 0.7380952380952381,
+        "testMacroF1": 0.7379466817923993
+      },
+      "metricsPath": "results/plasmopara-v2-exploratory-2026-11-25/model-output/metrics.json",
+      "artifactStatus": "checkpoint_not_present_locally_drive_backup_registered"
+    },
+    {
+      "id": "citrus-field-v3",
+      "task": "citrus leaf symptom classification",
+      "status": "research_only_tree_held_out_single_orchard",
+      "datasetImages": 610,
+      "classes": 4,
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.8656716417910447,
+      "testMacroF1": 0.8575668071962986,
+      "split": "tree-held-out; one Moroccan orchard/campaign",
+      "artifacts": "results/citrus-field-v3/",
+      "limitations": [
+        "single region and campaign",
+        "labels include symptom-like categories",
+        "not Syrian field validation"
+      ],
+      "source": "Citrus Field V3 / single Moroccan orchard",
+      "license": null,
+      "artifactSha256": "60294b8d5823941b06697ff3e5bc853756d42e94705cab81c1d632d75c708bd3",
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": "results/citrus-field-v3/best-model.pt",
+      "splitProtocol": "tree-held-out; one Moroccan orchard/campaign",
+      "metrics": {
+        "testAccuracy": 0.8656716417910447,
+        "testMacroF1": 0.8575668071962986
+      }
+    },
+    {
+      "id": "lemon-v3",
+      "task": "lemon leaf disease/pest image classification",
+      "status": "research_only_image_level_split_metrics_reconciliation_needed",
+      "datasetImages": 17586,
+      "classes": 18,
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.7206216830932525,
+      "testMacroF1": 0.6745610622653178,
+      "split": "stratified image-level; non-independent",
+      "artifacts": "results/lemon-v3/",
+      "limitations": [
+        "Bangladesh white-background source domain",
+        "image-level split",
+        "metrics differ from older comparison.csv snapshot and require reconciliation"
+      ],
+      "source": "Lemon V3 / Bangladesh source",
+      "license": null,
+      "artifactSha256": "d09c5e7c54084db2aed272c0de465f00f8f7290776a724c5bf7e2e7239d7c3c8",
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": "results/lemon-v3/best-model.pt",
+      "splitProtocol": "stratified image-level; non-independent",
+      "metrics": {
+        "testAccuracy": 0.7206216830932525,
+        "testMacroF1": 0.6745610622653178
+      }
+    },
+    {
+      "id": "multi-fruit-v1",
+      "task": "mixed fruit leaf state/disease/pest exploratory classification",
+      "status": "research_only_mixed_taxonomy",
+      "datasetImages": 2308,
+      "classes": 18,
+      "architecture": "MobileNetV3-Small",
+      "testAccuracy": 0.6595744680851063,
+      "testMacroF1": 0.6389411732217407,
+      "split": "pHash-group disjoint; no biological plant/site/session identifiers",
+      "artifacts": "results/multi-fruit-v1/",
+      "limitations": [
+        "classes mix disease, pest, age and general condition",
+        "Olive_Pest_Damage F1=0.00",
+        "not one coherent disease ontology"
+      ],
+      "source": "Multi-Fruit V1",
+      "license": null,
+      "artifactSha256": "a1fe9012b8f4637624f053cecedbd6322c31badfeb095d002a528dca58acde3e",
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": "results/multi-fruit-v1/model-output/best-model.pt",
+      "splitProtocol": "pHash-group disjoint; no biological plant/site/session identifiers",
+      "metrics": {
+        "testAccuracy": 0.6595744680851063,
+        "testMacroF1": 0.6389411732217407
+      }
+    },
+    {
+      "id": "vitis-morphology-pilot",
+      "task": "French grape cultivar/morphology recognition, not disease diagnosis",
+      "status": "research_only_controlled_image_domain",
+      "datasetImages": 127,
+      "classes": 14,
+      "split": "vine-group disjoint 3-fold pilot",
+      "artifacts": "research pilot documented in training coverage; not an app disease model",
+      "limitations": [
+        "controlled backlit/light-box images",
+        "cultivar recognition only"
+      ],
+      "source": "Dryad 10.5061/dryad.g79cnp5mn / Wolfskill USDA collection",
+      "license": "CC0-1.0",
+      "artifactSha256": null,
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "sourceEvidenceStatus": "see_existing_audit_and_model_card",
+      "artifactPath": null,
+      "splitProtocol": "vine-group disjoint 3-fold pilot",
+      "metrics": {
+        "testAccuracy": null,
+        "testMacroF1": null
+      },
+      "artifactStatus": "research_metrics_only_no_reusable_checkpoint_registered"
+    },
+    {
+      "id": "grape-leaf-health-mendeley-v1",
+      "task": "grape leaf health/disease/pest exploratory classification",
+      "status": "research_only_source_labels_unreviewed_no_biological_metadata",
+      "datasetImages": 2574,
+      "classes": [
+        "Black Rot",
+        "Brown Spot",
+        "Downy Mildew",
+        "Mites",
+        "Healthy"
+      ],
+      "architecture": "MobileNetV3-Small",
+      "source": "Mendeley DOI 10.17632/378c69nwk5.1",
+      "license": "CC BY 4.0",
+      "sourceArchiveSha256": null,
+      "artifactPath": null,
+      "artifactSha256": null,
+      "splitProtocol": "StratifiedGroupKFold after grouping pHash Hamming distance <=6; no group crosses splits; no farm/site metadata.",
+      "metrics": {
+        "testAccuracy": 0.6116504854368932,
+        "testMacroF1": 0.5508464728139866,
+        "balancedAccuracy": 0.5527228264418828
+      },
+      "limitations": [
+        "Source labels are folder-derived and were not independently expert-reviewed by Dr Plant.",
+        "No orchard/site/plant/session metadata; only known exact and perceptual duplicates were grouped.",
+        "Archive has 3,001 raw entries although the source description claims 3,000.",
+        "The source reports 18,000 images including 15,000 augmented derivatives; only raw Process_Images entries were used.",
+        "No Syrian coastal field validation; exploratory research model only.",
+        "2026-11-27 registry correction: previous artifactPath pointed to metrics.json, not model weights; no checkpoint was found in this branch."
+      ],
+      "appDiseaseIdMapping": "unmapped_app_labels_empty",
+      "metricsPath": "research/training-results/2026-11-23/grape-leaf-health/metrics.json",
+      "artifactStatus": "metrics_only_no_checkpoint_in_this_branch"
+    }
+  ],
+  "blockedDatasets": [
+    {
+      "id": "fieldvitis-v2",
+      "images": 555,
+      "status": "blocked_upstream_source_and_exif_confounding",
+      "reason": "No per-image upstream source mapping or plant/site/session IDs; strong class/EXIF source confounding; independent expert label review absent.",
+      "audit": "data/fieldvitis-v2-audit/README-AR.md",
+      "license": null,
+      "sha256": null,
+      "trainingAllowed": false
+    },
+    {
+      "id": "esca-mendeley-v1",
+      "images": 1770,
+      "status": "blocked_perfect_camera_label_confounding",
+      "reason": "Esca and Healthy classes are perfectly separated by camera metadata; source restored and SHA manifest verified, but training would risk learning camera identity.",
+      "license": null,
+      "sha256": null,
+      "trainingAllowed": false
+    },
+    {
+      "id": "citrus-zenodo-v1",
+      "images": 1944,
+      "status": "blocked_license_and_duplicate_provenance",
+      "reason": "No explicit reuse license in record; 80 exact duplicate groups and missing independent plant/shoot/session IDs.",
+      "license": null,
+      "sha256": null,
+      "trainingAllowed": false
+    },
+    {
+      "id": "citrus-zenodo-v1",
+      "images": 1944,
+      "status": "blocked_license_and_duplicate_provenance",
+      "reason": "No explicit reuse license in dataset record; exact duplicate groups and independent plant/session metadata unresolved.",
+      "license": null,
+      "sha256": null,
+      "trainingAllowed": false
+    }
+  ],
+  "registryNotes": [
+    "Null means not verified in the checked repository snapshot; it is not permission to train or redistribute.",
+    "Artifact hashes are for exact local files only; absent hashes must not be inferred from archive branch names.",
+    "Model metrics are task/source-specific and must not be averaged or compared as if they share a test set.",
+    "Large weights remain in existing archive/Drive locations; this registry does not relocate or delete assets."
+  ]
+}
