@@ -1,0 +1,260 @@
+{
+  "task": "French Vitis cultivar morphology recognition; not disease diagnosis",
+  "status": "exploratory_auto_mask_candidates_controlled_domain_only",
+  "dataset": "Dryad 10.5061/dryad.g79cnp5mn, CC0-1.0",
+  "paired_subset_images": 100,
+  "paired_subset_vine_groups": 59,
+  "classes": [
+    "Cabernet Sauvignon",
+    "Carignane",
+    "Chardonnay",
+    "Chasselas Napoleon",
+    "Cinsaut",
+    "Durif",
+    "Folle Blanche",
+    "Muscat St. Laurent",
+    "Olivette Blanche",
+    "Pinot Noir",
+    "Poet Matabon",
+    "Sauvignon Vert",
+    "Semillon",
+    "Terret Blanc"
+  ],
+  "class_vine_groups": {
+    "Cabernet Sauvignon": 4,
+    "Carignane": 4,
+    "Chardonnay": 6,
+    "Chasselas Napoleon": 3,
+    "Cinsaut": 3,
+    "Durif": 4,
+    "Folle Blanche": 5,
+    "Muscat St. Laurent": 4,
+    "Olivette Blanche": 4,
+    "Pinot Noir": 7,
+    "Poet Matabon": 4,
+    "Sauvignon Vert": 4,
+    "Semillon": 4,
+    "Terret Blanc": 3
+  },
+  "split": "same 3-fold StratifiedGroupKFold by block-row-vine for all feature sets; random_state=42",
+  "mask": "automatic HSV segmentation candidates; 444/504 images had two selected components; 100/127 supervised images retained; no manual mask ground truth",
+  "shape_features_per_image": 38,
+  "cnn_features_per_image": 576,
+  "leaf_crop_cnn_features_per_image": 576,
+  "classifier": "StandardScaler + LogisticRegression(C=0.1, class_weight=balanced)",
+  "results": {
+    "shape_only": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.21212121212121213,
+          "balanced_accuracy": 0.23214285714285715,
+          "macro_f1": 0.20714285714285713,
+          "top3_accuracy": 0.48484848484848486
+        },
+        {
+          "fold": 2,
+          "train_images": 66,
+          "test_images": 34,
+          "train_vines": 38,
+          "test_vines": 21,
+          "accuracy": 0.2647058823529412,
+          "balanced_accuracy": 0.24404761904761904,
+          "macro_f1": 0.2305555555555556,
+          "top3_accuracy": 0.6176470588235294
+        },
+        {
+          "fold": 3,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.21212121212121213,
+          "balanced_accuracy": 0.25,
+          "macro_f1": 0.17970521541950113,
+          "top3_accuracy": 0.42424242424242425
+        }
+      ],
+      "accuracy": 0.2296494355317885,
+      "balanced_accuracy": 0.24206349206349206,
+      "macro_f1": 0.20580120937263793,
+      "top3_accuracy": 0.5089126559714795
+    },
+    "cnn_only": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.6666666666666666,
+          "balanced_accuracy": 0.625,
+          "macro_f1": 0.6112244897959185,
+          "top3_accuracy": 0.8787878787878788
+        },
+        {
+          "fold": 2,
+          "train_images": 66,
+          "test_images": 34,
+          "train_vines": 38,
+          "test_vines": 21,
+          "accuracy": 0.6176470588235294,
+          "balanced_accuracy": 0.5714285714285714,
+          "macro_f1": 0.5629251700680272,
+          "top3_accuracy": 0.7941176470588235
+        },
+        {
+          "fold": 3,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.6363636363636364,
+          "balanced_accuracy": 0.6678571428571428,
+          "macro_f1": 0.608673469387755,
+          "top3_accuracy": 0.8181818181818182
+        }
+      ],
+      "accuracy": 0.6402257872846108,
+      "balanced_accuracy": 0.6214285714285714,
+      "macro_f1": 0.5942743764172335,
+      "top3_accuracy": 0.8303624480095069
+    },
+    "cnn_plus_shape": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.6060606060606061,
+          "balanced_accuracy": 0.5714285714285714,
+          "macro_f1": 0.5311997526283242,
+          "top3_accuracy": 0.8787878787878788
+        },
+        {
+          "fold": 2,
+          "train_images": 66,
+          "test_images": 34,
+          "train_vines": 38,
+          "test_vines": 21,
+          "accuracy": 0.5882352941176471,
+          "balanced_accuracy": 0.5535714285714286,
+          "macro_f1": 0.5437229437229437,
+          "top3_accuracy": 0.8235294117647058
+        },
+        {
+          "fold": 3,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.6363636363636364,
+          "balanced_accuracy": 0.6678571428571428,
+          "macro_f1": 0.5943877551020408,
+          "top3_accuracy": 0.8484848484848485
+        }
+      ],
+      "accuracy": 0.6102198455139631,
+      "balanced_accuracy": 0.5976190476190476,
+      "macro_f1": 0.5564368171511029,
+      "top3_accuracy": 0.8502673796791443
+    },
+    "leaf_crop_cnn_only": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.7575757575757576,
+          "balanced_accuracy": 0.7678571428571429,
+          "macro_f1": 0.766780045351474,
+          "top3_accuracy": 0.9090909090909091
+        },
+        {
+          "fold": 2,
+          "train_images": 66,
+          "test_images": 34,
+          "train_vines": 38,
+          "test_vines": 21,
+          "accuracy": 0.6176470588235294,
+          "balanced_accuracy": 0.5892857142857143,
+          "macro_f1": 0.5877289377289378,
+          "top3_accuracy": 0.8529411764705882
+        },
+        {
+          "fold": 3,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.6363636363636364,
+          "balanced_accuracy": 0.6678571428571428,
+          "macro_f1": 0.5949134199134198,
+          "top3_accuracy": 0.7878787878787878
+        }
+      ],
+      "accuracy": 0.6705288175876412,
+      "balanced_accuracy": 0.6749999999999999,
+      "macro_f1": 0.6498074676646105,
+      "top3_accuracy": 0.8499702911467617
+    },
+    "leaf_crop_cnn_plus_shape": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.7575757575757576,
+          "balanced_accuracy": 0.7678571428571429,
+          "macro_f1": 0.7636054421768709,
+          "top3_accuracy": 0.9393939393939394
+        },
+        {
+          "fold": 2,
+          "train_images": 66,
+          "test_images": 34,
+          "train_vines": 38,
+          "test_vines": 21,
+          "accuracy": 0.6470588235294118,
+          "balanced_accuracy": 0.6071428571428571,
+          "macro_f1": 0.6034798534798533,
+          "top3_accuracy": 0.8529411764705882
+        },
+        {
+          "fold": 3,
+          "train_images": 67,
+          "test_images": 33,
+          "train_vines": 40,
+          "test_vines": 19,
+          "accuracy": 0.6060606060606061,
+          "balanced_accuracy": 0.6535714285714286,
+          "macro_f1": 0.5860544217687076,
+          "top3_accuracy": 0.7575757575757576
+        }
+      ],
+      "accuracy": 0.6702317290552585,
+      "balanced_accuracy": 0.6761904761904761,
+      "macro_f1": 0.651046572475144,
+      "top3_accuracy": 0.8499702911467617
+    }
+  },
+  "limitations": [
+    "controlled light-box images, not field images",
+    "automatic masks not manually validated",
+    "two-leaf per photo segmentation may omit/merge lobes or confuse shadows",
+    "cultivar classification only; no disease task",
+    "subset differs from previous 127-image experiment due mask eligibility; compare only within this paired subset",
+    "no tuning on independent external test set"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "research_only_auto_masked_leaf_crop_embeddings",
+  "images_embedded": 100,
+  "skipped_non_two_component": 27,
+  "embedding_dim": 576,
+  "backbone": "MobileNetV3-Small ImageNet pretrained frozen",
+  "crop_policy": "two largest interior HSV candidate masks; background whitened; 224x224; average horizontal flip and two leaf embeddings",
+  "ground_truth_masks": false
+}

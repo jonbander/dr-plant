@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "near_duplicate_only_not_field_independent",
+  "rows": 2574,
+  "split_counts": {
+    "test": 515,
+    "train": 1647,
+    "val": 412
+  },
+  "class_distribution": {
+    "test": {
+      "Black Rot": 107,
+      "Brown Spot": 150,
+      "Downy Mildew": 62,
+      "Healthy": 149,
+      "Mites": 47
+    },
+    "train": {
+      "Black Rot": 341,
+      "Brown Spot": 478,
+      "Downy Mildew": 201,
+      "Healthy": 476,
+      "Mites": 151
+    },
+    "val": {
+      "Black Rot": 85,
+      "Brown Spot": 120,
+      "Downy Mildew": 50,
+      "Healthy": 119,
+      "Mites": 38
+    }
+  },
+  "unique_source_sha256": 2574,
+  "unique_group_ids": 2541,
+  "exact_hash_cross_split_leakage_count": 0,
+  "group_id_cross_split_leakage_count": 0,
+  "field_identity_populated_rows": {},
+  "field_independent_ready": false,
+  "identity_cross_split_leakage": {},
+  "blank_field_counts": {},
+  "errors": [],
+  "warnings": [
+    "pHash_or_source_grouping_is_not_field_independent",
+    "missing_complete_field_identity:need_field_group_id_or_plant_vine_plus_site_farm_and_session"
+  ],
+  "claims_allowed": {
+    "near_duplicate_isolation": true,
+    "field_independent_evaluation": false,
+    "expert_confirmed_labels": false,
+    "manual_leaf_segmentation": false,
+    "diagnostic_or_production_readiness": false
+  },
+  "note": "This audit validates manifest structure and split separation only. It does not establish label correctness, mask quality, diagnostic accuracy, or production readiness."
+}

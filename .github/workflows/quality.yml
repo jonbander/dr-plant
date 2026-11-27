@@ -40,6 +40,8 @@ jobs:
         run: bun run test:classification-splits
       - name: Exploratory split regression tests
         run: bun run test:exploratory-splits
+      - name: Morphology V1 field identity and split leakage tests
+        run: python -m unittest scripts.test_audit_grape_morphology_v1 -v
       - name: Python training script syntax checks
         run: python -m py_compile scripts/audit_image_classification_dataset.py scripts/prepare_classification_splits.py scripts/prepare_exploratory_splits.py scripts/train_image_classifier.py
       - name: Production build
