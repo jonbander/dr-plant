@@ -34,7 +34,7 @@ from training_gate_guard import extract_training_gate_args, enforce_training_gat
 
 def main():
  gate_args=extract_training_gate_args()
- p=argparse.ArgumentParser();p.add_argument('--dataset-root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--teacher',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--threads',type=int,default=4);a=p.parse_args();enforce_training_gate(gate_args)
+ p=argparse.ArgumentParser();p.add_argument('--dataset-root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True);p.add_argument('--teacher',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--threads',type=int,default=4);a=p.parse_args();enforce_training_gate(gate_args, data_root=a.dataset_root, split_manifest=a.manifest)
  torch.set_num_threads(a.threads);dev=torch.device('cpu');ck=torch.load(a.teacher,map_location='cpu',weights_only=True);classes=ck['classes'];idx={c:i for i,c in enumerate(classes)}
  with a.manifest.open(newline='',encoding='utf-8-sig') as f:allrows=list(csv.DictReader(f))
  rows=[r for r in allrows if r['split'] in ('train','val','validation')]

@@ -73,7 +73,7 @@ def main():
     p.add_argument("--image-size",type=int,default=224)
     p.add_argument("--workers",type=int,default=0)
     a=p.parse_args()
-    enforce_training_gate(gate_args)
+    enforce_training_gate(gate_args, data_root=a.image_root, split_manifest=a.split_manifest)
     if a.epochs<1 or a.batch_size<1: p.error("epochs and batch size must be positive")
     random.seed(a.seed); np.random.seed(a.seed); torch.manual_seed(a.seed)
     if torch.cuda.is_available(): torch.cuda.manual_seed_all(a.seed)
