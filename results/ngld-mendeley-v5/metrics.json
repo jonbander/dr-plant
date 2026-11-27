@@ -1,0 +1,155 @@
+{
+  "status": "exploratory_non_independent_baseline",
+  "evaluation_scope": "within-source image-level exploratory holdout; not independent by site/plant/session",
+  "architecture": "MobileNetV3-Small",
+  "pretrained_imagenet": true,
+  "class_weighted_loss": true,
+  "class_weights": {
+    "Bacterial Leaf Spot": 5.925000190734863,
+    "Downy Mildew": 0.6144444346427917,
+    "Healthy Leaves": 0.6531496047973633,
+    "Powdery Mildew": 1.4865591526031494
+  },
+  "seed": 42,
+  "epochs_requested": 8,
+  "best_validation_accuracy": 0.9868421052631579,
+  "test_accuracy": 0.9828571428571429,
+  "test_macro_f1": 0.9796381513754252,
+  "classes": [
+    "Bacterial Leaf Spot",
+    "Downy Mildew",
+    "Healthy Leaves",
+    "Powdery Mildew"
+  ],
+  "test_classification_report": {
+    "Bacterial Leaf Spot": {
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1-score": 0.967741935483871,
+      "support": 15.0
+    },
+    "Downy Mildew": {
+      "precision": 0.986013986013986,
+      "recall": 0.9724137931034482,
+      "f1-score": 0.9791666666666666,
+      "support": 145.0
+    },
+    "Healthy Leaves": {
+      "precision": 0.9774436090225563,
+      "recall": 1.0,
+      "f1-score": 0.9885931558935361,
+      "support": 130.0
+    },
+    "Powdery Mildew": {
+      "precision": 1.0,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9830508474576272,
+      "support": 60.0
+    },
+    "accuracy": 0.9828571428571429,
+    "macro avg": {
+      "precision": 0.9752393987591356,
+      "recall": 0.9847701149425288,
+      "f1-score": 0.9796381513754252,
+      "support": 350.0
+    },
+    "weighted avg": {
+      "precision": 0.9831491346998866,
+      "recall": 0.9828571428571429,
+      "f1-score": 0.9828441623215488,
+      "support": 350.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      15,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      141,
+      3,
+      0
+    ],
+    [
+      0,
+      0,
+      130,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      58
+    ]
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4313419972506541,
+      "validation_accuracy": 0.9026315789473685,
+      "validation_macro_f1": 0.8345279557908424
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.10573699578279074,
+      "validation_accuracy": 0.9447368421052632,
+      "validation_macro_f1": 0.9046226180212186
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.09982397608714984,
+      "validation_accuracy": 0.881578947368421,
+      "validation_macro_f1": 0.8576095766833414
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.06761586655834,
+      "validation_accuracy": 0.9157894736842105,
+      "validation_macro_f1": 0.8422295013492644
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.04291099450538904,
+      "validation_accuracy": 0.9605263157894737,
+      "validation_macro_f1": 0.9454689116500852
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.09290742023717197,
+      "validation_accuracy": 0.85,
+      "validation_macro_f1": 0.7779334212210924
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.05117045502431902,
+      "validation_accuracy": 0.9631578947368421,
+      "validation_macro_f1": 0.9548466748501441
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.025945650719055954,
+      "validation_accuracy": 0.9868421052631579,
+      "validation_macro_f1": 0.9717085383752051
+    }
+  ],
+  "images_per_split": {
+    "validation": 380,
+    "train": 1659,
+    "test": 350
+  },
+  "groups_per_split": {
+    "train": 1425,
+    "validation": 305,
+    "test": 305
+  },
+  "limitations": [
+    "Metrics apply only to these source datasets and this split, not Syrian coastal orchards.",
+    "Dataset class labels may not be laboratory-confirmed pathogens.",
+    "This is a baseline, not a production-validated model.",
+    "Exploratory mode bypasses expert-label and near-duplicate review gates; image-level split may leak plant/session/background information and is not independent validation. Do not advertise these metrics as accuracy on unseen farms."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "onnx_path": "results/multi-fruit-original-v1/multi-fruit-condition-mobilenetv3-small.onnx",
+  "classes": [
+    "Guava _Defective",
+    "Guava _Healthy",
+    "Guava _Senescent",
+    "Jackfruit_Blight",
+    "Jackfruit_Dried",
+    "Jackfruit_Fungal_Spot",
+    "Jackfruit_Healthy",
+    "Jackfruit_Pest_Damage",
+    "Jackfruit_Senescent",
+    "Jackfruit_Young",
+    "Mango_Anthracnose",
+    "Mango_Healthy",
+    "Mango_Senescent",
+    "Olive_Healthy",
+    "Olive_Mild_Edge_Damage",
+    "Olive_Pest_Damage",
+    "Olive_Senescent_Spot",
+    "Olive_Young"
+  ],
+  "onnx_checker": "passed",
+  "onnxruntime": "passed",
+  "max_abs_diff": 1.9669532775878906e-06,
+  "argmax_identical": true,
+  "input_shape": [
+    2,
+    3,
+    224,
+    224
+  ]
+}

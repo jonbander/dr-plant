@@ -1,0 +1,13 @@
+{
+  "onnx_checker": "passed",
+  "onnxruntime": "passed",
+  "classes": [
+    "Esca",
+    "Healthy"
+  ],
+  "parity_samples": 3,
+  "max_abs_diff": 7.450580596923828e-07,
+  "mean_abs_diff": 4.917383193969727e-07,
+  "argmax_equal": true,
+  "onnx_file": "esca-mobilenetv3-small.onnx"
+}

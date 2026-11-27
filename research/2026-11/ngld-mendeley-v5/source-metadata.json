@@ -1,0 +1,19 @@
+{
+  "dataset": "Niphad Grape Leaf Disease Dataset (NGLD)",
+  "version": 5,
+  "doi": "10.17632/8nnd2ypcv3.5",
+  "source_url": "https://data.mendeley.com/datasets/8nnd2ypcv3/5",
+  "license": "CC BY 4.0",
+  "archive": "ngld-v5.zip",
+  "archive_size_bytes": 25960266,
+  "archive_sha256": "7b4b4f426e258ac0a317a72d399c1c22da4bc105aa8b65526391a413719b62aa",
+  "retrieval_date": "2026-11-21",
+  "published_claimed_images": 2726,
+  "class_counts_from_extracted_archive": {
+    "Bacterial Leaf Spot": 100,
+    "Downy Mildew": 966,
+    "Healthy Leaves": 1254,
+    "Powdery Mildew": 406
+  },
+  "notes": ["Archive downloaded from the dataset's Download All link.", "Class folders and counts are preliminary; label semantics and expert verification remain pending.", "No site/plant/session IDs are claimed by the landing page; inspect EXIF and provenance before choosing an evaluation split."]
+}

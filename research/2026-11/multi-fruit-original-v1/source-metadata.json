@@ -1,0 +1,16 @@
+{
+  "dataset": "Multi-Fruit Leaf Image Dataset: Guava, Jackfruit, Mango, and Olive",
+  "version": 1,
+  "doi": "10.17632/82vn9k44ky.1",
+  "source_url": "https://data.mendeley.com/datasets/82vn9k44ky/1",
+  "license": "CC BY 4.0",
+  "outer_archive_size_bytes": 818654658,
+  "outer_archive_contents": ["Original Dataset.zip (100461868 bytes)", "Augmented Dataset.zip (722313080 bytes)", "two class-count CSV files"],
+  "download_strategy": "HTTP range extraction of original-only inner archive; augmented archive not downloaded",
+  "original_archive": "original-images.zip",
+  "original_archive_sha256": "142d2227cadea31ac5b139edfaadd446181b4a1a7fe6eaa8b92cfe5c9a6e02ee",
+  "original_images_claimed": 2308,
+  "augmented_images_claimed": 18000,
+  "retrieval_date": "2026-11-21",
+  "notes": ["Only original images were downloaded; all 18,000 augmented images excluded.", "Original images are captured in Bangladesh; labels include condition and growth-stage categories, not only confirmed diseases.", "The outer CSV contains class totals only, not per-image collection locations, despite the description's metadata claim."]
+}

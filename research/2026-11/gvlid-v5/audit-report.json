@@ -1,0 +1,35 @@
+{
+  "dataset": "GVLiD V5",
+  "doi": "10.17632/wkymf8bhcg.5",
+  "archive_sha256": "7a83cd28a8342683e8715d9295edbd5eaca46939cbb65eae4ce02d87c548e16b",
+  "source_images": 3477,
+  "metadata_rows": 3477,
+  "metadata_class_counts": {
+    "Black Rot": 809,
+    "Esca": 888,
+    "Healthy": 1109,
+    "Leaf Blight": 671
+  },
+  "folder_class_counts": {
+    "Black Rot": 808,
+    "Esca": 888,
+    "Healthy": 1109,
+    "Leaf Blight": 672
+  },
+  "folder_metadata_label_conflicts": 1344,
+  "folder_metadata_conflict_breakdown": {
+    "Esca => Black Rot": 1,
+    "Healthy => Leaf Blight": 671,
+    "Leaf Blight => Esca": 1,
+    "Leaf Blight => Healthy": 671
+  },
+  "decode_errors": 0,
+  "unique_sha256_images": 1963,
+  "exact_duplicate_groups": 446,
+  "files_in_exact_duplicate_groups": 1514,
+  "cross_label_exact_duplicate_groups": 3,
+  "perceptual_hash_threshold_hamming": 5,
+  "near_duplicate_pairs_among_sha256_unique_images": 2,
+  "training_decision": "BLOCKED: archive folder labels and metadata disagree for many images; exact duplicates are extensive; request clarification/corrected archive from authors before training.",
+  "note": "Metadata labels are not substituted for the folder labels or vice versa. No images from this archive were used for training."
+}
