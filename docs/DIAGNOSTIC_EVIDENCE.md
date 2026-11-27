@@ -202,3 +202,29 @@ The Zenodo V2 record declares CC BY 4.0. Local extraction contains 280 originals
 ## Consolidated research-model evidence registry — 2026-11-25
 
 A central, machine-readable inventory is maintained at `data/model-evidence-registry.json`, with the Arabic interpretation in `docs/RESEARCH_MODEL_REGISTRY_AR.md`. It preserves task boundaries: PlantVillage multi-crop, grape-specific models, citrus models, mixed fruit leaf states, and cultivar morphology are not one shared label space. Metrics are source/split-specific and must not be averaged or used as calibrated confidence. Blocked FieldVitis, ESCA Mendeley and Citrus Zenodo datasets remain excluded from diagnostic training. The application model remains disabled pending its existing independent Syrian coastal field-validation gate.
+
+## Reference and dataset review consolidation — 27 November 2026
+
+### Additional grape differential references
+
+The following knowledge-base records are `reference_only`, not reports of confirmed disease on the Syrian coast and not training labels:
+
+- **Grapevine black rot — *Phyllosticta ampelicida* (syn. *Guignardia bidwellii*):** round to polygonal tan/brown leaf lesions with darker margins; mature lesions may show black pycnidia. Keep leaf, cane and bunch symptoms as separate image tasks. Sources: [EPPO](https://gd.eppo.int/taxon/GUIGBI), [INRAE ePhytia](https://ephytia.inrae.fr/en/D/1929), [University of Minnesota Extension](https://apps.extension.umn.edu/garden/diagnose/plant/fruit/grape/leavesspots.html).
+- **Esca complex:** a multifactorial grapevine trunk-disease syndrome, not a single leaf pathogen. Foliar tiger-stripe-like symptoms are insufficient for diagnosis without trunk/wood context. Source: [INRAE ePhytia](https://ephytia.inrae.fr/en/C/6969/Grapevine-Main-symptoms).
+- **Grape erineum mite — *Colomerus vitis*:** upper-surface warty swellings with corresponding felt-like erineum patches underneath; keep this eriophyid mite distinct from tetranychid spider mites, thrips and fungal mildews. Source: [UC IPM](https://ipm.ucanr.edu/home-and-landscape/grape-erineum-mite/).
+
+Two 2026 *Plasmopara viticola* studies were added as research references: an Italian population study (DOI [10.1094/PDIS-05-26-0915-RE](https://doi.org/10.1094/PDIS-05-26-0915-RE)) and Swiss airborne-sporangia monitoring (DOI [10.1128/aem.02152-25](https://doi.org/10.1128/aem.02152-25)). Neither establishes Syrian pathogen populations, prevalence, or locally validated weather thresholds.
+
+### Additional dataset and resource candidates
+
+These records are metadata-only until their exact archives, image-level rights, provenance, labels and duplicates are audited:
+
+- Spain/Norway grape downy-mildew images: 281-image Zenodo candidate; its dataset Rights field has no visible license value. [Zenodo record](https://zenodo.org/records/17368692).
+- Morocco field citrus: 611-image Mendeley candidate with mixed leaf/fruit images and four reported labels; separate organs and verify file-level terms and annotation claims. [Mendeley record](https://data.mendeley.com/datasets/szsms728jf/1).
+- PlantVillage original release: controlled-background reference set; exact image-package license is unresolved and must not be inferred from the paper or third-party mirrors. [Repository](https://github.com/spMohanty/PlantVillage-Dataset), [TFDS catalog](https://www.tensorflow.org/datasets/catalog/plant_village).
+- New Plant Diseases/Kaggle: augmented PlantVillage derivative, not independent field data; group derivatives with source images and verify terms. [Kaggle record](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset).
+- PlantDoc: field-like classification candidate, but internet-scraped source-photo rights and labels need image-level review despite the repository's CC BY 4.0 declaration. [Repository](https://github.com/pratikkayal/PlantDoc-Dataset).
+- PlantSeg: lesion-segmentation resource, not a classification dataset; Zenodo's current Rights field has no license value. [Zenodo](https://zenodo.org/records/13762907).
+- LeafNet/LeafBench: gated mixed-source vision-language/VQA resource; dataset-card license tags do not automatically clear every embedded image. [LeafNet](https://huggingface.co/datasets/enalis/LeafNet), [LeafBench](https://huggingface.co/datasets/enalis/LeafBench).
+
+Existing FieldVitis and northern-Portugal records retain the more recent main-branch archive/license audit status; older metadata from the November 22 branches was not allowed to overwrite those stronger audits. No images were added, no training was run, and no new record was promoted to `expert_confirmed`.
