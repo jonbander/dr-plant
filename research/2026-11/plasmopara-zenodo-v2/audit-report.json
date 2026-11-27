@@ -1,0 +1,54 @@
+{
+  "status": "exploratory_audit_complete_training_not_independent",
+  "dataset": "Plasmopara disease dataset Zenodo v2",
+  "doi": "10.5281/zenodo.17368692",
+  "license": "CC BY 4.0",
+  "original_images_found": 280,
+  "class_counts": {
+    "Disease": 129,
+    "Healthy": 151
+  },
+  "unreadable_images": [],
+  "unique_sha256": 280,
+  "exact_duplicate_groups": 0,
+  "phash_pairs_hamming_le_6": 0,
+  "cross_label_near_duplicate_paths_quarantined": 0,
+  "phash_groups_used_for_split": 280,
+  "images_in_exploratory_split": 280,
+  "split_counts": {
+    "test": 42,
+    "train": 196,
+    "validation": 42
+  },
+  "split_class_counts": {
+    "Disease": {
+      "test": 19,
+      "train": 91,
+      "validation": 19
+    },
+    "Healthy": {
+      "train": 105,
+      "validation": 23,
+      "test": 23
+    }
+  },
+  "exif_gps_count_by_class": {
+    "Disease": 14,
+    "Healthy": 134
+  },
+  "exif_datetime_count_by_class": {
+    "Disease": 0,
+    "Healthy": 0
+  },
+  "augmented_images_excluded": 1600,
+  "claimed_images_in_paper_record": 281,
+  "limitations": [
+    "No verified per-image vineyard, plant, session or country assignment for all images.",
+    "A few EXIF GPS records exist but coverage is incomplete and strongly class-imbalanced.",
+    "Image-level/near-duplicate-cluster split is exploratory and not independent by vineyard/site/plant.",
+    "The archive has 280 originals, one fewer than the 281 claimed on the landing page.",
+    "Pre-augmented derivatives are excluded to avoid derivative leakage; source lineage is not mapped.",
+    "No independent plant-pathologist review has been performed by Dr Plant."
+  ],
+  "training_decision": "exploratory_baseline_only; not for production diagnosis"
+}

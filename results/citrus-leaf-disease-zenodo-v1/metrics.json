@@ -1,0 +1,138 @@
+{
+  "status": "exploratory_non_independent_baseline",
+  "evaluation_scope": "within-source image-level exploratory holdout; not independent by site/plant/session",
+  "architecture": "MobileNetV3-Small",
+  "pretrained_imagenet": true,
+  "class_weighted_loss": true,
+  "class_weights": {
+    "Anthracnose": 2.843137264251709,
+    "Canker": 1.8125,
+    "Leaf Miner": 0.47697368264198303
+  },
+  "seed": 42,
+  "epochs_requested": 8,
+  "best_validation_accuracy": 0.9891696750902527,
+  "test_accuracy": 0.9893238434163701,
+  "test_macro_f1": 0.9801377006388702,
+  "classes": [
+    "Anthracnose",
+    "Canker",
+    "Leaf Miner"
+  ],
+  "test_classification_report": {
+    "Anthracnose": {
+      "precision": 0.9696969696969697,
+      "recall": 0.9411764705882353,
+      "f1-score": 0.9552238805970149,
+      "support": 34.0
+    },
+    "Canker": {
+      "precision": 0.9807692307692307,
+      "recall": 1.0,
+      "f1-score": 0.9902912621359223,
+      "support": 51.0
+    },
+    "Leaf Miner": {
+      "precision": 0.9948979591836735,
+      "recall": 0.9948979591836735,
+      "f1-score": 0.9948979591836735,
+      "support": 196.0
+    },
+    "accuracy": 0.9893238434163701,
+    "macro avg": {
+      "precision": 0.9817880532166248,
+      "recall": 0.9786914765906363,
+      "f1-score": 0.9801377006388702,
+      "support": 281.0
+    },
+    "weighted avg": {
+      "precision": 0.9892844403520559,
+      "recall": 0.9893238434163701,
+      "f1-score": 0.9892614459403222,
+      "support": 281.0
+    }
+  },
+  "test_confusion_matrix": [
+    [
+      32,
+      1,
+      1
+    ],
+    [
+      0,
+      51,
+      0
+    ],
+    [
+      1,
+      0,
+      195
+    ]
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4177778365511547,
+      "validation_accuracy": 0.9458483754512635,
+      "validation_macro_f1": 0.9107593991427964
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.12271823969123692,
+      "validation_accuracy": 0.9747292418772563,
+      "validation_macro_f1": 0.9549492385786801
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.08004901344563198,
+      "validation_accuracy": 0.9819494584837545,
+      "validation_macro_f1": 0.9665081118086233
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.05471025847569393,
+      "validation_accuracy": 0.9819494584837545,
+      "validation_macro_f1": 0.9665081118086233
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.03365232549550661,
+      "validation_accuracy": 0.9819494584837545,
+      "validation_macro_f1": 0.9681819664644092
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.02561462259828202,
+      "validation_accuracy": 0.9530685920577617,
+      "validation_macro_f1": 0.9148516154868144
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.02348931294623263,
+      "validation_accuracy": 0.9855595667870036,
+      "validation_macro_f1": 0.9726054259927603
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.03308953766816321,
+      "validation_accuracy": 0.9891696750902527,
+      "validation_macro_f1": 0.9769601486079381
+    }
+  ],
+  "images_per_split": {
+    "train": 1305,
+    "test": 281,
+    "validation": 277
+  },
+  "groups_per_split": {
+    "train": 1294,
+    "validation": 277,
+    "test": 277
+  },
+  "limitations": [
+    "Metrics apply only to these source datasets and this split, not Syrian coastal orchards.",
+    "Dataset class labels may not be laboratory-confirmed pathogens.",
+    "This is a baseline, not a production-validated model.",
+    "Exploratory mode bypasses expert-label and near-duplicate review gates; image-level split may leak plant/session/background information and is not independent validation. Do not advertise these metrics as accuracy on unseen farms."
+  ]
+}

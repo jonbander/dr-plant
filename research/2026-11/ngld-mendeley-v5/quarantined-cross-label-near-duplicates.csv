@@ -1,0 +1,5 @@
+relative_path,sha256,class_label,source_dataset_id,source_version,source_license,provenance_verified,expert_label_review,near_duplicate_review,group_id_for_split,phash_64,quarantine_reason
+Downy Mildew/Downy Mildew_368.jpg,3680e9ca615daac1e4496a016386cc245683d5bde96af3b3f755cb9aa63e917f,Downy Mildew,8nnd2ypcv3,5,CC BY 4.0,no,no,no,,2fe2d01d4b1465f2,cross_label_perceptual_near_duplicate_hamming_le_6
+Healthy Leaves/Healthy Leaves_52.jpg,3b3c6f22cb95c45ae18b270d3ae7db48cf87a68139c6b98af29af3e8deded38d,Healthy Leaves,8nnd2ypcv3,5,CC BY 4.0,no,no,no,,699a83969e6dc868,cross_label_perceptual_near_duplicate_hamming_le_6
+Powdery Mildew/Powdery Mildew_218.jpg,450a005081e37d0dbdde17ad2625f50f76e9456dd9db678ef48bda16b37ead65,Powdery Mildew,8nnd2ypcv3,5,CC BY 4.0,no,no,no,,3fc6901d4b3465e2,cross_label_perceptual_near_duplicate_hamming_le_6
+Downy Mildew/Downy Mildew_595.jpg,96cdb7acefd3533f92711447c797659ca3975b39e00487b0ebc4eeef9855b85e,Downy Mildew,8nnd2ypcv3,5,CC BY 4.0,no,no,no,,6992c39e9e68c869,cross_label_perceptual_near_duplicate_hamming_le_6

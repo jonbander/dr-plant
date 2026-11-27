@@ -1,0 +1,26 @@
+{
+  "status": "exploratory_image_id_split_ready_not_plant_independent",
+  "seed": 42,
+  "images_per_split": {
+    "train": 1237,
+    "test": 266,
+    "validation": 265
+  },
+  "class_counts_per_split": {
+    "train": {
+      "Esca": 621,
+      "Healthy": 616
+    },
+    "validation": {
+      "Esca": 133,
+      "Healthy": 132
+    },
+    "test": {
+      "Esca": 134,
+      "Healthy": 132
+    }
+  },
+  "group_leakage_check": "passed; each image identifier occurs in exactly one split",
+  "grouping_scope": "unique image filename only; source does not expose verified plant/session/site identifiers",
+  "model_trained": false
+}

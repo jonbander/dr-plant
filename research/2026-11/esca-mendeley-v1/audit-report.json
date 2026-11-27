@@ -1,0 +1,25 @@
+{
+  "dataset": "ESCA-dataset V1",
+  "doi": "10.17632/89cnxc58kj.1",
+  "source_rows": 1770,
+  "valid_decoded_images": 1770,
+  "class_counts_before_quarantine": {
+    "Esca": 888,
+    "Healthy": 882
+  },
+  "class_counts_after_quarantine": {
+    "Esca": 888,
+    "Healthy": 880
+  },
+  "sha256_duplicate_groups": 0,
+  "sha256_duplicate_files_quarantined": 0,
+  "phash_threshold_hamming": 5,
+  "near_duplicate_pairs": 1,
+  "near_duplicate_files_quarantined": 2,
+  "invalid_rows_or_decode_errors": 0,
+  "grouping": "filename image ID only; paper/source do not provide verified plant/site grouping",
+  "training_scope": "exploratory image-ID split only; not independent by plant, vineyard or region",
+  "class_ground_truth": "paper states disease presence was visually assessed by an expert",
+  "license": "CC BY 4.0 on Mendeley Data record",
+  "readiness": "ready_for_exploratory_baseline_after_deduplication"
+}

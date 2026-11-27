@@ -1,0 +1,31 @@
+{
+  "status": "archive_inventory_created_review_required",
+  "dataset_root": "/workspace/dr-plant/data/external/2026-11/ngld-mendeley-v5/extracted/Niphad Grape Leaf Disease Dataset (NGLD)/Niphad Grape Leaf Disease Dataset (NGLD)/Grapes Disease Dataset",
+  "dataset_id": "8nnd2ypcv3",
+  "dataset_version": "5",
+  "license_claim_from_argument": "CC BY 4.0",
+  "image_count": 2726,
+  "class_image_counts": {
+    "Bacterial Leaf Spot": 100,
+    "Downy Mildew": 966,
+    "Healthy Leaves": 1254,
+    "Powdery Mildew": 406
+  },
+  "unique_sha256_count": 2393,
+  "exact_duplicate_groups": 327,
+  "exact_duplicate_files": 660,
+  "unreadable_images": [],
+  "ignored_non_image_files": [
+    "Downy Mildew/desktop.ini"
+  ],
+  "manifest": "image-manifest.csv",
+  "review_required": [
+    "Verify exact archive/version and required attribution.",
+    "Verify file-level provenance and reuse terms; landing-page license alone is not a per-image provenance audit.",
+    "Have labels reviewed by a qualified plant-health reviewer.",
+    "Review near-duplicates perceptually; SHA-256 detects byte-identical files only.",
+    "Populate group_id_for_split from verified site/plant/session metadata; never infer groups from filenames.",
+    "Do not split/train until all review flags are yes and every class has at least three independent groups."
+  ],
+  "model_trained": false
+}

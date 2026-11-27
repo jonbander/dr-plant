@@ -757,19 +757,19 @@
         "Disease",
         "Healthy"
       ],
-      "license": "CC BY 4.0",
-      "status": "exploratory_baseline_trained_not_diagnostic_blocked_by_source_confounding_and_missing_group_metadata",
+      "license": "unverified; Zenodo Rights field could not be independently confirmed",
+      "status": "candidate_license_unverified_exploratory_baseline_not_for_distribution",
       "source": "https://zenodo.org/records/17368692",
       "doi": "10.5281/zenodo.17368692",
-      "intendedUse": "Research-only binary baseline; not for field diagnosis or application integration.",
-      "notes": "Source metadata declares CC BY 4.0 and open access. Archive claims 281 originals; 280 extracted (129 Disease, 151 Healthy) plus 1,600 augmented derivatives. Only 280 originals were used; all are SHA-256 unique, no exact duplicates, no pHash pairs at Hamming <=8, and no exact SHA overlap with previously trained manifests checked. Stratified image-level split 196/42/42; no plant/vine/site/session IDs. Severe EXIF/source confounding: 127/151 Healthy have iPad Pro metadata dated 2024-07-10; 113/129 Disease lack EXIF; 29 images across classes carry SM-G981B metadata dated 2024-05-15. Eight-epoch MobileNetV3-Small baseline: validation accuracy 88.10%, test accuracy 73.81%, test macro-F1 73.79%. Test set only 42 images. Labels not independently expert-reviewed. Research-only; no production integration or treatment use.",
+      "intendedUse": "Metadata-only research candidate until rights, provenance and labels are independently confirmed. Do not redistribute source images, model weights or ONNX exports.",
+      "notes": "Same Zenodo DOI as the Spain/Norway candidate record; consolidated to one record. Landing page claims 281 images; 280 originals were found (129 Disease, 151 Healthy) plus 1,600 augmented derivatives. Only 280 originals were audited. EXIF GPS coverage is incomplete and class-imbalanced (14/129 Disease vs 134/151 Healthy); no per-image country, vineyard, plant or session groups. Two separate image-level experiments reported different test scores (73.81% and 95.24%) on small 42-image test sets; do not select either without reconciling manifests and protocols. No model weights or image manifests are redistributed pending license confirmation.",
       "sources": [
         {
-          "title": "Zenodo dataset record and metadata",
+          "title": "Zenodo dataset record; Rights field unverified",
           "url": "https://zenodo.org/records/17368692"
         }
       ],
-      "trainingResult": "results/plasmopara-v2-exploratory-2026-11-25/REPORT_AR.md"
+      "trainingResult": "Aggregate historical metrics only; model artifacts withheld pending license confirmation."
     },
     {
       "id": "multi-fruit-v1-exploratory-2026-11-25",
@@ -839,25 +839,6 @@
       "intendedUse": "Visual reference and source audit only until camera-label confounding is resolved with independent data; not eligible for diagnostic training as-is.",
       "notes": "Restored 1,770 original images from Drive. Every SHA-256 matched the prior audited manifest exactly: Esca 888, Healthy 882. Camera is perfectly confounded with label: Esca cam1=389, cam2=499, cam3=0; Healthy cam1=0, cam2=0, cam3=882. No plant/leaf IDs or capture timestamps/GPS. Training blocked because a model can learn camera identity rather than disease symptoms. Source archive SHA-256 e5ee253955613bb5a862b861c2f52ad9da96bf92e01e80e97e14fb8126fb3fb9.",
       "licenseEvidence": "Mendeley Data V1 record lists CC BY 4.0."
-    },
-    {
-      "id": "plasmopara-spain-norway-2025",
-      "name": "A dataset for early detection and classification of Plasmopara disease",
-      "crop": "grape",
-      "imageCount": 281,
-      "classes": [
-        "healthy",
-        "Plasmopara-infected"
-      ],
-      "status": "candidate_dataset_license_unverified",
-      "source": "https://zenodo.org/records/17368692",
-      "doi": "10.5281/zenodo.17368692",
-      "region": "Vineyards in Spain and Norway; record does not provide per-country or per-site image counts",
-      "collectionPeriod": "Not stated on the record page",
-      "license": "The Zenodo Rights section displays a License heading but no license value; repository-level and per-file/image reuse terms are unverified.",
-      "intendedUse": "Metadata-only candidate for a separate grape-leaf downy-mildew binary classification task. Do not download, mirror, redistribute or train until the record license, archive terms, provenance, label method and image-level rights are confirmed. If rights are later established, audit country/site grouping, duplicates and class balance before any split or training.",
-      "notes": "The record describes 281 high-resolution grapevine-leaf images in two classes (healthy and Plasmopara-infected), collected from vineyards in Spain and Norway. The archive is reported as 1.0 GB. No country-level counts, cultivar details, collection dates or expert/laboratory confirmation method are exposed on the landing page. Spain is geographically relevant to the Mediterranean search scope, but the mixed Spain/Norway dataset is not local Syrian evidence. No archive was downloaded.",
-      "licenseEvidence": "Unverified: the record's Rights section contains no displayed license value."
     },
     {
       "id": "morocco-field-citrus-2026",
@@ -1036,6 +1017,30 @@
       "region": "22 crop species; 7 countries reported in dataset metadata; source-level geography must be inspected.",
       "imageTask": "Multimodal image-text classification and visual question answering; LeafBench QA labels are not simple classifier labels.",
       "sourceAudit": "The arXiv paper reports 186,000 leaf images, 97 disease classes and 13,950 QA pairs. Hugging Face dataset access is gated and requires accepting conditions/contact sharing. Public metadata reports roughly 70% public content; some images originate from other public datasets and retain upstream terms. LeafBench's own card describes 2,910 images and six hierarchical VQA tasks. Do not treat the dataset-card license tag or code license as automatically licensing every embedded image."
+    },
+    {
+      "id": "citrus-leaf-disease-zenodo-v1",
+      "name": "Citrus Leaf Disease Dataset (Zenodo V1)",
+      "crop": "citrus",
+      "imageCount": 1944,
+      "classes": [
+        "Anthracnose",
+        "Canker",
+        "Leaf Miner"
+      ],
+      "license": "unverified; Zenodo Rights field could not be independently confirmed",
+      "status": "candidate_license_unverified_three_abnormal_classes_no_healthy_class",
+      "source": "https://zenodo.org/records/11148332",
+      "doi": "10.5281/zenodo.11148332",
+      "intendedUse": "Metadata and aggregate metrics only until the source license and image rights are verified. No source images or derived model weights/ONNX are redistributed.",
+      "notes": "Archive metadata reports 1,944 images in a classification archive with three filename-derived abnormal classes and no healthy class; a separate COCO/YOLO archive is a distinct detection task. The originating branch recorded an exploratory image-level 98.93% test accuracy, but weights and image-level manifests are withheld pending rights verification and the result is not Syrian field accuracy.",
+      "sources": [
+        {
+          "title": "Zenodo dataset record; Rights field not confirmed",
+          "url": "https://zenodo.org/records/11148332"
+        }
+      ],
+      "trainingResult": "Aggregate metrics only; model artifacts withheld pending license confirmation."
     }
   ],
   "contributions": [],

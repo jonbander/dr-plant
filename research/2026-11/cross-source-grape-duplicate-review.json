@@ -1,0 +1,18 @@
+{
+  "pair_summary": {
+    "NGLD_v5__Plasmopara_v2": {
+      "exact_duplicate_pairs": 0,
+      "perceptual_pairs_hamming_le_6": 0
+    },
+    "NGLD_v5__ESCA_v1": {
+      "exact_duplicate_pairs": 0,
+      "perceptual_pairs_hamming_le_6": 0
+    },
+    "Plasmopara_v2__ESCA_v1": {
+      "exact_duplicate_pairs": 0,
+      "perceptual_pairs_hamming_le_6": 0
+    }
+  },
+  "pair_details_csv": "cross-source-grape-duplicate-review.csv",
+  "note": "pHash Hamming <=6 is a review flag, not proof of identical image; use groups across sources in final split."
+}

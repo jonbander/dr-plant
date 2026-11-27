@@ -1,0 +1,33 @@
+{
+  "dataset": "Citrus Leaf Disease Dataset",
+  "version": 1,
+  "doi": "10.5281/zenodo.11148332",
+  "source_url": "https://zenodo.org/records/11148332",
+  "license": "unverified; current Zenodo Rights field could not be confirmed",
+  "archive_files": [
+    {
+      "name": "citrus.rar",
+      "size_bytes": 195687113,
+      "md5": "f1f90d2401b4860c20cc0a00a1e17bda"
+    },
+    {
+      "name": "orange_detection_COCO.rar",
+      "size_bytes": 69526111,
+      "md5": "12c3dbf4cf41231877aa9cc15c655f8b"
+    }
+  ],
+  "classification_archive_images": 1944,
+  "filename_derived_class_counts": {
+    "Anthracnose": 221,
+    "Canker": 341,
+    "Leaf Miner": 1382
+  },
+  "detection_archive": "separate COCO/YOLO detection task; not merged with classification model",
+  "retrieval_date": "2026-11-21",
+  "notes": [
+    "The classification RAR contains only three labels and no healthy class.",
+    "Class names are derived from file name prefixes; no independent label verification by Dr Plant yet.",
+    "The second RAR is an object-detection dataset and remains separate."
+  ],
+  "redistribution_decision": "metadata and aggregate metrics only; model weights and ONNX withheld pending license confirmation"
+}

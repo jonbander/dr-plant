@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "MultiFruit_original__NGLD_v5": {
+      "exact_pairs": 0,
+      "phash_pairs_le_6": 0
+    },
+    "MultiFruit_original__Plasmopara_v2": {
+      "exact_pairs": 0,
+      "phash_pairs_le_6": 0
+    },
+    "MultiFruit_original__ESCA_v1": {
+      "exact_pairs": 0,
+      "phash_pairs_le_6": 0
+    },
+    "NGLD_v5__Plasmopara_v2": {
+      "exact_pairs": 0,
+      "phash_pairs_le_6": 0
+    },
+    "NGLD_v5__ESCA_v1": {
+      "exact_pairs": 0,
+      "phash_pairs_le_6": 0
+    },
+    "Plasmopara_v2__ESCA_v1": {
+      "exact_pairs": 0,
+      "phash_pairs_le_6": 0
+    }
+  },
+  "details_csv": "cross-source-multifruit-duplicate-review.csv",
+  "threshold": "pHash Hamming <=6"
+}

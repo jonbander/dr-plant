@@ -1,0 +1,20 @@
+{
+  "indexed_images": 83772,
+  "unique_sha256": 81106,
+  "cross_source_duplicate_groups": 0,
+  "cross_source_duplicate_pairs": 0,
+  "dataset_pair_group_counts": {},
+  "missing_paths_by_dataset": {
+    "PlantVillage_V2": 0,
+    "PlantVillage_V1_subset": 0,
+    "Citrus_Field_V3": 0,
+    "Lemon_V3": 0,
+    "ESCA_Mendeley_V1": 0,
+    "Plasmopara_Zenodo_V2": 0,
+    "NGLD_Mendeley_V5": 0,
+    "MultiFruit_Original_V1": 0,
+    "Citrus_Zenodo_V1": 0
+  },
+  "review_csv": "/workspace/dr-plant-coastal-sources/research/2026-11/global-exact-duplicate-review.csv",
+  "note": "Exact SHA-256 duplicates only; pHash near-duplicate cross-source review remains a separate step."
+}

@@ -1,0 +1,416 @@
+{
+  "status": "exploratory_leaf_condition_audit_complete",
+  "dataset": "Multi-Fruit Leaf Image Dataset: Guava, Jackfruit, Mango, and Olive",
+  "doi": "10.17632/82vn9k44ky.1",
+  "license": "CC BY 4.0",
+  "original_images": 2308,
+  "class_counts": {
+    "Guava _Defective": 100,
+    "Guava _Healthy": 131,
+    "Guava _Senescent": 112,
+    "Jackfruit_Blight": 134,
+    "Jackfruit_Dried": 149,
+    "Jackfruit_Fungal_Spot": 145,
+    "Jackfruit_Healthy": 130,
+    "Jackfruit_Pest_Damage": 135,
+    "Jackfruit_Senescent": 138,
+    "Jackfruit_Young": 143,
+    "Mango_Anthracnose": 159,
+    "Mango_Healthy": 166,
+    "Mango_Senescent": 137,
+    "Olive_Healthy": 118,
+    "Olive_Mild_Edge_Damage": 121,
+    "Olive_Pest_Damage": 82,
+    "Olive_Senescent_Spot": 63,
+    "Olive_Young": 145
+  },
+  "unique_sha256_images": 2308,
+  "exact_duplicate_groups": 0,
+  "extra_exact_duplicate_copies_quarantined": 0,
+  "perceptual_near_duplicate_pairs_hamming_le_6": 283,
+  "cross_label_near_duplicate_paths_quarantined": 228,
+  "images_in_exploratory_split": 2080,
+  "split_counts": {
+    "train": 1454,
+    "validation": 315,
+    "test": 311
+  },
+  "split_class_counts": {
+    "Guava _Defective": {
+      "train": 65,
+      "test": 14,
+      "validation": 14
+    },
+    "Guava _Healthy": {
+      "train": 88,
+      "test": 19,
+      "validation": 19
+    },
+    "Guava _Senescent": {
+      "train": 77,
+      "validation": 16,
+      "test": 16
+    },
+    "Jackfruit_Blight": {
+      "validation": 19,
+      "train": 83,
+      "test": 18
+    },
+    "Jackfruit_Dried": {
+      "train": 96,
+      "test": 20,
+      "validation": 20
+    },
+    "Jackfruit_Fungal_Spot": {
+      "train": 92,
+      "test": 20,
+      "validation": 20
+    },
+    "Jackfruit_Healthy": {
+      "train": 82,
+      "test": 17,
+      "validation": 17
+    },
+    "Jackfruit_Pest_Damage": {
+      "train": 82,
+      "test": 18,
+      "validation": 18
+    },
+    "Jackfruit_Senescent": {
+      "train": 87,
+      "validation": 19,
+      "test": 19
+    },
+    "Jackfruit_Young": {
+      "train": 100,
+      "validation": 21,
+      "test": 21
+    },
+    "Mango_Anthracnose": {
+      "validation": 23,
+      "train": 109,
+      "test": 23
+    },
+    "Mango_Healthy": {
+      "train": 113,
+      "test": 24,
+      "validation": 24
+    },
+    "Mango_Senescent": {
+      "train": 95,
+      "test": 20,
+      "validation": 20
+    },
+    "Olive_Healthy": {
+      "test": 11,
+      "validation": 11,
+      "train": 52
+    },
+    "Olive_Mild_Edge_Damage": {
+      "test": 14,
+      "train": 62,
+      "validation": 15
+    },
+    "Olive_Pest_Damage": {
+      "test": 9,
+      "train": 40,
+      "validation": 9
+    },
+    "Olive_Senescent_Spot": {
+      "train": 38,
+      "test": 8,
+      "validation": 8
+    },
+    "Olive_Young": {
+      "train": 93,
+      "validation": 22,
+      "test": 20
+    }
+  },
+  "gps_count_by_class": {
+    "Guava _Defective": 57,
+    "Guava _Healthy": 131,
+    "Guava _Senescent": 112,
+    "Jackfruit_Blight": 0,
+    "Jackfruit_Dried": 0,
+    "Jackfruit_Fungal_Spot": 145,
+    "Jackfruit_Healthy": 0,
+    "Jackfruit_Pest_Damage": 0,
+    "Jackfruit_Senescent": 0,
+    "Jackfruit_Young": 143,
+    "Mango_Anthracnose": 62,
+    "Mango_Healthy": 166,
+    "Mango_Senescent": 0,
+    "Olive_Healthy": 118,
+    "Olive_Mild_Edge_Damage": 121,
+    "Olive_Pest_Damage": 82,
+    "Olive_Senescent_Spot": 63,
+    "Olive_Young": 145
+  },
+  "camera_models_top": [
+    {
+      "class": "Mango_Healthy",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 166
+    },
+    {
+      "class": "Jackfruit_Dried",
+      "camera": "Galaxy A15",
+      "count": 149
+    },
+    {
+      "class": "Jackfruit_Fungal_Spot",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 145
+    },
+    {
+      "class": "Olive_Young",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 145
+    },
+    {
+      "class": "Jackfruit_Young",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 143
+    },
+    {
+      "class": "Jackfruit_Senescent",
+      "camera": "Galaxy A15",
+      "count": 138
+    },
+    {
+      "class": "Mango_Senescent",
+      "camera": "narzo 50",
+      "count": 137
+    },
+    {
+      "class": "Jackfruit_Pest_Damage",
+      "camera": "Galaxy A15",
+      "count": 135
+    },
+    {
+      "class": "Jackfruit_Blight",
+      "camera": "Galaxy A15",
+      "count": 134
+    },
+    {
+      "class": "Guava _Healthy",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 131
+    },
+    {
+      "class": "Jackfruit_Healthy",
+      "camera": "Galaxy A15",
+      "count": 130
+    },
+    {
+      "class": "Olive_Mild_Edge_Damage",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 121
+    },
+    {
+      "class": "Olive_Healthy",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 118
+    },
+    {
+      "class": "Guava _Senescent",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 112
+    },
+    {
+      "class": "Olive_Pest_Damage",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 82
+    },
+    {
+      "class": "Olive_Senescent_Spot",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 63
+    },
+    {
+      "class": "Mango_Anthracnose",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 62
+    },
+    {
+      "class": "Mango_Anthracnose",
+      "camera": "Redmi Note 9S",
+      "count": 60
+    },
+    {
+      "class": "Guava _Defective",
+      "camera": "OnePlus Nord CE4 Lite 5G",
+      "count": 57
+    },
+    {
+      "class": "Guava _Defective",
+      "camera": "KB2005",
+      "count": 42
+    }
+  ],
+  "top_dates_by_class": [
+    {
+      "class": "Jackfruit_Fungal_Spot",
+      "date": "2025:08:31",
+      "count": 145
+    },
+    {
+      "class": "Jackfruit_Young",
+      "date": "2025:09:01",
+      "count": 143
+    },
+    {
+      "class": "Jackfruit_Senescent",
+      "date": "2025:08:29",
+      "count": 138
+    },
+    {
+      "class": "Guava _Healthy",
+      "date": "2025:09:02",
+      "count": 131
+    },
+    {
+      "class": "Jackfruit_Healthy",
+      "date": "2025:08:29",
+      "count": 130
+    },
+    {
+      "class": "Guava _Senescent",
+      "date": "2025:09:02",
+      "count": 112
+    },
+    {
+      "class": "Jackfruit_Dried",
+      "date": "2025:08:29",
+      "count": 109
+    },
+    {
+      "class": "Olive_Mild_Edge_Damage",
+      "date": "2025:10:16",
+      "count": 101
+    },
+    {
+      "class": "Guava _Defective",
+      "date": "2025:09:02",
+      "count": 99
+    },
+    {
+      "class": "Jackfruit_Pest_Damage",
+      "date": "2025:08:08",
+      "count": 98
+    },
+    {
+      "class": "Olive_Young",
+      "date": "2025:10:29",
+      "count": 91
+    },
+    {
+      "class": "Jackfruit_Blight",
+      "date": "2025:08:10",
+      "count": 90
+    },
+    {
+      "class": "Olive_Healthy",
+      "date": "2025:10:16",
+      "count": 87
+    },
+    {
+      "class": "Mango_Healthy",
+      "date": "2025:05:02",
+      "count": 70
+    },
+    {
+      "class": "Mango_Healthy",
+      "date": "2025:05:03",
+      "count": 67
+    },
+    {
+      "class": "Olive_Pest_Damage",
+      "date": "2025:10:16",
+      "count": 64
+    },
+    {
+      "class": "Olive_Senescent_Spot",
+      "date": "2025:10:28",
+      "count": 63
+    },
+    {
+      "class": "Mango_Anthracnose",
+      "date": "2025:05:03",
+      "count": 56
+    },
+    {
+      "class": "Mango_Senescent",
+      "date": "2025:06:14",
+      "count": 54
+    },
+    {
+      "class": "Mango_Senescent",
+      "date": "2025:06:13",
+      "count": 53
+    },
+    {
+      "class": "Jackfruit_Blight",
+      "date": "2025:08:09",
+      "count": 44
+    },
+    {
+      "class": "Mango_Anthracnose",
+      "date": "2025:05:13",
+      "count": 42
+    },
+    {
+      "class": "Mango_Anthracnose",
+      "date": "2025:05:09",
+      "count": 41
+    },
+    {
+      "class": "Jackfruit_Pest_Damage",
+      "date": "2025:08:09",
+      "count": 34
+    },
+    {
+      "class": "Olive_Young",
+      "date": "2025:10:28",
+      "count": 33
+    },
+    {
+      "class": "Mango_Senescent",
+      "date": "2025:06:05",
+      "count": 30
+    },
+    {
+      "class": "Mango_Healthy",
+      "date": "2025:05:13",
+      "count": 29
+    },
+    {
+      "class": "Jackfruit_Dried",
+      "date": "2025:08:09",
+      "count": 27
+    },
+    {
+      "class": "Olive_Healthy",
+      "date": "2025:10:15",
+      "count": 23
+    },
+    {
+      "class": "Mango_Anthracnose",
+      "date": "2025:05:12",
+      "count": 20
+    }
+  ],
+  "augmented_images_excluded": 18000,
+  "independent_by_site_plant_session": false,
+  "taxonomy_warning": "Labels include health/condition/growth-stage and pest damage, not only confirmed diseases. Keep as a separate leaf-condition task.",
+  "limitations": [
+    "No per-image CSV with orchard/site metadata was present in the original-only ZIP; the CSV in the outer archive lists only class totals.",
+    "GPS coverage is incomplete and many classes are captured at one coordinate cluster; GPS points do not prove separate orchards.",
+    "No independent plant-pathologist review by Dr Plant.",
+    "The split is image-level/near-duplicate-cluster only and not independent by site or plant.",
+    "All images are from Bangladesh and require external validation before use in Syrian orchards."
+  ],
+  "training_decision": "exploratory_condition_classifier_only; not disease diagnosis",
+  "gps_coordinates_withheld_from_public_audit": true
+}

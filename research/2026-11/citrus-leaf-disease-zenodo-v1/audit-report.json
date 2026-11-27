@@ -1,0 +1,62 @@
+{
+  "status": "exploratory_audit_complete_training_not_independent",
+  "dataset": "Citrus Leaf Disease Dataset",
+  "doi": "10.5281/zenodo.11148332",
+  "license": "CC BY 4.0",
+  "images_in_archive_manifest": 1944,
+  "original_class_counts": {
+    "Anthracnose": 221,
+    "Canker": 341,
+    "Leaf Miner": 1382
+  },
+  "unique_sha256_images": 1863,
+  "exact_duplicate_groups": 80,
+  "files_in_exact_duplicate_groups": 161,
+  "extra_exact_duplicate_copies_quarantined": 81,
+  "near_duplicate_pairs_hamming_le_6": 16,
+  "cross_label_near_duplicate_paths_quarantined": 0,
+  "images_in_exploratory_split": 1863,
+  "split_counts": {
+    "train": 1305,
+    "test": 281,
+    "validation": 277
+  },
+  "split_class_counts": {
+    "Anthracnose": {
+      "validation": 32,
+      "train": 153,
+      "test": 34
+    },
+    "Canker": {
+      "train": 240,
+      "validation": 50,
+      "test": 51
+    },
+    "Leaf Miner": {
+      "test": 196,
+      "train": 912,
+      "validation": 195
+    }
+  },
+  "exif_records_by_class": {
+    "Canker": 0,
+    "Leaf Miner": 0,
+    "Anthracnose": 0
+  },
+  "gps_records_by_class": {
+    "Canker": 0,
+    "Leaf Miner": 0,
+    "Anthracnose": 0
+  },
+  "datetime_original_records_by_class": {},
+  "camera_models_top": [],
+  "independent_by_site_plant_session": false,
+  "limitations": [
+    "No verified orchard/site/plant/session group identifiers are supplied in the source page/archive.",
+    "No independent expert or laboratory label review has been performed by Dr Plant.",
+    "Image-level near-duplicate-cluster split is exploratory only and cannot establish unseen-orchard generalization.",
+    "Class imbalance is material: Leaf Miner dominates, and the dataset contains no Healthy class.",
+    "Cross-source overlap with other grape datasets must be checked before consolidated retraining."
+  ],
+  "training_decision": "exploratory_baseline_only_after_perceptual_review; not production diagnosis"
+}

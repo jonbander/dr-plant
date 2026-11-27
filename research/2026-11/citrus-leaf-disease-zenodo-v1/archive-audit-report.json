@@ -1,0 +1,28 @@
+{
+  "status": "archive_inventory_created_review_required",
+  "dataset_root": "/workspace/dr-plant/data/external/2026-11/citrus-leaf-disease-zenodo-v1/citrus-extracted/images_by_class",
+  "dataset_id": "11148332",
+  "dataset_version": "1",
+  "license_claim_from_argument": "CC BY 4.0",
+  "image_count": 1944,
+  "class_image_counts": {
+    "Anthracnose": 221,
+    "Canker": 341,
+    "Leaf Miner": 1382
+  },
+  "unique_sha256_count": 1863,
+  "exact_duplicate_groups": 80,
+  "exact_duplicate_files": 161,
+  "unreadable_images": [],
+  "ignored_non_image_files": [],
+  "manifest": "image-manifest.csv",
+  "review_required": [
+    "Verify exact archive/version and required attribution.",
+    "Verify file-level provenance and reuse terms; landing-page license alone is not a per-image provenance audit.",
+    "Have labels reviewed by a qualified plant-health reviewer.",
+    "Review near-duplicates perceptually; SHA-256 detects byte-identical files only.",
+    "Populate group_id_for_split from verified site/plant/session metadata; never infer groups from filenames.",
+    "Do not split/train until all review flags are yes and every class has at least three independent groups."
+  ],
+  "model_trained": false
+}
